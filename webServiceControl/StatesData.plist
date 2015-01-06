@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Local</key>
+	<dict>
+		<key>State</key>
+		<string></string>
+		<key>City</key>
+		<string></string>
+	</dict>
+	<key>Siglas</key>
+	<array>
+		<string>AC</string>
+		<string>AL</string>
+		<string>AP</string>
+		<string>AM</string>
+		<string>BA</string>
+		<string>CE</string>
+		<string>DF</string>
+		<string>ES</string>
+		<string>GO</string>
+		<string>MA</string>
+		<string>MT</string>
+		<string>MS</string>
+		<string>MG</string>
+		<string>PA</string>
+		<string>PB</string>
+		<string>PR</string>
+		<string>PE</string>
+		<string>PI</string>
+		<string>RJ</string>
+		<string>RN</string>
+		<string>RS</string>
+		<string>RO</string>
+		<string>RR</string>
+		<string>SC</string>
+		<string>SP</string>
+		<string>SE</string>
+		<string>TO</string>
+	</array>
+	<key>Names</key>
+	<array>
+		<string>Acre</string>
+		<string>Alagoas</string>
+		<string>Amapá</string>
+		<string>Amazonas</string>
+		<string>Bahia</string>
+		<string>Ceará</string>
+		<string>Distrito Federal</string>
+		<string>Espírito Santo</string>
+		<string>Goiás</string>
+		<string>Maranhão</string>
+		<string>Mato Grosso</string>
+		<string>Mato Grosso do Sul</string>
+		<string>Minas Gerais</string>
+		<string>Pará</string>
+		<string>Paraíba</string>
+		<string>Paraná</string>
+		<string>Pernambuco</string>
+		<string>Piauí</string>
+		<string>Rio de Janeiro</string>
+		<string>Rio Grande do Norte</string>
+		<string>Rio Grande do Sul</string>
+		<string>Rondônia</string>
+		<string>Roraima</string>
+		<string>Santa Catarina</string>
+		<string>São Paulo</string>
+		<string>Sergipe</string>
+		<string>Tocantins</string>
+	</array>
+</dict>
+</plist>
