@@ -165,7 +165,7 @@
     
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %d", [indexPath row]+1]];
+    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %ld", [indexPath row]+1]];
     [cell.agePicker selectRow:[[AgeChildren objectAtIndex:[indexPath row]]intValue]-1 inComponent:0 animated:NO];
     
     return cell;

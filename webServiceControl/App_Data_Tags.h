@@ -15,6 +15,7 @@
 #define TAG_BASE_WS_TYPE_ACESS	@"M"
 
 #pragma mark - Tag Block b0
+#define TAG_B0_CADASTRE_OPEN          @"Consumidor"
 #define TAG_B0_CADASTRE_COD		      @"CodConsumidor"
 #define TAG_B0_CADASTRE_COD_MD5		  @"CodMd5Consumidor"
 #define TAG_B0_CADASTRE_NAME		  @"NomConsumidor"
@@ -60,6 +61,7 @@
 #define TAG_C0_CADASTRE_GOOGLE_AGENCY	@"googleAgenciaVendedor"
 
 #pragma mark - Tag Block b0&c0
-#define TAG_B0_C0_REGISTER_RESULT @"retorno"
+#define TAG_B0_C0_REGISTER           @"retorno"
+#define TAG_B0_C0_REGISTER_COD_TOKEN @"TokenPhone"
 
 #endif

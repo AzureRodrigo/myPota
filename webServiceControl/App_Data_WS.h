@@ -16,15 +16,15 @@
 #define WS_URL_BASE_IMAGE   @"http://www.touroperator.com.br/arquivos/img/agencia/%@"
 
 #pragma mark - Cadastre Block b0
-#define WS_b0_CADASTRE      [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/webservice/app.asmx/CadastroConsumidor?"]
+#define WS_b0_CADASTRE      [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/app.asmx/CadastroConsumidor?"]
 #define WS_b0_CADASTRE_USER @"emailConsumidor=%@&senhaConsumidor=%@&codigoConsumidor=%@&codigoMD5Consumidor=%@&acao=%@&nomeConsumidor=%@&cpfConsumidor=%@&cepConsumidor=%@&dataNascimentoConsumidor=%@&chaveAcesso=%@&tipoRetorno=%@&tipoAcesso=%@"
 
 #pragma mark - Cadastre Block c0
-#define WS_c0_CADASTRE        [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/webservice/app.asmx/CadastroVendedor?"]
+#define WS_c0_CADASTRE        [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/app.asmx/CadastroVendedor?"]
 #define WS_c0_CADASTRE_SELLER @"acao=%@&loginVendedor=%@&senhaVendedor=%@&chaveAcesso=%@&tipoRetorno=%@"
 
 #pragma mark - Cadastre Block b0&c0
-#define WS_b0_c0_REGISTER      [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/webservice/app.asmx/RegistraCelular?"]
+#define WS_b0_c0_REGISTER      [NSString stringWithFormat:WS_URL, WS_URL_BASE,@"/app.asmx/RegistraCelular?"]
 #define WS_b0_c0_REGISTER_FONE @"codigoMd5=%@&codigoCelular=%@&acao=%@&chaveAcesso=%@&tipoRetorno=%@"
 
 #endif

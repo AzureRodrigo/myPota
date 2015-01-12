@@ -12,6 +12,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) NSString *tokenPhone;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

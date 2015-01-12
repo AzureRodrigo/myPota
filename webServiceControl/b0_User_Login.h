@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface b0_User_Login : UIViewController <UITextFieldDelegate>
 {
@@ -16,6 +17,10 @@
     CGRect               frame;
     UITextField          *txtSelect;
     NSMutableDictionary  *login;
+    
+    //mutable
+    AppDelegate          *appDelegate;
+    NSMutableDictionary  *user;
 }
 
 - (IBAction)btnConfigApp:(id)sender;

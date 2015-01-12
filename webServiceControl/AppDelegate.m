@@ -43,13 +43,8 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)
                                                                              categories:nil];
-    
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    
-    UIRemoteNotificationType enabledTypes = [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
-
-    
-    NSLog(@"%u", enabledTypes);
+    [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
     
     return YES;
 }
@@ -68,11 +63,16 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     NSLog(@"My token is: %@", deviceToken);
+    _tokenPhone = [[[[NSString stringWithFormat:@"%@",deviceToken]
+                    stringByReplacingOccurrencesOfString:@" " withString:@""]
+                    stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                    stringByReplacingOccurrencesOfString:@">" withString:@""];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
     NSLog(@"Failed to get token, error: %@", error);
+    _tokenPhone = @"1f9287f1f8e083769442723072c9ecf966eb99c716dd3e7a31dd644af64f121b";
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

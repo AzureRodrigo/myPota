@@ -21,6 +21,7 @@
 #pragma mark - configScreen
 - (void)configScreen
 {
+    appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [txtMail     setAccessibilityValue:@"E-Mail"];
     [txtPassword setAccessibilityValue:@"Senha"];
     login        = [NSMutableDictionary new];
@@ -94,7 +95,7 @@
         else
             textField.text = @"Senha";
     }
-
+    
     [self setLogin:textField];
     [AppFunctions TEXT_SCREEN_DOWN:self textField:textField frame:frame];
     
@@ -122,7 +123,7 @@
 
 - (IBAction)btnConfigApp:(id)sender
 {
-    [self connection];
+    [self login_stepI];
 }
 
 #pragma mark - Functions
@@ -138,44 +139,95 @@
         [btnOtlConfigApp setEnabled:NO];
 }
 
-- (void)connection
+- (void)login_stepI
+{
+    user = [NSMutableDictionary new];
+    
+    NSString *link;
+    NSString *wsComplement = [NSString stringWithFormat:WS_b0_CADASTRE_USER,
+                              txtMail.text,txtPassword.text,
+                              @"",@"",@"C",@"",@"",@"",@"",@"appMobile",@"XML",@"M"];
+    link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
+    
+    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
+                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
+                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
+                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
+                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+        if (result == nil) {
+            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                              message:ERROR_1000_MESSAGE
+                               cancel:ERROR_BUTTON_CANCEL];
+        } else {
+            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_CADASTRE_OPEN];
+            for (NSDictionary *tmp in [info objectForKey:TAG_B0_CADASTRE_OPEN])
+            {
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD]           forKey:TAG_B0_CADASTRE_COD];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD_MD5]       forKey:TAG_B0_CADASTRE_COD_MD5];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_NAME]          forKey:TAG_B0_CADASTRE_NAME];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CPF]           forKey:TAG_B0_CADASTRE_CPF];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_TYPE_PERSON]   forKey:TAG_B0_CADASTRE_TYPE_PERSON];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_ADRESS]        forKey:TAG_B0_CADASTRE_ADRESS];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_QUARTER]       forKey:TAG_B0_CADASTRE_QUARTER];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CEP]           forKey:TAG_B0_CADASTRE_CEP];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_DDD]           forKey:TAG_B0_CADASTRE_DDD];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_FONE]          forKey:TAG_B0_CADASTRE_FONE];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_MAIL]          forKey:TAG_B0_CADASTRE_MAIL];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_ADRESS_NUMBER] forKey:TAG_B0_CADASTRE_ADRESS_NUMBER];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COMPLEMENT]    forKey:TAG_B0_CADASTRE_COMPLEMENT];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_DDD_CEL]       forKey:TAG_B0_CADASTRE_DDD_CEL];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CEL]           forKey:TAG_B0_CADASTRE_CEL];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_BIRTH]         forKey:TAG_B0_CADASTRE_BIRTH];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD_CITY]      forKey:TAG_B0_CADASTRE_COD_CITY];
+                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_NAME_CITY]     forKey:TAG_B0_CADASTRE_NAME_CITY];
+                [user setObject:appDelegate.tokenPhone                           forKey:TAG_B0_C0_REGISTER_COD_TOKEN];
+            }
+            
+            [self login_stepII];
+        }
+    }];
+}
+
+- (void)login_stepII
 {
     NSString *link;
-    NSString *wsComplement;
+    NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
+                              [user objectForKey:TAG_B0_CADASTRE_COD_MD5],
+                              [user objectForKey:TAG_B0_C0_REGISTER_COD_TOKEN],
+                              @"I",@"appMobile", @"XML"];
+    link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
     
-    link = [NSString stringWithFormat:WS_URL, WS_URL_CADASTRO, wsComplement];
+    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
+                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
+                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
+                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
+                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
     
-//    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-//                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
-//                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-//                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-//                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
-//    
-//    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
-//        if (result == nil) {
-//            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
-//                              message:ERROR_1000_MESSAGE
-//                               cancel:ERROR_BUTTON_CANCEL];
-//        } else {
-//            
-//            NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"consumidor"];
-//            for (NSDictionary *tmp in [allInfo objectForKey:@"consumidor"])
-//            {
-////                code = [tmp objectForKey:@"CodConsumidor"];
-//                break;
-//            }
-//
-//            [self saveData];
-//        }
-//    }];
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+        if (result == nil) {
+            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                              message:ERROR_1000_MESSAGE
+                               cancel:ERROR_BUTTON_CANCEL];
+        } else {
+            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_C0_REGISTER];
+            for (NSDictionary *tmp in [info objectForKey:TAG_B0_C0_REGISTER])
+                if ([[tmp objectForKey:TAG_B0_C0_REGISTER] isEqualToString:@"OK"])
+                    [self saveData];
+        }
+    }];
+    
 }
 
 - (void)saveData
 {
+    
 }
 
 - (void)nextScreen
 {
+    
 }
 
 @end
