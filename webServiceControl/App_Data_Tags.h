@@ -10,6 +10,16 @@
 #define mypota_App_Data_Tags_h
 
 #pragma mark - Tag Base
+#define TAG_DATA_BD                     @"Data_Pota"
+#define TAG_DATA_USER                   @"user_type"
+#define TAG_DATA_USER_TRAVELLER         @"User_Traveller"
+#define TAG_DATA_USER_SELLER            @"User_Seller"
+#define TAG_DATA_USER_SELLER_AGENCY     @"User_Seller_Agency"
+#define TAG_DATA_USER_TRAVELLER_SELLER	@"User_Traveller_Seller"
+#define TAG_DATA_USER_TRAVELLER_AGENCY	@"User_Traveller_Agency"
+
+
+#pragma mark - Tag Base
 #define TAG_BASE_WS_ACESS_KEY	@"appMobile"
 #define TAG_BASE_WS_TYPE_RETURN	@"XML"
 #define TAG_BASE_WS_TYPE_ACESS	@"M"
@@ -35,7 +45,28 @@
 #define TAG_B0_CADASTRE_COD_CITY	  @"CodCidade"
 #define TAG_B0_CADASTRE_NAME_CITY	  @"NomCidade"
 
+#pragma mark - Tag BD b0
+#define TAG_B0_USER_COD		      @"code"
+#define TAG_B0_USER_COD_MD5		  @"code_MD5"
+#define TAG_B0_USER_NAME		  @"name"
+#define TAG_B0_USER_CPF			  @"cpf"
+#define TAG_B0_USER_TYPE_PERSON	  @"type_person"
+#define TAG_B0_USER_ADRESS		  @"adress"
+#define TAG_B0_USER_QUARTER		  @"quarter"
+#define TAG_B0_USER_CEP			  @"cep"
+#define TAG_B0_USER_DDD			  @"ddd"
+#define TAG_B0_USER_FONE		  @"fone"
+#define TAG_B0_USER_MAIL		  @"mail"
+#define TAG_B0_USER_ADRESS_NUMBER @"adress_number"
+#define TAG_B0_USER_COMPLEMENT	  @"complement"
+#define TAG_B0_USER_DDD_CEL		  @"ddd_cel"
+#define TAG_B0_USER_CEL			  @"cel"
+#define TAG_B0_USER_BIRTH		  @"birth"
+#define TAG_B0_USER_COD_CITY	  @"code_city"
+#define TAG_B0_USER_NAME_CITY	  @"name_city"
+
 #pragma mark - Tag Block c0
+#define TAG_C0_CADASTRE_OPEN            @"Vendedor"
 #define TAG_C0_CADASTRE_NAME			@"nomeVendedor"
 #define TAG_C0_CADASTRE_COD				@"codigoVendedor"
 #define TAG_C0_CADASTRE_COD_MD5			@"codigoMd5Vendedor"
@@ -63,5 +94,6 @@
 #pragma mark - Tag Block b0&c0
 #define TAG_B0_C0_REGISTER           @"retorno"
 #define TAG_B0_C0_REGISTER_COD_TOKEN @"TokenPhone"
+#define TAG_B0_C0_CADASTRE_LOGIN     @"C"
 
 #endif

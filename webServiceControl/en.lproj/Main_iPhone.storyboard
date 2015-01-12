@@ -731,7 +731,7 @@
                         <outlet property="btnOtlConfigApp" destination="kO5-te-NNn" id="C7n-g6-nWJ"/>
                         <outlet property="txtMail" destination="lEw-fT-2vc" id="nw9-3e-oty"/>
                         <outlet property="txtPassword" destination="qaf-H7-W09" id="gwz-sg-QKL"/>
-                        <segue destination="Ven-Il-GCQ" kind="push" identifier="cadastrePotaToCodePota" id="ykw-Kx-wrl"/>
+                        <segue destination="Ven-Il-GCQ" kind="push" identifier="B0_To_B1" id="ykw-Kx-wrl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztG-dV-Swu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -879,16 +879,16 @@
                                 <rect key="frame" x="0.0" y="374" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NE2-3B-xhn" userLabel="Config">
-                                <rect key="frame" x="27" y="407" width="266" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NE2-3B-xhn" userLabel="Config">
+                                <rect key="frame" x="27" y="398" width="266" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Sou Agente" backgroundImage="molde.png">
+                                <state key="normal" title="Logoff" backgroundImage="molde.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnAgente:" destination="Ven-Il-GCQ" eventType="touchUpInside" id="mIh-0R-QYC"/>
+                                    <action selector="btnLogoff:" destination="Ven-Il-GCQ" eventType="touchUpInside" id="K1M-t0-kfG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -5024,21 +5024,21 @@ o Pagamento”, reconhece que:</string>
                                 <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="P1U-tu-WOe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vteste" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="P1U-tu-WOe">
                                 <rect key="frame" x="22" y="45" width="270" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="knw-6n-87T">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vteste" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="knw-6n-87T">
                                 <rect key="frame" x="22" y="100" width="270" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngw-Wf-sEf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ngw-Wf-sEf">
                                 <rect key="frame" x="27" y="160" width="260" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="BtnconfigureApp.png">
@@ -5046,7 +5046,7 @@ o Pagamento”, reconhece que:</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnConfirm:" destination="WWP-Vz-X5n" eventType="touchUpInside" id="mcc-Nf-H8C"/>
+                                    <action selector="btnConfigApp:" destination="WWP-Vz-X5n" eventType="touchUpInside" id="Yc7-8V-cPg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -5055,10 +5055,10 @@ o Pagamento”, reconhece que:</string>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="usM-Vt-T1R"/>
                     <connections>
-                        <outlet property="btnConfirm" destination="Ngw-Wf-sEf" id="wL7-kp-0IZ"/>
-                        <outlet property="txtLogin" destination="P1U-tu-WOe" id="kRk-Xn-M3x"/>
-                        <outlet property="txtPassword" destination="knw-6n-87T" id="3lp-5J-Xq9"/>
-                        <segue destination="FRf-Mb-6wR" kind="push" identifier="loginPotaToAgentePerfilPota" id="gef-8e-Oov"/>
+                        <outlet property="btnOtlConfigApp" destination="Ngw-Wf-sEf" id="bK7-WV-oGz"/>
+                        <outlet property="txtLogin" destination="P1U-tu-WOe" id="ldc-pg-mBf"/>
+                        <outlet property="txtPassword" destination="knw-6n-87T" id="YgD-S4-Vng"/>
+                        <segue destination="FRf-Mb-6wR" kind="push" identifier="C0_To_C1" id="gef-8e-Oov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHK-vf-kAr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,21 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-@interface b0_User_Login : UIViewController <UITextFieldDelegate>
+@interface b0_User_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate>
 {
-    IBOutlet UITextField *txtMail;
-    IBOutlet UITextField *txtPassword;
-    IBOutlet UIButton    *btnOtlConfigApp;
-    CGRect               frame;
-    UITextField          *txtSelect;
-    NSMutableDictionary  *login;
+    IBOutlet UITextField       *txtMail;
+    IBOutlet UITextField       *txtPassword;
+    IBOutlet UIButton          *btnOtlConfigApp;
+    CGRect                     frame;
+    UITextField                *txtSelect;
+    NSMutableDictionary        *login;
     
-    //mutable
-    AppDelegate          *appDelegate;
-    NSMutableDictionary  *user;
+    //DataBase
+    NSMutableDictionary        *user;
+    NSFetchedResultsController *fetch;
 }
+
 
 - (IBAction)btnConfigApp:(id)sender;
 

@@ -10,6 +10,120 @@
 
 @implementation AppFunctions
 
++ (NSDictionary *)DATA_BASE_ENTITY_LOAD:(NSString *)_entity
+{
+    AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:_entity inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+
+    NSArray *result = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error)
+    {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+        return nil;
+    } else {
+        if (result.count > 0)
+        {
+            NSManagedObject *data = (NSManagedObject *)[result objectAtIndex:0];
+            NSArray *keys      = [[[data entity] attributesByName] allKeys];
+            return [data dictionaryWithValuesForKeys:keys];
+        }
+        return nil;
+    }
+}
+
++ (BOOL)DATA_BASE_ENTITY_REMOVE:(NSString *)_entity
+{
+    AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:_entity
+                                              inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *result = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if ([result count] > 0)
+    {
+        NSManagedObject *person = (NSManagedObject *)[result objectAtIndex:0];
+        [appDelegate.managedObjectContext deleteObject:person];
+        NSError *deleteError = nil;
+        if (![person.managedObjectContext save:&deleteError])
+        {
+            NSLog(@"Unable to save managed object context.");
+            NSLog(@"%@, %@", deleteError, deleteError.localizedDescription);
+            return YES;
+        }
+    }
+    return NO;
+}
+
++ (NSFetchedResultsController *)DATA_BASE_ENTITY_GET:(NSFetchedResultsController *)_fetchedResultsController delegate:(id)_delegate entity:(NSString *)_entity sort:(NSString *)_sort
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:_entity
+                                              inManagedObjectContext:appDelegate.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:_sort ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:appDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    aFetchedResultsController.delegate = _delegate;
+    NSError *error = nil;
+    
+    _fetchedResultsController = aFetchedResultsController;
+    
+    if (![_fetchedResultsController performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _fetchedResultsController;
+}
+
++ (NSManagedObject *)DATA_BASE_ENTITY_ADD:(NSFetchedResultsController *)_fetchedResultsController
+{
+    NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
+    NSEntityDescription    *entity  = [[_fetchedResultsController fetchRequest] entity];
+    return [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+}
+
++ (BOOL)DATA_BASE_ENTITY_SAVE:(NSFetchedResultsController *)_fetchedResultsController
+{
+    NSManagedObjectContext *context = [_fetchedResultsController managedObjectContext];
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+        return NO;
+    } else {
+        return YES;
+    }
+    return NO;
+}
+
++ (NSString *)GET_TOKEN_DEVICE
+{
+    AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return appDelegate.tokenPhone;
+}
+
 #pragma mark - MESSAGE_POP_UP
 + (void)LOG_MESSAGE:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel
 {
@@ -181,7 +295,7 @@
 #pragma mark - LOAD_IMAGE_ASYNC
 + (dispatch_queue_t)LOAD_IMAGE_ASYNC:(NSString *)link completion:(void (^)(UIImage *image))block
 {
-//    NSLog(@"%@",link);
+    //    NSLog(@"%@",link);
     NSString *MyURL = [link stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul);
     dispatch_async(queue, ^{
@@ -477,12 +591,12 @@
 #pragma mark - scroll cell to center
 + (void)SCROLL_VIEW_RECT_TO_CENTER:(CGRect)visibleRect animated:(BOOL)animated view:(UIViewController *)_view
 {
-//    CGRect centeredRect = CGRectMake(visibleRect.origin.x + visibleRect.size.width/2.0 - _tableView.frame.size.width/2.0,
-//                                     visibleRect.origin.y + visibleRect.size.height/2.0 - _tableView.frame.size.height/2.0,
-//                                     _tableView.frame.size.width,
-//                                     _tableView.frame.size.height);
-//    [_tableView scrollRectToVisible:centeredRect
-//                           animated:animated];
+    //    CGRect centeredRect = CGRectMake(visibleRect.origin.x + visibleRect.size.width/2.0 - _tableView.frame.size.width/2.0,
+    //                                     visibleRect.origin.y + visibleRect.size.height/2.0 - _tableView.frame.size.height/2.0,
+    //                                     _tableView.frame.size.width,
+    //                                     _tableView.frame.size.height);
+    //    [_tableView scrollRectToVisible:centeredRect
+    //                           animated:animated];
 }
 
 #pragma mark - go to screen
@@ -608,7 +722,7 @@
     rotate = CGAffineTransformScale(rotate, .1, 1.8);
     [picker setTransform:rotate];
     [picker setCenter:CGPointMake(picker.center.x, center.y + 25)];
-
+    
     UIImage *selectorImage  = [UIImage imageNamed:name];
     UIView  *customSelector = [[UIImageView alloc] initWithImage:selectorImage];
     [customSelector setFrame:CGRectMake(0, 0,

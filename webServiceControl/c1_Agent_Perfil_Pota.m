@@ -20,7 +20,7 @@
         [listInfos setObject:USER_TYPE forKey:[list objectForKey:USER_TYPE]];
     }else {
         backScreen = (c0_Agent_Login *)[AppFunctions BACK_SCREEN:self number:1];
-        listInfos  = [backScreen getSellerInfo];
+        listInfos  = [NSMutableDictionary new];
         [self saveData];
     }
     [tableView setBackgroundColor:[UIColor clearColor]];

@@ -5,10 +5,21 @@
 //  Created by Rodrigo Pimentel on 08/05/14.
 //  Copyright (c) 2014 web. All rights reserved.
 //
-
-#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 @interface AppFunctions : NSObject
+
++ (NSDictionary *)DATA_BASE_ENTITY_LOAD:(NSString *)_entity;
+
++ (BOOL)DATA_BASE_ENTITY_REMOVE:(NSString *)_entity;
+
++ (NSFetchedResultsController *)DATA_BASE_ENTITY_GET:(NSFetchedResultsController *)_fetchedResultsController delegate:(id)_delegate entity:(NSString *)_entity sort:(NSString *)_sort;
+
++ (NSManagedObject *)DATA_BASE_ENTITY_ADD:(NSFetchedResultsController *)_fetchedResultsController;
+
++ (BOOL)DATA_BASE_ENTITY_SAVE:(NSFetchedResultsController *)_fetchedResultsController;
+
++ (NSString *)GET_TOKEN_DEVICE;
 
 + (void)LOG_MESSAGE:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel;
 

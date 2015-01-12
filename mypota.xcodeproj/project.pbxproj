@@ -248,6 +248,7 @@
 		C7996156196B3E7700D4394E /* travelPotaType.m in Sources */ = {isa = PBXBuildFile; fileRef = C7996155196B3E7700D4394E /* travelPotaType.m */; };
 		C7996159196B3EF700D4394E /* travelPotaTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7996158196B3EF700D4394E /* travelPotaTypeCell.m */; };
 		C799615D196B47C800D4394E /* travelCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C799615C196B47C800D4394E /* travelCalendar.m */; };
+		C79A63C51A640AE600D73891 /* Data_Pota.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C79A63C31A640AE600D73891 /* Data_Pota.xcdatamodeld */; };
 		C79B88F719A392A300715E79 /* splitViewPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C79B88F619A392A300715E79 /* splitViewPota.m */; };
 		C79F3CE61A07AEF200B336E4 /* packInfoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F3CE51A07AEF200B336E4 /* packInfoDataCell.m */; };
 		C7A32BAF18F472EF00130FE9 /* BtnsearchAgente.png in Resources */ = {isa = PBXBuildFile; fileRef = C7A32BAE18F472EF00130FE9 /* BtnsearchAgente.png */; };
@@ -703,6 +704,7 @@
 		C7996158196B3EF700D4394E /* travelPotaTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPotaTypeCell.m; sourceTree = "<group>"; };
 		C799615B196B47C800D4394E /* travelCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelCalendar.h; sourceTree = "<group>"; };
 		C799615C196B47C800D4394E /* travelCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelCalendar.m; sourceTree = "<group>"; };
+		C79A63C41A640AE600D73891 /* Data_Pota.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data_Pota.xcdatamodel; sourceTree = "<group>"; };
 		C79B88F519A392A300715E79 /* splitViewPota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splitViewPota.h; sourceTree = "<group>"; };
 		C79B88F619A392A300715E79 /* splitViewPota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splitViewPota.m; sourceTree = "<group>"; };
 		C79F3CE41A07AEF200B336E4 /* packInfoDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoDataCell.h; sourceTree = "<group>"; };
@@ -2267,6 +2269,7 @@
 				C77D945A191BD25200A519B4 /* Components */,
 				C7025B5818C78A22000A22B9 /* Plists */,
 				C77D945B191BD26500A519B4 /* Screens */,
+				C79A63C31A640AE600D73891 /* Data_Pota.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -3619,6 +3622,7 @@
 				C799615D196B47C800D4394E /* travelCalendar.m in Sources */,
 				C729DF97192D143D00057B75 /* CustomIOS7AlertView.m in Sources */,
 				C707085D19AB706500ECD6FD /* voucherListPotaCell.m in Sources */,
+				C79A63C51A640AE600D73891 /* Data_Pota.xcdatamodeld in Sources */,
 				C7DF23F11A1BE7E5001BAFBB /* hotelPotaCellRoom.m in Sources */,
 				C7025B5318C78A1D000A22B9 /* AzParser.m in Sources */,
 				C7DEE167192D139000E3C6C5 /* WhatsAppKit.m in Sources */,
@@ -4021,6 +4025,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C79A63C31A640AE600D73891 /* Data_Pota.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C79A63C41A640AE600D73891 /* Data_Pota.xcdatamodel */,
+			);
+			currentVersion = C79A63C41A640AE600D73891 /* Data_Pota.xcdatamodel */;
+			path = Data_Pota.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C7452F7718A41F7800F2946B /* Project object */;
 }

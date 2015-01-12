@@ -16,9 +16,10 @@
     IBOutlet UIButton       *outCodePota;
     States                  *listState;
     NSMutableDictionary     *agenteInfo;
+    NSMutableArray          *agenteInfoIdWs;
 #pragma mark - keyBoardScroll
     UITextField             *keyboardField;
-        CGRect               frame;
+    CGRect                  frame;
 }
 
 - (IBAction)txtCodePotaChange:(id)sender;
@@ -26,6 +27,6 @@
 - (IBAction)btnSearchPota:(id)sender;
 - (IBAction)btnInvite:(id)sender;
 - (NSMutableDictionary *)getInfoData;
-- (IBAction)btnAgente:(id)sender;
+- (IBAction)btnLogoff:(id)sender;
 
 @end

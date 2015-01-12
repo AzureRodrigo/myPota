@@ -8,20 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface c0_Agent_Login : UIViewController <UITextFieldDelegate>
+@interface c0_Agent_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate>
 {
-    IBOutlet UITextField *txtLogin;
-    IBOutlet UITextField *txtPassword;
-    IBOutlet UIButton    *btnConfirm;
-#pragma mark - textView
-    UITextField          *txtViewSelected;
-    CGRect               frame;
+    IBOutlet UITextField       *txtLogin;
+    IBOutlet UITextField       *txtPassword;
+    IBOutlet UIButton          *btnOtlConfigApp;
+    CGRect                     frame;
+    UITextField                *txtSelect;
+    NSMutableDictionary        *login;
     
-#pragma mark - Info
-    NSMutableDictionary *login;
-    NSMutableDictionary *agenteInfo;
+    //DataBase
+    NSMutableDictionary        *user;
+    NSFetchedResultsController *fetch;
+
 }
 
-- (IBAction)btnConfirm:(id)sender;
-- (NSMutableDictionary *)getSellerInfo;
+- (IBAction)btnConfigApp:(id)sender;
+
 @end

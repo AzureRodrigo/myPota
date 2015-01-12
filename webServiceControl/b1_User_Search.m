@@ -168,19 +168,21 @@
                 NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:TAG_SELLER];
                 for (NSDictionary *tmp in [allInfo objectForKey:TAG_SELLER])
                     agenteInfo = [tmp mutableCopy];
-                
-                NSDictionary *idsWs   = [AzParser xmlDictionary:result tagNode:@"idWsPorSite"];
+                NSDictionary *idsWs = [AzParser xmlDictionary:result tagNode:@"idWsPorSite"];
+                agenteInfoIdWs = [NSMutableArray new];
                 for (NSDictionary *tmp in [idsWs objectForKey:@"idWsPorSite"]) {
-                    if ([[tmp objectForKey:@"codigoSite"]isEqualToString:@"1"])
-                        [agenteInfo setObject:[tmp objectForKey:@"idWsSite"] forKey:@"idWS"];
-                    else
-                        [agenteInfo setObject:[tmp objectForKey:@"idWsSite"] forKey:@"idWsSite"];
+                    [agenteInfoIdWs addObject:tmp];
                 }
-                NSLog(@"%@",agenteInfo);
-                [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_CODE_PERFIL];
+                [self sellectSeller];
             }
         }
     }];
+}
+
+- (void)sellectSeller
+{
+    NSLog(@"%@\n%@",agenteInfo, agenteInfoIdWs);
+//    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_CODE_PERFIL];
 }
 
 - (NSMutableDictionary *)getInfoData
@@ -193,9 +195,10 @@
     [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_CODE_INVITE];
 }
 
-- (IBAction)btnAgente:(id)sender
+- (IBAction)btnLogoff:(id)sender
 {
-    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_CODE_LOGIN];
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_DATA_USER_TRAVELLER];
+    [AppFunctions POP_SCREEN:self identifier:STORYBOARD_ID_A1 animated:YES];
 }
 
 @end

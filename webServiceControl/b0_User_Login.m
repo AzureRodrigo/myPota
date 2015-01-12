@@ -10,18 +10,9 @@
 
 @implementation b0_User_Login
 
-#pragma mark - readPlist
-- (NSString *)dataFilePath:(NSString *)path
-{
-    NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:path];
-}
-
 #pragma mark - configScreen
 - (void)configScreen
 {
-    appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [txtMail     setAccessibilityValue:@"E-Mail"];
     [txtPassword setAccessibilityValue:@"Senha"];
     login        = [NSMutableDictionary new];
@@ -146,7 +137,7 @@
     NSString *link;
     NSString *wsComplement = [NSString stringWithFormat:WS_b0_CADASTRE_USER,
                               txtMail.text,txtPassword.text,
-                              @"",@"",@"C",@"",@"",@"",@"",@"appMobile",@"XML",@"M"];
+                              @"",@"",TAG_B0_C0_CADASTRE_LOGIN,@"",@"",@"",@"",TAG_BASE_WS_ACESS_KEY,TAG_BASE_WS_TYPE_RETURN,TAG_BASE_WS_TYPE_ACESS];
     link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
@@ -182,7 +173,7 @@
                 [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_BIRTH]         forKey:TAG_B0_CADASTRE_BIRTH];
                 [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD_CITY]      forKey:TAG_B0_CADASTRE_COD_CITY];
                 [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_NAME_CITY]     forKey:TAG_B0_CADASTRE_NAME_CITY];
-                [user setObject:appDelegate.tokenPhone                           forKey:TAG_B0_C0_REGISTER_COD_TOKEN];
+                [user setObject:[AppFunctions GET_TOKEN_DEVICE]                  forKey:TAG_B0_C0_REGISTER_COD_TOKEN];
             }
             
             [self login_stepII];
@@ -222,12 +213,44 @@
 
 - (void)saveData
 {
+    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                       delegate:self
+                                         entity:TAG_DATA_USER_TRAVELLER
+                                           sort:TAG_B0_USER_NAME];
     
+    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+    
+    //set data in BD
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD] 	 	   forKey:TAG_B0_USER_COD];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD_MD5] 	   forKey:TAG_B0_USER_COD_MD5];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_NAME]    	   forKey:TAG_B0_USER_NAME];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CPF]     	   forKey:TAG_B0_USER_CPF];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_TYPE_PERSON]   forKey:TAG_B0_USER_TYPE_PERSON];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_ADRESS]  	   forKey:TAG_B0_USER_ADRESS];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_QUARTER] 	   forKey:TAG_B0_USER_QUARTER];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CEP]  	 	   forKey:TAG_B0_USER_CEP];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_DDD]  	 	   forKey:TAG_B0_USER_DDD];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_FONE] 	 	   forKey:TAG_B0_USER_FONE];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_MAIL] 	 	   forKey:TAG_B0_USER_MAIL];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_ADRESS_NUMBER] forKey:TAG_B0_USER_ADRESS_NUMBER];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COMPLEMENT]    forKey:TAG_B0_USER_COMPLEMENT];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_DDD_CEL]       forKey:TAG_B0_USER_DDD_CEL];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CEL]           forKey:TAG_B0_USER_CEL];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_BIRTH]         forKey:TAG_B0_USER_BIRTH];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD_CITY]      forKey:TAG_B0_USER_COD_CITY];
+    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_NAME_CITY]     forKey:TAG_B0_USER_NAME_CITY];
+    
+    if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
+        [self nextScreen];
+    else
+        [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                          message:ERROR_1000_MESSAGE
+                           cancel:ERROR_BUTTON_CANCEL];
 }
 
 - (void)nextScreen
 {
-    
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B0_TO_B1];
 }
 
 @end
