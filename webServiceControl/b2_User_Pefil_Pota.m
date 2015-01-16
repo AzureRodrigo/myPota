@@ -37,7 +37,7 @@
         [listInfos setObject:USER_TYPE forKey:[list objectForKey:USER_TYPE]];
     } else {
         backScreen = (b1_User_Search *)[AppFunctions BACK_SCREEN:self number:1];
-        listInfos  = [backScreen getInfoData];
+//        listInfos  = [backScreen getInfoData];
         [self saveData];
     }
 }
@@ -424,64 +424,5 @@
     
     NSLog(@"%@",data);
 }
-
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [contactInfo count]+2;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if ([indexPath row] < [contactInfo count])
-//        return [self configCell1:_tableView index:indexPath];
-//    else
-//        return [self configCell2:_tableView index:indexPath];
-//}
-//
-//#pragma mark - Cell Size
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//        return 50;
-//}
-//
-//- (UITableViewCell *)configCell1:(UITableView *)_tableView index:(NSIndexPath *)indexPath
-//{
-//    myPerfilRessourcesCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CellRessource" forIndexPath:indexPath];
-//    [cell setBackgroundColor:[UIColor clearColor]];
-//    [cell.imgIcon setImage:[UIImage imageNamed:
-//                            [[contactInfo objectAtIndex:[indexPath row]]objectForKey:@"img"]]];
-//    [cell.lblRessource setText:[[contactInfo objectAtIndex:[indexPath row]]objectForKey:@"txt"]];
-//
-//    return cell;
-//}
-//
-//- (UITableViewCell *)configCell2:(UITableView *)_tableView index:(NSIndexPath *)indexPath
-//{
-//    myPerfilRessourcesCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CellRessource" forIndexPath:indexPath];
-//    [cell setBackgroundColor:[UIColor clearColor]];
-//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-//    [cell.imgIcon setHidden:YES];
-//    [cell.lblRessource setHidden:YES];
-//    [cell.imgDotLine setHidden:YES];
-//    return cell;
-//}
-//
-//#pragma mark - Table Cell Select
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if ([indexPath row] == 0)
-//        [self btnFone];
-//    else if ([indexPath row] == 1)
-//        [self btnMail];
-//    else if ([indexPath row] == 2)
-//        [self btnFace];
-//    else if ([indexPath row] == 3)
-//        [self btnMessenge];
-//    else if ([indexPath row] == 4)
-//        [self btnSkype];
-//    else if ([indexPath row] == 5)
-//        [self btnWhats];
-//}
 
 @end

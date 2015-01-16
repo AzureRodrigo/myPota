@@ -118,6 +118,15 @@
     return NO;
 }
 
++ (void)APP_LOGOFF
+{
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
+    NSLog(@"logoff");
+}
+
 + (NSString *)GET_TOKEN_DEVICE
 {
     AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];

@@ -39,7 +39,7 @@
                     @{@"IMAGE"   : @"splitItemAgent",
                       @"DESTINE" : STORYBOARD_ID_B1},
                     @{@"IMAGE"   : @"splitItemMyData",
-                      @"DESTINE" : STORYBOARD_ID_B0},
+                      @"DESTINE" : STORYBOARD_ID_A1},
                     @{@"IMAGE"   : @"splitItemInfo",
                       @"DESTINE" : @"infoPota"}];
 }
@@ -117,16 +117,17 @@
 - (void)changePersonPota:(NSString *)identifier
 {
     [[AppMenuView getMenuView].superView.slideNavigationViewController slideWithDirectionNoAnimation:MWFSlideDirectionNone];
-    
     if ([identifier isEqualToString:STORYBOARD_ID_B1])
     {
-        NSMutableDictionary *listSellInfo = [[NSMutableDictionary alloc] initWithContentsOfFile:
-                                             [AppFunctions PLIST_SAVE:PLIST_STATE_TAG_SELLER]];
-        [listSellInfo setObject:@NO forKey:PLIST_STATE_TAG_CHOSEN];
-        [listSellInfo writeToFile:[AppFunctions PLIST_SAVE:PLIST_STATE_TAG_SELLER] atomically:YES];
+        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
+        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
         [AppFunctions POP_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
+    } else if([identifier isEqualToString:STORYBOARD_ID_A1]) {
+        [AppFunctions APP_LOGOFF];
+        [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
     }else
         [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
+    
 }
 
 @end

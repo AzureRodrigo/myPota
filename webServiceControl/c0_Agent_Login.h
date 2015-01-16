@@ -19,7 +19,11 @@
     
     //DataBase
     NSMutableDictionary        *user;
+    NSMutableArray             *idWs;
+    NSMutableDictionary        *agency;
     NSFetchedResultsController *fetch;
+    NSMutableDictionary        *agenteInfo;
+    NSMutableArray             *agenteInfoIdWs;
 
 }
 

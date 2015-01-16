@@ -1,72 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="User_Seller">
-        <attribute name="bairroAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="celularVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cepAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="codigoMd5Vendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="codigoVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cpfVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dataCadastroVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="emailVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="enderecoAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="facebookAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="facebookVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="foneVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="googleAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gtalkVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idadeVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nomeAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nomeVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sexoVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="siteAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="skypeVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="twitterAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="whatsAppVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="youtubeAgenciaVendedor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="agency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Seller_Agency" inverseName="user" inverseEntity="User_Seller_Agency" syncable="YES"/>
+    <entity name="User_Agency">
+        <attribute name="bairro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="celular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cep" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="complemento" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contato" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ddd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dddCelular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endereco" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idws" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listIdWs" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="logotipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomeFantasia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numeroEndereco" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlSite" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
-    <entity name="User_Seller_Agency">
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Seller" inverseName="agency" inverseEntity="User_Seller" syncable="YES"/>
-        <userInfo/>
-    </entity>
-    <entity name="User_Traveller">
+    <entity name="User_Perfil">
         <attribute name="adress" attributeType="String" syncable="YES"/>
         <attribute name="adress_number" attributeType="String" syncable="YES"/>
         <attribute name="birth" attributeType="String" syncable="YES"/>
-        <attribute name="cel" attributeType="String" syncable="YES"/>
+        <attribute name="cell" attributeType="String" syncable="YES"/>
         <attribute name="cep" attributeType="String" syncable="YES"/>
         <attribute name="code" attributeType="String" syncable="YES"/>
         <attribute name="code_city" attributeType="String" syncable="YES"/>
         <attribute name="code_MD5" attributeType="String" syncable="YES"/>
+        <attribute name="code_token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="complement" attributeType="String" syncable="YES"/>
         <attribute name="cpf" attributeType="String" syncable="YES"/>
         <attribute name="ddd" attributeType="String" syncable="YES"/>
-        <attribute name="ddd_cel" attributeType="String" syncable="YES"/>
+        <attribute name="ddd_cell" attributeType="String" syncable="YES"/>
         <attribute name="fone" attributeType="String" syncable="YES"/>
         <attribute name="mail" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="name_city" attributeType="String" syncable="YES"/>
         <attribute name="quarter" attributeType="String" syncable="YES"/>
         <attribute name="type_person" attributeType="String" syncable="YES"/>
-        <relationship name="agency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Traveller_Agency" inverseName="user" inverseEntity="User_Traveller_Agency" syncable="YES"/>
-        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Traveller_Seller" inverseName="user" inverseEntity="User_Traveller_Seller" syncable="YES"/>
+        <relationship name="user_agency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Agency" syncable="YES"/>
+        <relationship name="user_seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Seller" syncable="YES"/>
         <userInfo/>
     </entity>
-    <entity name="User_Traveller_Agency">
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Traveller" inverseName="agency" inverseEntity="User_Traveller" syncable="YES"/>
+    <entity name="User_Seller">
+        <attribute name="cidade" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigoAgencia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigoCidade" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codigoSite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ddd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dddCelular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foneCelular" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gtalk" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nomeUf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sexo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="siglaUf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="whatsup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="youtube" optional="YES" attributeType="String" syncable="YES"/>
         <userInfo/>
     </entity>
-    <entity name="User_Traveller_Seller">
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Traveller" inverseName="seller" inverseEntity="User_Traveller" syncable="YES"/>
-        <userInfo/>
+    <entity name="User_Type" syncable="YES">
+        <attribute name="isSeller" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="user_data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Perfil" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User_Traveller" positionX="1944" positionY="828" width="171" height="343"/>
-        <element name="User_Seller" positionX="2329" positionY="828" width="146" height="403"/>
-        <element name="User_Traveller_Agency" positionX="2167" positionY="828" width="128" height="58"/>
-        <element name="User_Traveller_Seller" positionX="2167" positionY="1226" width="128" height="58"/>
-        <element name="User_Seller_Agency" positionX="2536" positionY="828" width="128" height="58"/>
+        <element name="User_Agency" positionX="1681" positionY="620" width="128" height="343"/>
+        <element name="User_Perfil" positionX="1494" positionY="608" width="128" height="358"/>
+        <element name="User_Seller" positionX="1314" positionY="614" width="128" height="358"/>
+        <element name="User_Type" positionX="1494" positionY="486" width="128" height="73"/>
     </elements>
 </model>

@@ -31,12 +31,12 @@
 
 #pragma mark - Storyboard ID Block D
 //#define STORYBOARD_ID_D0 @"d0_Package_Search"
-//#define STORYBOARD_ID_D0 @"d1_Package_Result"
-//#define STORYBOARD_ID_D0 @"d2_Package_Circuit"
-//#define STORYBOARD_ID_D0 @"d3_Package_Circuit_Data"
-//#define STORYBOARD_ID_D0 @"d4_Package_Circuit_Detail"
-//#define STORYBOARD_ID_D0 @"d5_Package_Circuit_Controller"
-//#define STORYBOARD_ID_D0 @"d6_Package_Circuit_Pictures"
+
+#pragma mark - Storyboard ID Block E
+//#define STORYBOARD_ID_E0 @"d0_Hotel_Search
+
+#pragma mark - Storyboard ID Block F
+//#define STORYBOARD_ID_F0 @"d0_Package_Search
 
 #pragma mark - Segues Block A
 #define SEGUE_A2_TO_B2 @"A2_To_B2"

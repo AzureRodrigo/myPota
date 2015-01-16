@@ -19,16 +19,20 @@
 
 - (id)defineRootView
 {
-    if ([AppFunctions DATA_BASE_ENTITY_LOAD:TAG_DATA_USER_TRAVELLER] != nil)
+    NSDictionary *User = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_TYPE];
+    if (User != nil)
     {
-        if ([AppFunctions DATA_BASE_ENTITY_LOAD:TAG_DATA_USER_TRAVELLER_SELLER] != nil)
-            return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_A2];
-        else
+        if ([[User objectForKey:TAG_USER_TYPE_BOOL] boolValue]) { //seller
+            if ([AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER] != nil && [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] != nil)
+                return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_A2];
+            return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_C0];
+        } else { //client
+            if ([AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER] != nil && [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] != nil)
+                return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_A2];
             return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_B1];
-    } else if ([AppFunctions DATA_BASE_ENTITY_LOAD:TAG_DATA_USER_SELLER] != nil) {
-            return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_A2];
+        }
     }
-    
+    //clear type
     return [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:STORYBOARD_ID_A1];
 }
 

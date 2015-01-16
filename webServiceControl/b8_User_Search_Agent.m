@@ -140,7 +140,8 @@
 
 - (void)nextScreen
 {
-    [self performSegueWithIdentifier:STORY_BOARD_SELLER_PERFIL sender:self];
+    NSLog(@"%@",SelectVendedor);
+//    [self performSegueWithIdentifier:STORY_BOARD_SELLER_PERFIL sender:self];
 }
 
 #pragma mark -searchBarConfigure

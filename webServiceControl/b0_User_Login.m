@@ -130,14 +130,13 @@
         [btnOtlConfigApp setEnabled:NO];
 }
 
+#pragma mark - Configurações de Web Service
 - (void)login_stepI
 {
-    user = [NSMutableDictionary new];
-    
     NSString *link;
     NSString *wsComplement = [NSString stringWithFormat:WS_b0_CADASTRE_USER,
                               txtMail.text,txtPassword.text,
-                              @"",@"",TAG_B0_C0_CADASTRE_LOGIN,@"",@"",@"",@"",TAG_BASE_WS_ACESS_KEY,TAG_BASE_WS_TYPE_RETURN,TAG_BASE_WS_TYPE_ACESS];
+                              @"",@"",TAG_BASE_WS_LOGIN,@"",@"",@"",@"",TAG_BASE_WS_ACESS_KEY,TAG_BASE_WS_TYPE_RETURN,TAG_BASE_WS_TYPE_ACESS];
     link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
@@ -152,30 +151,36 @@
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
         } else {
-            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_CADASTRE_OPEN];
-            for (NSDictionary *tmp in [info objectForKey:TAG_B0_CADASTRE_OPEN])
+            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_USER_PERFIL_OPEN];
+            for (NSDictionary *tmp in [info objectForKey:TAG_B0_USER_PERFIL_OPEN])
             {
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD]           forKey:TAG_B0_CADASTRE_COD];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD_MD5]       forKey:TAG_B0_CADASTRE_COD_MD5];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_NAME]          forKey:TAG_B0_CADASTRE_NAME];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CPF]           forKey:TAG_B0_CADASTRE_CPF];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_TYPE_PERSON]   forKey:TAG_B0_CADASTRE_TYPE_PERSON];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_ADRESS]        forKey:TAG_B0_CADASTRE_ADRESS];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_QUARTER]       forKey:TAG_B0_CADASTRE_QUARTER];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CEP]           forKey:TAG_B0_CADASTRE_CEP];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_DDD]           forKey:TAG_B0_CADASTRE_DDD];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_FONE]          forKey:TAG_B0_CADASTRE_FONE];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_MAIL]          forKey:TAG_B0_CADASTRE_MAIL];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_ADRESS_NUMBER] forKey:TAG_B0_CADASTRE_ADRESS_NUMBER];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COMPLEMENT]    forKey:TAG_B0_CADASTRE_COMPLEMENT];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_DDD_CEL]       forKey:TAG_B0_CADASTRE_DDD_CEL];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_CEL]           forKey:TAG_B0_CADASTRE_CEL];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_BIRTH]         forKey:TAG_B0_CADASTRE_BIRTH];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_COD_CITY]      forKey:TAG_B0_CADASTRE_COD_CITY];
-                [user setObject:[tmp objectForKey:TAG_B0_CADASTRE_NAME_CITY]     forKey:TAG_B0_CADASTRE_NAME_CITY];
-                [user setObject:[AppFunctions GET_TOKEN_DEVICE]                  forKey:TAG_B0_C0_REGISTER_COD_TOKEN];
+                fetch = nil;
+                fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                                  delegate:self
+                                                    entity:TAG_USER_PERFIL
+                                                      sort:TAG_USER_PERFIL_NAME];
+                
+                NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD]           forKey:TAG_USER_PERFIL_CODE];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_MD5]       forKey:TAG_USER_PERFIL_CODE_MD5];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME]          forKey:TAG_USER_PERFIL_NAME];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CPF]           forKey:TAG_USER_PERFIL_CPF];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_TYPE_PERSON]   forKey:TAG_USER_PERFIL_TYPE_PERSON];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS]        forKey:TAG_USER_PERFIL_ADRESS];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_QUARTER]       forKey:TAG_USER_PERFIL_QUARTER];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEP]           forKey:TAG_USER_PERFIL_CEP];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD]           forKey:TAG_USER_PERFIL_DDD];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_FONE]          forKey:TAG_USER_PERFIL_FONE];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_MAIL]          forKey:TAG_USER_PERFIL_MAIL];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS_NUMBER] forKey:TAG_USER_PERFIL_ADRESS_NUMBER];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COMPLEMENT]    forKey:TAG_USER_PERFIL_COMPLEMENT];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD_CEL]       forKey:TAG_USER_PERFIL_DDD_CELL];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEL]           forKey:TAG_USER_PERFIL_CELL];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_BIRTH]         forKey:TAG_USER_PERFIL_BIRTH];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_CITY]      forKey:TAG_USER_PERFIL_CODE_CITY];
+                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME_CITY]     forKey:TAG_USER_PERFIL_NAME_CITY];
+                [dataBD setValue:[AppFunctions GET_TOKEN_DEVICE]                     forKey:TAG_USER_PERFIL_CODE_TOKEN];
             }
-            
             [self login_stepII];
         }
     }];
@@ -184,10 +189,12 @@
 - (void)login_stepII
 {
     NSString *link;
+    user = [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL] mutableCopy];
     NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
-                              [user objectForKey:TAG_B0_CADASTRE_COD_MD5],
-                              [user objectForKey:TAG_B0_C0_REGISTER_COD_TOKEN],
-                              @"I",@"appMobile", @"XML"];
+                              [user objectForKey:TAG_USER_PERFIL_CODE_MD5],
+                              [user objectForKey:TAG_USER_PERFIL_CODE_TOKEN],
+                              TAG_BASE_WS_INCLUDE,TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN];
+    
     link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
@@ -202,50 +209,49 @@
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
         } else {
-            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_C0_REGISTER];
-            for (NSDictionary *tmp in [info objectForKey:TAG_B0_C0_REGISTER])
-                if ([[tmp objectForKey:TAG_B0_C0_REGISTER] isEqualToString:@"OK"])
+            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_BASE_WS_REGISTER];
+            for (NSDictionary *tmp in [info objectForKey:TAG_BASE_WS_REGISTER])
+                if ([[tmp objectForKey:TAG_BASE_WS_REGISTER] isEqualToString:@""])
                     [self saveData];
+                else
+                    [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                                      message:[tmp objectForKey:TAG_BASE_WS_REGISTER]
+                                       cancel:ERROR_BUTTON_CANCEL];
         }
     }];
-    
 }
 
 - (void)saveData
 {
-    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
-                                       delegate:self
-                                         entity:TAG_DATA_USER_TRAVELLER
-                                           sort:TAG_B0_USER_NAME];
-    
-    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
-    
-    //set data in BD
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD] 	 	   forKey:TAG_B0_USER_COD];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD_MD5] 	   forKey:TAG_B0_USER_COD_MD5];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_NAME]    	   forKey:TAG_B0_USER_NAME];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CPF]     	   forKey:TAG_B0_USER_CPF];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_TYPE_PERSON]   forKey:TAG_B0_USER_TYPE_PERSON];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_ADRESS]  	   forKey:TAG_B0_USER_ADRESS];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_QUARTER] 	   forKey:TAG_B0_USER_QUARTER];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CEP]  	 	   forKey:TAG_B0_USER_CEP];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_DDD]  	 	   forKey:TAG_B0_USER_DDD];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_FONE] 	 	   forKey:TAG_B0_USER_FONE];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_MAIL] 	 	   forKey:TAG_B0_USER_MAIL];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_ADRESS_NUMBER] forKey:TAG_B0_USER_ADRESS_NUMBER];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COMPLEMENT]    forKey:TAG_B0_USER_COMPLEMENT];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_DDD_CEL]       forKey:TAG_B0_USER_DDD_CEL];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_CEL]           forKey:TAG_B0_USER_CEL];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_BIRTH]         forKey:TAG_B0_USER_BIRTH];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_COD_CITY]      forKey:TAG_B0_USER_COD_CITY];
-    [dataBD setValue:[user objectForKey:TAG_B0_CADASTRE_NAME_CITY]     forKey:TAG_B0_USER_NAME_CITY];
-    
     if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
-        [self nextScreen];
-    else
+    {
+        if ([self registerTypeUser:NO])
+            [self nextScreen];
+    } else
         [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                           message:ERROR_1000_MESSAGE
                            cancel:ERROR_BUTTON_CANCEL];
+}
+
+- (BOOL)registerTypeUser:(BOOL)type
+{
+    fetch = nil;
+    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                      delegate:self
+                                        entity:TAG_USER_TYPE
+                                          sort:TAG_USER_TYPE_BOOL];
+    
+    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+    [dataBD setValue:[NSNumber numberWithBool:NO] forKey:TAG_USER_TYPE_BOOL];
+    
+    if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
+    {
+        return YES;
+    } else
+        [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                          message:ERROR_1000_MESSAGE
+                           cancel:ERROR_BUTTON_CANCEL];
+    return NO;
 }
 
 - (void)nextScreen

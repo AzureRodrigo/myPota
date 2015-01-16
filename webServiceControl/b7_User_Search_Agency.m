@@ -176,6 +176,8 @@
                               KEY_ACCESS_KEY, KEY_EMPTY, KEY_EMPTY, KEY_TYPE_RETURN];
     NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_SELLER, wsComplement];
     
+    NSLog(@"%@",link);
+    
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CHOICE_AGENCIA_LABEL_CONNECTION_START,
                                        APP_CONNECTION_TAG_WAIT 	 : CHOICE_AGENCIA_LABEL_CONNECTION_WAIT,
                                        APP_CONNECTION_TAG_RECIVE : CHOICE_AGENCIA_LABEL_CONNECTION_RECIVE,

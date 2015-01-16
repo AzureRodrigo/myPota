@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "States.h"
 
-@interface b1_User_Search : UIViewController <UITextFieldDelegate>
+@interface b1_User_Search : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate>
 {
     IBOutlet UIScrollView   *scrollViewData;
     IBOutlet UITextField    *lblCode;
@@ -17,6 +17,7 @@
     States                  *listState;
     NSMutableDictionary     *agenteInfo;
     NSMutableArray          *agenteInfoIdWs;
+    NSFetchedResultsController *fetch;
 #pragma mark - keyBoardScroll
     UITextField             *keyboardField;
     CGRect                  frame;
@@ -26,7 +27,6 @@
 - (IBAction)btnCodePota:(id)sender;
 - (IBAction)btnSearchPota:(id)sender;
 - (IBAction)btnInvite:(id)sender;
-- (NSMutableDictionary *)getInfoData;
 - (IBAction)btnLogoff:(id)sender;
 
 @end

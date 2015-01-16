@@ -19,6 +19,8 @@
 
 + (BOOL)DATA_BASE_ENTITY_SAVE:(NSFetchedResultsController *)_fetchedResultsController;
 
++ (void)APP_LOGOFF;
+
 + (NSString *)GET_TOKEN_DEVICE;
 
 + (void)LOG_MESSAGE:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel;

@@ -164,30 +164,101 @@
                                   message:ERROR_1001_MESSAGE
                                    cancel:ERROR_BUTTON_CANCEL];
             else {
-                
                 NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:TAG_SELLER];
                 for (NSDictionary *tmp in [allInfo objectForKey:TAG_SELLER])
                     agenteInfo = [tmp mutableCopy];
                 NSDictionary *idsWs = [AzParser xmlDictionary:result tagNode:@"idWsPorSite"];
                 agenteInfoIdWs = [NSMutableArray new];
-                for (NSDictionary *tmp in [idsWs objectForKey:@"idWsPorSite"]) {
+                for (NSDictionary *tmp in [idsWs objectForKey:@"idWsPorSite"]){
                     [agenteInfoIdWs addObject:tmp];
                 }
-                [self sellectSeller];
+                [self setSeller];
             }
         }
     }];
 }
 
-- (void)sellectSeller
+- (void)setSeller
 {
-    NSLog(@"%@\n%@",agenteInfo, agenteInfoIdWs);
-//    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_CODE_PERFIL];
+    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                      delegate:self
+                                        entity:TAG_USER_SELLER
+                                          sort:TAG_USER_SELLER_NAME];
+    
+    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+    
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CITY] 			forKey:TAG_USER_SELLER_CITY];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CODE] 			forKey:TAG_USER_SELLER_CODE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CODE_AGENCY] 	forKey:TAG_USER_SELLER_CODE_AGENCY];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CODE_CITY] 	forKey:TAG_USER_SELLER_CODE_CITY];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CODE_SITE] 	forKey:TAG_USER_SELLER_CODE_SITE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_DDD] 			forKey:TAG_USER_SELLER_DDD];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_DDD_CELL]  	forKey:TAG_USER_SELLER_DDD_CELL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_MAIL] 			forKey:TAG_USER_SELLER_MAIL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_FACEBOOK] 		forKey:TAG_USER_SELLER_FACEBOOK];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_FONE]  		forKey:TAG_USER_SELLER_FONE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_CELL]  		forKey:TAG_USER_SELLER_CELL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_FOTO]  		forKey:TAG_USER_SELLER_FOTO];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_GTALK] 		forKey:TAG_USER_SELLER_GTALK];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_NAME] 			forKey:TAG_USER_SELLER_NAME];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_UF_NAME] 		forKey:TAG_USER_SELLER_UF_NAME];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_GENDER]  		forKey:TAG_USER_SELLER_GENDER];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_UF] 			forKey:TAG_USER_SELLER_UF];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_SKYPE] 		forKey:TAG_USER_SELLER_SKYPE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_TWITTER] 		forKey:TAG_USER_SELLER_TWITTER];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_SELLER_WHATSAPP] 		forKey:TAG_USER_SELLER_WHATSAPP];
+    [dataBD setValue:@"" forKey:TAG_USER_SELLER_YOUTUBE];
+    
+    if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
+        [self setAgency];
+    else
+        [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                          message:ERROR_1000_MESSAGE
+                           cancel:ERROR_BUTTON_CANCEL];
+    
 }
 
-- (NSMutableDictionary *)getInfoData
+- (void)setAgency
 {
-    return agenteInfo;
+    fetch = nil;
+    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                      delegate:self
+                                        entity:TAG_USER_AGENCY
+                                          sort:TAG_USER_AGENCY_NAME];
+    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+    
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_CELL]            forKey:TAG_USER_AGENCY_CELL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_CEP]             forKey:TAG_USER_AGENCY_CEP];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_CODE]            forKey:TAG_USER_AGENCY_CODE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_COMPLEMENT]      forKey:TAG_USER_AGENCY_COMPLEMENT];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_CONTACT]         forKey:TAG_USER_AGENCY_CONTACT];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_QUARTER]         forKey:TAG_USER_AGENCY_QUARTER];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_DDD]             forKey:TAG_USER_AGENCY_DDD];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_DDD_CELL]        forKey:TAG_USER_AGENCY_DDD_CELL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_MAIL]            forKey:TAG_USER_AGENCY_MAIL];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_ADRESS]          forKey:TAG_USER_AGENCY_ADRESS];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_IDWS]            forKey:TAG_USER_AGENCY_IDWS];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_FONE]            forKey:TAG_USER_AGENCY_FONE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_LATITUDE]        forKey:TAG_USER_AGENCY_LATITUDE];
+    [dataBD setValue:agenteInfoIdWs                                               forKey:TAG_USER_AGENCY_LIST_ID_WS];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_LOGOTYPE]        forKey:TAG_USER_AGENCY_LOGOTYPE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_LONGITUDE]       forKey:TAG_USER_AGENCY_LONGITUDE];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_NAME]            forKey:TAG_USER_AGENCY_NAME];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_NAME_FANTASY]    forKey:TAG_USER_AGENCY_NAME_FANTASY];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_NUMBER_ADRESS]   forKey:TAG_USER_AGENCY_NUMBER_ADRESS];
+    [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_URL]             forKey:TAG_USER_AGENCY_URL];
+    
+    if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
+        [self nextScreen];
+    else
+        [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                          message:ERROR_1000_MESSAGE
+                           cancel:ERROR_BUTTON_CANCEL];
+}
+
+- (void)nextScreen
+{
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B1_TO_B2];
 }
 
 - (IBAction)btnInvite:(id)sender
@@ -197,7 +268,7 @@
 
 - (IBAction)btnLogoff:(id)sender
 {
-    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_DATA_USER_TRAVELLER];
+    [AppFunctions APP_LOGOFF];
     [AppFunctions POP_SCREEN:self identifier:STORYBOARD_ID_A1 animated:YES];
 }
 

@@ -904,7 +904,7 @@
                     <connections>
                         <outlet property="lblCode" destination="xSJ-iq-94s" id="ndL-CL-g1l"/>
                         <outlet property="outCodePota" destination="5ud-rk-8zh" id="2M6-nw-3i1"/>
-                        <segue destination="Krp-Rn-XNt" kind="push" identifier="codePOTA_perfilPOTA" id="WqO-0X-aMb"/>
+                        <segue destination="Krp-Rn-XNt" kind="push" identifier="B1_To_B2" id="WqO-0X-aMb"/>
                         <segue destination="mH6-b2-bqE" kind="push" identifier="perfilPotaTobuscaPota" id="VKu-vA-iwf"/>
                         <segue destination="rZ8-RY-adC" kind="push" identifier="cadastrePotaToInvitePota" id="ob1-wq-Uv9"/>
                     </connections>
