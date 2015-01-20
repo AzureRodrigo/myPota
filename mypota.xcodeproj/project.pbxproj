@@ -88,6 +88,7 @@
 		C730DC8218FD6D2000CE2B55 /* btnPerfilChangeAgente.png in Resources */ = {isa = PBXBuildFile; fileRef = C730DC8018FD6D2000CE2B55 /* btnPerfilChangeAgente.png */; };
 		C730DC8318FD6D2000CE2B55 /* btnPerfilMeuPerfil.png in Resources */ = {isa = PBXBuildFile; fileRef = C730DC8118FD6D2000CE2B55 /* btnPerfilMeuPerfil.png */; };
 		C7317C97192FDFCF0009BCEB /* menuKeyWhiteCal.png in Resources */ = {isa = PBXBuildFile; fileRef = C7317C96192FDFCF0009BCEB /* menuKeyWhiteCal.png */; };
+		C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BEC81A6E8D350019958C /* b9_User_Cadastre.m */; };
 		C7362EF51A07E742003A0D77 /* packInfoPictures.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF41A07E742003A0D77 /* packInfoPictures.m */; };
 		C7362EFA1A07F4DF003A0D77 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF91A07F4DF003A0D77 /* PageContentViewController.m */; };
 		C737D6F918F3336B00AF0214 /* btnText.png in Resources */ = {isa = PBXBuildFile; fileRef = C737D6F818F3336B00AF0214 /* btnText.png */; };
@@ -482,6 +483,8 @@
 		C730DC8118FD6D2000CE2B55 /* btnPerfilMeuPerfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnPerfilMeuPerfil.png; sourceTree = "<group>"; };
 		C7317C89192FC1700009BCEB /* AppCalendarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCalendarConfig.h; sourceTree = "<group>"; };
 		C7317C96192FDFCF0009BCEB /* menuKeyWhiteCal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuKeyWhiteCal.png; sourceTree = "<group>"; };
+		C735BEC71A6E8D350019958C /* b9_User_Cadastre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b9_User_Cadastre.h; sourceTree = "<group>"; };
+		C735BEC81A6E8D350019958C /* b9_User_Cadastre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = b9_User_Cadastre.m; sourceTree = "<group>"; };
 		C7362EF31A07E742003A0D77 /* packInfoPictures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoPictures.h; sourceTree = "<group>"; };
 		C7362EF41A07E742003A0D77 /* packInfoPictures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoPictures.m; sourceTree = "<group>"; };
 		C7362EF81A07F4DF003A0D77 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -1320,6 +1323,15 @@
 				C73CBA6018FF1FB1000A6746 /* AzCalendar.m */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		C735BEC61A6E8D0C0019958C /* new */ = {
+			isa = PBXGroup;
+			children = (
+				C735BEC71A6E8D350019958C /* b9_User_Cadastre.h */,
+				C735BEC81A6E8D350019958C /* b9_User_Cadastre.m */,
+			);
+			name = new;
 			sourceTree = "<group>";
 		};
 		C7362EF21A07E6EC003A0D77 /* pictures */ = {
@@ -2416,18 +2428,19 @@
 		C79093D819CB0C9300C10370 /* cadastre */ = {
 			isa = PBXGroup;
 			children = (
-				C79093DA19CB0CA600C10370 /* main */,
+				C79093DA19CB0CA600C10370 /* Login */,
+				C735BEC61A6E8D0C0019958C /* new */,
 			);
 			name = cadastre;
 			sourceTree = "<group>";
 		};
-		C79093DA19CB0CA600C10370 /* main */ = {
+		C79093DA19CB0CA600C10370 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				C79093DB19CB0CBC00C10370 /* b0_User_Login.h */,
 				C79093DC19CB0CBC00C10370 /* b0_User_Login.m */,
 			);
-			name = main;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		C794E14D19214E3000E3FCD7 /* main */ = {
@@ -3313,7 +3326,7 @@
 				ORGANIZATIONNAME = web;
 				TargetAttributes = {
 					C7452F7E18A41F7800F2946B = {
-						DevelopmentTeam = EL49AXP9GX;
+						DevelopmentTeam = 4GSC93JAXP;
 					};
 					C7452FA218A41F7800F2946B = {
 						TestTargetID = C7452F7E18A41F7800F2946B;
@@ -3608,6 +3621,7 @@
 				C7A9FEE919A23A0500737E48 /* voucherPotaPlanCell.m in Sources */,
 				C7621B85192F8A150058956E /* DSLCalendarDayView.m in Sources */,
 				C78D9A2019FE792F00AE081A /* packCircuits.m in Sources */,
+				C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */,
 				C78D9A2819FED3AD00AE081A /* packInfo.m in Sources */,
 				C72402E219409671006A9535 /* myPerfilPota.m in Sources */,
 				C794E1521921535200E3FCD7 /* travelPlans.m in Sources */,
@@ -3775,7 +3789,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fabiano Simm (86NHHS4MH2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3814,7 +3827,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fabiano Simm (86NHHS4MH2)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3837,7 +3849,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3851,7 +3862,6 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3863,7 +3873,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3877,7 +3886,6 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3939,7 +3947,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fabiano Simm (86NHHS4MH2)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3950,7 +3957,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "6394f83e-ee7b-4a9b-be88-bb955faf3b4d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3962,8 +3968,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3977,7 +3982,6 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "00b00970-2fc7-4202-8ddf-4952f0b84378";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

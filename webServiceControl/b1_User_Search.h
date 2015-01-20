@@ -11,13 +11,13 @@
 
 @interface b1_User_Search : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate>
 {
-    IBOutlet UIScrollView   *scrollViewData;
-    IBOutlet UITextField    *lblCode;
-    IBOutlet UIButton       *outCodePota;
-    States                  *listState;
-    NSMutableDictionary     *agenteInfo;
-    NSMutableArray          *agenteInfoIdWs;
-    NSFetchedResultsController *fetch;
+    IBOutlet UIScrollView       *scrollViewData;
+    IBOutlet UITextField        *lblCode;
+    IBOutlet UIButton           *outCodePota;
+    States                      *listState;
+    NSMutableDictionary         *agenteInfo;
+    NSMutableArray              *agenteInfoIdWs;
+    NSFetchedResultsController  *fetch;
 #pragma mark - keyBoardScroll
     UITextField             *keyboardField;
     CGRect                  frame;

@@ -1,73 +1,117 @@
 //
-//  b0_User_Login.m
-//  myPota
+//  b9_User_Cadastre.m
+//  mypota
 //
-//  Created by Rodrigo Pimentel on 18/09/14.
-//  Copyright (c) 2014 web. All rights reserved.
+//  Created by Rodrigo Pimentel on 20/01/15.
+//  Copyright (c) 2015 web. All rights reserved.
 //
 
-#import "b0_User_Login.h"
+#import "b9_User_Cadastre.h"
 
-@implementation b0_User_Login
+@implementation b9_User_Cadastre
 
 #pragma mark - configScreen
 - (void)configScreen
 {
-    [txtMail     setAccessibilityValue:@"E-Mail"];
-    [txtPassword setAccessibilityValue:@"Senha"];
-    login        = [NSMutableDictionary new];
-}
-
-- (void)configComponents
-{
+    [lblMail     setAccessibilityValue:@"E-Mail"];
+    [lblPassword setAccessibilityValue:@"Senha"];
+    [lblName     setAccessibilityValue:@"Nome"];
+    [lblCpf      setAccessibilityValue:@"Cpf"];
+    [lblCep      setAccessibilityValue:@"Cep"];
+    [lblBirth    setAccessibilityValue:@"Birth"];
+    
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_PERFIL
                                      title:@""
                                 superTitle:@""
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_BACK
-                                buttonBack:@selector(btnBackScreen:)
+                                buttonBack:@selector(backScreen:)
                              openSplitMenu:nil
                                 backButton:YES];
-    
-    [AppFunctions KEYBOARD_ADD_BAR:@[txtMail, txtPassword]
+    [AppFunctions KEYBOARD_ADD_BAR:@[lblName, lblMail, lblPassword, lblCpf, lblCep, lblBirth]
                           delegate:self
                             change:@selector(textFieldDidChange:)
                               done:@selector(keyboardDone:)
                             cancel:@selector(keyboardClear:)];
 }
 
-#pragma mark - IBAction's
-- (IBAction)btnBackScreen:(id)sender
+- (IBAction)backScreen:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - Textfield Functions
+- (BOOL)textFieldShouldBeginEditing:(UITextView *)textView
+{
+    [self textFiedEditEnd:keyboardField];
+    if ([textView.accessibilityValue isEqualToString:@"Birth"])
+    {
+        datePicker = [UIDatePicker new];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [datePicker addTarget:self action:@selector(incidentDateValueChanged:) forControlEvents:UIControlEventValueChanged];
+        textView.inputView = datePicker;
+        keyboardField = (UITextField *)textView;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        keyboardField.text = [dateFormatter stringFromDate:[datePicker date]];
+        [AppFunctions TEXT_SCREEN_UP:self
+                            textView:textView
+                               frame:frame];
+        [self cadastre:keyboardField];
+        
+    } else {
+        keyboardField = (UITextField *)textView;
+        [self textFiedEditStart:textView];
+        [AppFunctions TEXT_SCREEN_UP:self
+                            textView:textView
+                               frame:frame];
+    }
+    return YES;
+}
+
+- (IBAction) incidentDateValueChanged:(id)sender
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    lblBirth.text = [dateFormatter stringFromDate:[datePicker date]];
+    [self cadastre:lblBirth];
+}
+
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    keyboardField = textField;
+    [self cadastre:textField];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self setTextInfo:textField];
+    [self textFiedEditEnd:textField];
+    [AppFunctions TEXT_SCREEN_DOWN:self textField:textField frame:frame];
+    [self cadastre:textField];
+    return NO;
+}
+
 - (IBAction)keyboardClear:(UIBarButtonItem *)sender
 {
-    [txtSelect setText:@""];
-    [self setLogin:txtSelect];
+    [keyboardField setText:@""];
+    [self cadastre:keyboardField];
 }
 
 - (IBAction)keyboardDone:(UIBarButtonItem *)sender
 {
-    if ([txtSelect.text isEqualToString:@""])
-    {
-        if ([txtSelect.accessibilityValue isEqualToString:@"E-Mail"])
-            txtSelect.text = @"E-Mail";
-        else
-            txtSelect.text = @"Senha";
-    }
-    [txtSelect resignFirstResponder];
-    [self setLogin:txtSelect];
+    [self textFiedEditEnd:keyboardField];
+    [self setTextInfo:keyboardField];
+    [AppFunctions TEXT_SCREEN_DOWN:self textField:keyboardField frame:frame];
+    [self cadastre:keyboardField];
 }
 
-#pragma mark - Textfield Functions
-- (void)textFieldDidChange :(UITextField *)textField
+- (void)setTextInfo:(UITextField *)textField
 {
-    [self setLogin:textField];
+    [textField resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextView *)textView
+- (void)textFiedEditStart:(UITextView *)textView
 {
     if ([textView.accessibilityValue isEqualToString:@"E-Mail"])
         if ([textView.text isEqualToString:@"E-Mail"])
@@ -75,42 +119,45 @@
     if ([textView.accessibilityValue isEqualToString:@"Senha"])
         if ([textView.text isEqualToString:@"Senha"])
             textView.text = @"";
-    
-    txtSelect = (UITextField *)textView;
-    
-    [AppFunctions TEXT_SCREEN_UP:self
-                        textView:textView
-                           frame:frame];
-    return YES;
+    if ([textView.accessibilityValue isEqualToString:@"Nome"])
+        if ([textView.text isEqualToString:@"Nome"])
+            textView.text = @"";
+    if ([textView.accessibilityValue isEqualToString:@"Cpf"])
+        if ([textView.text isEqualToString:@"CPF"])
+            textView.text = @"";
+    if ([textView.accessibilityValue isEqualToString:@"Cep"])
+        if ([textView.text isEqualToString:@"CEP"])
+            textView.text = @"";
+    if ([textView.accessibilityValue isEqualToString:@"Birth"])
+        if ([textView.text isEqualToString:@"Data de Nascimento"])
+            textView.text = @"";
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+- (void)textFiedEditEnd:(UITextField *)textView
 {
-    if ([textField.text isEqualToString:@""])
-    {
-        if ([textField.accessibilityValue isEqualToString:@"E-Mail"])
-            textField.text = @"E-Mail";
-        else
-            textField.text = @"Senha";
-    }
-    
-    [self setLogin:textField];
-    [textField resignFirstResponder];
-    [AppFunctions TEXT_SCREEN_DOWN:self textField:textField frame:frame];
-    
-    return NO;
-}
-
-#pragma mark - View Actions
-- (void)viewDidLoad
-{
-    [self configScreen];
-    [super viewDidLoad];
+    if ([textView.accessibilityValue isEqualToString:@"E-Mail"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"E-Mail";
+    if ([textView.accessibilityValue isEqualToString:@"Senha"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"Senha";
+    if ([textView.accessibilityValue isEqualToString:@"Nome"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"Nome";
+    if ([textView.accessibilityValue isEqualToString:@"Cpf"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"CPF";
+    if ([textView.accessibilityValue isEqualToString:@"Cep"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"CEP";
+    if ([textView.accessibilityValue isEqualToString:@"Birth"])
+        if ([textView.text isEqualToString:@""])
+            textView.text = @"Data de Nascimento";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self configComponents];
+    [self configScreen];
     [super viewWillAppear:animated];
 }
 
@@ -120,39 +167,91 @@
     [super viewDidAppear:animated];
 }
 
-- (IBAction)btnConfigApp:(id)sender
+- (void)cadastre:(UITextField *)textField
 {
-    [self login_stepI];
-}
-
-#pragma mark - Functions
-- (void)setLogin:(UITextField *)textField
-{
-    if (textField != NULL)
-        [login setObject:textField.text
-                  forKey:textField.accessibilityValue];
-    if ([login objectForKey:@"E-Mail"] != NULL && ![[login objectForKey:@"E-Mail"] isEqualToString:@""] && ![[login objectForKey:@"E-Mail"] isEqualToString:@"E-Mail"] &&
-        [login objectForKey:@"Senha"]  != NULL && ![[login objectForKey:@"Senha"]  isEqualToString:@""])
-        [btnOtlConfigApp setEnabled:YES];
+    if (![lblMail.text isEqualToString:@""] 	&& ![lblMail.text isEqualToString:@"E-Mail"] &&
+        ![lblPassword.text isEqualToString:@""] && ![lblPassword.text isEqualToString:@"Senha"] &&
+        ![lblName.text isEqualToString:@""]     && ![lblName.text isEqualToString:@"Nome"] &&
+        ![lblCpf.text isEqualToString:@""]      && ![lblCpf.text isEqualToString:@"CPF"] &&
+        ![lblCep.text isEqualToString:@""]      && ![lblCep.text isEqualToString:@"CEP"] &&
+        ![lblBirth.text isEqualToString:@""]    && ![lblBirth.text isEqualToString:@"Data de Nascimento"])
+        
+        [otlCadastre setEnabled:YES];
     else
-        [btnOtlConfigApp setEnabled:NO];
+        [otlCadastre setEnabled:NO];
 }
 
-#pragma mark - Configurações de Web Service
-- (void)login_stepI
+- (BOOL)verifyData
 {
-    NSString *link;
-    NSString *wsComplement = [NSString stringWithFormat:WS_b0_CADASTRE_USER,
-                              txtMail.text,txtPassword.text,
-                              @"",@"",TAG_BASE_WS_LOGIN,@"",@"",@"",@"",TAG_BASE_WS_ACESS_KEY,TAG_BASE_WS_TYPE_RETURN,TAG_BASE_WS_TYPE_ACESS];
-    link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
+    if(![AppFunctions VALID_MAIL:lblMail.text]) {
+        [AppFunctions LOG_MESSAGE:@"Dados Incorretos!"
+                          message:@"O E-Mail informado está incorreto!"
+                           cancel:ERROR_BUTTON_CANCEL];
+        return NO;
+    }
+    if([lblPassword.text length] < 3) {
+        [AppFunctions LOG_MESSAGE:@"Dados Incorretos!"
+                          message:@"A Senha informado é curta de mais"
+                           cancel:ERROR_BUTTON_CANCEL];
+        return NO;
+    }
     
+    if([lblName.text length] < 3) {
+        [AppFunctions LOG_MESSAGE:@"Dados Incorretos!"
+                          message:@"O Nome informado é curto de mais"
+                           cancel:ERROR_BUTTON_CANCEL];
+        return NO;
+    }
+    
+    if(![AppFunctions VALID_CPF:lblCpf.text]){
+        [AppFunctions LOG_MESSAGE:@"Dados Incorretos!"
+                          message:@"O CPF informado está incorreto!"
+                           cancel:ERROR_BUTTON_CANCEL];
+        return NO;
+    }
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:LINK_CEP_VALIDATION, lblCep.text]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    NSDictionary *allData = (NSDictionary *)[[AzParser alloc] xmlDictionary:data tagNode:@"cep"];
+    for (NSDictionary *tmp in [allData objectForKey:@"cep"]) {
+        if (![[tmp objectForKey:@"status"] isEqualToString:@"1"])
+        {
+            [AppFunctions LOG_MESSAGE:@"Dados Incorretos!"
+                              message:@"O Cep informado está incorreto!"
+                               cancel:ERROR_BUTTON_CANCEL];
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (IBAction)btnCadastre:(id)sender
+{
+    if ([self verifyData])
+        [self stepI];
+}
+
+- (void)stepI
+{
+    NSString *wsComplement = [NSString stringWithFormat:WS_b0_CADASTRE_USER, lblMail.text, lblPassword.text,
+                              @"", @"", TAG_BASE_WS_INCLUDE, lblName.text, lblCpf.text, lblCep.text, lblBirth.text,
+                              TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN, TAG_BASE_WS_TYPE_ACESS];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
+
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
                                        APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
                                        APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
                                        APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
                                        APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
-    
+     
     [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
         if (result == nil) {
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
@@ -264,7 +363,7 @@
 
 - (void)nextScreen
 {
-    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B0_TO_B1];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B9_TO_B1];
 }
 
 @end

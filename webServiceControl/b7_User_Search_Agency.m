@@ -101,7 +101,7 @@
 {
     choiceAgenciaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Agencias *tmp = [listSearchAgencias objectAtIndex:[indexPath row]];
-    [cell.lblName setText:[[tmp.data objectForKey:@"nomeAgencia"] uppercaseString]];
+    [cell.lblName setText:[[tmp.data objectForKey:TAG_B7_USER_AGENCY_NAME] uppercaseString]];
     [cell.lblMail setText:[NSString stringWithFormat:@"%@,%@",[[tmp.data objectForKey:@"bairroAgencia"] lowercaseString], [[tmp.data objectForKey:@"enderecoAgencia"] lowercaseString]]];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
@@ -111,7 +111,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self->searchBarData resignFirstResponder];
-    [self->searchBarData setText:@"Busca"];
+    [self->searchBarData setText:@"Pesquisar"];
     self->SelectAgencia = [self->listSearchAgencias objectAtIndex:[indexPath row]];
     [self getWebServiceData:[self->SelectAgencia.data objectForKey:@"codigoAgencia"]];
 }
@@ -139,7 +139,7 @@
 {
     self->listSearchAgencias = self->listAgencias;
     [self->tableViewData reloadData];
-    [self->searchBarData setText:@"Busca"];
+    [self->searchBarData setText:@"Pesquisar"];
     [self->searchBarData resignFirstResponder];
 }
 
@@ -155,9 +155,9 @@
         self->listSearchAgencias = self->listAgencias;
     else {
         self->listSearchAgencias = self->listAgencias;
-        for (City *city in self->listSearchAgencias)
-            if ([[city.nome lowercaseString] rangeOfString:[text lowercaseString]].location != NSNotFound)
-                [tmp addObject:city];
+        for (Agencias *agency in self->listSearchAgencias)
+            if ([[[agency.data objectForKey:TAG_B7_USER_AGENCY_NAME] lowercaseString] rangeOfString:[text lowercaseString]].location != NSNotFound)
+                [tmp addObject:agency];
         self->listSearchAgencias = tmp;
     }
     [self->tableViewData reloadData];
@@ -175,8 +175,6 @@
     NSString *wsComplement = [NSString stringWithFormat:WS_URL_AGENCY_SELLERS, KEY_CODE_SITE, ID, KEY_EMPTY,
                               KEY_ACCESS_KEY, KEY_EMPTY, KEY_EMPTY, KEY_TYPE_RETURN];
     NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_SELLER, wsComplement];
-    
-    NSLog(@"%@",link);
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CHOICE_AGENCIA_LABEL_CONNECTION_START,
                                        APP_CONNECTION_TAG_WAIT 	 : CHOICE_AGENCIA_LABEL_CONNECTION_WAIT,

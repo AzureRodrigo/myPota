@@ -12,18 +12,19 @@
 
 @interface b8_User_Search_Agent : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 {
-    IBOutlet UISearchBar    *searchBarData;
-    IBOutlet UITableView    *tableViewData;
-    b7_User_Search_Agency   *backScreen;
-    NSMutableArray          *listVendedores;
-    NSMutableArray          *listVendedoresSearch;
-    NSMutableDictionary     *listImages;
-    Vendedor                *SelectVendedor;
+    IBOutlet UISearchBar        *searchBarData;
+    IBOutlet UITableView        *tableViewData;
+    b7_User_Search_Agency       *backScreen;
+    NSMutableArray              *listVendedores;
+    NSMutableArray              *listVendedoresSearch;
+    NSMutableDictionary         *listImages;
+    Vendedor                    *SelectVendedor;
+    NSFetchedResultsController  *fetch;
+    NSMutableDictionary         *agenteInfo;
+    NSMutableArray              *agenteInfoIdWs;
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frame;
 }
-
-- (NSMutableDictionary *)getInfoData;
 
 @end

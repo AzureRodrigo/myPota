@@ -79,8 +79,9 @@
 #pragma mark - keyboard Change Content
 - (void)textFieldDidChange:(UITextField *)theTextField
 {
-    if ([keyboardField.text length] > 3) {
+    if ([keyboardField.text length] > 3 && ![otlCity.titleLabel.text isEqualToString:@"Selecione a Cidade"]) {
         [self->otlSearch setEnabled:YES];
+        lblAgencia = theTextField.text;
     }
 }
 
@@ -126,8 +127,7 @@
             self->saveState  = [self->listEstadosNomes objectAtIndex:ID];
             [self reciveData:1];
             [otlCity setEnabled:YES];
-            if ([otlTxtName.text isEqualToString:@"Nome da Agência"])
-                [otlSearch setEnabled:NO];
+            [otlSearch setEnabled:NO];
         }
     }
     else
@@ -219,12 +219,11 @@
                     [self->listStateData addCity:tmp];
             }
             else if (type == 2) {
-                NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_AGENCY];
+                NSDictionary   *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_AGENCY];
                 for (NSDictionary *tmp in [allCitys objectForKey:TAG_AGENCY])
                     [self->listStateData addAgencia:tmp];
                 [self nextScreen];
             }
-            
         }
     }];
 }
@@ -272,19 +271,27 @@
 
 - (void)unClearText:(UITextField *)textView
 {
-    if ([textView.text isEqualToString:@""])
+    if ([textView.text isEqualToString:@""]) {
         textView.text = @"Nome da Agência";
+        lblAgencia = @"";
+    } else
+        lblAgencia = textView.text;
+    
+    NSLog(@"%@", lblAgencia);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    lblAgencia = textField.text;
     [self unClearText:textField];
     [textField resignFirstResponder];
+    
     return NO;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    lblAgencia = textField.text;
     return YES;
 }
 

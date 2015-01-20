@@ -194,13 +194,13 @@
 #define TAG_C0_USER_PERFIL_COD_CITY			@""
 #define TAG_C0_USER_PERFIL_NAME_CITY		@""
 
-//#define TAG_C0_USER_PERFIL_GENDER			@"sexoVendedor"
-//#define TAG_C0_USER_PERFIL_FACEBOOK		@"facebookVendedor"
-//#define TAG_C0_USER_PERFIL_SKYPE			@"skypeVendedor"
-//#define TAG_C0_USER_PERFIL_WHATSAPP		@"whatsAppVendedor"
-//#define TAG_C0_USER_PERFIL_GTALK			@"gtalkVendedor"
-//#define TAG_C0_USER_PERFIL_DATE_CADASTRE	@"dataCadastroVendedor"
-//#define TAG_C0_USER_PERFIL_NAME_AGENCY	@"nomeAgenciaVendedor"
-//#define TAG_C0_USER_PERFIL_SITE_AGENCY	@"siteAgenciaVendedor"
+
+#pragma mark - B7 User_Perfil
+
+#define TAG_B7_USER_AGENCY_NAME             @"nomeAgencia"
+
+#pragma mark - B8 User_Perfil
+
+#define TAG_B8_USER_SELLER_NAME             @"nomeVendedor"
 
 #endif
