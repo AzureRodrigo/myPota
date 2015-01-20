@@ -12,103 +12,85 @@
 
 - (void)viewDidLoad
 {
-    [tableViewData setBackgroundColor:[UIColor clearColor]];
-    [tableViewData setDelaysContentTouches:NO];
-    [self initMemory];
-    [self initScreenInfo];
-    [self initButtons];
+    [self initData];
+//    [self initButtons];
     [super viewDidLoad];
 }
 
-- (void)initMemory
+#pragma mark - config Screen
+- (void)initData
 {
+    dataSeller = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    dataAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
     
-    contactInfo = @[@{@"txt" : @"Telefone", @"img" : @"perfilBtnChamada"},
-                    @{@"txt" : @"E-mail", 	@"img" : @"perfilBtnMail"},
-                    @{@"txt" : @"Facebook", @"img" : @"perfilBtnFace"},
-                    @{@"txt" : @"Mensagem", @"img" : @"perfilBtnMessage"},
-                    @{@"txt" : @"Skype", 	@"img" : @"perfilBtnSkype"},
-                    @{@"txt" : @"Whatsapp", @"img" : @"perfilBtnWhatsapp"}];
-    
-    NSMutableDictionary *list = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    if ([[list objectForKey:@"Chosen"] boolValue]) {
-        listInfos = [list objectForKey:@"Agencia"];
-        [listInfos addEntriesFromDictionary:[list objectForKey:@"Vendedor"]];
-        [listInfos setObject:USER_TYPE forKey:[list objectForKey:USER_TYPE]];
-    } else {
-        backScreen = (b1_User_Search *)[AppFunctions BACK_SCREEN:self number:1];
-//        listInfos  = [backScreen getInfoData];
-        [self saveData];
-    }
+    [self initScreen];
 }
 
-#pragma mark -configureScreen
-- (void)initScreenInfo
+- (void)initScreen
 {
-    [AppFunctions LOAD_IMAGE_ASYNC:[listInfos objectForKey:@"fotoVendedor"] completion:^(UIImage *image) {
+    [AppFunctions LOAD_IMAGE_ASYNC:[dataSeller objectForKey:TAG_USER_SELLER_FOTO] completion:^(UIImage *image) {
         [imgPerfil setImage:image];
     }];
     
     NSString *newName  = @"";
     NSString *lastName = @"";
-    for (int i = 0; i < [[listInfos objectForKey:@"nomeVendedor"] length]; i++) {
-        NSString *tmp = [[listInfos objectForKey:@"nomeVendedor"] substringWithRange:NSMakeRange(i, 1)];
+    for (int i = 0; i < [[dataSeller objectForKey:TAG_USER_SELLER_NAME] length]; i++) {
+        NSString *tmp = [[dataSeller objectForKey:TAG_USER_SELLER_NAME] substringWithRange:NSMakeRange(i, 1)];
         if ([tmp isEqualToString:@" "]) {
-            newName = [[listInfos objectForKey:@"nomeVendedor"] substringWithRange:NSMakeRange(0, i)];
+            newName = [[dataSeller objectForKey:TAG_USER_SELLER_NAME] substringWithRange:NSMakeRange(0, i)];
             break;
         }
     }
     
     if ([newName length] <=0 ) {
-        newName = [listInfos objectForKey:@"nomeVendedor"];
+        newName = [dataSeller objectForKey:TAG_USER_SELLER_NAME];
     }
     
-    for (int i = (int)[[listInfos objectForKey:@"nomeVendedor"] length]-1; i > 0 ; i--) {
-        NSString *tmp = [[listInfos objectForKey:@"nomeVendedor"] substringWithRange:NSMakeRange(i, 1)];
+    for (int i = (int)[[dataSeller objectForKey:TAG_USER_SELLER_NAME] length]-1; i > 0 ; i--) {
+        NSString *tmp = [[dataSeller objectForKey:TAG_USER_SELLER_NAME]substringWithRange:NSMakeRange(i, 1)];
         if ([tmp isEqualToString:@" "]) {
-            int size = (int)[[listInfos objectForKey:@"nomeVendedor"] length] - i;
-            lastName = [[listInfos objectForKey:@"nomeVendedor"] substringWithRange:NSMakeRange(i, size)];
+            int size = (int)[[dataSeller objectForKey:TAG_USER_SELLER_NAME] length] - i;
+            lastName = [[dataSeller objectForKey:TAG_USER_SELLER_NAME] substringWithRange:NSMakeRange(i, size)];
             break;
         }
     }
+    
     [self->lblName       setText:[NSString stringWithFormat:@"%@%@",newName,lastName]];
-    [self->lblNameAgency setText:[NSString stringWithFormat:@"%@",[listInfos objectForKey:@"nomeAgenciaVendedor"]]];
-    [self->lblMail       setText:[NSString stringWithFormat:@"%@",
-                                  [listInfos objectForKey:@"emailAgenciaVendedor"]]];
+    [self->lblNameAgency setText:[NSString stringWithFormat:@"%@",[dataAgency objectForKey:TAG_USER_AGENCY_NAME]]];
+    [self->lblMail       setText:[NSString stringWithFormat:@"%@",[dataAgency objectForKey:TAG_USER_AGENCY_MAIL]]];
     
     self->mapState = [[self->listState objectForKey:PLIST_STATE_TAG_LOCAL]objectForKey:PLIST_STATE_TAG_STATES];
     self->mapCity  = [[self->listState objectForKey:PLIST_STATE_TAG_LOCAL]objectForKey:PLIST_STATE_TAG_CITYS];
     
     if (self->mapState == NULL)
-        self->mapState = [listInfos objectForKey:@"nomeUfVendedor"];
+        self->mapState = [dataSeller objectForKey:TAG_USER_SELLER_UF_NAME];
     if (self->mapCity == NULL)
-        self->mapCity = [listInfos objectForKey:@"cidadeVendedor"];
+        self->mapCity = [dataSeller objectForKey:TAG_USER_SELLER_CITY];
 }
 
-#pragma mark -buttonScreen
 - (void)initButtons
 {
     //btnMail
-    if ([[listInfos objectForKey:@"enderecoAgenciaVendedor"] isEqualToString:@""] && [[listInfos objectForKey:@"cepAgenciaVendedor"] isEqualToString:@""]
+    if ([[dataAgency objectForKey:TAG_USER_AGENCY_ADRESS] isEqualToString:@""] && [[dataAgency objectForKey:TAG_USER_AGENCY_CEP] isEqualToString:@""]
         && self->mapState != NULL && self->mapCity != NULL)
         [self->otlMap setEnabled:NO];
     //btnFone and btnWhats
-    if ([[listInfos objectForKey:@"foneCelularVendedor"] isEqualToString:@""] || [listInfos objectForKey:@"foneCelularVendedor"] == NULL)
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_CELL] isEqualToString:@""])
     {
         [self->otlFone setEnabled:NO];
         [self->otlMessenge setEnabled:NO];
     }
     //btnMail
-    if ([[listInfos objectForKey:@"emailVendedor"] isEqualToString:@""] || [listInfos objectForKey:@"emailVendedor"] == NULL)
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_MAIL] isEqualToString:@""])
         [self->otlMail setEnabled:NO];
     //btnFace
-    if ([[listInfos objectForKey:@"facebookVendedor"] isEqualToString:@""]  || [listInfos objectForKey:@"facebookVendedor"] == NULL)
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_FACEBOOK] isEqualToString:@""])
         [self->otlFace setEnabled:NO];
     //btnSkype
-    if ([[listInfos objectForKey:@"skypeVendedor"] isEqualToString:@""] || [listInfos objectForKey:@"skypeVendedor"] == NULL)
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_SKYPE] isEqualToString:@""])
         [self->otlSkype setEnabled:NO];
     //btnWhatsApp
-    if ([[listInfos objectForKey:@"whatsupVendedor"] isEqualToString:@""] || [listInfos objectForKey:@"whatsupVendedor"] == NULL)
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_WHATSAPP] isEqualToString:@""])
         [self->otlWhatsapp setEnabled:NO];
 }
 
@@ -140,10 +122,10 @@
 - (IBAction)btnMap:(id)sender
 {
     NSString *address = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                         [listInfos objectForKey:@"enderecoAgenciaVendedor"],
+                         [dataAgency objectForKey:TAG_USER_AGENCY_ADRESS],
                          self->mapCity,
                          self->mapState,
-                         [listInfos objectForKey:@"cepAgenciaVendedor"]];
+                         [dataAgency objectForKey:TAG_USER_AGENCY_CEP]];
     NSString *mapAddress = [@"http://maps.apple.com/?q=" stringByAppendingString:[address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     BOOL result = [[UIApplication sharedApplication] openURL: [NSURL URLWithString: mapAddress]];
     if (!result)
@@ -159,18 +141,11 @@
                     animated:YES];
 }
 
-- (IBAction)btnChat:(id)sender
-{
-    //    [AppFunctions POP_SCREEN:self
-    //                  identifier:@"menuPOTA"
-    //                    animated:YES];
-}
-
 - (IBAction)btnFone:(id)sender
 {
-    NSString *fone = [listInfos objectForKey:@"foneCelularVendedor"];
-    if (![[listInfos objectForKey:@"dddCelularVendedor"] isEqualToString:@""])
-        fone = [NSString stringWithFormat:@"+55 %@ %@", [listInfos objectForKey:@"dddCelularVendedor"], [listInfos objectForKey:@"foneCelularVendedor"]];
+    NSString *fone = [dataSeller objectForKey:TAG_USER_SELLER_CELL];
+    if (![[dataSeller objectForKey:TAG_USER_SELLER_DDD_CELL] isEqualToString:@""])
+        fone = [NSString stringWithFormat:@"+55 %@ %@", [dataSeller objectForKey:TAG_USER_SELLER_DDD_CELL], [dataSeller objectForKey:TAG_USER_SELLER_CELL]];
     NSString *cleanedString = [[fone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
     BOOL result = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"tel://" stringByAppendingString:cleanedString]]];
     if (!result)
@@ -181,7 +156,7 @@
 
 - (IBAction)btnMail:(id)sender
 {
-    NSArray *toRecipients = [NSArray arrayWithObjects:[listInfos objectForKey:@"emailVendedor"], nil];
+    NSArray *toRecipients = [NSArray arrayWithObjects:[dataSeller objectForKey:TAG_USER_SELLER_MAIL], nil];
     NSString *subject     = @"aplicativo myPota";
     NSString *body        = @"Enviado via myPota";
     
@@ -220,7 +195,7 @@
 
 - (IBAction)btnFace:(id)sender
 {
-    NSString *infoFace = [listInfos objectForKey:@"facebookVendedor"];
+    NSString *infoFace = [dataSeller objectForKey:TAG_USER_SELLER_FACEBOOK];
     infoFace           = [infoFace stringByReplacingOccurrencesOfString:@"https://" withString:@""];
     infoFace           = [infoFace stringByReplacingOccurrencesOfString:@"http://" withString:@""];
     infoFace           = [infoFace stringByReplacingOccurrencesOfString:@"www.facebook.com/" withString:@""];
@@ -264,7 +239,7 @@
 {
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"skype:"]];
     if(installed){
-        BOOL result = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"skype://%@?call", [listInfos objectForKey:@"skypeVendedor"]]]];
+        BOOL result = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"skype://%@?call", [dataSeller objectForKey:TAG_USER_SELLER_SKYPE]]]];
         if (!result)
             [AppFunctions LOG_MESSAGE:ERROR_1008_TITLE
                               message:ERROR_1008_MESSAGE
@@ -280,9 +255,9 @@
 
 - (IBAction)btnMenssage:(id)sender
 {
-    NSString *fone = [listInfos objectForKey:@"foneCelularVendedor"];
-    if (![[listInfos objectForKey:@"dddCelularVendedor"] isEqualToString:@""])
-        fone = [NSString stringWithFormat:@"%@ %@", [listInfos objectForKey:@"dddCelularVendedor"], fone];
+    NSString *fone = [dataSeller objectForKey:TAG_USER_SELLER_CELL];
+    if (![[dataSeller objectForKey:TAG_USER_SELLER_DDD_CELL] isEqualToString:@""])
+        fone = [NSString stringWithFormat:@"%@ %@", [dataSeller objectForKey:TAG_USER_SELLER_DDD_CELL], fone];
     NSString *cleanedString = [[fone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
     NSString *stringURL = [NSString stringWithFormat:@"sms:+%@", cleanedString];
     
@@ -313,116 +288,12 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        NSDictionary *contact = @{WHATSAPP_CONTACT_NAME  : [listInfos objectForKey:@"nomeVendedor"],
-                                  WHATSAPP_CONTACT_FONE  : [listInfos objectForKey:@"whatsupVendedor"],
+        NSDictionary *contact = @{WHATSAPP_CONTACT_NAME  : [dataSeller objectForKey:TAG_USER_SELLER_NAME],
+                                  WHATSAPP_CONTACT_FONE  : [dataSeller objectForKey:TAG_USER_SELLER_WHATSAPP],
                                   WHATSAPP_CONTACT_IMAGE : imgPerfil.image };
         [WhatsAppKit CALL_WHATSAPP:contact
                            message:@""];
     }
-}
-
-- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    [self->menuOption close];
-}
-
-- (IBAction)btnMyPerfil:(id)sender
-{
-    [self->menuOption close];
-}
-
-- (IBAction)btnStoryBuy:(id)sender
-{
-    [self->menuOption close];
-}
-
-- (IBAction)btnChangePota:(id)sender
-{
-    listInfos = [[NSMutableDictionary alloc] initWithContentsOfFile:
-                 [AppFunctions PLIST_SAVE:PLIST_STATE_TAG_SELLER]];
-    [listInfos setObject:@NO forKey:PLIST_STATE_TAG_CHOSEN];
-    [listInfos writeToFile:[AppFunctions PLIST_SAVE:PLIST_STATE_TAG_SELLER] atomically:YES];
-    [self->menuOption close];
-    [self performSegueWithIdentifier:STORY_BOARD_PERFIL_SEARCH sender:self];
-}
-
-#pragma mark - savePlist
--(void)saveData
-{
-    NSMutableDictionary *listSellInfo = [AppFunctions PLIST_PATH:PLIST_SELLER_NAME type:@"plist"];
-    NSMutableDictionary *data = [[NSMutableDictionary alloc]initWithDictionary: listSellInfo];
-    [data setObject:USER_CLIENT forKey:USER_TYPE];
-    
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_URL_SITE]
-                                      forKey:AGENCY_DATA_URL_SITE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_BAIRRO]
-                                      forKey:AGENCY_DATA_BAIRRO];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_CELULAR]
-                                      forKey:AGENCY_DATA_CELULAR];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_CODE]
-                                      forKey:AGENCY_DATA_CODE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_CODE_SITE]
-                                      forKey:AGENCY_DATA_CODE_SITE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_COMPLEMENTO]
-                                      forKey:AGENCY_DATA_COMPLEMENTO];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_CONTATO]
-                                      forKey:AGENCY_DATA_CONTATO];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_DDD]
-                                      forKey:AGENCY_DATA_DDD];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_DDD_CELULAR]
-                                      forKey:AGENCY_DATA_DDD_CELULAR];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_MAIL]
-                                      forKey:AGENCY_DATA_MAIL];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_ADRESS]
-                                      forKey:AGENCY_DATA_ADRESS];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_FANTASY_NAME]
-                                      forKey:AGENCY_DATA_FANTASY_NAME];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_FONE]
-                                      forKey:AGENCY_DATA_FONE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_IDWS]
-                                      forKey:AGENCY_DATA_IDWS];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_IDWS_SITE]
-                                      forKey:AGENCY_DATA_IDWS_SITE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_LATITUDE]
-                                      forKey:AGENCY_DATA_LATITUDE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_LOGO]
-                                      forKey:AGENCY_DATA_LOGO];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_LONGITUDE]
-                                      forKey:AGENCY_DATA_LONGITUDE];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_NAME]
-                                      forKey:AGENCY_DATA_NAME];
-    [[data objectForKey:@"Agencia"]setObject:[listInfos objectForKey:AGENCY_DATA_MUBER]
-                                      forKey:AGENCY_DATA_MUBER];
-    
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_CITY]         forKey:SELLER_DATA_CITY];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_CEP]          forKey:SELLER_DATA_CEP];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_CITY_CODE]    forKey:SELLER_DATA_CITY_CODE];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_CODE]         forKey:SELLER_DATA_CODE];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_DDD_CELULAR]  forKey:SELLER_DATA_DDD_CELULAR];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_DDD]          forKey:SELLER_DATA_DDD];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_MAIL]         forKey:SELLER_DATA_MAIL];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_FACE]         forKey:SELLER_DATA_FACE];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_FONE_CELULAR] forKey:SELLER_DATA_FONE_CELULAR];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_FONE]         forKey:SELLER_DATA_FONE];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_FOTO]         forKey:SELLER_DATA_FOTO];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_GTALK]        forKey:SELLER_DATA_GTALK];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_UF_NAME]      forKey:SELLER_DATA_UF_NAME];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_NAME]         forKey:SELLER_DATA_NAME];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_GENDER]       forKey:SELLER_DATA_GENDER];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_UF]           forKey:SELLER_DATA_UF];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_SKYPE]        forKey:SELLER_DATA_SKYPE];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_TWIITER]      forKey:SELLER_DATA_TWIITER];
-    [[data objectForKey:@"Vendedor"]setObject:[listInfos objectForKey:SELLER_DATA_WHATSAPP]     forKey:SELLER_DATA_WHATSAPP];
-    
-    [data setObject:@YES forKey:PLIST_STATE_TAG_CHOSEN];
-    
-    listSellInfo = data;
-    
-    BOOL result = [data writeToFile:[AppFunctions PLIST_SAVE:PLIST_STATE_TAG_SELLER] atomically:YES];
-    
-    if (!result)
-        NSLog(@"Save fail");
-    
-    NSLog(@"%@",data);
 }
 
 @end

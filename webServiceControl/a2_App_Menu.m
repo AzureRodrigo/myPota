@@ -12,10 +12,7 @@
 
 - (void)initSellerData
 {
-    listSellInfo = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    if ([[listSellInfo objectForKey:@"Chosen"] boolValue])
-        [otlMeuAgente setImage:[UIImage imageNamed:@"btnAgente04"]
-                      forState:UIControlStateNormal];
+    dataUser = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_TYPE];
 }
 
 - (void)viewDidLoad
@@ -82,14 +79,13 @@
 {
     switch ([indexPath row] + 1) {
         case 1:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
-            
+            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
             break;
         case 2:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_ASSISTENCIA sender:self];
+            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_ASSISTENCIA sender:self];
             break;
         case 3:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
+            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
             break;
         case 4:
             //            [self performSegueWithIdentifier:@"teste" sender:self];
@@ -104,7 +100,7 @@
             //            [self performSegueWithIdentifier:STORY_BOARD_MENU_INGRESSOS sender:self];
             break;
         case 8:
-                [self performSegueWithIdentifier:@"PickerTest" sender:self];
+            [self performSegueWithIdentifier:@"PickerTest" sender:self];
             break;
         default:
             break;
@@ -113,14 +109,10 @@
 
 - (IBAction)btnMeuAgente:(id)sender
 {
-    if ([[listSellInfo objectForKey:@"Chosen"] boolValue])
-    {
-        if ([[listSellInfo objectForKey:USER_TYPE] isEqualToString:USER_SELLER])
-            [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_MENU_AGENTE_PERFIL];
-        else
-            [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_MENU_PERFIL];
-    }else
-        [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_MENU_CADASTRO];
+    if ([[dataUser objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+        [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_C1];
+    else
+        [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_B2];
 }
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "infoPota.h"
+#import "d0_Info_Pota.h"
 
-@interface infoPota ()
+@interface d0_Info_Pota ()
 
 @end
 
-@implementation infoPota
+@implementation d0_Info_Pota
 
 
 - (void)didReceiveMemoryWarning {

@@ -7,20 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "c0_Agent_Login.h"
 #import "agentePerfilPotaCell.h"
 #import "agentePerfilPotaCellConfirm.h"
 
-@interface c1_Agent_Perfil_Pota : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface c1_Agent_Perfil_Pota : UIViewController
 {
     IBOutlet UIImageView *SellerImage;
     IBOutlet UILabel     *SellerName;
     IBOutlet UILabel     *SellerAgency;
     IBOutlet UILabel     *SellerMail;
-    IBOutlet UITableView *tableView;
-    c0_Agent_Login       *backScreen;
-    NSMutableDictionary  *listInfos;
-    NSMutableDictionary  *listContact;
+    
+#pragma mark -loadData
+    NSDictionary            *dataSeller;
+    NSDictionary            *dataAgency;
+    NSMutableDictionary 	*listState;
+    
 #pragma mark -map
     IBOutlet UIButton       *otlMap;
     NSString 				*mapState;
@@ -29,7 +30,6 @@
 
 - (IBAction)btnMap:(id)sender;
 - (IBAction)btnClients:(id)sender;
-- (IBAction)btnEditInfo:(id)sender;
 - (IBAction)btnMenu:(id)sender;
 
 @end

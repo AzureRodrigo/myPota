@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "b1_User_Search.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
-#import "CustomIOS7AlertView.h"
 #import "WhatsAppKit.h"
 #import "myPerfilRessourcesCell.h"
 #import "myPerfilChatBtn.h"
@@ -21,10 +19,9 @@
 [listInfos objectForKey:@""]
 */
 
-@interface b2_User_Pefil_Pota : UIViewController <MFMailComposeViewControllerDelegate,CustomIOS7AlertViewDelegate> //UITableViewDataSource, UITableViewDelegate>
+@interface b2_User_Pefil_Pota : UIViewController <MFMailComposeViewControllerDelegate,CustomIOS7AlertViewDelegate>
 {
-    IBOutlet UITableView    *tableViewData;
-    NSArray                 *contactInfo;
+
 #pragma mark -outlets images
     UIImageView             *imgPerfil;
 #pragma mark -outlets buttons
@@ -35,17 +32,15 @@
     IBOutlet UILabel 		*lblNameAgency;
     IBOutlet UILabel 		*lblMail;
 #pragma mark -loadData
-    NSMutableDictionary 	*listInfos;
+    NSDictionary            *dataSeller;
+    NSDictionary            *dataAgency;
     NSMutableDictionary 	*listState;
 #pragma mark -plist
     NSString 				*path;
     NSString 				*pathState;
-    b1_User_Search 			*backScreen;
 #pragma mark -map
     NSString 				*mapState;
     NSString 				*mapCity;
-#pragma mark -menuOption
-    CustomIOS7AlertView 	*menuOption;
     
 #pragma mark -ButtonsCommunication
     IBOutlet UIButton *otlMail;
@@ -58,7 +53,6 @@
 
 #pragma mark -actions button
 - (IBAction)btnMap:(id)sender;
-- (IBAction)btnChat:(id)sender;
 - (IBAction)btnGoMenu:(id)sender;
 
 #pragma mark -ButtonsCommunication

@@ -1,5 +1,5 @@
 //
-//  infoPota.h
+//  d0_Info_Pota.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 08/12/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface infoPota : UIViewController
+@interface d0_Info_Pota : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *lblVersion;
 @property (strong, nonatomic) IBOutlet UILabel *lblContact;

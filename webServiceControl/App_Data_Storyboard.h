@@ -30,13 +30,22 @@
 #define STORYBOARD_ID_C2 @"c2AgentChat"
 
 #pragma mark - Storyboard ID Block D
-//#define STORYBOARD_ID_D0 @"d0_Package_Search"
+#define STORYBOARD_ID_D0 @"d0_Info_Pota"
 
 #pragma mark - Storyboard ID Block E
-//#define STORYBOARD_ID_E0 @"d0_Hotel_Search
+//#define STORYBOARD_ID_E0 @"E0_Package_Search"
 
 #pragma mark - Storyboard ID Block F
-//#define STORYBOARD_ID_F0 @"d0_Package_Search
+//#define STORYBOARD_ID_F0 @"F0_Hotel_Search"
+
+#pragma mark - Storyboard ID Block G
+//#define STORYBOARD_ID_G0 @"G0_Travel_Search"
+
+#pragma mark - Storyboard ID Block H
+#define STORYBOARD_ID_H0 @"H0_Volcher_Search"
+
+#pragma mark - Storyboard ID Block I
+#define STORYBOARD_ID_I0 @"I0_My_Data"
 
 #pragma mark - Segues Block A
 #define SEGUE_A2_TO_B2 @"A2_To_B2"

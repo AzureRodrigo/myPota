@@ -32,16 +32,59 @@
     [tableViewData setScrollEnabled:NO];
     [[self view] addSubview:tableViewData];
     //setListaOption
-    listOptions = @[@{@"IMAGE"   : @"splitItemHome",
-                      @"DESTINE" : STORYBOARD_ID_A2},
-                    @{@"IMAGE"   : @"splitItemPurchase",
-                      @"DESTINE" : @"voucherListPota"},
-                    @{@"IMAGE"   : @"splitItemAgent",
-                      @"DESTINE" : STORYBOARD_ID_B1},
-                    @{@"IMAGE"   : @"splitItemMyData",
-                      @"DESTINE" : STORYBOARD_ID_A1},
-                    @{@"IMAGE"   : @"splitItemInfo",
-                      @"DESTINE" : @"infoPota"}];
+    
+    
+    dataUser = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_TYPE];
+    
+    if ([[dataUser objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+    {
+        if ([[AppMenuView getMenuView].superView.restorationIdentifier isEqualToString: STORYBOARD_ID_A2])
+        {
+            listOptions = @[@{@"IMAGE"   : @"splitItemPurchase",
+                              @"DESTINE" : STORYBOARD_ID_H0},
+                            @{@"IMAGE"   : @"splitItemLogoff",
+                              @"DESTINE" : STORYBOARD_ID_A1},
+                            @{@"IMAGE"   : @"splitItemInfo",
+                              @"DESTINE" : STORYBOARD_ID_D0}];
+        } else {
+            listOptions = @[@{@"IMAGE"   : @"splitItemHome",
+                              @"DESTINE" : STORYBOARD_ID_A2},
+                            @{@"IMAGE"   : @"splitItemPurchase",
+                              @"DESTINE" : STORYBOARD_ID_H0},
+                            @{@"IMAGE"   : @"splitItemLogoff",
+                              @"DESTINE" : STORYBOARD_ID_A1},
+                            @{@"IMAGE"   : @"splitItemInfo",
+                              @"DESTINE" : STORYBOARD_ID_D0}];
+        }
+    } else {
+        if ([[AppMenuView getMenuView].superView.restorationIdentifier isEqualToString: STORYBOARD_ID_A2])
+        {
+            listOptions = @[
+                            @{@"IMAGE"   : @"splitItemPurchase",
+                              @"DESTINE" : STORYBOARD_ID_H0},
+                            @{@"IMAGE"   : @"splitItemMyData",
+                              @"DESTINE" : STORYBOARD_ID_I0},
+                            @{@"IMAGE"   : @"splitItemAgent",
+                              @"DESTINE" : STORYBOARD_ID_B1},
+                            @{@"IMAGE"   : @"splitItemLogoff",
+                              @"DESTINE" : STORYBOARD_ID_A1},
+                            @{@"IMAGE"   : @"splitItemInfo",
+                              @"DESTINE" : STORYBOARD_ID_D0}];
+        } else {
+            listOptions = @[@{@"IMAGE"   : @"splitItemHome",
+                              @"DESTINE" : STORYBOARD_ID_A2},
+                            @{@"IMAGE"   : @"splitItemPurchase",
+                              @"DESTINE" : STORYBOARD_ID_H0},
+                            @{@"IMAGE"   : @"splitItemMyData",
+                              @"DESTINE" : STORYBOARD_ID_I0},
+                            @{@"IMAGE"   : @"splitItemAgent",
+                              @"DESTINE" : STORYBOARD_ID_B1},
+                            @{@"IMAGE"   : @"splitItemLogoff",
+                              @"DESTINE" : STORYBOARD_ID_A1},
+                            @{@"IMAGE"   : @"splitItemInfo",
+                              @"DESTINE" : STORYBOARD_ID_D0}];
+        }
+    }
 }
 
 #pragma mark - Number of Sections
@@ -111,23 +154,22 @@
 #pragma mark - Table Cell Select
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self changePersonPota:[[listOptions objectAtIndex:[indexPath row]]objectForKey:@"DESTINE"]];
+    [self option:[[listOptions objectAtIndex:[indexPath row]]objectForKey:@"DESTINE"]];
 }
 
-- (void)changePersonPota:(NSString *)identifier
+- (void)option:(NSString *)identifier
 {
     [[AppMenuView getMenuView].superView.slideNavigationViewController slideWithDirectionNoAnimation:MWFSlideDirectionNone];
-    if ([identifier isEqualToString:STORYBOARD_ID_B1])
-    {
-        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
-        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
-        [AppFunctions POP_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
-    } else if([identifier isEqualToString:STORYBOARD_ID_A1]) {
-        [AppFunctions APP_LOGOFF];
-        [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
-    }else
-        [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
     
+    if ([identifier isEqualToString:STORYBOARD_ID_A1]) {
+        [AppFunctions APP_LOGOFF];
+        [AppFunctions POP_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
+    } else if ([identifier isEqualToString:STORYBOARD_ID_B1]) {
+        [AppFunctions APP_SELECT_SELLER];
+        [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
+    } else {
+        [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];
+    }
 }
 
 @end

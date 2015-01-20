@@ -21,6 +21,8 @@
 
 + (void)APP_LOGOFF;
 
++ (void)APP_SELECT_SELLER;
+
 + (NSString *)GET_TOKEN_DEVICE;
 
 + (void)LOG_MESSAGE:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel;

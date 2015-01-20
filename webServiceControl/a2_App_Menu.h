@@ -13,7 +13,7 @@
 {
     IBOutlet UITableView *tableViewData;
     IBOutlet UIButton    *otlMeuAgente;
-    NSMutableDictionary  *listSellInfo;
+    NSDictionary         *dataUser;
 }
 
 - (IBAction)btnMeuAgente:(id)sender;

@@ -674,14 +674,14 @@
                                 <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rodrigoazurex@gmail.com" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="lEw-fT-2vc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fabiano@esfera.com.br" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="lEw-fT-2vc">
                                 <rect key="frame" x="25" y="45" width="270" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="qaf-H7-W09">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="esfera" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="qaf-H7-W09">
                                 <rect key="frame" x="25" y="100" width="270" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1060,7 +1060,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnChat:" destination="Krp-Rn-XNt" eventType="touchUpInside" id="3Ul-Gu-oEZ"/>
                                     <segue destination="Ve5-gy-eo0" kind="push" id="HNv-kq-kEc"/>
                                 </connections>
                             </button>
@@ -1124,43 +1123,6 @@
                                     <action selector="btnWhatsapp:" destination="Krp-Rn-XNt" eventType="touchUpInside" id="ceU-8f-SWV"/>
                                 </connections>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="UIk-UH-Ref">
-                                <rect key="frame" x="0.0" y="421" width="320" height="326"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellRessource" rowHeight="50" id="tVf-2j-J8t" customClass="myPerfilRessourcesCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tVf-2j-J8t" id="2Jh-08-sgw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perfilBtnSkype.png" id="37E-9j-S2I">
-                                                    <rect key="frame" x="20" y="5" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recurso" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Omg-03-HQs" userLabel="Label - Meu Agente">
-                                                    <rect key="frame" x="85" y="11" width="200" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="pAq-8p-ibV">
-                                                    <rect key="frame" x="0.0" y="50" width="320" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgDotLine" destination="pAq-8p-ibV" id="Hci-Pm-4kI"/>
-                                            <outlet property="imgIcon" destination="37E-9j-S2I" id="sXe-a3-1PW"/>
-                                            <outlet property="lblRessource" destination="Omg-03-HQs" id="Ea1-x4-EsW"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AXE-SC-2Ek" userLabel="Config">
                                 <rect key="frame" x="19" y="313" width="282" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1189,7 +1151,6 @@
                         <outlet property="otlMessenge" destination="qTF-ya-k6y" id="im3-ej-dtQ"/>
                         <outlet property="otlSkype" destination="XpF-O2-IUN" id="7Cq-6a-0IC"/>
                         <outlet property="otlWhatsapp" destination="5JF-cM-6Th" id="jhg-rL-nyk"/>
-                        <outlet property="tableViewData" destination="UIk-UH-Ref" id="acH-0S-odC"/>
                         <segue destination="sEq-W2-gNf" kind="push" identifier="potaPerfilTopotaMenu" id="hRG-pQ-h2L"/>
                     </connections>
                 </viewController>
@@ -4100,7 +4061,7 @@ o Pagamento”, reconhece que:</string>
         <!--Voucher List Pota-->
         <scene sceneID="0AD-Wc-5jp">
             <objects>
-                <viewController storyboardIdentifier="voucherListPota" id="2eG-OV-bjm" customClass="voucherListPota" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="H0_Volcher_Search" id="2eG-OV-bjm" customClass="voucherListPota" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bOq-CZ-hyc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4252,10 +4213,10 @@ o Pagamento”, reconhece que:</string>
             </objects>
             <point key="canvasLocation" x="-4275" y="-944"/>
         </scene>
-        <!--Info Pota-->
+        <!--D0 Info Pota-->
         <scene sceneID="BsW-jg-mG4">
             <objects>
-                <viewController storyboardIdentifier="infoPota" id="LNV-ot-F4Y" customClass="infoPota" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="d0_Info_Pota" id="LNV-ot-F4Y" customClass="d0_Info_Pota" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ccj-os-Bc0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4290,10 +4251,24 @@ o Pagamento”, reconhece que:</string>
             </objects>
             <point key="canvasLocation" x="-4275" y="-1575"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="QXZ-LL-uc6">
+            <objects>
+                <viewController storyboardIdentifier="I0_My_Data" id="i0D-ch-hP4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u7x-wg-JFe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAs-i8-bum" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3741" y="-1575"/>
+        </scene>
         <!--A2 App Menu-->
         <scene sceneID="leh-l0-Kbe">
             <objects>
-                <viewController storyboardIdentifier="a2AppMenu" autoresizesArchivedViewToFullSize="NO" id="sEq-W2-gNf" customClass="a2_App_Menu" sceneMemberID="viewController">
+                <viewController restorationIdentifier="a2AppMenu" storyboardIdentifier="a2AppMenu" autoresizesArchivedViewToFullSize="NO" id="sEq-W2-gNf" customClass="a2_App_Menu" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yyV-L3-juf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -4333,7 +4308,7 @@ o Pagamento”, reconhece que:</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Gs-sA-a4M" userLabel="BtnMenu">
                                 <rect key="frame" x="20" y="370" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="agente01.png">
+                                <state key="normal" image="btnAgente04.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -4351,13 +4326,13 @@ o Pagamento”, reconhece que:</string>
                     <connections>
                         <outlet property="otlMeuAgente" destination="0Gs-sA-a4M" id="MYY-CY-tH1"/>
                         <outlet property="tableViewData" destination="24s-VL-T2Q" id="vHC-kD-c60"/>
-                        <segue destination="Krp-Rn-XNt" kind="push" identifier="menuPotaToperfilPota" id="dfT-L0-weW"/>
+                        <segue destination="Krp-Rn-XNt" kind="push" identifier="A2_To_B2" id="dfT-L0-weW"/>
                         <segue destination="yDr-wj-1gZ" kind="push" identifier="menuPotaTomenuHotel" id="7cB-KG-8Ku"/>
                         <segue destination="9pt-5W-zrU" kind="push" identifier="menuPotaToviagemPota" id="ZQ4-jj-X3y"/>
                         <segue destination="0dx-oG-emP" kind="push" identifier="teste" id="HeL-UY-ekR"/>
                         <segue destination="8XS-3n-iE6" kind="push" identifier="gigateste" id="2Ag-bD-Ycb"/>
                         <segue destination="2eG-OV-bjm" kind="push" identifier="menuTolistVoucher" id="XKP-Pa-VR5"/>
-                        <segue destination="FRf-Mb-6wR" kind="push" identifier="menuToAgentePerfil" id="3LT-CL-iMM"/>
+                        <segue destination="FRf-Mb-6wR" kind="push" identifier="A2_To_C1" id="3LT-CL-iMM"/>
                         <segue destination="e3n-fg-afy" kind="push" identifier="menuPotaTopackgePota" id="b3Y-j9-VCK"/>
                     </connections>
                 </viewController>
@@ -4928,54 +4903,6 @@ o Pagamento”, reconhece que:</string>
                                     <action selector="btnMenu:" destination="Krp-Rn-XNt" eventType="touchUpInside" id="fSr-1p-66g"/>
                                 </connections>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zph-iQ-gby">
-                                <rect key="frame" x="0.0" y="318" width="320" height="296"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIcon" rowHeight="50" id="1Oj-Vd-Whv" customClass="agentePerfilPotaCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Oj-Vd-Whv" id="aLn-Eb-NiO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perfilBtnSkype.png" id="pln-1x-7N7">
-                                                    <rect key="frame" x="20" y="5" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu skype" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zYT-Hs-fLE">
-                                                    <rect key="frame" x="85" y="11" width="200" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="k0N-ka-WIY">
-                                                    <rect key="frame" x="0.0" y="50" width="320" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgIcon" destination="pln-1x-7N7" id="cJq-WB-qXo"/>
-                                            <outlet property="lblIcon" destination="zYT-Hs-fLE" id="fYG-SH-UWU"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="60" id="tsp-cF-y0z" customClass="agentePerfilPotaCellConfirm">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tsp-cF-y0z" id="1bh-Xz-yCO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="FRf-Mb-6wR" id="bsD-0U-lh6"/>
-                                    <outlet property="delegate" destination="FRf-Mb-6wR" id="mKW-3M-AZQ"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -4986,7 +4913,6 @@ o Pagamento”, reconhece que:</string>
                         <outlet property="SellerMail" destination="WQ6-Ew-kw8" id="PaD-KW-hXb"/>
                         <outlet property="SellerName" destination="jkP-UA-csb" id="DDt-Yy-tgq"/>
                         <outlet property="otlMap" destination="CXc-ID-uAu" id="BVv-PW-cve"/>
-                        <outlet property="tableView" destination="Zph-iQ-gby" id="ZVj-Hp-EDJ"/>
                         <segue destination="sEq-W2-gNf" kind="push" identifier="potaPerfilAgenteTopotaMenu" id="keo-gk-rUG"/>
                     </connections>
                 </viewController>
@@ -5753,8 +5679,8 @@ o Pagamento”, reconhece que:</string>
     <resources>
         <image name="BtnconfigureApp.png" width="546" height="121"/>
         <image name="TxtmyPota.png" width="512" height="80"/>
-        <image name="agente01.png" width="641" height="113"/>
         <image name="bookMark.png" width="44" height="39"/>
+        <image name="btnAgente04.png" width="546" height="121"/>
         <image name="btnChatPerfil.png" width="535" height="112"/>
         <image name="btnDataPicker.png" width="209" height="58"/>
         <image name="btnProsseguir.png" width="535" height="113"/>
@@ -5791,7 +5717,6 @@ o Pagamento”, reconhece que:</string>
         <image name="numberChildren.png" width="50" height="50"/>
         <image name="packRect.png" width="641" height="100"/>
         <image name="perfilBtnMap.png" width="71" height="71"/>
-        <image name="perfilBtnSkype.png" width="105" height="105"/>
         <image name="pfBtnEmail.png" width="652" height="140"/>
         <image name="pfBtnFacebook.png" width="652" height="140"/>
         <image name="pfBtnFone.png" width="652" height="140"/>
@@ -5829,11 +5754,11 @@ o Pagamento”, reconhece que:</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WqO-0X-aMb"/>
-        <segue reference="hRG-pQ-h2L"/>
+        <segue reference="6aG-hQ-eWW"/>
+        <segue reference="QMh-Et-TOj"/>
         <segue reference="HeL-UY-ekR"/>
-        <segue reference="2Ag-bD-Ycb"/>
         <segue reference="5ue-yG-pK9"/>
-        <segue reference="gef-8e-Oov"/>
+        <segue reference="dfT-L0-weW"/>
+        <segue reference="3LT-CL-iMM"/>
     </inferredMetricsTieBreakers>
 </document>

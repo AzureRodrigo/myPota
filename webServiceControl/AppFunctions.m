@@ -120,11 +120,18 @@
 
 + (void)APP_LOGOFF
 {
+    //desregistrar aparelho!
+    
     [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
     [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
     [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
     [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
-    NSLog(@"logoff");
+}
+
++ (void)APP_SELECT_SELLER
+{
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
+    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
 }
 
 + (NSString *)GET_TOKEN_DEVICE

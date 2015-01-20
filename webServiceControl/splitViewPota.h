@@ -13,9 +13,10 @@
 
 @interface splitViewPota : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    UIImageView *backgroundView;
-    UITableView *tableViewData;
-    NSArray     *listOptions;
+    UIImageView  *backgroundView;
+    UITableView  *tableViewData;
+    NSArray      *listOptions;
+    NSDictionary *dataUser;
 }
 
 @property (nonatomic, strong) UIView *container;
