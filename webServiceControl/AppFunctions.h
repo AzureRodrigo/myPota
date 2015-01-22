@@ -145,6 +145,8 @@
 #pragma mark - Scroll DOWN
 + (void)TEXT_SCREEN_DOWN:(UIViewController *)delegate textField:(UITextField *)textView frame:(CGRect)frame;
 
++ (void)TEXT_VIEW_SCREEN_UP:(UIViewController *)delegate textView:(UITextView *)textView frame:(CGRect)frame;
+
 #pragma mark - Touch cell Delay
 + (void)TABLE_CELL_NO_TOUCH_DELAY:(UITableViewCell *)cell;
 

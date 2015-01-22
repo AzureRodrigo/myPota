@@ -52,7 +52,7 @@
 		C71D7C7418F828230044E4A7 /* gearConfig.png in Resources */ = {isa = PBXBuildFile; fileRef = C71D7C6A18F828230044E4A7 /* gearConfig.png */; };
 		C71D7C7718F828230044E4A7 /* gearFerramentas.png in Resources */ = {isa = PBXBuildFile; fileRef = C71D7C6D18F828230044E4A7 /* gearFerramentas.png */; };
 		C71D7C8018F82C070044E4A7 /* gearPOTA.m in Sources */ = {isa = PBXBuildFile; fileRef = C71D7C7F18F82C070044E4A7 /* gearPOTA.m */; };
-		C72402E219409671006A9535 /* myPerfilPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C72402E119409671006A9535 /* myPerfilPota.m */; };
+		C72402E219409671006A9535 /* I0_Perfil_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C72402E119409671006A9535 /* I0_Perfil_Data.m */; };
 		C72402E4194097EC006A9535 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C72402E3194097EC006A9535 /* facebook.png */; };
 		C72730211A06D8A000882D49 /* iconFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = C727301F1A06D8A000882D49 /* iconFoto.png */; };
 		C72730221A06D8A000882D49 /* reserva.png in Resources */ = {isa = PBXBuildFile; fileRef = C72730201A06D8A000882D49 /* reserva.png */; };
@@ -89,6 +89,18 @@
 		C730DC8318FD6D2000CE2B55 /* btnPerfilMeuPerfil.png in Resources */ = {isa = PBXBuildFile; fileRef = C730DC8118FD6D2000CE2B55 /* btnPerfilMeuPerfil.png */; };
 		C7317C97192FDFCF0009BCEB /* menuKeyWhiteCal.png in Resources */ = {isa = PBXBuildFile; fileRef = C7317C96192FDFCF0009BCEB /* menuKeyWhiteCal.png */; };
 		C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BEC81A6E8D350019958C /* b9_User_Cadastre.m */; };
+		C735BECE1A6EC2C30019958C /* b10_User_Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BECD1A6EC2C30019958C /* b10_User_Messages.m */; };
+		C735BED31A6EC7A50019958C /* b10_Cell_Message.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED21A6EC7A50019958C /* b10_Cell_Message.m */; };
+		C735BED91A6ED7260019958C /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED61A6ED7260019958C /* HPGrowingTextView.m */; };
+		C735BEDA1A6ED7260019958C /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED81A6ED7260019958C /* HPTextViewInternal.m */; };
+		C735BEE41A6ED9990019958C /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEDC1A6ED9990019958C /* MessageEntryBackground.png */; };
+		C735BEE51A6ED9990019958C /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEDD1A6ED9990019958C /* MessageEntryBackground@2x.png */; };
+		C735BEE61A6ED9990019958C /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEDE1A6ED9990019958C /* MessageEntryInputField.png */; };
+		C735BEE71A6ED9990019958C /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEDF1A6ED9990019958C /* MessageEntryInputField@2x.png */; };
+		C735BEE81A6ED9990019958C /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEE01A6ED9990019958C /* MessageEntrySendButton.png */; };
+		C735BEE91A6ED9990019958C /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEE11A6ED9990019958C /* MessageEntrySendButton@2x.png */; };
+		C735BEEA1A6ED9990019958C /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEE21A6ED9990019958C /* MessageEntrySendButtonPressed.png */; };
+		C735BEEB1A6ED9990019958C /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C735BEE31A6ED9990019958C /* MessageEntrySendButtonPressed@2x.png */; };
 		C7362EF51A07E742003A0D77 /* packInfoPictures.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF41A07E742003A0D77 /* packInfoPictures.m */; };
 		C7362EFA1A07F4DF003A0D77 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF91A07F4DF003A0D77 /* PageContentViewController.m */; };
 		C737D6F918F3336B00AF0214 /* btnText.png in Resources */ = {isa = PBXBuildFile; fileRef = C737D6F818F3336B00AF0214 /* btnText.png */; };
@@ -437,8 +449,8 @@
 		C71D7C6D18F828230044E4A7 /* gearFerramentas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gearFerramentas.png; sourceTree = "<group>"; };
 		C71D7C7E18F82C070044E4A7 /* gearPOTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gearPOTA.h; sourceTree = "<group>"; };
 		C71D7C7F18F82C070044E4A7 /* gearPOTA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gearPOTA.m; sourceTree = "<group>"; };
-		C72402E019409671006A9535 /* myPerfilPota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myPerfilPota.h; sourceTree = "<group>"; };
-		C72402E119409671006A9535 /* myPerfilPota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myPerfilPota.m; sourceTree = "<group>"; };
+		C72402E019409671006A9535 /* I0_Perfil_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I0_Perfil_Data.h; sourceTree = "<group>"; };
+		C72402E119409671006A9535 /* I0_Perfil_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I0_Perfil_Data.m; sourceTree = "<group>"; };
 		C72402E3194097EC006A9535 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		C727301F1A06D8A000882D49 /* iconFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconFoto.png; sourceTree = "<group>"; };
 		C72730201A06D8A000882D49 /* reserva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reserva.png; sourceTree = "<group>"; };
@@ -485,6 +497,22 @@
 		C7317C96192FDFCF0009BCEB /* menuKeyWhiteCal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuKeyWhiteCal.png; sourceTree = "<group>"; };
 		C735BEC71A6E8D350019958C /* b9_User_Cadastre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b9_User_Cadastre.h; sourceTree = "<group>"; };
 		C735BEC81A6E8D350019958C /* b9_User_Cadastre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = b9_User_Cadastre.m; sourceTree = "<group>"; };
+		C735BECC1A6EC2C30019958C /* b10_User_Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b10_User_Messages.h; sourceTree = "<group>"; };
+		C735BECD1A6EC2C30019958C /* b10_User_Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = b10_User_Messages.m; sourceTree = "<group>"; };
+		C735BED11A6EC7A50019958C /* b10_Cell_Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b10_Cell_Message.h; sourceTree = "<group>"; };
+		C735BED21A6EC7A50019958C /* b10_Cell_Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = b10_Cell_Message.m; sourceTree = "<group>"; };
+		C735BED51A6ED7260019958C /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
+		C735BED61A6ED7260019958C /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		C735BED71A6ED7260019958C /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		C735BED81A6ED7260019958C /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		C735BEDC1A6ED9990019958C /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		C735BEDD1A6ED9990019958C /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		C735BEDE1A6ED9990019958C /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		C735BEDF1A6ED9990019958C /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		C735BEE01A6ED9990019958C /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		C735BEE11A6ED9990019958C /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		C735BEE21A6ED9990019958C /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		C735BEE31A6ED9990019958C /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 		C7362EF31A07E742003A0D77 /* packInfoPictures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoPictures.h; sourceTree = "<group>"; };
 		C7362EF41A07E742003A0D77 /* packInfoPictures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoPictures.m; sourceTree = "<group>"; };
 		C7362EF81A07F4DF003A0D77 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -958,20 +986,20 @@
 			name = MeuPerfil;
 			sourceTree = "<group>";
 		};
-		C71834FC193E3B6100F52983 /* meuPerfil P.O.T.A. */ = {
+		C71834FC193E3B6100F52983 /* perfilData P.O.T.A. */ = {
 			isa = PBXGroup;
 			children = (
 				C7E04FE319C9C9A300FB862A /* cells */,
 				C71834FD193E3B7400F52983 /* main */,
 			);
-			name = "meuPerfil P.O.T.A.";
+			name = "perfilData P.O.T.A.";
 			sourceTree = "<group>";
 		};
 		C71834FD193E3B7400F52983 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C72402E019409671006A9535 /* myPerfilPota.h */,
-				C72402E119409671006A9535 /* myPerfilPota.m */,
+				C72402E019409671006A9535 /* I0_Perfil_Data.h */,
+				C72402E119409671006A9535 /* I0_Perfil_Data.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -1334,6 +1362,70 @@
 			name = new;
 			sourceTree = "<group>";
 		};
+		C735BECA1A6EC2660019958C /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				C7537C261A3F664200DF32DD /* b3_User_Chat.h */,
+				C7537C271A3F664200DF32DD /* b3_User_Chat.m */,
+			);
+			name = chat;
+			sourceTree = "<group>";
+		};
+		C735BECB1A6EC2790019958C /* message */ = {
+			isa = PBXGroup;
+			children = (
+				C735BED01A6EC7770019958C /* cell */,
+				C735BECF1A6EC76B0019958C /* main */,
+			);
+			name = message;
+			sourceTree = "<group>";
+		};
+		C735BECF1A6EC76B0019958C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				C735BECC1A6EC2C30019958C /* b10_User_Messages.h */,
+				C735BECD1A6EC2C30019958C /* b10_User_Messages.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		C735BED01A6EC7770019958C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				C735BED11A6EC7A50019958C /* b10_Cell_Message.h */,
+				C735BED21A6EC7A50019958C /* b10_Cell_Message.m */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		C735BED41A6ED7260019958C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				C735BED51A6ED7260019958C /* HPGrowingTextView.h */,
+				C735BED61A6ED7260019958C /* HPGrowingTextView.m */,
+				C735BED71A6ED7260019958C /* HPTextViewInternal.h */,
+				C735BED81A6ED7260019958C /* HPTextViewInternal.m */,
+			);
+			name = Chat;
+			path = chat;
+			sourceTree = "<group>";
+		};
+		C735BEDB1A6ED9990019958C /* screen chat */ = {
+			isa = PBXGroup;
+			children = (
+				C735BEDC1A6ED9990019958C /* MessageEntryBackground.png */,
+				C735BEDD1A6ED9990019958C /* MessageEntryBackground@2x.png */,
+				C735BEDE1A6ED9990019958C /* MessageEntryInputField.png */,
+				C735BEDF1A6ED9990019958C /* MessageEntryInputField@2x.png */,
+				C735BEE01A6ED9990019958C /* MessageEntrySendButton.png */,
+				C735BEE11A6ED9990019958C /* MessageEntrySendButton@2x.png */,
+				C735BEE21A6ED9990019958C /* MessageEntrySendButtonPressed.png */,
+				C735BEE31A6ED9990019958C /* MessageEntrySendButtonPressed@2x.png */,
+			);
+			name = "screen chat";
+			path = messenger;
+			sourceTree = "<group>";
+		};
 		C7362EF21A07E6EC003A0D77 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -1666,8 +1758,8 @@
 		C7537C291A3F664600DF32DD /* User */ = {
 			isa = PBXGroup;
 			children = (
-				C7537C261A3F664200DF32DD /* b3_User_Chat.h */,
-				C7537C271A3F664200DF32DD /* b3_User_Chat.m */,
+				C735BECB1A6EC2790019958C /* message */,
+				C735BECA1A6EC2660019958C /* chat */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -2062,6 +2154,7 @@
 		C77D945A191BD25200A519B4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C735BED41A6ED7260019958C /* Chat */,
 				C795856D19A27F9F009E86A7 /* SplitView */,
 				C73CBA5E18FF1F78000A6746 /* AzCalendar */,
 				C729DF99192D144E00057B75 /* AlertView */,
@@ -2267,7 +2360,7 @@
 				C788AD6D1A35E95D00C7D527 /* infoApp Pota */,
 				C78871B119BE354300EA1C4C /* agentePerfil */,
 				C7A32BCD18F4846800130FE9 /* menu P.O.T.A. */,
-				C71834FC193E3B6100F52983 /* meuPerfil P.O.T.A. */,
+				C71834FC193E3B6100F52983 /* perfilData P.O.T.A. */,
 				C71B39F018F2E81E00DB2F7B /* código P.O.T.A. */,
 				C7A32BD318F48A4F00130FE9 /* search P.O.T.A. */,
 				C71B39F118F2E82D00DB2F7B /* perfil P.O.T.A. */,
@@ -2354,7 +2447,7 @@
 			name = "quartos P.O.T.A.";
 			sourceTree = "<group>";
 		};
-		C78D9A1919FE76AB00AE081A /* Screen Package */ = {
+		C78D9A1919FE76AB00AE081A /* screen Package */ = {
 			isa = PBXGroup;
 			children = (
 				C7B5D2391A072E1A0074C3D4 /* Duplo.png */,
@@ -2365,7 +2458,7 @@
 				C72730201A06D8A000882D49 /* reserva.png */,
 				C78D9A1A19FE76B600AE081A /* packRect.png */,
 			);
-			name = "Screen Package";
+			name = "screen Package";
 			sourceTree = "<group>";
 		};
 		C78D9A1C19FE791000AE081A /* main */ = {
@@ -3036,7 +3129,8 @@
 				C7644DC81A236BA400C71BF8 /* hotelPotaInfoHotel.png */,
 				C7DF23E81A1B7571001BAFBB /* bgPickerAge.png */,
 				C78871BD19BE481A00EA1C4C /* molde.png */,
-				C78D9A1919FE76AB00AE081A /* Screen Package */,
+				C735BEDB1A6ED9990019958C /* screen chat */,
+				C78D9A1919FE76AB00AE081A /* screen Package */,
 				C7E3284C19A3C2730014D551 /* screen SpliteMenu */,
 				C70BCFF019A22DD20066BE49 /* screen Volcher */,
 				C72FDD161999059A004941A4 /* Screen Purchase */,
@@ -3360,6 +3454,7 @@
 				C711A1DE18FD69F700957E8E /* btnMenuMinhasCompras.png in Resources */,
 				C7C9B07D199510CC0004BE1C /* cadastroBtnConfirm.png in Resources */,
 				C763F96A192293DC00B4216C /* btnProsseguir.png in Resources */,
+				C735BEEA1A6ED9990019958C /* MessageEntrySendButtonPressed.png in Resources */,
 				C72FDD2019990965004941A4 /* btnDataPicker.png in Resources */,
 				C730DC7F18FD6B8800CE2B55 /* menuKeyGray.png in Resources */,
 				C7996138196AE0E700D4394E /* navBar02.png in Resources */,
@@ -3384,6 +3479,7 @@
 				C7E358CE19618BBB000FFB94 /* agente02.png in Resources */,
 				C760187718FDAF030066B6E9 /* hotelHudDataStart.png in Resources */,
 				C71C9603198ACBDC00A7EA67 /* greenBar.png in Resources */,
+				C735BEE71A6ED9990019958C /* MessageEntryInputField@2x.png in Resources */,
 				C7E035161A371A5500EBA9A7 /* pfBtnMensagem.png in Resources */,
 				C711A1D518FD611400957E8E /* gearFuse.png in Resources */,
 				C7C08D1719182EFE00B18848 /* roomImgLayout.png in Resources */,
@@ -3503,20 +3599,25 @@
 				C72E0C371919258D00830597 /* body10.png in Resources */,
 				C73CBA5618FEF74A000A6746 /* hotelCellRoom.png in Resources */,
 				C7E359041961E146000FFB94 /* sendMail.png in Resources */,
+				C735BEE61A6ED9990019958C /* MessageEntryInputField.png in Resources */,
 				C71B39DC18F2DD1600DB2F7B /* BtnconfigureApp.png in Resources */,
 				C7E358E81961C6EA000FFB94 /* perfilBtnMail.png in Resources */,
 				C7E035151A371A5500EBA9A7 /* pfBtnFone.png in Resources */,
 				C78871A919BE060400EA1C4C /* perfilUserChat.png in Resources */,
+				C735BEE81A6ED9990019958C /* MessageEntrySendButton.png in Resources */,
 				C7E3590C1961EC0A000FFB94 /* searchAgente.png in Resources */,
 				C7E358E91961C6EA000FFB94 /* perfilBtnMessage.png in Resources */,
+				C735BEEB1A6ED9990019958C /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				C700948618F3390E00304087 /* btnMap.png in Resources */,
 				C766C4171911371C00C33B25 /* star45.png in Resources */,
 				C7957A6B19995537001934EC /* stepperPlus.png in Resources */,
+				C735BEE41A6ED9990019958C /* MessageEntryBackground.png in Resources */,
 				C7E358C819618A8D000FFB94 /* menu06.png in Resources */,
 				C711A1D918FD617C00957E8E /* gearAgente.png in Resources */,
 				C77E961F192268C400CD5F35 /* cadastrePota.plist in Resources */,
 				C7E358F31961CE37000FFB94 /* agente03.png in Resources */,
 				C74FA8B0197406B7002A1590 /* navBar03.png in Resources */,
+				C735BEE51A6ED9990019958C /* MessageEntryBackground@2x.png in Resources */,
 				C78D9A1B19FE76B600AE081A /* packRect.png in Resources */,
 				C7D13B7919759A2F00FDB0B4 /* bookMark.png in Resources */,
 				C7E3590E1961EC8A000FFB94 /* searchBtnBg.png in Resources */,
@@ -3555,6 +3656,7 @@
 				C774077C19006B94005E8817 /* star2.png in Resources */,
 				C7A32BDA18F48CD900130FE9 /* choiceAgencia.png in Resources */,
 				C766C4161911371C00C33B25 /* star35.png in Resources */,
+				C735BEE91A6ED9990019958C /* MessageEntrySendButton@2x.png in Resources */,
 				C72E0C3919192ED000830597 /* roomHudInfo.png in Resources */,
 				C7B5D23E1A072E1A0074C3D4 /* Duplo a Compartir.png in Resources */,
 				C7A32BDC18F48D4F00130FE9 /* BtnSearch.png in Resources */,
@@ -3623,7 +3725,7 @@
 				C78D9A2019FE792F00AE081A /* packCircuits.m in Sources */,
 				C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */,
 				C78D9A2819FED3AD00AE081A /* packInfo.m in Sources */,
-				C72402E219409671006A9535 /* myPerfilPota.m in Sources */,
+				C72402E219409671006A9535 /* I0_Perfil_Data.m in Sources */,
 				C794E1521921535200E3FCD7 /* travelPlans.m in Sources */,
 				C7C9B077199502380004BE1C /* cadastreCell_TravelCustos.m in Sources */,
 				C7537C281A3F664200DF32DD /* b3_User_Chat.m in Sources */,
@@ -3635,6 +3737,7 @@
 				C7537C2C1A3F666000DF32DD /* c2_Agent_Chat.m in Sources */,
 				C749F1B618CA51C600537BFD /* HotelSearchData.m in Sources */,
 				C7E4A4511A23B29200FA6380 /* hotePotaRoom.m in Sources */,
+				C735BECE1A6EC2C30019958C /* b10_User_Messages.m in Sources */,
 				C7E660C11908494B007ED5D1 /* potaHoteisData.m in Sources */,
 				C7E04FEF19C9CF0400FB862A /* myPerfilMenuBtn.m in Sources */,
 				C799615D196B47C800D4394E /* travelCalendar.m in Sources */,
@@ -3645,6 +3748,7 @@
 				C7025B5318C78A1D000A22B9 /* AzParser.m in Sources */,
 				C7DEE167192D139000E3C6C5 /* WhatsAppKit.m in Sources */,
 				C74867311A0705CF00D174FC /* packInfoButtonCell.m in Sources */,
+				C735BED91A6ED7260019958C /* HPGrowingTextView.m in Sources */,
 				C72FDD3819992A80004941A4 /* BuyInfoPurchase.m in Sources */,
 				C7957A6719993E8A001934EC /* BuyInfoCustos.m in Sources */,
 				C73BD6DE1A2F97620011DFF9 /* packInfoDatasCell.m in Sources */,
@@ -3684,6 +3788,7 @@
 				C7DEE166192D139000E3C6C5 /* NSString+WhatsAppKit.m in Sources */,
 				C7025B5618C78A1D000A22B9 /* States.m in Sources */,
 				C77D8BEE199AB437000FA914 /* purchasePurchaseInfo.m in Sources */,
+				C735BED31A6EC7A50019958C /* b10_Cell_Message.m in Sources */,
 				C78C075818F6CA3E0081DAE5 /* hotelPota.m in Sources */,
 				C77E960C19224CEA00CD5F35 /* travelInfoPota.m in Sources */,
 				C794E155192156F100E3FCD7 /* travelPackgesCell.m in Sources */,
@@ -3722,6 +3827,7 @@
 				C7A32BD218F484A600130FE9 /* a2_App_Menu.m in Sources */,
 				C7DF23F51A1BEDDA001BAFBB /* hotelPotaCellData.m in Sources */,
 				C7621B99192F8A150058956E /* NSDate+DSLCalendarView.m in Sources */,
+				C735BEDA1A6ED7260019958C /* HPTextViewInternal.m in Sources */,
 				C7362EF51A07E742003A0D77 /* packInfoPictures.m in Sources */,
 				C79093DD19CB0CBC00C10370 /* b0_User_Login.m in Sources */,
 			);

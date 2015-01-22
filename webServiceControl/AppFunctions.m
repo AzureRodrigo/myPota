@@ -311,7 +311,6 @@
 #pragma mark - LOAD_IMAGE_ASYNC
 + (dispatch_queue_t)LOAD_IMAGE_ASYNC:(NSString *)link completion:(void (^)(UIImage *image))block
 {
-    //    NSLog(@"%@",link);
     NSString *MyURL = [link stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul);
     dispatch_async(queue, ^{
@@ -643,10 +642,9 @@
 {
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
-    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
-    
-    UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+    UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
     numberToolbar.items = [NSArray arrayWithObjects:
                            btnCancel,
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -666,7 +664,6 @@
 {
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackTranslucent;
-    
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
     UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
@@ -709,6 +706,21 @@
     if (returnframe.origin.y != frame.origin.y){
         returnframe.origin.y = 0;
         [UIView animateWithDuration:0.2 animations:^{delegate.view.frame = frame;}];
+    }
+}
+
+#pragma mark - Scroll UP
++ (void)TEXT_VIEW_SCREEN_UP:(UIViewController *)delegate textView:(UITextView *)textView frame:(CGRect)frame
+{
+    CGFloat y = 545 - textView.center.y;
+    if (y < 300)
+    {
+        float extra = 300 - y;
+        frame = delegate.view.frame;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.25];
+        delegate.view.frame = CGRectMake(0,-extra,320,545);
+        [UIView commitAnimations];
     }
 }
 

@@ -65,7 +65,7 @@
                                 superTitle:@""
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
-                             openSplitMenu:@selector(menuOpen:)
+                             openSplitMenu:nil
                                 backButton:YES];
 }
 

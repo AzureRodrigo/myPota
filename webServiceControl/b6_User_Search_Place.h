@@ -19,6 +19,7 @@
     IBOutlet UITableView    *tableViewData;
     IBOutlet UISearchBar    *searchBarData;
     IBOutlet UILabel *lblInfo;
+    
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frame;

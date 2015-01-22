@@ -28,6 +28,7 @@
                                 buttonBack:@selector(backScreen:)
                              openSplitMenu:nil
                                 backButton:YES];
+    
     [AppFunctions KEYBOARD_ADD_BAR:@[lblName, lblMail, lblPassword, lblCpf, lblCep, lblBirth]
                           delegate:self
                             change:@selector(textFieldDidChange:)

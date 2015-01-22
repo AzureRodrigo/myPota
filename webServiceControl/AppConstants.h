@@ -93,7 +93,6 @@
 #define WS_URL_PACK_ROOM_INFO               @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
 
 
-
 #define WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO      @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"
 #define WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO @"IdWS=%@&CodSite=%@&CodProduto=%@&CodPortal=%@"
 #define WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO     @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"

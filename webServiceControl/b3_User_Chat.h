@@ -7,15 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "b10_User_Messages.h"
+#import "HPGrowingTextView.h"
 
-@interface b3_User_Chat : UIViewController <UITextFieldDelegate>
+@interface b3_User_Chat : UIViewController <HPGrowingTextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
-    NSDictionary *seller;
-    NSString     *codSeller;
-    NSString     *codUser;
-    NSString     *link;
-    CGRect       frame;
-    IBOutlet UITextField *menssageBox;
+    b10_User_Messages           *backScreen;
+    __weak IBOutlet UITableView *tableViewData;
+    CGRect                      tableFrame;
+    UIView                      *containerView;
+    HPGrowingTextView           *textView;
+    UIButton                    *doneBtn;
+    NSString                    *link;
+    
+    
+    
+    NSMutableArray              *listMessages;
 }
 
 @end
