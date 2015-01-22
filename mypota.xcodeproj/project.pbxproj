@@ -3420,7 +3420,7 @@
 				ORGANIZATIONNAME = web;
 				TargetAttributes = {
 					C7452F7E18A41F7800F2946B = {
-						DevelopmentTeam = 4GSC93JAXP;
+						DevelopmentTeam = EL49AXP9GX;
 					};
 					C7452FA218A41F7800F2946B = {
 						TestTargetID = C7452F7E18A41F7800F2946B;
@@ -3955,6 +3955,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3968,6 +3969,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3979,6 +3981,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3992,6 +3995,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4074,7 +4078,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4088,6 +4093,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
+				PROVISIONING_PROFILE = "1666dd90-69c5-4214-9f78-422f1bd3c89b";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
