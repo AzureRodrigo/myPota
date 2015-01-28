@@ -26,14 +26,18 @@
 
 - (void)initScreen
 {
-    [AppFunctions LOAD_IMAGE_ASYNC:[dataSeller objectForKey:TAG_USER_SELLER_FOTO] completion:^(UIImage *image) {
-        [SellerImage setImage:image];
-    }];
+//    [AppFunctions LOAD_IMAGE_ASYNC:[dataSeller objectForKey:TAG_USER_SELLER_FOTO] completion:^(UIImage *image) {
+//        [SellerImage setImage:image];
+//    }];
     
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_GENDER] isEqualToString:@"F"])
+        [SellerImage setImage:[UIImage imageNamed:@"iconF"]];
     [SellerName   setText:[dataSeller objectForKey:TAG_USER_SELLER_NAME]];
+    [SellerName   setAdjustsFontSizeToFitWidth:YES];
     [SellerAgency setText:[dataAgency objectForKey:TAG_USER_AGENCY_NAME]];
+    [SellerAgency   setAdjustsFontSizeToFitWidth:YES];
     [SellerMail   setText:[dataSeller objectForKey:TAG_USER_SELLER_MAIL]];
-    
+    [SellerMail   setAdjustsFontSizeToFitWidth:YES];
     self->mapState = [[self->listState objectForKey:PLIST_STATE_TAG_LOCAL]objectForKey:PLIST_STATE_TAG_STATES];
     self->mapCity  = [[self->listState objectForKey:PLIST_STATE_TAG_LOCAL]objectForKey:PLIST_STATE_TAG_CITYS];
     

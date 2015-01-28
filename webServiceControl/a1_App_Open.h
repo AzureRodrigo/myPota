@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface a1_App_Open : UIViewController
-
+{
+    __weak IBOutlet UIButton *btnTypeSeller;
+    __weak IBOutlet UIButton *btnTypeUser;
+}
 @end

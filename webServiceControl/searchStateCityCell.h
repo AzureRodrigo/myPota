@@ -11,5 +11,6 @@
 @interface searchStateCityCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
 
 @end

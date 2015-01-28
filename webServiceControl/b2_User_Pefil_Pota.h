@@ -23,7 +23,8 @@
 {
 
 #pragma mark -outlets images
-    UIImageView             *imgPerfil;
+    __weak IBOutlet UIImageView *imgPerfil;
+    __weak IBOutlet UIButton *otlbtnmenu;
 #pragma mark -outlets buttons
     IBOutlet UIButton 		*otlMap;
 #pragma mark -labels

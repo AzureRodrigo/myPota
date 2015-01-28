@@ -43,8 +43,6 @@
         <attribute name="name_city" attributeType="String" syncable="YES"/>
         <attribute name="quarter" attributeType="String" syncable="YES"/>
         <attribute name="type_person" attributeType="String" syncable="YES"/>
-        <relationship name="user_agency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Agency" syncable="YES"/>
-        <relationship name="user_seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Seller" syncable="YES"/>
         <userInfo/>
     </entity>
     <entity name="User_Seller">
@@ -73,12 +71,11 @@
     </entity>
     <entity name="User_Type" syncable="YES">
         <attribute name="isSeller" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="user_data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User_Perfil" syncable="YES"/>
     </entity>
     <elements>
         <element name="User_Agency" positionX="1681" positionY="620" width="128" height="343"/>
-        <element name="User_Perfil" positionX="1494" positionY="608" width="128" height="358"/>
+        <element name="User_Perfil" positionX="1494" positionY="608" width="128" height="30"/>
         <element name="User_Seller" positionX="1314" positionY="614" width="128" height="358"/>
-        <element name="User_Type" positionX="1494" positionY="486" width="128" height="73"/>
+        <element name="User_Type" positionX="1494" positionY="486" width="128" height="30"/>
     </elements>
 </model>

@@ -9,6 +9,8 @@
 
 @interface AppFunctions : NSObject
 
++ (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect;
+
 + (NSDictionary *)DATA_BASE_ENTITY_LOAD:(NSString *)_entity;
 
 + (BOOL)DATA_BASE_ENTITY_REMOVE:(NSString *)_entity;
@@ -19,7 +21,7 @@
 
 + (BOOL)DATA_BASE_ENTITY_SAVE:(NSFetchedResultsController *)_fetchedResultsController;
 
-+ (void)APP_LOGOFF;
++ (void)APP_LOGOFF:(UIViewController *)view identifier:(NSString *)_id;
 
 + (void)APP_SELECT_SELLER;
 

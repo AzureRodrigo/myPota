@@ -13,7 +13,7 @@
 - (void)viewDidLoad
 {
     [self initData];
-//    [self initButtons];
+    [self initButtons];
     [super viewDidLoad];
 }
 
@@ -28,9 +28,12 @@
 
 - (void)initScreen
 {
-    [AppFunctions LOAD_IMAGE_ASYNC:[dataSeller objectForKey:TAG_USER_SELLER_FOTO] completion:^(UIImage *image) {
-        [imgPerfil setImage:image];
-    }];
+    UIViewController *backScreen = [AppFunctions BACK_SCREEN:self number:1];
+    if ([backScreen.restorationIdentifier isEqualToString:@"a2AppMenu"] )
+        [otlbtnmenu setBackgroundImage:[UIImage imageNamed:@"btnMenuPerfilBack.png"] forState:UIControlStateNormal];
+    
+    if ([[dataSeller objectForKey:TAG_USER_SELLER_GENDER] isEqualToString:@"F"])
+        [imgPerfil setImage:[UIImage imageNamed:@"iconF"]];
     
     NSString *newName  = @"";
     NSString *lastName = @"";
@@ -92,6 +95,7 @@
     //btnWhatsApp
     if ([[dataSeller objectForKey:TAG_USER_SELLER_WHATSAPP] isEqualToString:@""])
         [self->otlWhatsapp setEnabled:NO];
+    
 }
 
 - (void)configNavBar
@@ -136,9 +140,12 @@
 
 - (IBAction)btnGoMenu:(id)sender
 {
-    [AppFunctions POP_SCREEN:self
-                  identifier:STORYBOARD_ID_A2
-                    animated:YES];
+    UIViewController *backScreen = [AppFunctions BACK_SCREEN:self number:1];
+    if (![backScreen.restorationIdentifier isEqualToString:@"a2AppMenu"] ) {
+        [AppFunctions PUSH_SCREEN:self identifier:STORYBOARD_ID_A2 animated:YES];
+    }else {
+        [AppFunctions POP_SCREEN:self identifier:STORYBOARD_ID_A2 animated:YES];
+    }
 }
 
 - (IBAction)btnFone:(id)sender

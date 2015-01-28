@@ -16,6 +16,11 @@
     [btnName setTag:1];
     [btnMail setDelegate:self];
     [btnMail setTag:2];
+    [AppFunctions TEXT_FIELD_CONFIG:btnName rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:btnMail rect:CGRectMake(0,0,10,0)];
+    btnName.tintColor     = [UIColor colorWithRed:255 green:255 blue:255 alpha:255];
+    btnMail.tintColor     = [UIColor colorWithRed:255 green:255 blue:255 alpha:255];
+    
     [super viewDidLoad];
 }
 
@@ -98,7 +103,7 @@
                                        cancel:LOG_BUTTON_CANCEL];
                     break;
                 }
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
@@ -169,7 +174,7 @@
         [self->otlMail setEnabled:YES];
     else
         [self->otlMail setEnabled:NO];
-    return YES; 
+    return YES;
 }
 
 - (BOOL)sendInvite

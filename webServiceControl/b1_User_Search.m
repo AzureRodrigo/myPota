@@ -13,6 +13,10 @@
 - (void)initComponents
 {
     [self->lblCode  setDelegate:self];
+    lblCode.tintColor     = [UIColor colorWithRed:255 green:255 blue:255 alpha:255];
+    [AppFunctions TEXT_FIELD_CONFIG:lblCode rect:CGRectMake(0,0,10,0)];
+    otlBtnSearch.titleLabel.numberOfLines = 3;
+    otlBtnInvite.titleLabel.numberOfLines = 3;
     self->listState = [States new];
 }
 
@@ -268,8 +272,7 @@
 
 - (IBAction)btnLogoff:(id)sender
 {
-    [AppFunctions APP_LOGOFF];
-    [AppFunctions POP_SCREEN:self identifier:STORYBOARD_ID_A1 animated:YES];
+    [AppFunctions APP_LOGOFF:self identifier:STORYBOARD_ID_A1];
 }
 
 @end

@@ -18,6 +18,9 @@
 #pragma mark - didLoad
 - (void)viewWillAppear:(BOOL)animated
 {
+    btnTypeSeller.titleLabel.numberOfLines = 2;
+    btnTypeSeller.titleLabel.numberOfLines = 2;
+    
     self.navigationController.navigationBarHidden = YES;
     [super viewWillAppear:animated];
 }

@@ -101,6 +101,7 @@
     if (stateSelect)
         [cell.lblName setText:[self->listDataSearch objectAtIndex:[indexPath row]]];
     else{
+        [cell.icon setImage:[UIImage imageNamed:@"iconCity.png"]];
         City *tmp = [self->listDataSearch objectAtIndex:[indexPath row]];
         [cell.lblName setText:tmp.nome];
     }

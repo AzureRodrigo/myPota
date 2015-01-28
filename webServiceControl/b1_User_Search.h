@@ -21,6 +21,8 @@
 #pragma mark - keyBoardScroll
     UITextField             *keyboardField;
     CGRect                  frame;
+    __weak IBOutlet UIButton *otlBtnSearch;
+    __weak IBOutlet UIButton *otlBtnInvite;
 }
 
 - (IBAction)txtCodePotaChange:(id)sender;

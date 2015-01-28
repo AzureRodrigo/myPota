@@ -150,7 +150,7 @@
 #define IMAGE_NAVIGATION_BAR_AGENCY         @"hudBarAgencia"
 #define IMAGE_NAVIGATION_BAR_SELLER         @"hudBarVendedor"
 
-#define IMAGE_NAVIGATION_BAR_PERFIL         @"navBar01"
+#define IMAGE_NAVIGATION_BAR_PERFIL         @"navBarPota"
 #define IMAGE_NAVIGATION_BAR_VIAGEM         @"navBar02"
 #define IMAGE_NAVIGATION_BAR_HOTEL          @"navBar03"
 #define IMAGE_NAVIGATION_BAR_CALENDAR       @"navBar04"

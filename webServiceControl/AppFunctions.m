@@ -10,6 +10,13 @@
 
 @implementation AppFunctions
 
++ (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect
+{
+    UIView *paddingView       = [[UIView alloc] initWithFrame:_rect];
+    _field.leftView            = paddingView;
+    _field.leftViewMode        = UITextFieldViewModeAlways;
+}
+
 + (NSDictionary *)DATA_BASE_ENTITY_LOAD:(NSString *)_entity
 {
     AppDelegate *appDelegate  = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -18,7 +25,7 @@
     [fetchRequest setEntity:entity];
     
     NSError *error = nil;
-
+    
     NSArray *result = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (error)
     {
@@ -118,14 +125,47 @@
     return NO;
 }
 
-+ (void)APP_LOGOFF
++ (void)APP_LOGOFF:(UIViewController *)view identifier:(NSString *)_id
 {
-    //desregistrar aparelho!
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+         NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
+                                                   [user objectForKey:TAG_USER_PERFIL_CODE_MD5],
+                                                   [user objectForKey:TAG_USER_PERFIL_CODE_TOKEN],
+                                                   TAG_BASE_WS_EXCLUDE,TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN];
     
-    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
-    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
-    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
-    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
+
+    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Desconectando, aguarde.",
+                                       APP_CONNECTION_TAG_WAIT   : @"Desconectando, aguarde.",
+                                       APP_CONNECTION_TAG_RECIVE : @"Desconectando, aguarde.",
+                                       APP_CONNECTION_TAG_FINISH : @"Desconectando, aguarde.",
+                                       APP_CONNECTION_TAG_ERROR  : @"Desconectando, aguarde." };
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+        if (result == nil) {
+            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                              message:ERROR_1000_MESSAGE
+                               cancel:ERROR_BUTTON_CANCEL];
+        } else {
+            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_BASE_WS_REGISTER];
+            for (NSDictionary *tmp in [info objectForKey:TAG_BASE_WS_REGISTER])
+                if ([[tmp objectForKey:TAG_BASE_WS_REGISTER] isEqualToString:@""])
+                {
+                    [AppFunctions LOG_MESSAGE:@"Aviso!"
+                                      message:@"Sua conta foi deslogada com sucesso!"
+                                       cancel:ERROR_BUTTON_CANCEL];
+                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
+                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
+                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
+                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
+                        [AppFunctions POP_SCREEN:view identifier:_id animated:YES];
+                }
+                else
+                    [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                                      message:[tmp objectForKey:TAG_BASE_WS_REGISTER]
+                                       cancel:ERROR_BUTTON_CANCEL];
+        }
+    }];
 }
 
 + (void)APP_SELECT_SELLER
@@ -667,6 +707,11 @@
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
     UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+    
+    
+    [btnCancel  setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    
     numberToolbar.items = [NSArray arrayWithObjects:
                            btnCancel,
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],

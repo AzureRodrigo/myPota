@@ -113,18 +113,19 @@
     choiceVendedorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Vendedor *tmp = [listVendedoresSearch objectAtIndex:[indexPath row]];
     [cell.lblName  setText:[[tmp.data objectForKey:@"nomeVendedor"] uppercaseString]];
+
+    if ([[tmp.data objectForKey:@"sexoVendedor"] isEqualToString:@"F"])
+        [cell.otlImage setImage:[UIImage imageNamed:@"btnSearchAgentF.png"]];
+    else
+                [cell.otlImage setImage:[UIImage imageNamed:@"btnSearchAgentM.png"]];
     
-    if ([cell.lblName.text isEqualToString:@"Qualquer Agente"]) {
-        //        lblName
+    if ([cell.lblName.text isEqualToString:@"Qualquer Agente"])
+    {
         [cell.lblMTitle setText:@"Vendedor Virtual"];
         [cell.lblMTitle setTextColor:[UIColor colorWithRed:122.f/255.f green:140.f/255.f blue:160.f/255.f alpha:1]];
         [cell.lblMail setHidden:NO];
         [cell.lblMail setText:[[tmp.data objectForKey:@"emailVendedor"] lowercaseString]];
     }
-    //    if (![self->listImages objectForKey:[tmp.data objectForKey:@"codigoVendedor"]])
-    //        [cell.otlImage setImage:[UIImage imageNamed:@"imgPerfil"]];
-    //    else
-    //        [cell.otlImage setImage:[UIImage imageWithData:[self->listImages objectForKey:[tmp.data objectForKey:@"codigoVendedor"]]]];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
@@ -133,7 +134,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self->searchBarData resignFirstResponder];
-    [self->searchBarData setText:@"Busca"];
+    [self->searchBarData setText:@"Pesquisar"];
     self->SelectVendedor = [self->listVendedoresSearch objectAtIndex:[indexPath row]];
     [self connection];
 }
@@ -291,7 +292,7 @@
 {
     self->listVendedoresSearch = self->listVendedores;
     [self->tableViewData reloadData];
-    [self->searchBarData setText:@"Busca"];
+    [self->searchBarData setText:@"Pesquisar"];
     [self->searchBarData resignFirstResponder];
 }
 

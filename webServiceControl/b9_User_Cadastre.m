@@ -34,6 +34,20 @@
                             change:@selector(textFieldDidChange:)
                               done:@selector(keyboardDone:)
                             cancel:@selector(keyboardClear:)];
+    
+    lblName.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    lblMail.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    lblPassword.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    lblCpf.tintColor   = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    lblCep.tintColor   = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    lblBirth.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    [AppFunctions TEXT_FIELD_CONFIG:lblName rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblMail rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblPassword rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblCpf rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblCep rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblBirth rect:CGRectMake(0,0,10,0)];
+    
 }
 
 - (IBAction)backScreen:(id)sender
@@ -246,13 +260,13 @@
                               TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN, TAG_BASE_WS_TYPE_ACESS];
     
     NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
-
+    
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
                                        APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
                                        APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
                                        APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
                                        APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
-     
+    
     [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
         if (result == nil) {
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE

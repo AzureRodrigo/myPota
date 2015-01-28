@@ -14,7 +14,12 @@
 - (void)configScreen
 {
     [txtLogin     setAccessibilityValue:@"Login"];
-    [txtPassword setAccessibilityValue:@"Senha"];
+    [txtPassword  setAccessibilityValue:@"Senha"];
+    [AppFunctions TEXT_FIELD_CONFIG:txtLogin    rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:txtPassword rect:CGRectMake(0,0,10,0)];
+    txtLogin.tintColor    = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    txtPassword.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
+    
     login        = [NSMutableDictionary new];
 }
 
@@ -34,6 +39,8 @@
                             change:@selector(textFieldDidChange:)
                               done:@selector(keyboardDone:)
                             cancel:@selector(keyboardClear:)];
+    
+    
 }
 
 #pragma mark - IBAction's
@@ -52,6 +59,18 @@
 {
     [txtSelect resignFirstResponder];
     [self setLogin:txtSelect];
+    if ([txtSelect.text isEqualToString:@""])
+    {
+        if ([txtSelect.accessibilityValue isEqualToString:@"E-Mail"])
+            txtSelect.text = @"E-Mail";
+        else {
+            txtSelect.text = @"Senha";
+            txtSelect.secureTextEntry = NO;
+        }
+    } else
+        if ([txtSelect.accessibilityValue isEqualToString:@"Senha"])
+            txtSelect.secureTextEntry = YES;
+    [AppFunctions TEXT_SCREEN_DOWN:self textField:txtSelect frame:frame];
 }
 
 #pragma mark - Textfield Functions
@@ -62,6 +81,26 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextView *)textView
 {
+    if ([txtSelect.text isEqualToString:@""])
+    {
+        if ([txtSelect.accessibilityValue isEqualToString:@"Login"])
+            txtSelect.text = @"Login";
+        else {
+            txtSelect.text = @"Senha";
+            txtSelect.secureTextEntry = NO;
+        }
+    } else
+        if ([txtSelect.accessibilityValue isEqualToString:@"Senha"])
+            txtSelect.secureTextEntry = YES;
+    
+    if ([textView.accessibilityValue isEqualToString:@"Senha"])
+    {
+        if ([textView.text isEqualToString:@""])
+            textView.secureTextEntry = NO;
+        else
+            textView.secureTextEntry = YES;
+    }
+    
     if ([textView.accessibilityValue isEqualToString:@"Login"])
         if ([textView.text isEqualToString:@"Login"])
             textView.text = @"";
@@ -71,9 +110,7 @@
     
     txtSelect = (UITextField *)textView;
     
-    [AppFunctions TEXT_SCREEN_UP:self
-                        textView:textView
-                           frame:frame];
+    [AppFunctions TEXT_SCREEN_UP:self textView:textView frame:frame];
     return YES;
 }
 
@@ -88,9 +125,29 @@
     }
     
     [self setLogin:textField];
-    [AppFunctions TEXT_SCREEN_DOWN:self textField:textField frame:frame];
-    
+
     return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:@""])
+    {
+        if ([textField.accessibilityValue isEqualToString:@"Login"])
+            textField.text = @"Login";
+        else {
+            textField.text = @"Senha";
+            txtSelect.secureTextEntry = NO;
+        }
+    } else
+        if ([txtSelect.accessibilityValue isEqualToString:@"Senha"])
+            txtSelect.secureTextEntry = YES;
+    
+    [self setLogin:textField];
+    
+    [txtSelect resignFirstResponder];
+    [AppFunctions TEXT_SCREEN_DOWN:self textField:textField frame:frame];
+    return NO;
 }
 
 #pragma mark - View Actions

@@ -104,6 +104,10 @@
     [cell.lblName setText:[[tmp.data objectForKey:TAG_B7_USER_AGENCY_NAME] uppercaseString]];
     [cell.lblMail setText:[NSString stringWithFormat:@"%@,%@",[[tmp.data objectForKey:@"bairroAgencia"] lowercaseString], [[tmp.data objectForKey:@"enderecoAgencia"] lowercaseString]]];
     [cell setBackgroundColor:[UIColor clearColor]];
+    
+    [cell.lblName setAdjustsFontSizeToFitWidth:YES];
+    [cell.lblMail setAdjustsFontSizeToFitWidth:YES];
+    
     return cell;
 }
 
@@ -126,7 +130,7 @@
             }
     if ([txtViewSelected.text isEqualToString:@"Pesquisar"])
         [self->searchBarData setText:@""];
-
+    
     return YES;
 }
 

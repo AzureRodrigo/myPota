@@ -45,6 +45,20 @@
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     [tableViewData setDelaysContentTouches:NO];
+    menuOption = @[@"Pacotes Turísticos",
+                   @"Hotéis",
+                   @"Assistência em Viagem",
+                   @"Locação de Carros",
+                   @"Traslados",
+                   @"Passeios e Atrações"
+                   ];
+    if ([[dataUser objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+        [otlBtnMenu setTitle:@"Meu perfil" forState:UIControlStateNormal];
+    
+    UIViewController *backScreen = [AppFunctions BACK_SCREEN:self number:1];
+    if (![backScreen.restorationIdentifier isEqualToString:@"a2AppMenu"] && backScreen.restorationIdentifier != nil ) {
+        [otlBtnMenu setBackgroundImage:[UIImage imageNamed:@"btnMenuPerfilBack.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)resetPurchase
@@ -64,14 +78,17 @@
 #pragma mark -tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     menuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"menuCell" forIndexPath:indexPath];
     [cell.image setImage:[UIImage imageNamed:[NSString stringWithFormat:@"menu0%d", (int)[indexPath row] + 1]]];
+    [cell.lbl   setText:[menuOption objectAtIndex:[indexPath row]]];
+    [cell setBackgroundColor:[UIColor clearColor]];
     [AppFunctions TABLE_CELL_NO_TOUCH_DELAY:cell];
+    
     return cell;
 }
 

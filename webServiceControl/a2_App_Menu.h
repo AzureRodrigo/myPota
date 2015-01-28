@@ -1,4 +1,4 @@
- //
+//
 //  a2_App_Menu.h
 //  myPota
 //
@@ -13,7 +13,9 @@
 {
     IBOutlet UITableView *tableViewData;
     IBOutlet UIButton    *otlMeuAgente;
+    __weak IBOutlet UIButton *otlBtnMenu;
     NSDictionary         *dataUser;
+    NSArray              *menuOption;
 }
 
 - (IBAction)btnMeuAgente:(id)sender;

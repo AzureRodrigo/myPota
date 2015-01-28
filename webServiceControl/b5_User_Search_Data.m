@@ -21,6 +21,8 @@
 
 - (void)initVariables
 {
+    [AppFunctions TEXT_FIELD_CONFIG:otlTxtName rect:CGRectMake(0,0,10,0)];
+    otlTxtName.tintColor     = [UIColor colorWithRed:255 green:255 blue:255 alpha:255];
     self->listStateData = [States new];
     self->lblBairro     = @"";
     self->lblAgencia    = @"";
@@ -63,9 +65,11 @@
     [keyboardField setText:@""];
     if ([otlState.titleLabel.text isEqualToString:@"Selecione o Estado"]) {
         [otlCity setEnabled:NO];
-        [otlSearch setEnabled:NO];
+        if ( [keyboardField.text length] < 3 )
+            [otlSearch setEnabled:NO];
     } else if ([otlCity.titleLabel.text isEqualToString:@"Selecione a Cidade"]) {
-        [otlSearch setEnabled:NO];
+        if ( [keyboardField.text length] < 3 )
+            [otlSearch setEnabled:NO];
     }
 }
 
@@ -79,9 +83,12 @@
 #pragma mark - keyboard Change Content
 - (void)textFieldDidChange:(UITextField *)theTextField
 {
-    if ([keyboardField.text length] > 3 && ![otlCity.titleLabel.text isEqualToString:@"Selecione a Cidade"]) {
+    if ([keyboardField.text length] > 3 ) {
         [self->otlSearch setEnabled:YES];
         lblAgencia = theTextField.text;
+    } else {
+        [self->otlSearch setEnabled:NO];
+        lblAgencia = @"";
     }
 }
 
@@ -127,7 +134,8 @@
             self->saveState  = [self->listEstadosNomes objectAtIndex:ID];
             [self reciveData:1];
             [otlCity setEnabled:YES];
-            [otlSearch setEnabled:NO];
+            if ( [keyboardField.text length] < 3 )
+                [otlSearch setEnabled:NO];
         }
     }
     else
@@ -186,6 +194,10 @@
                         self->stateSigla, KEY_ACCESS_KEY, KEY_TYPE_RETURN];
         link = [NSString stringWithFormat:WS_URL, WS_URL_CITY, wsComplement];
     }else{
+        if (codCity    == nil) codCity    = @"";
+        if (lblBairro  == nil) lblBairro  = @"";
+        if (lblAgencia == nil) lblAgencia = @"";
+        
         wsComplement = [NSString stringWithFormat:WS_URL_AGENCY_SEARCH, KEY_CODE_SITE, self->codCity,
                         self->lblBairro, self->lblAgencia, KEY_EMPTY, KEY_ACCESS_KEY, KEY_TYPE_RETURN];
         link = [NSString stringWithFormat:WS_URL, WS_URL_AGENCY, wsComplement];
@@ -238,6 +250,9 @@
 - (void)saveData
 {
     NSMutableDictionary *data = [[NSMutableDictionary alloc]initWithDictionary:pList];
+    
+    if (saveState == nil) saveState = @"";
+    if (saveCity  == nil) saveCity  = @"";
     [[data objectForKey:PLIST_STATE_TAG_LOCAL]setObject:self->saveState forKey:PLIST_STATE_TAG_STATES];
     [[data objectForKey:PLIST_STATE_TAG_LOCAL]setObject:self->saveCity  forKey:PLIST_STATE_TAG_CITYS];
     [data writeToFile:[self dataFilePath] atomically:YES];

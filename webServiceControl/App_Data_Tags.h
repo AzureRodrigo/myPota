@@ -17,6 +17,8 @@
 #define TAG_BASE_WS_TYPE_RETURN         @"XML"
 #define TAG_BASE_WS_TYPE_ACESS          @"M"
 #define TAG_BASE_WS_INCLUDE             @"I"
+#define TAG_BASE_WS_EXCLUDE             @"E"
+#define TAG_BASE_WS_REMEMBER            @"S"
 #define TAG_BASE_WS_REGISTER            @"erro"
 #define TAG_BASE_WS_LOGIN               @"C"
 
