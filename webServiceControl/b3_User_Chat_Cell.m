@@ -29,7 +29,7 @@ static CGFloat messageTextSize = 14.0;
 
 +(CGFloat)maxTextWidth {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        return 220.0f;
+        return 260.0f;
     } else {
         return 400.0f;
     }
@@ -71,12 +71,13 @@ static CGFloat messageTextSize = 14.0;
         
         /*Message-Label*/
         self.messageLabel.backgroundColor = [UIColor clearColor];
-        self.messageLabel.font = [UIFont systemFontOfSize:messageTextSize];
+        self.messageLabel.font      = [UIFont systemFontOfSize:messageTextSize];
+        self.messageLabel.textColor = [UIColor whiteColor];
         self.messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.messageLabel.numberOfLines = 0;
         
         /*Time-Label*/
-        self.timeLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+        self.timeLabel.font = [UIFont boldSystemFontOfSize:messageTextSize *.6f ];
         self.timeLabel.textColor = [UIColor darkGrayColor];
         self.timeLabel.backgroundColor = [UIColor clearColor];
         

@@ -51,7 +51,7 @@
     textView.contentInset       = UIEdgeInsetsMake(0, 5, 0, 5);
     textView.minNumberOfLines   = 1;
     textView.maxNumberOfLines   = 6;
-    textView.font               = [UIFont fontWithName:FONT_NAME size:15.0];
+    textView.font               = [UIFont fontWithName:FONT_NAME size:18];
     textView.delegate           = self;
     textView.backgroundColor    = [UIColor whiteColor];
     textView.placeholder        = @"Digite sua mensagem";
@@ -85,8 +85,8 @@
     doneBtn.titleLabel.shadowOffset = CGSizeMake (0.0, -1.0);
     [doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [doneBtn addTarget:self action:@selector(resignTextView) forControlEvents:UIControlEventTouchUpInside];
-    [doneBtn setBackgroundImage:[[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateNormal];
-    [doneBtn setBackgroundImage:[[UIImage imageNamed:@"MessageEntrySendButton.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateSelected];
+    [doneBtn setBackgroundImage:[[UIImage imageNamed:@"btnGeneric.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateNormal];
+    [doneBtn setBackgroundImage:[[UIImage imageNamed:@"btnGeneric.png"] stretchableImageWithLeftCapWidth:13 topCapHeight:0] forState:UIControlStateSelected];
     
     [containerView addSubview:doneBtn];
     

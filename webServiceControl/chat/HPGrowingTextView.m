@@ -96,10 +96,11 @@
     internalTextView.delegate = self;
     internalTextView.scrollEnabled = NO;
     internalTextView.font = [UIFont fontWithName:@"Helvetica" size:13]; 
-    internalTextView.contentInset = UIEdgeInsetsZero;		
+    internalTextView.contentInset = UIEdgeInsetsZero;
     internalTextView.showsHorizontalScrollIndicator = NO;
     internalTextView.text = @"-";
     internalTextView.contentMode = UIViewContentModeRedraw;
+    internalTextView.autocorrectionType = UITextAutocorrectionTypeNo;
     [self addSubview:internalTextView];
     
     minHeight = internalTextView.frame.size.height;

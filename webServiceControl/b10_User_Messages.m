@@ -37,9 +37,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     message = @"";
-    messageList = @[@"Bom dia, como você está?",
-                    @"Estou com um problema, poderia me ajudar?",
-                    @"Estou com uma duvida sobre "];
+    messageList = @[@"Olá, perdi meu voo, pode me ajudar ?",
+                    @"Olá, cancelaram meu voo, pode me ajudar ?",
+                    @"Não estou achando o hotel, pode verificar para mim o endereço ?",
+                    @"Estou precisando acionar meu seguro, como faço ?",
+                    @"Cheguei mas não encontrei ninguém para me pegar, o que faço ?"];
     
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     

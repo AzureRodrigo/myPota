@@ -737,7 +737,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="btnLoginGeneric.png" id="qaf-H7-W09">
                                 <rect key="frame" x="0.0" y="353" width="320" height="45"/>
@@ -946,7 +946,7 @@ para que ela torne-se uma P.O.T.A.
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="txtCodePotaChange:" destination="Ven-Il-GCQ" eventType="editingDidEnd" id="k7I-Fn-7FR"/>
                                 </connections>
@@ -1390,7 +1390,7 @@ Pesquise aqui!</string>
                                     <action selector="btnNewMessage:" destination="q6P-US-J5m" eventType="touchUpInside" id="oP0-0n-AWl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modelos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HxC-JF-3Am">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frases Prontas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HxC-JF-3Am">
                                 <rect key="frame" x="25" y="70" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
@@ -1457,7 +1457,7 @@ Pesquise aqui!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" id="FQQ-PK-rwU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="45" width="320" height="523"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1465,11 +1465,23 @@ Pesquise aqui!</string>
                                     <outlet property="delegate" destination="Ve5-gy-eo0" id="eTE-bW-8gF"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Cliente" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FGj-K9-ncu">
+                                <rect key="frame" x="16" y="8" width="288" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="nnM-J6-vGV">
+                                <rect key="frame" x="10" y="45" width="300" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="m4v-OQ-gtJ"/>
                     <connections>
+                        <outlet property="lblName" destination="FGj-K9-ncu" id="MHu-hZ-CAr"/>
                         <outlet property="tableViewData" destination="FQQ-PK-rwU" id="0Sb-3w-dDY"/>
                     </connections>
                 </viewController>
@@ -4799,7 +4811,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w7O-Yj-sNq">
                                 <rect key="frame" x="20" y="109" width="280" height="45"/>
@@ -4865,7 +4877,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" minimumFontSize="17" background="txtField.png" id="XXv-EU-IA3">
                                 <rect key="frame" x="20" y="95" width="280" height="45"/>
@@ -5600,7 +5612,7 @@ agência de viagem</string>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="btnLoginGeneric.png" id="knw-6n-87T">
                                 <rect key="frame" x="0.0" y="354" width="320" height="45"/>
@@ -6457,13 +6469,13 @@ Portal Schultz.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hRG-pQ-h2L"/>
-        <segue reference="dfT-L0-weW"/>
-        <segue reference="3LT-CL-iMM"/>
-        <segue reference="HeL-UY-ekR"/>
+        <segue reference="Ar5-NW-FaA"/>
+        <segue reference="WqO-0X-aMb"/>
+        <segue reference="qLu-cP-eeQ"/>
+        <segue reference="gef-8e-Oov"/>
+        <segue reference="keo-gk-rUG"/>
         <segue reference="2Ag-bD-Ycb"/>
-        <segue reference="XDl-oI-JGF"/>
+        <segue reference="HeL-UY-ekR"/>
         <segue reference="5ue-yG-pK9"/>
-        <segue reference="ykw-Kx-wrl"/>
     </inferredMetricsTieBreakers>
 </document>

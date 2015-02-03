@@ -51,7 +51,7 @@
 {
     [txtSelect setText:@""];
     [self setLogin:txtSelect];
-
+    
 }
 
 - (IBAction)keyboardDone:(UIBarButtonItem *)sender
@@ -194,35 +194,48 @@
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
         } else {
-            NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_USER_PERFIL_OPEN];
-            for (NSDictionary *tmp in [info objectForKey:TAG_B0_USER_PERFIL_OPEN])
+            NSDictionary *error = [AzParser xmlDictionary:result tagNode:@"erro"];
+            if ([error objectForKey:@"erro"])
             {
-                fetch = nil;
-                fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
-                                                  delegate:self
-                                                    entity:TAG_USER_PERFIL
-                                                      sort:TAG_USER_PERFIL_NAME];
-                
-                NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD]           forKey:TAG_USER_PERFIL_CODE];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_MD5]       forKey:TAG_USER_PERFIL_CODE_MD5];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME]          forKey:TAG_USER_PERFIL_NAME];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CPF]           forKey:TAG_USER_PERFIL_CPF];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_TYPE_PERSON]   forKey:TAG_USER_PERFIL_TYPE_PERSON];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS]        forKey:TAG_USER_PERFIL_ADRESS];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_QUARTER]       forKey:TAG_USER_PERFIL_QUARTER];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEP]           forKey:TAG_USER_PERFIL_CEP];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD]           forKey:TAG_USER_PERFIL_DDD];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_FONE]          forKey:TAG_USER_PERFIL_FONE];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_MAIL]          forKey:TAG_USER_PERFIL_MAIL];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS_NUMBER] forKey:TAG_USER_PERFIL_ADRESS_NUMBER];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COMPLEMENT]    forKey:TAG_USER_PERFIL_COMPLEMENT];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD_CEL]       forKey:TAG_USER_PERFIL_DDD_CELL];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEL]           forKey:TAG_USER_PERFIL_CELL];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_BIRTH]         forKey:TAG_USER_PERFIL_BIRTH];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_CITY]      forKey:TAG_USER_PERFIL_CODE_CITY];
-                [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME_CITY]     forKey:TAG_USER_PERFIL_NAME_CITY];
-                [dataBD setValue:[AppFunctions GET_TOKEN_DEVICE]                     forKey:TAG_USER_PERFIL_CODE_TOKEN];
+                for (NSDictionary *tmp in [error objectForKey:@"erro"]) {
+                    [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                                      message:[tmp objectForKey:@"erro"]
+                                       cancel:ERROR_BUTTON_CANCEL];
+                }
+                return;
+            }else {
+                NSDictionary *info = [AzParser xmlDictionary:result tagNode:TAG_B0_USER_PERFIL_OPEN];
+                for (NSDictionary *tmp in [info objectForKey:TAG_B0_USER_PERFIL_OPEN])
+                {
+                    
+                    fetch = nil;
+                    fetch = [AppFunctions DATA_BASE_ENTITY_GET:fetch
+                                                      delegate:self
+                                                        entity:TAG_USER_PERFIL
+                                                          sort:TAG_USER_PERFIL_NAME];
+                    
+                    NSManagedObject *dataBD = [AppFunctions DATA_BASE_ENTITY_ADD:fetch];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD]           forKey:TAG_USER_PERFIL_CODE];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_MD5]       forKey:TAG_USER_PERFIL_CODE_MD5];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME]          forKey:TAG_USER_PERFIL_NAME];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CPF]           forKey:TAG_USER_PERFIL_CPF];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_TYPE_PERSON]   forKey:TAG_USER_PERFIL_TYPE_PERSON];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS]        forKey:TAG_USER_PERFIL_ADRESS];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_QUARTER]       forKey:TAG_USER_PERFIL_QUARTER];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEP]           forKey:TAG_USER_PERFIL_CEP];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD]           forKey:TAG_USER_PERFIL_DDD];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_FONE]          forKey:TAG_USER_PERFIL_FONE];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_MAIL]          forKey:TAG_USER_PERFIL_MAIL];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_ADRESS_NUMBER] forKey:TAG_USER_PERFIL_ADRESS_NUMBER];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COMPLEMENT]    forKey:TAG_USER_PERFIL_COMPLEMENT];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_DDD_CEL]       forKey:TAG_USER_PERFIL_DDD_CELL];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_CEL]           forKey:TAG_USER_PERFIL_CELL];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_BIRTH]         forKey:TAG_USER_PERFIL_BIRTH];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_COD_CITY]      forKey:TAG_USER_PERFIL_CODE_CITY];
+                    [dataBD setValue:[tmp objectForKey:TAG_B0_USER_PERFIL_NAME_CITY]     forKey:TAG_USER_PERFIL_NAME_CITY];
+                    [dataBD setValue:[AppFunctions GET_TOKEN_DEVICE]                     forKey:TAG_USER_PERFIL_CODE_TOKEN];
+                    
+                }
             }
             [self login_stepII];
         }
@@ -258,7 +271,7 @@
                     [self saveData];
                 else
                     [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
-                                      message:[tmp objectForKey:TAG_BASE_WS_REGISTER]
+                                      message:@"Não foi possivel registrar seu device!"
                                        cancel:ERROR_BUTTON_CANCEL];
         }
     }];
