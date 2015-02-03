@@ -57,7 +57,7 @@
                                        APP_CONNECTION_TAG_FINISH : @"Menssagens Carregadas!",
                                        APP_CONNECTION_TAG_ERROR  : @"Não foi possivel carregar suas mensagens"};
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:nil block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:NO block:^(NSData *result) {
         if (result == nil)
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:@"Não conseguimos carregar suas mensagens."
@@ -99,6 +99,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self configNavBar];
+    [tableViewData reloadData];
     [super viewWillAppear:animated];
 }
 
