@@ -57,7 +57,8 @@
 #define WS_URL_INFO_CIRCUITS_ALL_INCLUDE    [NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/BuscaProdutoServicoIncluso?"]
 
 
-#define WS_URL_CHAT_SEND_MESSAGE            [NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/app.asmx/RegistraChat?"]
+#define WS_URL_CHAT_SEND_MESSAGE              [NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/app.asmx/RegistraChat?"]
+#define WS_URL_CHAT_RECIVE_MESSAGE            [NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/app.asmx/BuscarChat?"]
 
 
 #pragma mark - Web Server's Complement's
@@ -99,7 +100,8 @@
 #define WS_URL_INFO_CIRCUITS_ALL_DAY_INFO        @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
 #define WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO    @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
 
-#define WS_URL_CHAT_SEND_MESSAGE_INFO @"codigoVendedor=%@&codigoConsumidor=%@&tipoMensagem=%@&descricaoMensagem=%@"
+#define WS_URL_CHAT_SEND_MESSAGE_INFO            @"codigoVendedor=%@&codigoConsumidor=%@&tipoMensagem=%@&descricaoMensagem=%@"
+#define WS_URL_CHAT_RECIVE_MESSAGE_INFO          @"codigoVendedor=%@&codigoConsumidor=%@&indEntregue=%@"
 
 #pragma mark - LOG MESSAGE
 

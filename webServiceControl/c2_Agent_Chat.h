@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "c2_Agente_Chat_Cell.h"
 
-@interface c2_Agent_Chat : UIViewController
+@interface c2_Agent_Chat : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    
+    __weak IBOutlet UILabel     *lblStatus;
+    __weak IBOutlet UITableView *tableViewData;
+    __weak IBOutlet UIActivityIndicatorView *loadView;
+    
+    NSMutableArray              *clients;
+
+    NSDictionary                *dataSeller;
+    NSDictionary                *dataUser;
+    NSString                    *link;
+    NSString                    *code;
+}
+
+- (NSString *)getClientCode;
+- (NSString *)getMessage;
 
 @end

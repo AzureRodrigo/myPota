@@ -102,4 +102,10 @@
     return message;
 }
 
+- (NSString *)getClientCode
+{
+    NSDictionary *dataUser     = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    return [dataUser objectForKey:TAG_USER_PERFIL_CODE];
+}
+
 @end

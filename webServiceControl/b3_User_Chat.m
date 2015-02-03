@@ -18,6 +18,7 @@
 
 - (void)configScreen
 {
+    thisScreen = YES;
     tableFrame = tableViewData.frame;
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     
@@ -50,10 +51,10 @@
     textView.contentInset       = UIEdgeInsetsMake(0, 5, 0, 5);
     textView.minNumberOfLines   = 1;
     textView.maxNumberOfLines   = 6;
-    textView.font               = [UIFont fontWithName:FONT_NAME_BOLD size:12.0];
+    textView.font               = [UIFont fontWithName:FONT_NAME size:15.0];
     textView.delegate           = self;
     textView.backgroundColor    = [UIColor whiteColor];
-    textView.placeholder        = @"Digite sua menssagem";
+    textView.placeholder        = @"Digite sua mensagem";
     textView.returnKeyType      = UIReturnKeyDefault;
     textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     
@@ -104,6 +105,7 @@
 
 - (IBAction)backScreen:(id)sender
 {
+    thisScreen = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -118,12 +120,23 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    frame = self.view.frame;
     [super viewDidAppear:animated];
 }
 
 - (void)configData
 {
-    backScreen = (b10_User_Messages *)[AppFunctions BACK_SCREEN:self number:1];
+    //vazio tudo
+    //0 sem ler
+    //1 lidas
+    
+    backScreen   = [AppFunctions BACK_SCREEN:self number:1];
+    dataSeller   = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    dataUser     = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    myType       = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_TYPE];
+    mycode       = [backScreen getClientCode];
+    
+    [self reciveMessage:@"" animate:NO alert:YES];
 }
 
 #pragma mark - configData
@@ -141,13 +154,13 @@
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     keyboardBounds = [self.view convertRect:keyboardBounds toView:nil];
-    CGRect containerFrame = containerView.frame;
-    containerFrame.origin.y = self.view.bounds.size.height - (keyboardBounds.size.height + containerFrame.size.height);
+    CGRect containerFrame = frame;
+    containerFrame.origin.y -= (keyboardBounds.size.height);
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:[duration doubleValue]];
     [UIView setAnimationCurve:[curve intValue]];
-    containerView.frame = containerFrame;
+    self.view.frame = containerFrame;
     [UIView commitAnimations];
 }
 
@@ -155,13 +168,13 @@
 {
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-    CGRect containerFrame = containerView.frame;
-    containerFrame.origin.y = self.view.bounds.size.height - containerFrame.size.height;
+    CGRect containerFrame = frame;
+    containerFrame.origin.y = frame.origin.y;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:[duration doubleValue]];
     [UIView setAnimationCurve:[curve intValue]];
-    containerView.frame = containerFrame;
+    self.view.frame = containerFrame;
     [UIView commitAnimations];
 }
 
@@ -179,22 +192,7 @@
     [self sendMessage];
 }
 
-#pragma mark - tableView
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 5;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 5;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 40;
-}
-
+#pragma mark - tableview controll
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [listMessages count];
@@ -202,51 +200,185 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    b10_Cell_Message *cell = [tableView dequeueReusableCellWithIdentifier:@"messageModel" forIndexPath:indexPath];
-//    
-//    [cell.lblText setText:[messageList objectAtIndex:[indexPath row]]];
-//    [cell.lblText setAdjustsFontSizeToFitWidth:YES];
-//    [cell setBackgroundColor:[UIColor clearColor]];
+    b3_User_Chat_Cell *cell = [[b3_User_Chat_Cell alloc] initMessagingCellWithReuseIdentifier:@"messagingCell"];
     
-    return nil;
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize messageSize = [b3_User_Chat_Cell messageSize:[[listMessages objectAtIndex:indexPath.row] objectForKey:@"msg"]];
+    return messageSize.height + 2 * [b3_User_Chat_Cell textMarginVertical] + 40.0f;
+}
+
+- (void)configureCell:(b3_User_Chat_Cell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([[myType objectForKey:TAG_USER_TYPE_BOOL] boolValue]) {
+        if ([[[listMessages objectAtIndex:indexPath.row] objectForKey:@"sender"] isEqualToString:CHAT_TYPE_SELLER]) {
+            cell.sent = YES;
+        } else {
+            cell.sent = NO;
+        }
+    } else {
+        if ([[[listMessages objectAtIndex:indexPath.row] objectForKey:@"sender"] isEqualToString:CHAT_TYPE_USER]) {
+            cell.sent = YES;
+        } else {
+            cell.sent = NO;
+        }
+    }
+    cell.messageLabel.text = [[listMessages objectAtIndex:indexPath.row] objectForKey:@"msg"];
+    cell.timeLabel.text    = [[listMessages objectAtIndex:indexPath.row] objectForKey:@"timer"];
+}
+
+- (void)scrollDown:(BOOL)type
+{
+    if (tableViewData.contentSize.height > tableViewData.frame.size.height)
+    {
+        CGPoint offset = CGPointMake( 0, tableViewData.contentSize.height - tableViewData.frame.size.height);
+        [tableViewData setContentOffset:offset animated:type];
+    }
+}
+
+#pragma mark - Recive Menssage
+- (void)reciveMessage:(NSString *)type animate:(BOOL)roll alert:(BOOL)alert
+{
+    link = [NSString stringWithFormat:WS_URL_CHAT_RECIVE_MESSAGE_INFO,
+            [dataSeller objectForKey:TAG_USER_SELLER_CODE], mycode, type];
+    link = [NSString stringWithFormat:WS_URL, WS_URL_CHAT_RECIVE_MESSAGE, link];
+    
+    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Carregando Menssagens!",
+                                       APP_CONNECTION_TAG_WAIT 	 : @"Carregando Menssagens!",
+                                       APP_CONNECTION_TAG_RECIVE : @"Carregando Menssagens!",
+                                       APP_CONNECTION_TAG_FINISH : @"Menssagens Carregadas!",
+                                       APP_CONNECTION_TAG_ERROR  : @"Não foi possivel carregar suas menssagens"};
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:alert block:^(NSData *result) {
+        if (result == nil)
+            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                              message:@"Não conseguimos carregar suas menssagens."
+                               cancel:ERROR_BUTTON_CANCEL];
+        else {
+            if ([type isEqualToString:@""])
+            {
+                listMessages = [NSMutableArray new];
+                NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"chat"];
+                for (NSDictionary *tmp in [allInfo objectForKey:@"chat"])
+                {
+                    [listMessages addObject:@{ @"msg"    : [tmp objectForKey:@"descricaoMensagem"],
+                                               @"sender" : [tmp objectForKey:@"tipoMensagem"],
+                                               @"timer"  : [tmp objectForKey:@"dataHoraFormatada"] }];
+                }
+                [tableViewData reloadData];
+                [self scrollDown:roll];
+                [self performSelector:@selector(updateMessage) withObject:nil afterDelay:1.0];
+                
+            }
+            else if ([type isEqualToString:@"0"])
+            {
+                NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"chat"];
+                int count = [listMessages count];
+                for (NSDictionary *tmp in [allInfo objectForKey:@"chat"])
+                {
+                    if (![[myType objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+                    {
+                        if ([[tmp objectForKey:@"tipoMensagem"] isEqualToString:CHAT_TYPE_SELLER])
+                            [listMessages addObject:@{ @"msg"    : [tmp objectForKey:@"descricaoMensagem"],
+                                                       @"sender" : [tmp objectForKey:@"tipoMensagem"],
+                                                       @"timer"  : [tmp objectForKey:@"dataHoraFormatada"] }];
+                    } else {
+                        if ([[tmp objectForKey:@"tipoMensagem"] isEqualToString:CHAT_TYPE_USER])
+                            [listMessages addObject:@{ @"msg"    : [tmp objectForKey:@"descricaoMensagem"],
+                                                       @"sender" : [tmp objectForKey:@"tipoMensagem"],
+                                                       @"timer"  : [tmp objectForKey:@"dataHoraFormatada"] }];
+                    }
+                }
+                [tableViewData reloadData];
+                if ([listMessages count] > count)
+                    [self scrollDown:roll];
+            }
+            
+        }
+    }];
 }
 
 #pragma mark - Send Message
 - (void)sendMessage
 {
-    textView.text = @"";
-    [self configTableView];
-    [textView resignFirstResponder];
-    //    link = [NSString stringWithFormat:WS_URL_CHAT_SEND_MESSAGE_INFO,
-    //            codSeller, codUser, CHAT_TYPE_USER, message];
-    //    link = [NSString stringWithFormat:WS_URL, WS_URL_CHAT_SEND_MESSAGE, link];
-    //
-    //
-    //    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Estamos enviando sua menssagem.",
-    //                                       APP_CONNECTION_TAG_WAIT 	 : @"Estamos enviando sua menssagem..",
-    //                                       APP_CONNECTION_TAG_RECIVE : @"Estamos enviando sua menssagem...",
-    //                                       APP_CONNECTION_TAG_FINISH : @"Menssagem Enviada com Sucesso!",
-    //                                       APP_CONNECTION_TAG_ERROR  : @"Ops..." };
-    //
-    //    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
-    //        if (result == nil)
-    //            [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
-    //                              message:@"Não conseguimos enviar sua menssagem."
-    //                               cancel:ERROR_BUTTON_CANCEL];
-    //        else {
-    //            NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"retorno"];
-    //            for (NSDictionary *tmp in [allInfo objectForKey:@"retorno"])
-    //                if([[tmp objectForKey:@"retorno"] isEqualToString:@"ok"])
-    //                {
-    //                    [menssageBox setText:@"Digite uma mensagem..."];
-    //                    [[NSNotificationCenter defaultCenter] postNotificationName:@"PushNotificationMessageReceivedNotification" object:self];
-    ////                    [[NSNotificationCenter defaultCenter] addObserver:self
-    ////                                                             selector:@selector(remoteNotificationReceived:) name:@"PushNotificationMessageReceivedNotification"
-    ////                                                               object:nil];
-    //                }else
-    //                    NSLog(@"Não Enviado!");
-    //        }
-    //    }];
+    if ([textView.text length] > 0)
+    {
+        NSString *message = textView.text;
+        textView.text = @"";
+        
+        if (![[myType objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+        {
+            link = [NSString stringWithFormat:WS_URL_CHAT_SEND_MESSAGE_INFO,
+                    [dataSeller objectForKey:TAG_USER_SELLER_CODE], mycode, CHAT_TYPE_USER, message];
+        } else if([[myType objectForKey:TAG_USER_TYPE_BOOL] boolValue]) {
+            link = [NSString stringWithFormat:WS_URL_CHAT_SEND_MESSAGE_INFO,
+                    [dataSeller objectForKey:TAG_USER_SELLER_CODE], mycode, CHAT_TYPE_SELLER, message];
+        }
+        link = [NSString stringWithFormat:WS_URL, WS_URL_CHAT_SEND_MESSAGE, link];
+        
+        NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Carregando Menssagens!",
+                                           APP_CONNECTION_TAG_WAIT 	 : @"Carregando Menssagens!",
+                                           APP_CONNECTION_TAG_RECIVE : @"Carregando Menssagens!",
+                                           APP_CONNECTION_TAG_FINISH : @"Menssagens Carregadas!",
+                                           APP_CONNECTION_TAG_ERROR  : @"Não foi possivel carregar suas menssagens"};
+        
+        [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:NO block:^(NSData *result) {
+            if (result == nil)
+                [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
+                                  message:@"Não conseguimos carregar suas menssagens."
+                                   cancel:ERROR_BUTTON_CANCEL];
+            else {
+                BOOL sending = NO;
+                NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"retorno"];
+                for (NSDictionary *tmp in [allInfo objectForKey:@"retorno"])
+                {
+                    if ([[tmp objectForKey:@"retorno"] isEqualToString:@"ok"])
+                    {
+                        sending = YES;
+                        break;
+                    }
+                }
+                
+                if (sending)
+                {
+                    NSDate *today = [NSDate date];
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+                    NSString *currentTime = [dateFormatter stringFromDate:today];
+                    
+                    if ([[myType objectForKey:TAG_USER_TYPE_BOOL] boolValue])
+                    {
+                        [listMessages addObject:@{ @"msg"    : message,
+                                                   @"sender" : CHAT_TYPE_SELLER,
+                                                   @"timer"  : currentTime }];
+                    } else {
+                        [listMessages addObject:@{ @"msg"    : message,
+                                                   @"sender" : CHAT_TYPE_USER,
+                                                   @"timer"  : currentTime }];
+                    }
+                    [textView resignFirstResponder];
+                    [tableViewData reloadData];
+                    [self scrollDown:YES];
+                }
+            }
+        }];
+        
+    }
+}
+
+- (void)updateMessage
+{
+    if(thisScreen)
+    {
+        [self performSelector:@selector(updateMessage) withObject:nil afterDelay:5.0];
+        [self reciveMessage:@"0" animate:YES alert:NO];
+    }
 }
 
 @end

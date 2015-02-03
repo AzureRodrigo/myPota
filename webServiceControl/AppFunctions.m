@@ -9,6 +9,7 @@
 #import "AppFunctions.h"
 
 @implementation AppFunctions
+#pragma mark - Update Menssage
 
 + (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect
 {

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "b10_User_Messages.h"
+#import "c2_Agent_Chat.h"
+#import "b3_User_Chat_Cell.h"
 #import "HPGrowingTextView.h"
 
 @interface b3_User_Chat : UIViewController <HPGrowingTextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
-    b10_User_Messages           *backScreen;
+    id                           backScreen;
     __weak IBOutlet UITableView *tableViewData;
     CGRect                      tableFrame;
     UIView                      *containerView;
@@ -20,9 +22,14 @@
     UIButton                    *doneBtn;
     NSString                    *link;
     
-    
-    
+    NSDictionary                *dataSeller;
+    NSDictionary                *dataUser;
     NSMutableArray              *listMessages;
+    BOOL                        thisScreen;
+    NSString                    *mycode;
+    NSDictionary                *myType;
+    
+    CGRect                      frame;
 }
 
 @end
