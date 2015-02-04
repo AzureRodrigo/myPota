@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPotaTypeCell.h"
+#import "t1_Travel_Select_Type_Cell.h"
 
-@implementation travelPotaTypeCell
+@implementation t1_Travel_Select_Type_Cell
 
 - (void)awakeFromNib
 {

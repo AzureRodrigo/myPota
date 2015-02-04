@@ -15,8 +15,7 @@
 {
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_PURCHASE
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil

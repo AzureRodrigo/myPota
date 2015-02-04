@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface travelPotaTypeCell : UITableViewCell
+@interface t1_Travel_Select_Type_Cell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblType;
 

@@ -1,5 +1,5 @@
 //
-//  splitViewPota.h
+//  s0_Split_Menu.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 19/08/14.
@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "splitViewCell.h"
+#import "s0_Split_Menu_Cell.h"
 #import "a2_App_Menu.h"
 
 
-@interface splitViewPota : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface s0_Split_Menu : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     UIImageView  *backgroundView;
     UITableView  *tableViewData;

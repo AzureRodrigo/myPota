@@ -74,9 +74,9 @@
 #define WS_URL_HOTEL_IMAGES        			@"/ws/ws.asmx/xmlBuscaImgHotel?codigoHotel=%@"
 #define WS_URL_HOTEL_ROOM_INFO              @"codigoSite=%@&tokenTos=%@&idProvedor=%@&codigoHotel=%@"
 
-#define WS_URL_TRAVEL_DESTINY     			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@"
-#define WS_URL_TRAVEL_DESTINY_TYPE     		@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodArea=%@"
-#define WS_URL_TRAVEL_BUY         			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&TpoProduto=%@&DtaInicial=%@&DtaFinal=%@&QtdAdulto=%@&QtdIdoso=%@&DscDestino=%@"
+#define WS_URL_TRAVEL_DESTINY     			@"IdWS=%@&CodSite=%@"
+#define WS_URL_TRAVEL_DESTINY_TYPE     		@"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@"
+#define WS_URL_TRAVEL_BUY         			@"IdWS=%@&CodSite=%@&TpoProduto=%@&DtaInicial=%@&DtaFinal=%@&QtdAdulto=%@&QtdIdoso=%@&DscDestino=%@"
 #define WS_URL_TRAVEL_INFO        			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&TpoProduto=%@&CodProduto=%@"
 #define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
 

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MWFSlideNavigationViewController.h"
-#import "splitViewPota.h"
+#import "s0_Split_Menu.h"
 
 @interface AppMenuView : NSObject <MWFSlideNavigationViewControllerDelegate, MWFSlideNavigationViewControllerDataSource>
 
 @property (strong, nonatomic) UIViewController *superView;
 + (void)openMenu:(UIViewController *)_superView sender:(id)sender;
 + (AppMenuView *)getMenuView;
-+ (splitViewPota *)getMenuController;
++ (s0_Split_Menu *)getMenuController;
 
 @end

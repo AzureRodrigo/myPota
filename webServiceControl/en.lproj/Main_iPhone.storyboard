@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFR-c4-Xki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2500" y="1508"/>
+            <point key="canvasLocation" x="-1380" y="732"/>
         </scene>
         <!--Hotel Pota List Result-->
         <scene sceneID="QuZ-7z-X7c">
@@ -335,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnQ-wh-vCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2484" y="2772"/>
+            <point key="canvasLocation" x="-1836" y="1364"/>
         </scene>
         <!--Hotel Pota Info-->
         <scene sceneID="NVE-f6-1Ny">
@@ -433,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOu-6P-8jL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2005" y="2772"/>
+            <point key="canvasLocation" x="-1357" y="1364"/>
         </scene>
         <!--Hote Pota Room-->
         <scene sceneID="dyz-pc-sip">
@@ -610,7 +610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feq-Rm-uex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1446" y="2772"/>
+            <point key="canvasLocation" x="-798" y="1364"/>
         </scene>
         <!--A1 App Open-->
         <scene sceneID="mSC-Ub-q66">
@@ -1397,11 +1397,7 @@ Pesquise aqui!</string>
                                 <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="viK-7m-0ng">
-                                <rect key="frame" x="10" y="100" width="300" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="PyN-pJ-aNL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="PyN-pJ-aNL">
                                 <rect key="frame" x="0.0" y="100" width="320" height="468"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -1435,6 +1431,10 @@ Pesquise aqui!</string>
                                     <outlet property="delegate" destination="q6P-US-J5m" id="eIg-fd-92B"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="viK-7m-0ng">
+                                <rect key="frame" x="10" y="100" width="300" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1457,7 +1457,7 @@ Pesquise aqui!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="109" sectionHeaderHeight="22" sectionFooterHeight="22" id="FQQ-PK-rwU">
-                                <rect key="frame" x="0.0" y="45" width="320" height="523"/>
+                                <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1466,25 +1466,25 @@ Pesquise aqui!</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Cliente" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FGj-K9-ncu">
-                                <rect key="frame" x="65" y="18" width="239" height="29"/>
+                                <rect key="frame" x="69" y="42" width="239" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat com:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qch-5R-WJV" userLabel="Label - Meu Agente">
-                                <rect key="frame" x="65" y="3" width="168" height="29"/>
+                                <rect key="frame" x="69" y="27" width="168" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="nnM-J6-vGV">
-                                <rect key="frame" x="10" y="45" width="300" height="1"/>
+                                <rect key="frame" x="10" y="75" width="300" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatIcon.png" id="GuO-iF-qcg">
-                                <rect key="frame" x="15" y="5" width="45" height="35"/>
+                                <rect key="frame" x="9" y="15" width="60" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1500,31 +1500,31 @@ Pesquise aqui!</string>
             </objects>
             <point key="canvasLocation" x="-5489" y="-37"/>
         </scene>
-        <!--Travel Pota Type-->
+        <!--T1 Travel Select Type-->
         <scene sceneID="mcB-5W-jx9">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="UZ0-NH-U2n" customClass="travelPotaType" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="UZ0-NH-U2n" customClass="t1_Travel_Select_Type" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpK-oS-tpu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Y0o-Dw-bgr">
-                                <rect key="frame" x="150" y="94" width="20" height="20"/>
+                                <rect key="frame" x="150" y="84" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando Tipos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T4H-Ql-MCX">
-                                <rect key="frame" x="10" y="64" width="300" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando Opções!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T4H-Ql-MCX">
+                                <rect key="frame" x="10" y="54" width="300" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" id="Zgp-yT-vkh">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="1" sectionFooterHeight="1" id="Zgp-yT-vkh">
+                                <rect key="frame" x="0.0" y="45" width="320" height="523"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="q7e-qz-GNy" customClass="travelPotaTypeCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="45" id="q7e-qz-GNy" customClass="t1_Travel_Select_Type_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q7e-qz-GNy" id="5ls-lB-MaP">
@@ -1532,30 +1532,20 @@ Pesquise aqui!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIi-ki-m5l">
-                                                    <rect key="frame" x="55" y="10" width="219" height="40"/>
+                                                    <rect key="frame" x="45" y="3" width="260" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="YPa-LS-lM7">
-                                                    <rect key="frame" x="0.0" y="60" width="320" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="xrn-Ja-mTi">
-                                                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                                                    <rect key="frame" x="15" y="8" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uhk-1g-T2a">
-                                                    <rect key="frame" x="275" y="15" width="30" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="YPa-LS-lM7">
+                                                    <rect key="frame" x="15" y="45" width="290" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="viagemIconInfo.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="btnGetInfo:" destination="q7e-qz-GNy" eventType="touchUpInside" id="6VK-nE-PvL"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1568,19 +1558,19 @@ Pesquise aqui!</string>
                                     <outlet property="delegate" destination="UZ0-NH-U2n" id="efX-Yu-49f"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha o Tipo de Viagem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJ2-W0-ean">
-                                <rect key="frame" x="22" y="19" width="270" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione um Tipo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qw9-E2-cvm">
+                                <rect key="frame" x="25" y="14" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="t2Q-Rw-B3F">
-                                <rect key="frame" x="1" y="54" width="320" height="2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="itm-tx-EyV">
+                                <rect key="frame" x="15" y="45" width="290" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="eZ0-gO-B3y"/>
@@ -1592,33 +1582,33 @@ Pesquise aqui!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-U7-c5Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3003" y="-140"/>
+            <point key="canvasLocation" x="-4825" y="1538"/>
         </scene>
-        <!--Travel Pota Destiny-->
+        <!--T2 Travel Select Destiny-->
         <scene sceneID="cSI-zY-8mS">
             <objects>
-                <viewController id="wM7-u6-Bay" customClass="travelPotaDestiny" sceneMemberID="viewController">
+                <viewController id="wM7-u6-Bay" customClass="t2_Travel_Select_Destiny" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s0w-Xd-bnQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando Planos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nju-T5-oDF">
-                                <rect key="frame" x="10" y="60" width="300" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando Destinos!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nju-T5-oDF">
+                                <rect key="frame" x="10" y="54" width="300" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="LtS-nd-nqH">
-                                <rect key="frame" x="150" y="90" width="20" height="20"/>
+                                <rect key="frame" x="150" y="84" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" id="MFE-qT-NUc">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="1" sectionFooterHeight="1" id="MFE-qT-NUc">
+                                <rect key="frame" x="0.0" y="45" width="320" height="435"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="7Ya-AF-jI0" customClass="travelPotaDestinyCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="45" id="7Ya-AF-jI0" customClass="t2_Travel_Select_Destiny_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ya-AF-jI0" id="7EN-05-cR1">
@@ -1626,30 +1616,20 @@ Pesquise aqui!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PwD-fS-En4">
-                                                    <rect key="frame" x="45" y="10" width="234" height="40"/>
+                                                    <rect key="frame" x="45" y="3" width="260" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="KAu-Zg-Mof">
-                                                    <rect key="frame" x="0.0" y="60" width="320" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="Vih-dy-8LT">
-                                                    <rect key="frame" x="10" y="15" width="30" height="30"/>
+                                                    <rect key="frame" x="15" y="8" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w20-bB-lvV">
-                                                    <rect key="frame" x="275" y="15" width="30" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="KAu-Zg-Mof">
+                                                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="viagemIconInfo.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="btnGetInfo:" destination="7Ya-AF-jI0" eventType="touchUpInside" id="CyL-zp-949"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1662,19 +1642,19 @@ Pesquise aqui!</string>
                                     <outlet property="delegate" destination="wM7-u6-Bay" id="9CD-lk-TbW"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha o Destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oNY-U2-glC">
-                                <rect key="frame" x="25" y="19" width="270" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione um Destino" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kfz-cM-49X">
+                                <rect key="frame" x="25" y="14" width="270" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="TsH-Pe-Bd0">
-                                <rect key="frame" x="0.0" y="54" width="320" height="2"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="did-yO-ubi">
+                                <rect key="frame" x="15" y="45" width="290" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="FPa-pX-8Lb"/>
                     <connections>
@@ -1685,12 +1665,12 @@ Pesquise aqui!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJQ-3b-XjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2485" y="-140"/>
+            <point key="canvasLocation" x="-4387" y="1538"/>
         </scene>
-        <!--Travel Calendar-->
+        <!--T3 Travel Calendar-->
         <scene sceneID="NNN-Ya-iVk">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="aes-th-Yfz" customClass="travelCalendar" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="aes-th-Yfz" customClass="t3_Travel_Calendar" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Hg-3M-OdH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1701,12 +1681,12 @@ Pesquise aqui!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ae8-oH-wpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2485" y="609"/>
+            <point key="canvasLocation" x="-3950" y="1538"/>
         </scene>
-        <!--Travel Pota-->
+        <!--T0 Travel-->
         <scene sceneID="3DY-xH-PSk">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="9pt-5W-zrU" customClass="travelPota" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="9pt-5W-zrU" customClass="t0_Travel" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gO-nc-LS0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1725,7 +1705,7 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="70" y="30" width="183" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="dQn-Ih-aLO" userLabel="tipo bar">
@@ -1746,7 +1726,7 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="70" y="100" width="183" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="FXF-xW-P7p" userLabel="destino bar">
@@ -1774,7 +1754,7 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="70" y="179" width="77" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sexta-feira" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bkG-1Z-HTt" userLabel="retorno - Sexta-feira">
@@ -1788,7 +1768,7 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="204" y="179" width="71" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="JlT-Qx-sZn" userLabel="data bar">
@@ -1803,28 +1783,28 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="70" y="234" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pax" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U7w-kI-7Wt">
                                 <rect key="frame" x="245" y="234" width="37" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kr3-m8-CJE">
                                 <rect key="frame" x="210" y="234" width="32" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pessoas até 75 anos" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mv9-9c-dUm">
                                 <rect key="frame" x="5" y="274" width="183" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="29l-DX-5Ep" userLabel="Button - Minus">
@@ -1866,7 +1846,7 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="5" y="314" width="183" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7nK-tO-j6o" userLabel="Button - Minus">
@@ -1914,18 +1894,12 @@ Pesquise aqui!</string>
                                     <action selector="btnContinue:" destination="9pt-5W-zrU" eventType="touchUpInside" id="uLm-Uz-jfE"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="fld-6w-3O3">
-                                <rect key="frame" x="142" y="164" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="jSl-tZ-8Bd"/>
                     <connections>
-                        <outlet property="loadCalendar" destination="fld-6w-3O3" id="mYY-1g-w4D"/>
                         <outlet property="otlBtnMinorMinus" destination="29l-DX-5Ep" id="aJf-Hm-Dqh"/>
                         <outlet property="otlBtnMinorPlus" destination="wBP-xx-pzQ" id="O68-SC-KjS"/>
                         <outlet property="otlBtnMoreMinus" destination="7nK-tO-j6o" id="qud-TR-hzw"/>
@@ -1940,15 +1914,15 @@ Pesquise aqui!</string>
                         <outlet property="otlPeopleMinus" destination="i70-wt-3vc" id="2iY-PS-B2m"/>
                         <outlet property="otlPeopleMore" destination="qOH-zb-Qu8" id="bg8-uF-ceu"/>
                         <outlet property="otlType" destination="TNg-Gp-eYg" id="cRd-vt-RyT"/>
-                        <segue destination="wM7-u6-Bay" kind="push" identifier="viagemPotaTodestinyPota" id="Jbt-Yd-FwC"/>
-                        <segue destination="3Qe-aD-YGP" kind="push" identifier="viagemPotaTotravelPackges" id="QXy-8B-pFo"/>
-                        <segue destination="UZ0-NH-U2n" kind="push" identifier="viagemPotaTotypePota" id="sK4-sb-mZo"/>
-                        <segue destination="aes-th-Yfz" kind="push" identifier="viagemPotaTocalendarPota" id="ajy-Yn-taE"/>
+                        <segue destination="wM7-u6-Bay" kind="push" identifier="T0_To_T2" id="Jbt-Yd-FwC"/>
+                        <segue destination="3Qe-aD-YGP" kind="push" identifier="T0_To_T4" id="QXy-8B-pFo"/>
+                        <segue destination="UZ0-NH-U2n" kind="push" identifier="T0_To_T1" id="sK4-sb-mZo"/>
+                        <segue destination="aes-th-Yfz" kind="push" identifier="T0_To_T3" id="ajy-Yn-taE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5k6-qB-E3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3003" y="596"/>
+            <point key="canvasLocation" x="-4825" y="788"/>
         </scene>
         <!--Travel Packges-->
         <scene sceneID="Jz8-3c-xHu">
@@ -2168,13 +2142,13 @@ Pesquise aqui!</string>
                         <outlet property="otlLoad" destination="y8c-DK-wwr" id="0ni-cn-BkJ"/>
                         <outlet property="otlPlans" destination="knI-eD-0zr" id="SgQ-HJ-W2c"/>
                         <outlet property="tableViewData" destination="hxn-b2-h5o" id="1eX-Ww-JgL"/>
-                        <segue destination="W2I-Cm-X0U" kind="push" identifier="travelPackgestravelInfo" id="Nwa-3J-vcM"/>
+                        <segue destination="W2I-Cm-X0U" kind="push" identifier="T4_To_T5" id="Nwa-3J-vcM"/>
                         <segue destination="0dx-oG-emP" kind="push" identifier="travelPotaTocadastroPota" id="IVC-vd-5K9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrW-of-HgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1950" y="556"/>
+            <point key="canvasLocation" x="-4387" y="788"/>
         </scene>
         <!--Travel Info Pota-->
         <scene sceneID="rDE-I3-D2q">
@@ -2297,7 +2271,7 @@ Pesquise aqui!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7nA-o9-Eds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1950" y="-140"/>
+            <point key="canvasLocation" x="-3950" y="840"/>
         </scene>
         <!--Cadastre Purchase-->
         <scene sceneID="Aev-FK-2We">
@@ -4368,7 +4342,7 @@ o Pagamento”, reconhece que:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztR-ry-ElF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3003" y="2124"/>
+            <point key="canvasLocation" x="-2387" y="204"/>
         </scene>
         <!--Voucher List Pota-->
         <scene sceneID="0AD-Wc-5jp">
@@ -4790,7 +4764,7 @@ o Pagamento”, reconhece que:</string>
                         <outlet property="tableViewData" destination="24s-VL-T2Q" id="vHC-kD-c60"/>
                         <segue destination="Krp-Rn-XNt" kind="push" identifier="A2_To_B2" id="dfT-L0-weW"/>
                         <segue destination="yDr-wj-1gZ" kind="push" identifier="menuPotaTomenuHotel" id="7cB-KG-8Ku"/>
-                        <segue destination="9pt-5W-zrU" kind="push" identifier="menuPotaToviagemPota" id="ZQ4-jj-X3y"/>
+                        <segue destination="9pt-5W-zrU" kind="push" identifier="A2_To_T0" id="ZQ4-jj-X3y"/>
                         <segue destination="0dx-oG-emP" kind="push" identifier="teste" id="HeL-UY-ekR"/>
                         <segue destination="8XS-3n-iE6" kind="push" identifier="gigateste" id="2Ag-bD-Ycb"/>
                         <segue destination="2eG-OV-bjm" kind="push" identifier="menuTolistVoucher" id="XKP-Pa-VR5"/>
@@ -5218,7 +5192,7 @@ agência de viagem</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jw-Jx-Xmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2500" y="2124"/>
+            <point key="canvasLocation" x="-1828" y="356"/>
         </scene>
         <!--Pack Types-->
         <scene sceneID="P5H-wU-e2l">
@@ -5524,29 +5498,29 @@ agência de viagem</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando Clientes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcx-pP-yVS">
-                                <rect key="frame" x="65" y="18" width="236" height="29"/>
+                                <rect key="frame" x="62" y="43" width="236" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chats:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kHJ-QM-7Ap" userLabel="Label - Meu Agente">
-                                <rect key="frame" x="65" y="3" width="168" height="29"/>
+                                <rect key="frame" x="62" y="28" width="168" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatIcon.png" id="c7a-QA-0rR">
-                                <rect key="frame" x="15" y="5" width="45" height="35"/>
+                                <rect key="frame" x="2" y="15" width="60" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="mMr-zP-STO">
-                                <rect key="frame" x="280" y="20" width="20" height="20"/>
+                                <rect key="frame" x="280" y="45" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="SlQ-ZF-M38">
-                                <rect key="frame" x="0.0" y="45" width="320" height="523"/>
+                                <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -5592,7 +5566,7 @@ agência de viagem</string>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="SRk-3S-9Og">
-                                <rect key="frame" x="10" y="45" width="300" height="1"/>
+                                <rect key="frame" x="10" y="75" width="300" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -6311,7 +6285,7 @@ Portal Schultz.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EC1-s4-lCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2005" y="3404"/>
+            <point key="canvasLocation" x="-1357" y="1996"/>
         </scene>
         <!--Pack Info Datas-->
         <scene sceneID="DMo-xe-jPz">
@@ -6492,13 +6466,13 @@ Portal Schultz.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="keo-gk-rUG"/>
-        <segue reference="gef-8e-Oov"/>
-        <segue reference="qLu-cP-eeQ"/>
-        <segue reference="WqO-0X-aMb"/>
-        <segue reference="XDl-oI-JGF"/>
+        <segue reference="6aG-hQ-eWW"/>
         <segue reference="2Ag-bD-Ycb"/>
-        <segue reference="HeL-UY-ekR"/>
         <segue reference="5ue-yG-pK9"/>
+        <segue reference="HeL-UY-ekR"/>
+        <segue reference="3LT-CL-iMM"/>
+        <segue reference="dfT-L0-weW"/>
+        <segue reference="XDl-oI-JGF"/>
+        <segue reference="qLu-cP-eeQ"/>
     </inferredMetricsTieBreakers>
 </document>

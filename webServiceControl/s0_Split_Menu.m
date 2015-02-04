@@ -1,14 +1,14 @@
 //
-//  splitViewPota.m
+//  s0_Split_Menu.m
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 19/08/14.
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "splitViewPota.h"
+#import "s0_Split_Menu.h"
 
-@implementation splitViewPota
+@implementation s0_Split_Menu
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -143,9 +143,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"SplitMenuCell";
-    splitViewCell *cell = (splitViewCell *)[tableViewData dequeueReusableCellWithIdentifier:cellIdentifier];
+    s0_Split_Menu_Cell *cell = (s0_Split_Menu_Cell *)[tableViewData dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
-        cell = [[splitViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[s0_Split_Menu_Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     [cell.imgBg setImage:[UIImage imageNamed:[[listOptions objectAtIndex:[indexPath row]]objectForKey:@"IMAGE"]]];
     
     return cell;

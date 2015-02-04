@@ -67,8 +67,7 @@
 {
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_HOTEL
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -165,7 +164,7 @@
     
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %ld", [indexPath row]+1]];
+    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %d", [indexPath row]+1]];
     [cell.agePicker selectRow:[[AgeChildren objectAtIndex:[indexPath row]]intValue]-1 inComponent:0 animated:NO];
     
     return cell;

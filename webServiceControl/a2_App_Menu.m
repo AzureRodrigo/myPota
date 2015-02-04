@@ -26,8 +26,7 @@
 {
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_PERFIL
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:nil
                              openSplitMenu:@selector(menuOpen:)
@@ -96,13 +95,13 @@
 {
     switch ([indexPath row] + 1) {
         case 1:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
+//            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
             break;
         case 2:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
+//            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
             break;
         case 3:
-            [self performSegueWithIdentifier:STORY_BOARD_MENU_ASSISTENCIA sender:self];
+            [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_T0];
             break;
         case 4:
             //            [self performSegueWithIdentifier:@"teste" sender:self];

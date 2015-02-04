@@ -1,5 +1,5 @@
 //
-//  splitViewCell.h
+//  s0_Split_Menu_Cell.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 19/08/14.
@@ -11,7 +11,7 @@
 #define CELL_SIZE 60
 
 
-@interface splitViewCell : UITableViewCell
+@interface s0_Split_Menu_Cell : UITableViewCell
 {
     UIImageView *imgBar;
 }

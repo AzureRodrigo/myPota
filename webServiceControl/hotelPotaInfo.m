@@ -20,8 +20,7 @@
 {
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_HOTEL_DETAILS
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -193,7 +192,7 @@
     //    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     //    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %ld", [indexPath row]+1]];
     //    [cell.agePicker selectRow:[[AgeChildren objectAtIndex:[indexPath row]]intValue]-1 inComponent:0 animated:NO];
-    //    
+    //
     return nil;
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "splitViewCell.h"
+#import "s0_Split_Menu_Cell.h"
 
-@implementation splitViewCell
+@implementation s0_Split_Menu_Cell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

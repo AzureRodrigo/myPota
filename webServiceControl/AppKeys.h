@@ -151,6 +151,7 @@
 #define IMAGE_NAVIGATION_BAR_SELLER         @"hudBarVendedor"
 
 #define IMAGE_NAVIGATION_BAR_PERFIL         @"navBarPota"
+#define IMAGE_NAVIGATION_BAR_GENERIC        @"navBarGeneric"
 #define IMAGE_NAVIGATION_BAR_VIAGEM         @"navBar02"
 #define IMAGE_NAVIGATION_BAR_HOTEL          @"navBar03"
 #define IMAGE_NAVIGATION_BAR_CALENDAR       @"navBar04"
@@ -179,7 +180,7 @@
 
 #pragma mark - string's
 
-#define FONT_NAME                           @"HelveticaNeue-Normal"
+#define FONT_NAME                           @"HelveticaNeue"
 #define FONT_NAME_BOLD                      @"HelveticaNeue-Bold"
 #define FONT_NAME_MEDIUM                    @"HelveticaNeue-Medium"
 

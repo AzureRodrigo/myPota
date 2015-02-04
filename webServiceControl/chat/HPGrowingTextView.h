@@ -119,6 +119,7 @@
 
 - (BOOL)hasText;
 - (void)scrollRangeToVisible:(NSRange)range;
+-(void)setFont:(NSString *)name size:(float)size;
 
 // call to force a height change (e.g. after you change max/min lines)
 - (void)refreshHeight;

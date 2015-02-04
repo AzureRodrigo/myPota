@@ -1,5 +1,5 @@
 //
-//  travelPota.h
+//  t0_Travel.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 08/05/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AzCalendar.h"
 
-@interface travelPota : UIViewController
+@interface t0_Travel : UIViewController 
 {
 #pragma mark - Tipo
     IBOutlet UILabel *otlType;
@@ -39,6 +39,7 @@
     NSDate   *dateEnd;
     IBOutlet UIActivityIndicatorView *loadCalendar;
 #pragma mark - purchase data;
+    NSDictionary *myAgency;
     NSDictionary *purchaseData;
     NSString     *IDWS;
 }

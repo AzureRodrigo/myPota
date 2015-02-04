@@ -38,8 +38,8 @@
 #pragma mark - Storyboard ID Block F
 //#define STORYBOARD_ID_F0 @"F0_Hotel_Search"
 
-#pragma mark - Storyboard ID Block G
-//#define STORYBOARD_ID_G0 @"G0_Travel_Search"
+#pragma mark - Storyboard ID Block T
+//#define STORYBOARD_ID_T0 @"T0_Travel_Search"
 
 #pragma mark - Storyboard ID Block H
 #define STORYBOARD_ID_H0 @"H0_Volcher_Search"
@@ -50,6 +50,7 @@
 #pragma mark - Segues Block A
 #define SEGUE_A2_TO_B2 @"A2_To_B2"
 #define SEGUE_A2_TO_C1 @"A2_To_C1"
+#define SEGUE_A2_TO_T0 @"A2_To_T0"
 
 #pragma mark - Segues Block B
 #define SEGUE_B0_TO_B1  @"B0_To_B1"
@@ -68,5 +69,13 @@
 #define SEGUE_C0_TO_C1 @"C0_To_C1"
 #define SEGUE_C2_TO_B3 @"C2_To_C3"
 #define SEGUE_C1_TO_A2 @"C1_To_A2"
+
+#pragma mark - Segues Block T
+#define SEGUE_T0_TO_T1 @"T0_To_T1"
+#define SEGUE_T0_TO_T2 @"T0_To_T2"
+#define SEGUE_T0_TO_T3 @"T0_To_T3"
+#define SEGUE_T0_TO_T4 @"T0_To_T4"
+#define SEGUE_T4_TO_T5 @"T4_To_T5"
+#define SEGUE_T4_TO_ @"T4_To_"
 
 #endif

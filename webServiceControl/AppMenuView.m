@@ -11,7 +11,7 @@
 @implementation AppMenuView
 
 static AppMenuView   *menuView       = nil;
-static splitViewPota *menuController = nil;
+static s0_Split_Menu *menuController = nil;
 
 @synthesize superView;
 
@@ -20,7 +20,7 @@ static splitViewPota *menuController = nil;
     return menuView;
 }
 
-+ (splitViewPota *)getMenuController
++ (s0_Split_Menu *)getMenuController
 {
     return menuController;
 }
@@ -117,7 +117,7 @@ static splitViewPota *menuController = nil;
 - (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller viewControllerForSlideDirecton:(MWFSlideDirection)direction
 {
     if (menuController == nil) {
-        menuController = [[splitViewPota alloc] init];
+        menuController = [[s0_Split_Menu alloc] init];
     }
     
     menuController.container = [[UIView alloc] initWithFrame:superView.view.bounds];

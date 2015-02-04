@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "travelPota.h"
+#import "t0_Travel.h"
 #import "travelPlans.h"
 #import "travelPackgesCell.h"
 
 @interface travelPackges : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
 #pragma mark - screen components
-    travelPota *backScreen;
+    t0_Travel *backScreen;
     IBOutlet UITableView                *tableViewData;
     IBOutlet UILabel                    *lblLoad;
     IBOutlet UIActivityIndicatorView    *otlLoad;

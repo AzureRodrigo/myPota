@@ -1,35 +1,33 @@
 //
-//  travelPota.m
+//  t0_Travel.m
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 08/05/14.
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPota.h"
+#import "t0_Travel.h"
 
-@interface travelPota ()
-
-@end
-
-@implementation travelPota
+@implementation t0_Travel
 
 #pragma mark - didLoad
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    NSDate *toDay = [NSDate new];
+    NSDate *toDay    = [[NSDate new] dateByAddingTimeInterval:60*60*24*1];
     NSDate *toMorrow = [toDay dateByAddingTimeInterval:60*60*24*1];
     [self setDateTravel:toDay end:toMorrow];
+    [super viewDidLoad];
 }
 
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Assintência em Viagem"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_VIAGEM
-                                     title:@""
-                                superTitle:@""
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -51,26 +49,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self configNavBar];
-    [loadCalendar setHidden:YES];
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [loadCalendar stopAnimating];
     [super viewWillDisappear:animated];
 }
 
 #pragma mark - Type
 - (IBAction)btnType:(id)sender
 {
-    [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_TYPE sender:self];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T0_TO_T1];
 }
 
 #pragma mark - Destiny
 - (IBAction)btnDestiny:(id)sender
 {
-    [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_DESTINY sender:self];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T0_TO_T2];
 }
 
 #pragma mark - Data
@@ -87,9 +83,7 @@
 
 - (IBAction)btnDataStart:(id)sender
 {
-    [loadCalendar setHidden:NO];
-    [loadCalendar startAnimating];
-    [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_CALENDAR sender:self];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T0_TO_T3];
 }
 
 - (int) numberPeople
@@ -197,41 +191,43 @@
     return YES;
 }
 
-- (void)setPurchaseData:(NSMutableDictionary *)seller
+- (void)setPurchaseData
 {
-    
     purchaseData = @{ PURCHASE_INFO_PRODUCT : [@{
-                              PURCHASE_DATA_TRAVEL_TYPE           : otlType.text,
-                              PURCHASE_DATA_TRAVEL_DESTINY        : otlDestiny.text,
-                              PURCHASE_DATA_TRAVEL_DATA_START     : otlDataStarMoth.text,
-                              PURCHASE_DATA_TRAVEL_DATA_END       : otlDataEndMoth.text,
-                              PURCHASE_DATA_TRAVEL_DAYS           : [NSString stringWithFormat:@"%0.f",[self getDiferenceData:otlDataStarMoth.text end:otlDataEndMoth.text]],
-                              PURCHASE_DATA_TRAVEL_PAX            : [NSString stringWithFormat:@"%d",[otlPeopleMinus.text intValue] + [otlPeopleMore.text intValue]],
-                              PURCHASE_DATA_TRAVEL_PAX_YOUNG      : otlPeopleMinus.text,
-                              PURCHASE_DATA_TRAVEL_PAX_OLD        : otlPeopleMore.text,
-                              PURCHASE_DATA_TRAVEL_LINK_PLAN      : link
-                              } mutableCopy],
-                      PURCHASE_INFO_SELLER                : @"",//[seller objectForKey:PURCHASE_INFO_SELLER],
-                      PURCHASE_INFO_AGENCY                : @""//[seller objectForKey:PURCHASE_INFO_AGENCY]
+                                                 PURCHASE_DATA_TRAVEL_TYPE           : otlType.text,
+                                                 PURCHASE_DATA_TRAVEL_DESTINY        : otlDestiny.text,
+                                                 PURCHASE_DATA_TRAVEL_DATA_START     : otlDataStarMoth.text,
+                                                 PURCHASE_DATA_TRAVEL_DATA_END       : otlDataEndMoth.text,
+                                                 PURCHASE_DATA_TRAVEL_DAYS           : [NSString stringWithFormat:@"%0.f",[self getDiferenceData:otlDataStarMoth.text end:otlDataEndMoth.text]],
+                                                 PURCHASE_DATA_TRAVEL_PAX            : [NSString stringWithFormat:@"%d",[otlPeopleMinus.text intValue] + [otlPeopleMore.text intValue]],
+                                                 PURCHASE_DATA_TRAVEL_PAX_YOUNG      : otlPeopleMinus.text,
+                                                 PURCHASE_DATA_TRAVEL_PAX_OLD        : otlPeopleMore.text,
+                                                 PURCHASE_DATA_TRAVEL_LINK_PLAN      : link
+                                                 } mutableCopy],
+                      PURCHASE_INFO_SELLER                : [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER],
+                      PURCHASE_INFO_AGENCY                : myAgency
                       };
 }
 
 - (void)searchPlans
 {
-    NSMutableDictionary *seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    IDWS = [[seller objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
     
     link = [NSString stringWithFormat:WS_URL_TRAVEL_BUY,
-             KEY_CODE_SITE_TRAVEL,
+            IDWS,
+            KEY_CODE_SITE_TRAVEL,
             KEY_EMPTY, otlDataStarMoth.text,otlDataEndMoth.text,
             otlPeopleMinus.text, otlPeopleMore.text, otlDestiny.text];
     
     link = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_VALUES, link];
-    [self setPurchaseData:seller];
+    [self setPurchaseData];
     
-    [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_PLANOS sender:self];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T0_TO_T4];
 }
 
 - (IBAction)btnContinue:(id)sender

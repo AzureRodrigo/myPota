@@ -20,7 +20,7 @@
     if (self)
     {
         self.view = frame;
-        [self initCalendar];
+        [self initCalendarScreen];
         [calendarView setDelegate:self];
     }
     return self;
@@ -36,46 +36,6 @@
         [calendarView setDelegate:self];
     }
     return self;
-}
-
-- (void) initCalendar
-{
-//    formatDate = [[NSDateFormatter alloc] init];
-//    locale     = [[NSLocale alloc] initWithLocaleIdentifier:@"pt_Br"];
-//    [formatDate setLocale:locale];
-//    dateInfo   = [NSDate date];
-//    //bg
-//    UIImage *imageBg = [UIImage imageNamed:@"bg"];
-//    UIImageView *bg  = [[UIImageView alloc] initWithFrame:self.view.frame];
-//    bg.image = imageBg;
-//    bg.layer.cornerRadius  = 10.f;
-//    bg.layer.masksToBounds = YES;
-//    [self.view addSubview:bg];
-//    //navBar config
-//    UIImage *imageNavBar = [UIImage imageNamed:@"navBarCalendario"];
-//    UIImageView *navBar  = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,
-//                                                                         self.view.frame.size.width,
-//                                                                         self.view.frame.size.height * .09)];
-//    navBar.image = imageNavBar;
-//    navBar.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:navBar];
-//    //navBar Buttons
-//    UIButton* buttonCancel = [[UIButton alloc] initWithFrame:CGRectMake(navBar.frame.size.width * .01f, navBar.frame.size.height * .1f,
-//                                                                        navBar.frame.size.width * .15f, navBar.frame.size.height * .9f)];
-//    [buttonCancel setBackgroundImage:[UIImage imageNamed:@"menuKeyWhiteCal"]  forState:UIControlStateNormal];
-//    [buttonCancel addTarget:self action:@selector(btnCalendarCancel:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:buttonCancel];
-//    UIButton* buttonConfirm = [[UIButton alloc] initWithFrame:CGRectMake(navBar.frame.size.width * .84f, navBar.frame.size.height * .1f,
-//                                                                         navBar.frame.size.width * .15f, navBar.frame.size.height * .9f)];
-//    [buttonConfirm setBackgroundImage:[UIImage imageNamed:@"menuKeyGreen"] forState:UIControlStateNormal];
-//    [buttonConfirm addTarget:self action:@selector(btnCalendarConfirm:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:buttonConfirm];
-//    
-//    calendarView = [[DSLCalendarView alloc]initWithFrame:CGRectMake( 2.5 ,self.view.frame.size.height * .065f,
-//                                                                    self.view.frame.size.width,
-//                                                                    self.view.frame.size.height)];
-//    [self.view addSubview:calendarView];
-    
 }
 
 - (void) initCalendarScreen

@@ -6,38 +6,45 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPotaType.h"
+#import "t1_Travel_Select_Type.h"
 
-@implementation travelPotaType
+@implementation t1_Travel_Select_Type
 
-- (void)initScreenData
+#pragma mark - confiScreen
+- (void)confiScreen
 {
-    backScreen = (travelPota *)[AppFunctions BACK_SCREEN:self number:1];
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
-    NSMutableDictionary *seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    IDWS = [[seller objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
+    
+    backScreen = (t0_Travel *)[AppFunctions BACK_SCREEN:self number:1];
+
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
     
     [self startConnection];
+    
     [otlLoad startAnimating];
 }
 
-#pragma mark - didLoad
 - (void)viewDidLoad
 {
-    [self initScreenData];
+    [self confiScreen];
     [super viewDidLoad];
 }
 
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Tipo de Viagem"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_VIAGEM
-                                     title:@""
-                                superTitle:@""
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -71,7 +78,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    travelPotaTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    t1_Travel_Select_Type_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     [cell.lblType setText:[listTypes objectAtIndex:[indexPath row]]];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -89,10 +96,10 @@
 - (void) startConnection
 {
     listTypes = [NSMutableArray new];
-    [lblLoad setText:@"Procurando informações ..."];
+    [lblLoad setText:@"Carregando opções aguarde."];
     [self->connection   cancel];
     //aqui
-    NSString *link       = [NSString stringWithFormat:WS_URL_TRAVEL_DESTINY_TYPE,KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL_TRAVEL, KEY_CODE_AREA_TRAVEL];
+    NSString *link       = [NSString stringWithFormat:WS_URL_TRAVEL_DESTINY_TYPE,IDWS,KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL_TRAVEL, KEY_CODE_AREA_TRAVEL];
     link                 = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_DESTINYS_TYPE, link];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,

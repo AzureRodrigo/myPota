@@ -129,13 +129,13 @@
 + (void)APP_LOGOFF:(UIViewController *)view identifier:(NSString *)_id
 {
     NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
-         NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
-                                                   [user objectForKey:TAG_USER_PERFIL_CODE_MD5],
-                                                   [user objectForKey:TAG_USER_PERFIL_CODE_TOKEN],
-                                                   TAG_BASE_WS_EXCLUDE,TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN];
+    NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
+                              [user objectForKey:TAG_USER_PERFIL_CODE_MD5],
+                              [user objectForKey:TAG_USER_PERFIL_CODE_TOKEN],
+                              TAG_BASE_WS_EXCLUDE,TAG_BASE_WS_ACESS_KEY, TAG_BASE_WS_TYPE_RETURN];
     
     NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
-
+    
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Desconectando, aguarde.",
                                        APP_CONNECTION_TAG_WAIT   : @"Desconectando, aguarde.",
                                        APP_CONNECTION_TAG_RECIVE : @"Desconectando, aguarde.",
@@ -155,11 +155,11 @@
                     [AppFunctions LOG_MESSAGE:@"Aviso!"
                                       message:@"Sua conta foi deslogada com sucesso!"
                                        cancel:ERROR_BUTTON_CANCEL];
-                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
-                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
-                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
-                        [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
-                        [AppFunctions POP_SCREEN:view identifier:_id animated:YES];
+                    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_TYPE];
+                    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_PERFIL];
+                    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_SELLER];
+                    [AppFunctions DATA_BASE_ENTITY_REMOVE:TAG_USER_AGENCY];
+                    [AppFunctions POP_SCREEN:view identifier:_id animated:YES];
                 }
                 else
                     [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
@@ -193,13 +193,14 @@
 }
 
 #pragma mark - NAVIGATION_BAR
-+ (UIViewController *)CONFIGURE_NAVIGATION_BAR:(UIViewController *)screen image:(NSString *)imageName title:(NSString *)title superTitle:(NSString *)superTitle backLabel:(NSString *)backLabel buttonBack:(SEL)buttonBack openSplitMenu:(SEL)openSplitMenu backButton:(BOOL)backButton
++ (UIViewController *)CONFIGURE_NAVIGATION_BAR:(UIViewController *)screen image:(NSString *)imageName title:(NSAttributedString *)title backLabel:(NSString *)backLabel buttonBack:(SEL)buttonBack openSplitMenu:(SEL)openSplitMenu backButton:(BOOL)backButton
 {
     UIImage *image = [[UIImage imageNamed:imageName]resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10) resizingMode:UIImageResizingModeStretch];
     [[screen.navigationController navigationBar] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+
     CGFloat scale = 1;
     CGFloat cy = 44.0 - ( 44.0 * scale );
-    CGRect frame = CGRectMake(0, 0, screen.navigationController.view.frame.size.width * .2f, 44);
+    CGRect frame = CGRectMake(0, 0, 35, 44);
     UIButton *button = [[UIButton alloc] initWithFrame:frame];
     [button addTarget:screen action:buttonBack forControlEvents:UIControlEventTouchUpInside];
     [button setContentMode: UIViewContentModeCenter];
@@ -216,9 +217,18 @@
     
     screen.navigationController.navigationBar.transform = CGAffineTransformScale( CGAffineTransformMakeTranslation( 0, -cy / 2.0 ), 1.0, scale );
     
+    if (title != nil)
+    {
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.attributedText = [[NSAttributedString alloc] initWithAttributedString:title];
+        [titleLabel setAdjustsFontSizeToFitWidth:YES];
+        [titleLabel sizeToFit];
+        [screen.navigationItem setTitleView:titleLabel];
+    }
+    
     if (openSplitMenu != NULL)
     {
-        CGRect frame = CGRectMake(0, 0, 40, 44);
+        CGRect frame = CGRectMake(0, 0, 35, 44);
         UIButton* button = [[UIButton alloc] initWithFrame:frame];
         [button setBackgroundImage:[UIImage imageNamed:@"btnOption"] forState:UIControlStateNormal];
         [button addTarget:screen action:openSplitMenu forControlEvents:UIControlEventTouchUpInside];
@@ -708,7 +718,6 @@
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
     UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
-    
     
     [btnCancel  setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
     [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];

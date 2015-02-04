@@ -30,7 +30,7 @@
 + (void)LOG_MESSAGE:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel;
 
 #pragma mark - NAVIGATION_BAR
-+ (UIViewController *)CONFIGURE_NAVIGATION_BAR:(UIViewController *)screen image:(NSString *)imageName title:(NSString *)title superTitle:(NSString *)superTitle backLabel:(NSString *)backLabel buttonBack:(SEL)buttonBack openSplitMenu:(SEL)openSplitMenu backButton:(BOOL)backButton;
++ (UIViewController *)CONFIGURE_NAVIGATION_BAR:(UIViewController *)screen image:(NSString *)imageName title:(NSAttributedString *)title backLabel:(NSString *)backLabel buttonBack:(SEL)buttonBack openSplitMenu:(SEL)openSplitMenu backButton:(BOOL)backButton;
 #pragma mark - NAVIGATION_BAR_CALENDAR
 + (UIViewController *)CONFIGURE_NAVIGATION_BAR_CALENDAR:(UIViewController *)screen image:(NSString *)imageName backLabel:(NSString *)backLabel buttonBack:(SEL)buttonBack;
 

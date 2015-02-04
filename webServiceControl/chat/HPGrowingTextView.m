@@ -95,7 +95,7 @@
 #endif
     internalTextView.delegate = self;
     internalTextView.scrollEnabled = NO;
-    internalTextView.font = [UIFont fontWithName:@"Helvetica" size:13]; 
+    internalTextView.font = [UIFont fontWithName:FONT_NAME_MEDIUM size:13];
     internalTextView.contentInset = UIEdgeInsetsZero;
     internalTextView.showsHorizontalScrollIndicator = NO;
     internalTextView.text = @"-";
@@ -440,9 +440,9 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void)setFont:(UIFont *)afont
+-(void)setFont:(NSString *)name size:(float)size
 {
-	internalTextView.font= afont;
+	[internalTextView setFont:[UIFont fontWithName:name size:size]];
 	
 	[self setMaxNumberOfLines:maxNumberOfLines];
 	[self setMinNumberOfLines:minNumberOfLines];

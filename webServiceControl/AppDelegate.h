@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import "splitViewPota.h"
+#import "s0_Split_Menu.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

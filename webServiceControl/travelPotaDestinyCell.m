@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPotaDestinyCell.h"
+#import "t2_Travel_Select_Destiny_Cell.h"
 
-@implementation travelPotaDestinyCell
+@implementation t2_Travel_Select_Destiny_Cell
 
 - (void)awakeFromNib
 {

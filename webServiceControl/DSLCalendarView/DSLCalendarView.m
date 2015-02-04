@@ -28,7 +28,7 @@
     
     [self.monthSelectorView.backButton addTarget:self action:@selector(didTapMonthBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.monthSelectorView.forwardButton addTarget:self action:@selector(didTapMonthForward:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     CGRect frame        = self.bounds;
     frame.origin.x      = 0;
     frame.origin.y      = CGRectGetMaxY(self.monthSelectorView.frame);
@@ -39,7 +39,7 @@
     
     self.monthContainerViewContentView = [[UIView alloc] initWithFrame:self.monthContainerView.bounds];
     [self.monthContainerView addSubview:self.monthContainerViewContentView];
-    
+
     self.monthViews = [[NSMutableDictionary alloc] init];
     
     [self updateMonthLabelMonth:_visibleMonth];
@@ -159,15 +159,15 @@
         NSDateComponents *offsetMonth = [month copy];
         offsetMonth.month = offsetMonth.month + monthOffset;
         offsetMonth = [offsetMonth.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSCalendarCalendarUnit fromDate:offsetMonth.date];
-        
+
         if (![self monthStartsOnFirstDayOfWeek:offsetMonth])
             nextVerticalPosition -= _dayViewHeight;
-        
+
         // cria e seta posção do mês
         DSLCalendarMonthView *monthView = [self cachedOrCreatedMonthViewForMonth:offsetMonth];
         [activeMonthViews addObject:monthView];
         [monthView.superview bringSubviewToFront:monthView];
-        
+
         CGRect frame = monthView.frame;
         frame.origin.y = nextVerticalPosition;
         nextVerticalPosition += frame.size.height;
@@ -219,16 +219,16 @@
             [self.monthViews removeObjectForKey:key];
         }
     }
-    
+
     // Position the content view to show where we're animating from
     if (monthComparisonResult != NSOrderedSame) {
         CGRect frame = self.monthContainerViewContentView.frame;
         frame.origin.y = -startingVerticalPostion;
         self.monthContainerViewContentView.frame = frame;
     }
-    
+
     self.userInteractionEnabled = NO;
-    
+
     [UIView animateWithDuration:animationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         for (NSInteger index = 0; index < activeMonthViews.count; index++)
         {
@@ -236,7 +236,7 @@
             for (DSLCalendarDayView *dayView in monthView.dayViews)
                 dayView.inCurrentMonth = (index == 2);
         }
-        
+
         //Seta a exibição de conteúdo para mostrar o mês atual
         CGRect frame    = self.monthContainerViewContentView.frame;
         frame.origin.y  = -restingVerticalPosition;

@@ -22,7 +22,7 @@
 
 - (void)initScreenData
 {
-    backScreen      = (travelPota *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen      = (t0_Travel *)[AppFunctions BACK_SCREEN:self number:1];
     purchaseData    = [backScreen getPurchaseData];
     link            = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_LINK_PLAN];
     listPlans       = [NSMutableArray new];
@@ -48,8 +48,7 @@
 {
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_VIAGEM
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)

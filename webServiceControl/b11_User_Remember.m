@@ -28,8 +28,7 @@
     
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_PERFIL
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_BACK
                                 buttonBack:@selector(backScreen:)
                              openSplitMenu:nil

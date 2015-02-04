@@ -25,8 +25,7 @@
     
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
                                      image:IMAGE_NAVIGATION_BAR_PERFIL
-                                     title:@""
-                                superTitle:@""
+                                     title:nil
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_BACK
                                 buttonBack:@selector(backScreen:)
                              openSplitMenu:nil
@@ -51,7 +50,7 @@
     textView.contentInset       = UIEdgeInsetsMake(0, 5, 0, 5);
     textView.minNumberOfLines   = 1;
     textView.maxNumberOfLines   = 6;
-    textView.font               = [UIFont fontWithName:FONT_NAME size:18];
+    [textView setFont:FONT_NAME size:15];
     textView.delegate           = self;
     textView.backgroundColor    = [UIColor whiteColor];
     textView.placeholder        = @"Digite sua mensagem";

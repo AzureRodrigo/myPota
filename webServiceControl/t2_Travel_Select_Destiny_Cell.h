@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface travelPotaDestinyCell : UITableViewCell
+@interface t2_Travel_Select_Destiny_Cell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblDestiny;
 
