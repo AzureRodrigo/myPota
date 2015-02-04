@@ -24,8 +24,14 @@
                                 superTitle:@""
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_BACK
                                 buttonBack:@selector(backScreen:)
-                             openSplitMenu:nil
+                             openSplitMenu:@selector(menuOpen:)
                                 backButton:YES];
+}
+
+- (IBAction)menuOpen:(id)sender
+{
+    [AppMenuView openMenu:self
+                   sender:sender];
 }
 
 - (IBAction)backScreen:(id)sender
@@ -110,4 +116,9 @@
     return [dataUser objectForKey:TAG_USER_PERFIL_CODE];
 }
 
+- (NSString *)getClientName
+{
+    NSDictionary *dataUser     = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    return [dataUser objectForKey:TAG_USER_SELLER_NAME];
+}
 @end

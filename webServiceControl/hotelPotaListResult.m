@@ -524,7 +524,7 @@
 #pragma mark -connection controll
 - (void)connectionSearchHotel
 {
-    wsLinkHotel = [NSString stringWithFormat:@"%@/ws/ws.asmx/xmlBuscaHotel?codigoSite=%@&tokenTos=%@&sequenciaAtual=%@",
+    wsLinkHotel = [NSString stringWithFormat:@"%@/ws.asmx/xmlBuscaHotel?codigoSite=%@&tokenTos=%@&sequenciaAtual=%@",
                    wsLink, wsCodSite, wsToken, wsCounter];
     [self initConnection:wsLinkHotel];
 }

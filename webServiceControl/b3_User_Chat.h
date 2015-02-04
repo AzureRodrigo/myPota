@@ -15,7 +15,7 @@
 @interface b3_User_Chat : UIViewController <HPGrowingTextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     id                           backScreen;
-    __weak IBOutlet UILabel *lblName;
+    __weak IBOutlet UILabel     *lblName;
     __weak IBOutlet UITableView *tableViewData;
     CGRect                      tableFrame;
     UIView                      *containerView;

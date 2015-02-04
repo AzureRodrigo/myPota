@@ -24,10 +24,15 @@
                                 superTitle:@""
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_BACK
                                 buttonBack:@selector(backScreen:)
-                             openSplitMenu:nil
+                             openSplitMenu:@selector(menuOpen:)
                                 backButton:YES];
 }
 
+- (IBAction)menuOpen:(id)sender
+{
+    [AppMenuView openMenu:self
+                   sender:sender];
+}
 - (IBAction)backScreen:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -48,7 +53,7 @@
     [loadView   startAnimating];
     
     link = [NSString stringWithFormat:WS_URL_CHAT_RECIVE_MESSAGE_INFO,
-            [dataUser objectForKey:TAG_USER_PERFIL_CODE], @"", @""];
+            [dataUser objectForKey:TAG_USER_PERFIL_CODE], @"", @"2"];
     link = [NSString stringWithFormat:WS_URL, WS_URL_CHAT_RECIVE_MESSAGE, link];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Carregando Mensagens!",
@@ -67,23 +72,22 @@
             NSDictionary *allInfo = [AzParser xmlDictionary:result tagNode:@"chats"];
             for (NSDictionary *chats in [allInfo objectForKey:@"chats"])
             {
-                [clients addObject:@{ @"codigoConsumidor" : [chats objectForKey:@"codigoConsumidor"],
-                                      @"codigoVendedor"   : [chats objectForKey:@"codigoVendedor"],
-                                      @"numberMessages"   : @"0",
-                                      @"nameConsumidor"   : @"Astolfo"
+                [clients addObject:@{ @"codigoConsumidor"   : [chats objectForKey:@"codigoConsumidor"],
+                                      @"codigoVendedor"     : [chats objectForKey:@"codigoVendedor"],
+                                      @"qtdMensagemNaoLida" : [chats objectForKey:@"qtdMensagemNaoLida"],
+                                      @"nomeConsumidor"     : [chats objectForKey:@"nomeConsumidor"],
+                                      @"nomeVendedor"       : [chats objectForKey:@"nomeVendedor"]
                                       }];
             }
             [loadView  stopAnimating];
             [loadView  setHidden:YES];
             
             if ([clients count] >0)
-                [lblStatus setText:@"Seus Clientes:"];
+                [lblStatus setText:@"Lista de Clientes:"];
             else
                 [lblStatus setText:@"Nenhum cliente enviou mensagem."];
             
-            
             [lblStatus setAdjustsFontSizeToFitWidth:YES];
-            //            lblStatus
             [tableViewData reloadData];
         }
     }];
@@ -113,8 +117,13 @@
 {
     c2_Agente_Chat_Cell *cell = (c2_Agente_Chat_Cell *) [tableView dequeueReusableCellWithIdentifier:@"cell_chat" forIndexPath:indexPath];
     
-    [cell.lblName   setText:[[clients objectAtIndex:[indexPath row]] objectForKey:@"nameConsumidor"]];
-    [cell.lblNumber setText:[[clients objectAtIndex:[indexPath row]] objectForKey:@"numberMessages"]];
+    [cell.lblName   setText:[[clients objectAtIndex:[indexPath row]] objectForKey:@"nomeConsumidor"]];
+    [cell.lblNumber setText:[[clients objectAtIndex:[indexPath row]] objectForKey:@"qtdMensagemNaoLida"]];
+    
+    if ([cell.lblNumber.text floatValue] <= 0 )
+        [cell.lblNumber setHidden:YES];
+    else
+        [cell.lblNumber setHidden:NO];
     
     [cell.lblName setAdjustsFontSizeToFitWidth:YES];
     [cell.lblNumber setAdjustsFontSizeToFitWidth:YES];
@@ -127,12 +136,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     code = [[clients objectAtIndex:[indexPath row]]objectForKey:@"codigoConsumidor"];
+    name = [[clients objectAtIndex:[indexPath row]]objectForKey:@"nomeConsumidor"];
     [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_C2_TO_B3];
 }
 
 - (NSString *)getClientCode
 {
     return code;
+}
+
+- (NSString *)getClientName
+{
+    return name;
 }
 
 - (NSString *)getMessage

@@ -106,8 +106,7 @@
 {
     [lblLoad setText:@"Procurando informações ..."];
     [self->connection   cancel];
-    link                = [NSString stringWithFormat:WS_URL_TRAVEL_INFO,
-                           [[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS], KEY_CODE_SITE_TRAVEL,
+    link                = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, KEY_CODE_SITE_TRAVEL,
                            KEY_CODE_PRODUCT_TRAVEL, planSELECT.codigoPlano];
     link                = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL, link];
     

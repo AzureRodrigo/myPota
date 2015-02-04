@@ -21,6 +21,7 @@
 		C703A8851981579D0017FED2 /* viagemSegurosBar.png in Resources */ = {isa = PBXBuildFile; fileRef = C703A8841981579D0017FED2 /* viagemSegurosBar.png */; };
 		C707085A19AB620D00ECD6FD /* PurchaseList.plist in Resources */ = {isa = PBXBuildFile; fileRef = C707085919AB620D00ECD6FD /* PurchaseList.plist */; };
 		C707085D19AB706500ECD6FD /* voucherListPotaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C707085C19AB706500ECD6FD /* voucherListPotaCell.m */; };
+		C709B5651A823F3500DDE910 /* chatIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C709B5641A823F3500DDE910 /* chatIcon.png */; };
 		C70BCFF519A22DE20066BE49 /* volcher_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BCFF119A22DE20066BE49 /* volcher_agent.png */; };
 		C70BCFF619A22DE20066BE49 /* volcher_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BCFF219A22DE20066BE49 /* volcher_bar.png */; };
 		C70BCFF719A22DE20066BE49 /* volcher_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BCFF319A22DE20066BE49 /* volcher_icon.png */; };
@@ -451,6 +452,7 @@
 		C707085919AB620D00ECD6FD /* PurchaseList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PurchaseList.plist; sourceTree = "<group>"; };
 		C707085B19AB706500ECD6FD /* voucherListPotaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voucherListPotaCell.h; sourceTree = "<group>"; };
 		C707085C19AB706500ECD6FD /* voucherListPotaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = voucherListPotaCell.m; sourceTree = "<group>"; };
+		C709B5641A823F3500DDE910 /* chatIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatIcon.png; sourceTree = "<group>"; };
 		C70BCFF119A22DE20066BE49 /* volcher_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volcher_agent.png; sourceTree = "<group>"; };
 		C70BCFF219A22DE20066BE49 /* volcher_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volcher_bar.png; sourceTree = "<group>"; };
 		C70BCFF319A22DE20066BE49 /* volcher_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volcher_icon.png; sourceTree = "<group>"; };
@@ -3531,6 +3533,7 @@
 		C7F9BC721A7FBD9800387C39 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				C709B5641A823F3500DDE910 /* chatIcon.png */,
 				C7F9BC731A7FBDA100387C39 /* balloon_read_left.png */,
 				C7F9BC741A7FBDA100387C39 /* balloon_read_right.png */,
 				C7F9BC751A7FBDA100387C39 /* balloon_selected_left.png */,
@@ -3711,6 +3714,7 @@
 				C72FDD1B199905A4004941A4 /* cardAmerican.png in Resources */,
 				C72E0C2E1919258D00830597 /* body1.png in Resources */,
 				C7B418511A72C54200405407 /* btnLoginGeneric.png in Resources */,
+				C709B5651A823F3500DDE910 /* chatIcon.png in Resources */,
 				C7BE0E921A79163E007F2EF2 /* iconF.png in Resources */,
 				C774078019006B94005E8817 /* star6.png in Resources */,
 				C7D13B8C1975C8EA00FDB0B4 /* bookmarkWhite.png in Resources */,

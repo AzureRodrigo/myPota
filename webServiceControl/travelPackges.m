@@ -134,10 +134,10 @@
 #pragma mark - connection Plan and Geral
 - (void)startConnectionPlan
 {
-    NSString* IDWS = [[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
+    NSString* IDWS = @"TESTE_WS_VITALCARD";//[[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
     if ([IDWS isEqualToString:@""])
         IDWS = KEY_ID_WS_TRAVEL;
-    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, IDWS, KEY_CODE_SITE_TRAVEL,
+    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, KEY_CODE_SITE_TRAVEL,
                               KEY_CODE_PRODUCT_TRAVEL, [[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE]];
     
     linkInfoPlan           = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL, linkInfoPlan];
@@ -175,11 +175,11 @@
 #pragma mark - connection Contratc
 - (void)startConnectionContract
 {
-    NSString *IDWS = [[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
+    NSString *IDWS = @"TESTE_WS_VITALCARD";//[[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
     if ([IDWS isEqualToString:@""])
         IDWS = KEY_ID_WS_TRAVEL;
     
-    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO_CONTRACT, IDWS, KEY_CODE_SITE_TRAVEL,KEY_CODE_PORTAL,KEY_EMPTY,
+    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO_CONTRACT, KEY_CODE_SITE_TRAVEL,KEY_CODE_PORTAL,KEY_EMPTY,
                               [[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE]];
     linkInfoPlan           = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_CONTRACT, linkInfoPlan];
     

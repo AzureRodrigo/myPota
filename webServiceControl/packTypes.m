@@ -94,7 +94,7 @@
     [lblSearch setText:@"Procurando informações ..."];
     [self->connection   cancel];
     
-    NSString *link = [NSString stringWithFormat:WS_URL_PACK_TYPES_INFO, IDWS, @"4", @"23"];
+    NSString *link = [NSString stringWithFormat:WS_URL_PACK_TYPES_INFO, @"4", @"23"];
     link           = [NSString stringWithFormat:WS_URL, WS_URL_PACK_TYPES, link];
     
     
@@ -179,11 +179,9 @@
     listCircuits = [NSMutableArray new];
     
     if (type == 1) {
-        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO,
-               IDWS, @"4", @"23", @"1", textDestiny.text, @"DP", @"desc"];
+        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO, @"4", @"23", @"1", textDestiny.text, @"DP", @"desc"];
     } else {
         link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO,
-               IDWS,
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_SITE],
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_PORTAL],
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_AREA],

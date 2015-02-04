@@ -135,6 +135,7 @@
     dataUser     = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
     myType       = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_TYPE];
     mycode       = [backScreen getClientCode];
+    lblName.text = [backScreen getClientName];
     
     [self reciveMessage:@"" animate:NO alert:YES];
 }

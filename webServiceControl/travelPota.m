@@ -199,6 +199,7 @@
 
 - (void)setPurchaseData:(NSMutableDictionary *)seller
 {
+    
     purchaseData = @{ PURCHASE_INFO_PRODUCT : [@{
                               PURCHASE_DATA_TRAVEL_TYPE           : otlType.text,
                               PURCHASE_DATA_TRAVEL_DESTINY        : otlDestiny.text,
@@ -210,8 +211,8 @@
                               PURCHASE_DATA_TRAVEL_PAX_OLD        : otlPeopleMore.text,
                               PURCHASE_DATA_TRAVEL_LINK_PLAN      : link
                               } mutableCopy],
-                      PURCHASE_INFO_SELLER                : [seller objectForKey:PURCHASE_INFO_SELLER],
-                      PURCHASE_INFO_AGENCY                : [seller objectForKey:PURCHASE_INFO_AGENCY]
+                      PURCHASE_INFO_SELLER                : @"",//[seller objectForKey:PURCHASE_INFO_SELLER],
+                      PURCHASE_INFO_AGENCY                : @""//[seller objectForKey:PURCHASE_INFO_AGENCY]
                       };
 }
 
@@ -223,7 +224,7 @@
         IDWS = KEY_ID_WS_TRAVEL;
     
     link = [NSString stringWithFormat:WS_URL_TRAVEL_BUY,
-            IDWS, KEY_CODE_SITE_TRAVEL,
+             KEY_CODE_SITE_TRAVEL,
             KEY_EMPTY, otlDataStarMoth.text,otlDataEndMoth.text,
             otlPeopleMinus.text, otlPeopleMore.text, otlDestiny.text];
     

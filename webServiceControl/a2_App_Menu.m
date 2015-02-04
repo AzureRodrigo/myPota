@@ -96,13 +96,13 @@
 {
     switch ([indexPath row] + 1) {
         case 1:
-            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
+            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
             break;
         case 2:
-            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_ASSISTENCIA sender:self];
+            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
             break;
         case 3:
-            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
+            [self performSegueWithIdentifier:STORY_BOARD_MENU_ASSISTENCIA sender:self];
             break;
         case 4:
             //            [self performSegueWithIdentifier:@"teste" sender:self];

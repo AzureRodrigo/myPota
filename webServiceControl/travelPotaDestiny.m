@@ -96,8 +96,7 @@
     [lblLoad setText:@"Procurando informações ..."];
     [self->connection   cancel];
     //aqui
-    NSString *link       = [NSString stringWithFormat:WS_URL_TRAVEL_DESTINY,
-                            IDWS, KEY_CODE_SITE_TRAVEL];
+    NSString *link       = [NSString stringWithFormat:WS_URL_TRAVEL_DESTINY,KEY_CODE_SITE_TRAVEL];
     link                 = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_DESTINYS, link];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,

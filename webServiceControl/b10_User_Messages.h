@@ -19,5 +19,6 @@
 - (IBAction)btnNewMessage:(id)sender;
 - (NSString *)getMessage;
 - (NSString *)getClientCode;
+- (NSString *)getClientName;
 
 @end

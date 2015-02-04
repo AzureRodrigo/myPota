@@ -58,7 +58,7 @@
     else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
         [self setDataPackage];
     
-    [self connectionBudget];
+//    [self connectionBudget];
 }
 
 - (void)setDataGeral
@@ -105,7 +105,7 @@
 //                   PURCHASE_PERSON_INFO_FONE    : @"" } mutableCopy];
     
     
-    IDWS = [[purchaseAllInfo objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
+    IDWS = @"TESTE_WS_VITALCARD";//[[purchaseAllInfo objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
     if ([IDWS isEqualToString:@""])
         IDWS = KEY_ID_WS_TRAVEL;
 }
@@ -590,7 +590,7 @@
 {
     [self startListTraveller];
     linkBudget = [NSString stringWithFormat:WS_URL_BUY_BUDGET_INFO,
-                  IDWS, KEY_CODE_ACTION, KEY_EMPTY, KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL,
+                   KEY_CODE_ACTION, KEY_EMPTY, KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL,
                   [purchaseProduct objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE],
                   [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_START],
                   [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_END],
@@ -607,7 +607,6 @@
 - (void)connectionInfoPurchase
 {
     linkProduct = [NSString stringWithFormat:WS_URL_BUY_PURCHASE_INFO,
-                   IDWS,
                    KEY_CODE_SITE_TRAVEL,
                    productID,
                    KEY_CODE_STATUS,
@@ -623,7 +622,6 @@
 {
     [otlWait stopAnimating];
     linkPurchase = [NSString stringWithFormat:WS_URL_BUY_REGISTER_INFO,
-                    IDWS,
                     KEY_CODE_SITE_TRAVEL,
                     [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT_RESERVE]objectForKey:TAG_BUY_PURCHASE_CODE_RESERVA],
                     KEY_BUY_TYPE,

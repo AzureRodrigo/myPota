@@ -74,31 +74,31 @@
 #define WS_URL_HOTEL_IMAGES        			@"/ws/ws.asmx/xmlBuscaImgHotel?codigoHotel=%@"
 #define WS_URL_HOTEL_ROOM_INFO              @"codigoSite=%@&tokenTos=%@&idProvedor=%@&codigoHotel=%@"
 
-#define WS_URL_TRAVEL_DESTINY     			@"IdWS=%@&CodSite=%@"
-#define WS_URL_TRAVEL_DESTINY_TYPE     		@"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@"
-#define WS_URL_TRAVEL_BUY         			@"IdWS=%@&CodSite=%@&TpoProduto=%@&DtaInicial=%@&DtaFinal=%@&QtdAdulto=%@&QtdIdoso=%@&DscDestino=%@"
-#define WS_URL_TRAVEL_INFO        			@"IdWS=%@&CodSite=%@&TpoProduto=%@&CodProduto=%@"
-#define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=%@&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
+#define WS_URL_TRAVEL_DESTINY     			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@"
+#define WS_URL_TRAVEL_DESTINY_TYPE     		@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodArea=%@"
+#define WS_URL_TRAVEL_BUY         			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&TpoProduto=%@&DtaInicial=%@&DtaFinal=%@&QtdAdulto=%@&QtdIdoso=%@&DscDestino=%@"
+#define WS_URL_TRAVEL_INFO        			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&TpoProduto=%@&CodProduto=%@"
+#define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
 
-#define WS_URL_BUY_BUDGET_INFO    			@"IdWS=%@&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
-#define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=%@&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"
-#define WS_URL_BUY_REGISTER_INFO            @"IdWS=%@&CodSite=%@&CodPedido=%@&TpoPagamento=%@&IdBandeira=%@&VlrPagamento=%@&QtdParcelas=%@&NumCartao=%@&MesValidade=%@&AnoValidade=%@&NomPortador=%@&CodVerificacao=%@"
+#define WS_URL_BUY_BUDGET_INFO    			@"IdWS=TESTE_WS_VITALCARD&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
+#define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"
+#define WS_URL_BUY_REGISTER_INFO            @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPedido=%@&TpoPagamento=%@&IdBandeira=%@&VlrPagamento=%@&QtdParcelas=%@&NumCartao=%@&MesValidade=%@&AnoValidade=%@&NomPortador=%@&CodVerificacao=%@"
 
 #define WS_URL_CADASTRO_PERFIL              @"codigoConsumidor=%@&nomeConsumidor=%@&emailConsumidor=%@&cpfConsumidor=%@&cepConsumidor=%@&senhaConsumidor=%@&dataNascimentoConsumidor=%@&chaveAcesso=%@&tipoRetorno=XML&tipoAcesso=M"
 
 #define LINK_CEP_VALIDATION @"http://apps.widenet.com.br/busca-cep/api/cep/%@.xml"
 
-#define WS_URL_PACK_TYPES_INFO             	@"IdWS=%@&CodSite=%@&CodPortal=%@&CodGrupoArea=1"
-#define WS_URL_PACK_CIRCUITS_INFO           @"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@&DscPesquisa=%@&OrdColuna=%@&OrdAscendencia=%@"
-#define WS_URL_PACK_DATA_INFO               @"IdWS=%@&CodSite=%@&CodProduto=%@"
-#define WS_URL_PACK_ROOM_INFO               @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
+#define WS_URL_PACK_TYPES_INFO             	@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodGrupoArea=1"
+#define WS_URL_PACK_CIRCUITS_INFO           @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodArea=%@&DscPesquisa=%@&OrdColuna=%@&OrdAscendencia=%@"
+#define WS_URL_PACK_DATA_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@"
+#define WS_URL_PACK_ROOM_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
 
 
-#define WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO      @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO @"IdWS=%@&CodSite=%@&CodProduto=%@&CodPortal=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO     @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_DAY_INFO        @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO    @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO      @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&TpoProduto=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&CodPortal=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO     @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&TpoProduto=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_DAY_INFO        @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO    @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
 
 #define WS_URL_CHAT_SEND_MESSAGE_INFO            @"codigoVendedor=%@&codigoConsumidor=%@&tipoMensagem=%@&descricaoMensagem=%@"
 #define WS_URL_CHAT_RECIVE_MESSAGE_INFO          @"codigoVendedor=%@&codigoConsumidor=%@&indEntregue=%@"

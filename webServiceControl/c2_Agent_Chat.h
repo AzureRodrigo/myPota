@@ -17,14 +17,16 @@
     __weak IBOutlet UIActivityIndicatorView *loadView;
     
     NSMutableArray              *clients;
-
+    
     NSDictionary                *dataSeller;
     NSDictionary                *dataUser;
     NSString                    *link;
     NSString                    *code;
+    NSString                    *name;
 }
 
 - (NSString *)getClientCode;
+- (NSString *)getClientName;
 - (NSString *)getMessage;
 
 @end

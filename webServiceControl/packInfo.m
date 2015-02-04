@@ -60,31 +60,25 @@
 #pragma mark - configLinks
 - (void)configLinks
 {
-    linkCitysInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO,
-                        IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkCitysInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                         [infoCircuit objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT]];
     linkCitysInclude = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_CITYS, linkCitysInclude];
-    linkGeneralConditions = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO,
-                             IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkGeneralConditions = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                              [infoType objectForKey:TAG_PACK_COD_PORTAL]];
     linkGeneralConditions = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_CONDICTION, linkGeneralConditions];
-    linkImagesCircuits = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO,
-                          IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkImagesCircuits = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                           [infoCircuit objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT]];
     linkImagesCircuits = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_IMAGES, linkImagesCircuits];
-    linkDayForDay = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_DAY_INFO,
-                     IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkDayForDay = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_DAY_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                      [infoCircuit objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO]];
     linkDayForDay = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_DAY, linkDayForDay];
     
-    linkIsInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO,
-                     IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkIsInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                      [infoCircuit objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO]];
     linkIsInclude = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_INCLUDE, linkIsInclude];
     
     
-    linkDataCircuts =[NSString stringWithFormat:WS_URL_PACK_DATA_INFO,
-                      IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT]];
+    linkDataCircuts =[NSString stringWithFormat:WS_URL_PACK_DATA_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT]];
     linkDataCircuts = [NSString stringWithFormat:WS_URL, WS_URL_PACK_DATA, linkDataCircuts];
 }
 
@@ -367,8 +361,7 @@
 #pragma mark - searchRoons
 - (void)setInfoRoons
 {
-    linkRoomCircuts =[NSString stringWithFormat:WS_URL_PACK_ROOM_INFO,
-                      IDWS, @"4",
+    linkRoomCircuts =[NSString stringWithFormat:WS_URL_PACK_ROOM_INFO, @"4",
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_COD_PLAN],
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED],
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_COD_TEMP],
@@ -561,128 +554,128 @@
 #pragma mark - Button confirm to Next Screen
 - (IBAction)btnConfirm:(UIButton *)sender
 {
-    NSMutableDictionary *purchaseInfo = [@{PURCHASE_DATA_TRAVEL_PAX : @"0"
-                                           }mutableCopy];
-    
-    NSMutableArray *infoRoom = [NSMutableArray new];
-    
-    //refazer
-    for (NSDictionary *room in roons) {
-        
-        int pax        = [[purchaseInfo objectForKey:PURCHASE_DATA_TRAVEL_PAX]intValue];
-        int travellers = [[room objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue];
-        NSString *type = [room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_DSC_TYPE_ACOMODATION];
-        float price    = [[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA]floatValue];
-        
-        if (travellers > 0) {
-            if ([type isEqualToString:@"Duplo"]) {
-                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
-                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-                
-                [infoRoom addObject:[@{
-                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo",
-                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-                                       
-                                       }mutableCopy]];
-                
-            } else if ([type isEqualToString:@"Duplo a Compartilhar"]) {
-                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
-                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-                
-                [infoRoom addObject:[@{
-                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo a Compartilhar",
-                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-                                       
-                                       }mutableCopy]];
-                
-            } else if ([type isEqualToString:@"Triplo"]) {
-                
-                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (3 * travellers)]
-                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-                
-                [infoRoom addObject:[@{
-                                       PACKAGE_INFO_ROOM_NAME   : @"Triplo",
-                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-                                       
-                                       }mutableCopy]];
-                
-            }else if ([type isEqualToString:@"Individual"]) {
-                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + travellers]
-                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-                
-                [infoRoom addObject:[@{
-                                       PACKAGE_INFO_ROOM_NAME   : @"Individual",
-                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-                                       
-                                       }mutableCopy]];
-            }
-        }
-    }
-    
-    [purchaseInfo setObject:[NSString stringWithFormat:@"%d",cellPriceSize] forKey:PACKAGE_INFO_ROOM_SIZE];
-    [purchaseInfo setObject:infoRoom forKey:PACKAGE_INFO_ROOM_INFO];
-    [purchaseInfo setObject:[NSString stringWithFormat:@"%@",valuePurchase] forKey:PACKAGE_INFO_ROOM_PRICE];
-    
-    purchaseData = [@{
-                      PURCHASE_INFO_PRODUCT : [@{
-                                                 PACKAGE_INFO_TYPE    : infoType,
-                                                 PACKAGE_INFO_CIRCUIT : infoCircuit,
-                                                 PACKAGE_INFO_DETAIL  : purchaseInfo
-                                                 }mutableCopy],
-                      PURCHASE_INFO_SELLER                : [seller objectForKey:PURCHASE_INFO_SELLER],
-                      PURCHASE_INFO_AGENCY                : [seller objectForKey:PURCHASE_INFO_AGENCY],
-                      PURCHASE_TYPE : PURCHASE_TYPE_PACKGE,
-                      }mutableCopy];
-    
-    
-    NSString     *tag = @"string";
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
-    htmlGeneralConditions = @"";
-    htmlIsInclude         = @"";
-    htmlDayForDay         = @"";
-    
-    [appConnection START_CONNECT:linkGeneralConditions timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-        NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-        for (NSDictionary *tmp in [allInfo objectForKey:tag])
-            htmlGeneralConditions = [tmp objectForKey:tag];
-        
-        [appConnection START_CONNECT:linkIsInclude timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-            NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-            for (NSDictionary *tmp in [allInfo objectForKey:tag])
-                htmlIsInclude = [tmp objectForKey:tag];
-            
-            [appConnection START_CONNECT:linkDayForDay timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-                NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-                for (NSDictionary *tmp in [allInfo objectForKey:tag])
-                    htmlDayForDay = [tmp objectForKey:tag];
-                
-                //                [purchaseData setObject:htmlGeneralConditions forKey:@"cidades inclusas"];
-                
-                NSMutableDictionary *html = [@{
-                                               PACKAGE_INFO_HTML_GENERAL_CONDICTIONS : htmlGeneralConditions,
-                                               PACKAGE_INFO_HTML_IS_INCLUDE          : htmlIsInclude,
-                                               PACKAGE_INFO_HTML_DAY_FOR_DAY         : htmlDayForDay
-                                               }mutableCopy];
-                
-                [purchaseData setObject:html forKey:PACKAGE_INFO_HTML_DATA];
-                
-                [AppFunctions CLEAR_INFORMATION];
-                [AppFunctions SAVE_INFORMATION:purchaseData
-                                           tag:PURCHASE];
-                
-                NSLog(@"%@", purchaseData);
-                //                [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_PURCHASE];
-            }];
-        }];
-    }];
+//    NSMutableDictionary *purchaseInfo = [@{PURCHASE_DATA_TRAVEL_PAX : @"0"
+//                                           }mutableCopy];
+//    
+//    NSMutableArray *infoRoom = [NSMutableArray new];
+//    
+//    //refazer
+//    for (NSDictionary *room in roons) {
+//        
+//        int pax        = [[purchaseInfo objectForKey:PURCHASE_DATA_TRAVEL_PAX]intValue];
+//        int travellers = [[room objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue];
+//        NSString *type = [room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_DSC_TYPE_ACOMODATION];
+//        float price    = [[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA]floatValue];
+//        
+//        if (travellers > 0) {
+//            if ([type isEqualToString:@"Duplo"]) {
+//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
+//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
+//                
+//                [infoRoom addObject:[@{
+//                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo",
+//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
+//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
+//                                       
+//                                       }mutableCopy]];
+//                
+//            } else if ([type isEqualToString:@"Duplo a Compartilhar"]) {
+//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
+//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
+//                
+//                [infoRoom addObject:[@{
+//                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo a Compartilhar",
+//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
+//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
+//                                       
+//                                       }mutableCopy]];
+//                
+//            } else if ([type isEqualToString:@"Triplo"]) {
+//                
+//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (3 * travellers)]
+//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
+//                
+//                [infoRoom addObject:[@{
+//                                       PACKAGE_INFO_ROOM_NAME   : @"Triplo",
+//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
+//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
+//                                       
+//                                       }mutableCopy]];
+//                
+//            }else if ([type isEqualToString:@"Individual"]) {
+//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + travellers]
+//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
+//                
+//                [infoRoom addObject:[@{
+//                                       PACKAGE_INFO_ROOM_NAME   : @"Individual",
+//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
+//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
+//                                       
+//                                       }mutableCopy]];
+//            }
+//        }
+//    }
+//    
+//    [purchaseInfo setObject:[NSString stringWithFormat:@"%d",cellPriceSize] forKey:PACKAGE_INFO_ROOM_SIZE];
+//    [purchaseInfo setObject:infoRoom forKey:PACKAGE_INFO_ROOM_INFO];
+//    [purchaseInfo setObject:[NSString stringWithFormat:@"%@",valuePurchase] forKey:PACKAGE_INFO_ROOM_PRICE];
+//    
+//    purchaseData = [@{
+//                      PURCHASE_INFO_PRODUCT : [@{
+//                                                 PACKAGE_INFO_TYPE    : infoType,
+//                                                 PACKAGE_INFO_CIRCUIT : infoCircuit,
+//                                                 PACKAGE_INFO_DETAIL  : purchaseInfo
+//                                                 }mutableCopy],
+//                      PURCHASE_INFO_SELLER                : [seller objectForKey:PURCHASE_INFO_SELLER],
+//                      PURCHASE_INFO_AGENCY                : [seller objectForKey:PURCHASE_INFO_AGENCY],
+//                      PURCHASE_TYPE : PURCHASE_TYPE_PACKGE,
+//                      }mutableCopy];
+//    
+//    
+//    NSString     *tag = @"string";
+//    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
+//                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
+//                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
+//                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
+//                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
+//    htmlGeneralConditions = @"";
+//    htmlIsInclude         = @"";
+//    htmlDayForDay         = @"";
+//    
+//    [appConnection START_CONNECT:linkGeneralConditions timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+//        NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
+//        for (NSDictionary *tmp in [allInfo objectForKey:tag])
+//            htmlGeneralConditions = [tmp objectForKey:tag];
+//        
+//        [appConnection START_CONNECT:linkIsInclude timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+//            NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
+//            for (NSDictionary *tmp in [allInfo objectForKey:tag])
+//                htmlIsInclude = [tmp objectForKey:tag];
+//            
+//            [appConnection START_CONNECT:linkDayForDay timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+//                NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
+//                for (NSDictionary *tmp in [allInfo objectForKey:tag])
+//                    htmlDayForDay = [tmp objectForKey:tag];
+//                
+//                //                [purchaseData setObject:htmlGeneralConditions forKey:@"cidades inclusas"];
+//                
+//                NSMutableDictionary *html = [@{
+//                                               PACKAGE_INFO_HTML_GENERAL_CONDICTIONS : htmlGeneralConditions,
+//                                               PACKAGE_INFO_HTML_IS_INCLUDE          : htmlIsInclude,
+//                                               PACKAGE_INFO_HTML_DAY_FOR_DAY         : htmlDayForDay
+//                                               }mutableCopy];
+//                
+//                [purchaseData setObject:html forKey:PACKAGE_INFO_HTML_DATA];
+//                
+//                [AppFunctions CLEAR_INFORMATION];
+//                [AppFunctions SAVE_INFORMATION:purchaseData
+//                                           tag:PURCHASE];
+//                
+//                NSLog(@"%@", purchaseData);
+//                //                [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_PURCHASE];
+//            }];
+//        }];
+//    }];
     
 }
 
