@@ -4252,7 +4252,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4267,7 +4267,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "1666dd90-69c5-4214-9f78-422f1bd3c89b";
+				PROVISIONING_PROFILE = "ee3ac229-b1df-48f1-836d-d8b612796e2c";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
