@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "travelPackges.h"
-#import "travelInfoPotaCell.h"
+#import "t4_Travel_Select_Plan.h"
+#import "t5_Travel_Info_Plan_Cell.h"
 
-@interface travelInfoPota : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface t5_Travel_Info_Plan : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    travelPackges                       *backScreen;
+    t4_Travel_Select_Plan               *backScreen;
     travelPlans                         *planSELECT;
     IBOutlet UITableView                *tableViewData;
     IBOutlet UILabel                    *lblLoad;
@@ -29,6 +29,8 @@
     NSMutableDictionary                 *listClients;
     IBOutlet UILabel                    *lblPlano;
     NSMutableDictionary                 *purchaseData;
+    NSDictionary                        *myAgency;
+    NSString                            *IDWS;
 }
 
 @end

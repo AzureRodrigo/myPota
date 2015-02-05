@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "t0_Travel.h"
 #import "travelPlans.h"
-#import "travelPackgesCell.h"
+#import "t4_Travel_Select_Plan_Cell.h"
 
-@interface travelPackges : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface t4_Travel_Select_Plan : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
 #pragma mark - screen components
     t0_Travel *backScreen;

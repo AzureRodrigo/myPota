@@ -24,7 +24,7 @@
 
 #pragma mark - initDayView
 - (void)createDayViews
-{    
+{
     startDay.calendar   = self.month.calendar;
     startDay.year       = self.month.year;
     startDay.month      = self.month.month;

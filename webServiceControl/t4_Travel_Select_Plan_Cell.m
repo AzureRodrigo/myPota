@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPackgesCell.h"
+#import "t4_Travel_Select_Plan_Cell.h"
 
-@implementation travelPackgesCell
+@implementation t4_Travel_Select_Plan_Cell
 
 @end

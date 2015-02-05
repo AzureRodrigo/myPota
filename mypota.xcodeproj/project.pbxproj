@@ -110,7 +110,7 @@
 		C73CBA5618FEF74A000A6746 /* hotelCellRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = C73CBA5518FEF74A000A6746 /* hotelCellRoom.png */; };
 		C73CBA5818FF05B6000A6746 /* navBarCalendario.png in Resources */ = {isa = PBXBuildFile; fileRef = C73CBA5718FF05B6000A6746 /* navBarCalendario.png */; };
 		C73CBA6118FF1FB1000A6746 /* AzCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C73CBA6018FF1FB1000A6746 /* AzCalendar.m */; };
-		C7427A75191D6EF8007170F5 /* travelPackges.m in Sources */ = {isa = PBXBuildFile; fileRef = C7427A74191D6EF8007170F5 /* travelPackges.m */; };
+		C7427A75191D6EF8007170F5 /* t4_Travel_Select_Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = C7427A74191D6EF8007170F5 /* t4_Travel_Select_Plan.m */; };
 		C7427A78191D70FC007170F5 /* Volcher.png in Resources */ = {isa = PBXBuildFile; fileRef = C7427A77191D70FC007170F5 /* Volcher.png */; };
 		C7427A81191D76CA007170F5 /* buyAvisos.png in Resources */ = {isa = PBXBuildFile; fileRef = C7427A7F191D76CA007170F5 /* buyAvisos.png */; };
 		C7427A82191D76CA007170F5 /* buyConditions.png in Resources */ = {isa = PBXBuildFile; fileRef = C7427A80191D76CA007170F5 /* buyConditions.png */; };
@@ -206,8 +206,8 @@
 		C77D8BE3199A9B9C000FA914 /* cadastreInfoCellTravel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BE2199A9B9C000FA914 /* cadastreInfoCellTravel.m */; };
 		C77D8BEB199AB403000FA914 /* purchaseInfoCellTravel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BEA199AB403000FA914 /* purchaseInfoCellTravel.m */; };
 		C77D8BEE199AB437000FA914 /* purchasePurchaseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BED199AB437000FA914 /* purchasePurchaseInfo.m */; };
-		C77E960C19224CEA00CD5F35 /* travelInfoPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E960B19224CEA00CD5F35 /* travelInfoPota.m */; };
-		C77E961119224F7900CD5F35 /* travelInfoPotaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E961019224F7900CD5F35 /* travelInfoPotaCell.m */; };
+		C77E960C19224CEA00CD5F35 /* t5_Travel_Info_Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E960B19224CEA00CD5F35 /* t5_Travel_Info_Plan.m */; };
+		C77E961119224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E961019224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m */; };
 		C77E961A1922631400CD5F35 /* dot_line.png in Resources */ = {isa = PBXBuildFile; fileRef = C77E96191922631400CD5F35 /* dot_line.png */; };
 		C77E961F192268C400CD5F35 /* cadastrePota.plist in Resources */ = {isa = PBXBuildFile; fileRef = C77E961E192268C400CD5F35 /* cadastrePota.plist */; };
 		C782530818FC0AAB00257014 /* menuBtnCarros.png in Resources */ = {isa = PBXBuildFile; fileRef = C782530018FC0AAB00257014 /* menuBtnCarros.png */; };
@@ -243,7 +243,7 @@
 		C79093DD19CB0CBC00C10370 /* b0_User_Login.m in Sources */ = {isa = PBXBuildFile; fileRef = C79093DC19CB0CBC00C10370 /* b0_User_Login.m */; };
 		C79093DF19CB139900C10370 /* CadastreData.plist in Resources */ = {isa = PBXBuildFile; fileRef = C79093DE19CB139900C10370 /* CadastreData.plist */; };
 		C794E1521921535200E3FCD7 /* travelPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = C794E1511921535200E3FCD7 /* travelPlans.m */; };
-		C794E155192156F100E3FCD7 /* travelPackgesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C794E154192156F100E3FCD7 /* travelPackgesCell.m */; };
+		C794E155192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C794E154192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.m */; };
 		C7957A6719993E8A001934EC /* BuyInfoCustos.m in Sources */ = {isa = PBXBuildFile; fileRef = C7957A6619993E8A001934EC /* BuyInfoCustos.m */; };
 		C7957A6A19995537001934EC /* stepperMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = C7957A6819995537001934EC /* stepperMinus.png */; };
 		C7957A6B19995537001934EC /* stepperPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = C7957A6919995537001934EC /* stepperPlus.png */; };
@@ -562,8 +562,8 @@
 		C73CBA5718FF05B6000A6746 /* navBarCalendario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBarCalendario.png; sourceTree = "<group>"; };
 		C73CBA5F18FF1FB1000A6746 /* AzCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzCalendar.h; sourceTree = "<group>"; };
 		C73CBA6018FF1FB1000A6746 /* AzCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AzCalendar.m; sourceTree = "<group>"; };
-		C7427A73191D6EF8007170F5 /* travelPackges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelPackges.h; sourceTree = "<group>"; };
-		C7427A74191D6EF8007170F5 /* travelPackges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPackges.m; sourceTree = "<group>"; };
+		C7427A73191D6EF8007170F5 /* t4_Travel_Select_Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t4_Travel_Select_Plan.h; sourceTree = "<group>"; };
+		C7427A74191D6EF8007170F5 /* t4_Travel_Select_Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t4_Travel_Select_Plan.m; sourceTree = "<group>"; };
 		C7427A77191D70FC007170F5 /* Volcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Volcher.png; sourceTree = "<group>"; };
 		C7427A7F191D76CA007170F5 /* buyAvisos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyAvisos.png; sourceTree = "<group>"; };
 		C7427A80191D76CA007170F5 /* buyConditions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyConditions.png; sourceTree = "<group>"; };
@@ -695,10 +695,10 @@
 		C77D8BEA199AB403000FA914 /* purchaseInfoCellTravel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = purchaseInfoCellTravel.m; sourceTree = "<group>"; };
 		C77D8BEC199AB437000FA914 /* purchasePurchaseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = purchasePurchaseInfo.h; sourceTree = "<group>"; };
 		C77D8BED199AB437000FA914 /* purchasePurchaseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = purchasePurchaseInfo.m; sourceTree = "<group>"; };
-		C77E960A19224CEA00CD5F35 /* travelInfoPota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelInfoPota.h; sourceTree = "<group>"; };
-		C77E960B19224CEA00CD5F35 /* travelInfoPota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelInfoPota.m; sourceTree = "<group>"; };
-		C77E960F19224F7900CD5F35 /* travelInfoPotaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelInfoPotaCell.h; sourceTree = "<group>"; };
-		C77E961019224F7900CD5F35 /* travelInfoPotaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelInfoPotaCell.m; sourceTree = "<group>"; };
+		C77E960A19224CEA00CD5F35 /* t5_Travel_Info_Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t5_Travel_Info_Plan.h; sourceTree = "<group>"; };
+		C77E960B19224CEA00CD5F35 /* t5_Travel_Info_Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t5_Travel_Info_Plan.m; sourceTree = "<group>"; };
+		C77E960F19224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t5_Travel_Info_Plan_Cell.h; sourceTree = "<group>"; };
+		C77E961019224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t5_Travel_Info_Plan_Cell.m; sourceTree = "<group>"; };
 		C77E96191922631400CD5F35 /* dot_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot_line.png; sourceTree = "<group>"; };
 		C77E961E192268C400CD5F35 /* cadastrePota.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cadastrePota.plist; sourceTree = "<group>"; };
 		C782530018FC0AAB00257014 /* menuBtnCarros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtnCarros.png; sourceTree = "<group>"; };
@@ -749,8 +749,8 @@
 		C79093DE19CB139900C10370 /* CadastreData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CadastreData.plist; sourceTree = "<group>"; };
 		C794E1501921535200E3FCD7 /* travelPlans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelPlans.h; sourceTree = "<group>"; };
 		C794E1511921535200E3FCD7 /* travelPlans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPlans.m; sourceTree = "<group>"; };
-		C794E153192156F100E3FCD7 /* travelPackgesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = travelPackgesCell.h; sourceTree = "<group>"; };
-		C794E154192156F100E3FCD7 /* travelPackgesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPackgesCell.m; sourceTree = "<group>"; };
+		C794E153192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t4_Travel_Select_Plan_Cell.h; sourceTree = "<group>"; };
+		C794E154192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t4_Travel_Select_Plan_Cell.m; sourceTree = "<group>"; };
 		C7957A6519993E8A001934EC /* BuyInfoCustos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyInfoCustos.h; sourceTree = "<group>"; };
 		C7957A6619993E8A001934EC /* BuyInfoCustos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyInfoCustos.m; sourceTree = "<group>"; };
 		C7957A6819995537001934EC /* stepperMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stepperMinus.png; sourceTree = "<group>"; };
@@ -2390,8 +2390,8 @@
 		C77E960D19224F4F00CD5F35 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C77E960A19224CEA00CD5F35 /* travelInfoPota.h */,
-				C77E960B19224CEA00CD5F35 /* travelInfoPota.m */,
+				C77E960A19224CEA00CD5F35 /* t5_Travel_Info_Plan.h */,
+				C77E960B19224CEA00CD5F35 /* t5_Travel_Info_Plan.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2399,8 +2399,8 @@
 		C77E960E19224F5900CD5F35 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				C77E960F19224F7900CD5F35 /* travelInfoPotaCell.h */,
-				C77E961019224F7900CD5F35 /* travelInfoPotaCell.m */,
+				C77E960F19224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.h */,
+				C77E961019224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2672,8 +2672,8 @@
 		C794E14D19214E3000E3FCD7 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C7427A73191D6EF8007170F5 /* travelPackges.h */,
-				C7427A74191D6EF8007170F5 /* travelPackges.m */,
+				C7427A73191D6EF8007170F5 /* t4_Travel_Select_Plan.h */,
+				C7427A74191D6EF8007170F5 /* t4_Travel_Select_Plan.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2681,8 +2681,8 @@
 		C794E14E19214E4A00E3FCD7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				C794E153192156F100E3FCD7 /* travelPackgesCell.h */,
-				C794E154192156F100E3FCD7 /* travelPackgesCell.m */,
+				C794E153192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.h */,
+				C794E154192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -3905,7 +3905,7 @@
 				C7108A4718F2EEC10005A04D /* b2_User_Pefil_Pota.m in Sources */,
 				C7BE0EB71A796361007F2EF2 /* b11_User_Remember.m in Sources */,
 				C78EBF5818D3424F00B74AFA /* hotelDestinyCell.m in Sources */,
-				C7427A75191D6EF8007170F5 /* travelPackges.m in Sources */,
+				C7427A75191D6EF8007170F5 /* t4_Travel_Select_Plan.m in Sources */,
 				C7537C2C1A3F666000DF32DD /* c2_Agent_Chat.m in Sources */,
 				C749F1B618CA51C600537BFD /* HotelSearchData.m in Sources */,
 				C7E4A4511A23B29200FA6380 /* hotePotaRoom.m in Sources */,
@@ -3953,7 +3953,7 @@
 				C7025B5418C78A1D000A22B9 /* Vendedor.m in Sources */,
 				C7F9BC711A7FAFA900387C39 /* b3_User_Chat_Cell.m in Sources */,
 				C7621B8A192F8A150058956E /* DSLCalendarView.m in Sources */,
-				C77E961119224F7900CD5F35 /* travelInfoPotaCell.m in Sources */,
+				C77E961119224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m in Sources */,
 				C74EA1491A8050FB009AEC3D /* c2_Agente_Chat_Cell.m in Sources */,
 				C748B9681A2F8F9000726876 /* packInfoDatas.m in Sources */,
 				C7DF23F91A1BF084001BAFBB /* hotelPotaCellNext.m in Sources */,
@@ -3964,8 +3964,8 @@
 				C77D8BEE199AB437000FA914 /* purchasePurchaseInfo.m in Sources */,
 				C735BED31A6EC7A50019958C /* b10_Cell_Message.m in Sources */,
 				C78C075818F6CA3E0081DAE5 /* hotelPota.m in Sources */,
-				C77E960C19224CEA00CD5F35 /* travelInfoPota.m in Sources */,
-				C794E155192156F100E3FCD7 /* travelPackgesCell.m in Sources */,
+				C77E960C19224CEA00CD5F35 /* t5_Travel_Info_Plan.m in Sources */,
+				C794E155192156F100E3FCD7 /* t4_Travel_Select_Plan_Cell.m in Sources */,
 				C78C075B18F6D0DC0081DAE5 /* b1_User_Search.m in Sources */,
 				C7025B5518C78A1D000A22B9 /* City.m in Sources */,
 				C777EA9A19BF75FF002918B4 /* agentePerfilPotaCellConfirm.m in Sources */,

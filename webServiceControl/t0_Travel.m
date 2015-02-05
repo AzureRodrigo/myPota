@@ -49,6 +49,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self configNavBar];
+    self.tabBarController.view.userInteractionEnabled = YES ;
+    self.view.userInteractionEnabled = YES;
     [super viewWillAppear:animated];
 }
 
@@ -83,6 +85,8 @@
 
 - (IBAction)btnDataStart:(id)sender
 {
+    self.tabBarController.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T0_TO_T3];
 }
 
@@ -203,9 +207,7 @@
                                                  PURCHASE_DATA_TRAVEL_PAX_YOUNG      : otlPeopleMinus.text,
                                                  PURCHASE_DATA_TRAVEL_PAX_OLD        : otlPeopleMore.text,
                                                  PURCHASE_DATA_TRAVEL_LINK_PLAN      : link
-                                                 } mutableCopy],
-                      PURCHASE_INFO_SELLER                : [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER],
-                      PURCHASE_INFO_AGENCY                : myAgency
+                                                 } mutableCopy]
                       };
 }
 

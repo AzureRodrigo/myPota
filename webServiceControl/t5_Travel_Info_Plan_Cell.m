@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelInfoPotaCell.h"
+#import "t5_Travel_Info_Plan_Cell.h"
 
-@implementation travelInfoPotaCell
+@implementation t5_Travel_Info_Plan_Cell
 @end

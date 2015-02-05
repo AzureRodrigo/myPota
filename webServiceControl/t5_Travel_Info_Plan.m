@@ -6,24 +6,28 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelInfoPota.h"
+#import "t5_Travel_Info_Plan.h"
 
-@interface travelInfoPota ()
 
-@end
-
-@implementation travelInfoPota
+@implementation t5_Travel_Info_Plan
 
 - (void)initScreenVariables
 {
-    backScreen      = (travelPackges *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen      = (t4_Travel_Select_Plan *)[AppFunctions BACK_SCREEN:self number:1];
     purchaseData    = [backScreen getPurchaseData];
     planSELECT      = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED];
     listInfo        = [NSMutableArray new];
     float value     = [[planSELECT.valorPlanoReais stringByReplacingOccurrencesOfString:@","
-                                                                   withString:@"."] floatValue];
+                                                                             withString:@"."] floatValue];
     [lblPlano    setText:planSELECT.nomePlano];
     [lblMaxPrice setText:[NSString stringWithFormat:@"%.02f",value]];
+    
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
 }
 
 - (void)initScreenTable
@@ -45,9 +49,12 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Informações do Plano"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_VIAGEM
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -81,11 +88,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    travelInfoPotaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    t5_Travel_Info_Plan_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     NSMutableDictionary *infos = [listInfo objectAtIndex:[indexPath row]];
     [infos objectForKey:@"code"];
     [cell.lblName setText:[infos objectForKey:@"info"]];
     [cell.lblPrice setText:[infos objectForKey:@"price"]];
+    [cell.lblName setAdjustsFontSizeToFitWidth:YES];
+    [cell.lblPrice setAdjustsFontSizeToFitWidth:YES];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
@@ -105,7 +114,7 @@
 {
     [lblLoad setText:@"Procurando informações ..."];
     [self->connection   cancel];
-    link                = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, KEY_CODE_SITE_TRAVEL,
+    link                = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, IDWS, KEY_CODE_SITE_TRAVEL,
                            KEY_CODE_PRODUCT_TRAVEL, planSELECT.codigoPlano];
     link                = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL, link];
     
@@ -136,7 +145,7 @@
                 [infos setObject:[tmp objectForKey:@"ObsCobertura"] forKey:@"descrition"];
                 
                 [listInfo addObject:infos];
-
+                
             }
             [lblLoad setHidden:YES];
             [otlLoad stopAnimating];

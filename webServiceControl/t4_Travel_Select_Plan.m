@@ -6,39 +6,44 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "travelPackges.h"
+#import "t4_Travel_Select_Plan.h"
 
-@interface travelPackges ()
-
-@end
-
-@implementation travelPackges
-
-- (void)initScreenTable
-{
-    [tableViewData setBackgroundColor:[UIColor clearColor]];
-    [tableViewData setSeparatorColor:[UIColor clearColor]];
-}
+@implementation t4_Travel_Select_Plan
 
 - (void)initScreenData
 {
+    
+    [tableViewData setBackgroundColor:[UIColor clearColor]];
+    [tableViewData setSeparatorColor:[UIColor clearColor]];
+    
     backScreen      = (t0_Travel *)[AppFunctions BACK_SCREEN:self number:1];
     purchaseData    = [backScreen getPurchaseData];
+    
+    
     link            = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_LINK_PLAN];
+    
+    NSLog(@"link %@", link);
+    
     listPlans       = [NSMutableArray new];
     [self startConnection];
     [otlLoad startAnimating];
+    
     [otlPlans       setText:[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DESTINY]];
     [lblDataStart   setText:[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DATA_START]];
     [lblDataEnd     setText:[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DATA_END]];
     [lblPax         setText:[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PAX]];
     [lblDays        setText:[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DAYS]];
+    
+    [otlPlans   setAdjustsFontSizeToFitWidth:YES];
+    [lblDataStart setAdjustsFontSizeToFitWidth:YES];
+    [lblDataEnd setAdjustsFontSizeToFitWidth:YES];
+    [lblPax     setAdjustsFontSizeToFitWidth:YES];
+    [lblDays    setAdjustsFontSizeToFitWidth:YES];
 }
 
 #pragma mark - didLoad
 - (void)viewDidLoad
 {
-    [self initScreenTable];
     [self initScreenData];
     [super viewDidLoad];
 }
@@ -46,9 +51,12 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Planos Disponiveis"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_VIAGEM
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -81,7 +89,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    travelPackgesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    t4_Travel_Select_Plan_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     travelPlans *plan = [listPlans objectAtIndex:[indexPath row]];
     [cell.lblName setText:plan.nomePlano];
@@ -102,6 +110,11 @@
     [cell.btnBuy addTarget:self action:@selector(btnBuySel:)
           forControlEvents:UIControlEventTouchUpInside];
     
+    [cell.lblName setAdjustsFontSizeToFitWidth:YES];
+    [cell.lblPriceCobertura setAdjustsFontSizeToFitWidth:YES];
+    [cell.lblPricePlano setAdjustsFontSizeToFitWidth:YES];
+    [cell.lblMaxAge setAdjustsFontSizeToFitWidth:YES];
+    
     return cell;
 }
 
@@ -109,7 +122,7 @@
 {
     planSELECT = [listPlans objectAtIndex:sender.tag];
     [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] setObject:planSELECT forKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED];
-    [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_INFO sender:self];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T4_TO_T5];
 }
 
 - (IBAction)btnBuySel:(UIButton *)sender
@@ -126,9 +139,9 @@
     
     [purchaseData setObject:PURCHASE_TYPE_TRAVEL forKey:PURCHASE_TYPE];
     
-    [self startConnectionPlan];
+    NSLog(@"%@", purchaseData);
+//    [self startConnectionPlan];
 }
-
 
 #pragma mark - connection Plan and Geral
 - (void)startConnectionPlan
@@ -195,13 +208,13 @@
                                cancel:ERROR_BUTTON_CANCEL];
         } else {
             NSDictionary *allError  = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:@"Erro"];
-             for (NSString *tmp in [allError objectForKey:@"CodErro"])
-             {
-                 [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
-                                   message:tmp
-                                    cancel:ERROR_BUTTON_CANCEL];
-                 return;
-             }
+            for (NSString *tmp in [allError objectForKey:@"CodErro"])
+            {
+                [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
+                                  message:tmp
+                                   cancel:ERROR_BUTTON_CANCEL];
+                return;
+            }
             NSDictionary *allPlans  = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_TRAVEL_PLAN_INFO_CONTRACT];
             NSMutableArray *tagInfo = [NSMutableArray new];
             for (NSDictionary *tmp in [allPlans objectForKey:TAG_TRAVEL_PLAN_INFO_CONTRACT])
@@ -231,7 +244,7 @@
 #pragma mark - connection
 - (void)startConnection
 {
-    [lblLoad setText:@"Procurando informações ..."];
+    [lblLoad setText:@"Carregando planos aguarde"];
     
     NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_PACKGES_CONNECTION_START,
                                        APP_CONNECTION_TAG_WAIT 	 : TRAVEL_PACKGES_CONNECTION_WAIT,

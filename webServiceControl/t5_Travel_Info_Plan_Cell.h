@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface travelInfoPotaCell : UITableViewCell
+@interface t5_Travel_Info_Plan_Cell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) IBOutlet UILabel *lblPrice;
 

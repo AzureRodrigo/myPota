@@ -155,7 +155,7 @@
     NSMutableArray     *activeMonthViews      = [[NSMutableArray alloc] init];
     
     // Cria e posiciona os messes na view
-    for (NSInteger monthOffset = -2; monthOffset <= 2; monthOffset += 1) {
+    for (NSInteger monthOffset = -1; monthOffset <= 1; monthOffset += 1) {
         NSDateComponents *offsetMonth = [month copy];
         offsetMonth.month = offsetMonth.month + monthOffset;
         offsetMonth = [offsetMonth.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSCalendarCalendarUnit fromDate:offsetMonth.date];

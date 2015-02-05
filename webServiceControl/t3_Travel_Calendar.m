@@ -50,8 +50,7 @@
     HUD.delegate  = self;
     HUD.labelText = @"Carregando datas.";
     [HUD show:YES];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self calendarBodyData];
     });
     
@@ -68,7 +67,7 @@
     
     calendarBody = [[AzCalendar alloc]initWithScreen:View];
     [calendarBody setDelegate:self];
- 
+    
     [HUD hide:YES];
 }
 

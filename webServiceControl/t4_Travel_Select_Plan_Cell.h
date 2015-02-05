@@ -1,5 +1,5 @@
 //
-//  travelPackgesCell.h
+//  t4_Travel_Select_Plan_Cell.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 12/05/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface travelPackgesCell : UITableViewCell
+@interface t4_Travel_Select_Plan_Cell : UITableViewCell
 
 #pragma mark - Label's
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
