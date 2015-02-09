@@ -95,7 +95,7 @@
 {
     switch ([indexPath row] + 1) {
         case 1:
-//            [self performSegueWithIdentifier:STORY_BOARD_MENU_PACOTES sender:self];
+            [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_P0];
             break;
         case 2:
 //            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];

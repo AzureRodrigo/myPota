@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoPriceCell.h"
+#import "p2_Package_Info_Cell_Price.h"
 
 #define SIZE_START 158
 #define SIZE_PLUS  20
 
-@implementation packInfoPriceCell
+@implementation p2_Package_Info_Cell_Price
 
 - (void)start
 {

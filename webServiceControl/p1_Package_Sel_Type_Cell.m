@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packCircuitsCell.h"
+#import "p1_Package_Sel_Type_Cell.h"
 
-@implementation packCircuitsCell
+@implementation p1_Package_Sel_Type_Cell
 
 @end

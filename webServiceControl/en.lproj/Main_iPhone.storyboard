@@ -4755,7 +4755,7 @@ o Pagamento”, reconhece que:</string>
                         <segue destination="8XS-3n-iE6" kind="push" identifier="gigateste" id="2Ag-bD-Ycb"/>
                         <segue destination="2eG-OV-bjm" kind="push" identifier="menuTolistVoucher" id="XKP-Pa-VR5"/>
                         <segue destination="FRf-Mb-6wR" kind="push" identifier="A2_To_C1" id="3LT-CL-iMM"/>
-                        <segue destination="e3n-fg-afy" kind="push" identifier="menuPotaTopackgePota" id="b3Y-j9-VCK"/>
+                        <segue destination="e3n-fg-afy" kind="push" identifier="A2_To_P0" id="b3Y-j9-VCK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1q-vX-84V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5178,12 +5178,12 @@ agência de viagem</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jw-Jx-Xmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1828" y="356"/>
+            <point key="canvasLocation" x="-1772" y="212"/>
         </scene>
-        <!--Pack Types-->
+        <!--P0 Package-->
         <scene sceneID="P5H-wU-e2l">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="e3n-fg-afy" customClass="packTypes" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="e3n-fg-afy" customClass="p0_Package" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsR-LS-wJG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5206,7 +5206,7 @@ agência de viagem</string>
                                 <rect key="frame" x="150" y="220" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Qk-RT-bst">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Qk-RT-bst">
                                 <rect key="frame" x="25" y="115" width="270" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="viagemBtnPesquisar.png">
@@ -5221,7 +5221,7 @@ agência de viagem</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="Hrb-VW-AG7" customClass="packTypesCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="Hrb-VW-AG7" customClass="p0_Package_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hrb-VW-AG7" id="7l1-Sj-I2Y">
@@ -5271,7 +5271,7 @@ agência de viagem</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="AZx-iy-mkg"/>
@@ -5281,12 +5281,12 @@ agência de viagem</string>
                         <outlet property="otlLoad" destination="OrI-9C-lan" id="Yyh-Yq-JOh"/>
                         <outlet property="tableViewData" destination="RON-9b-97y" id="MDp-SC-FOr"/>
                         <outlet property="textDestiny" destination="NHf-fx-kyc" id="Beu-Av-ikL"/>
-                        <segue destination="664-MH-OLE" kind="push" identifier="packgePotaTopackCircuit" id="Kyf-Rf-qVN"/>
+                        <segue destination="664-MH-OLE" kind="push" identifier="P0_To_P1" id="Kyf-Rf-qVN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sm-WF-csS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2988" y="-1120"/>
+            <point key="canvasLocation" x="-3562" y="-718"/>
         </scene>
         <!--Purchase Purchase Info-->
         <scene sceneID="0Mu-jE-Bc0">
@@ -5675,10 +5675,10 @@ Portal Schultz.</string>
             </objects>
             <point key="canvasLocation" x="-6640" y="-788"/>
         </scene>
-        <!--Pack Circuits-->
+        <!--P1 Package Sel Type-->
         <scene sceneID="f1b-OJ-QS7">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="664-MH-OLE" customClass="packCircuits" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="664-MH-OLE" customClass="p1_Package_Sel_Type" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T4y-9R-cqw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -5734,7 +5734,7 @@ Portal Schultz.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="7Jn-7d-mZA" customClass="packCircuitsCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="7Jn-7d-mZA" customClass="p1_Package_Sel_Type_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Jn-7d-mZA" id="Xax-TK-hVU">
@@ -5808,7 +5808,7 @@ Portal Schultz.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="2GD-fV-hsn"/>
@@ -5818,29 +5818,29 @@ Portal Schultz.</string>
                         <outlet property="lblCircuitNumbers" destination="DOE-v1-bf3" id="C56-rK-Rv9"/>
                         <outlet property="lblCircuitNumbersLabel" destination="9Kz-tP-ckY" id="arh-Sp-eT5"/>
                         <outlet property="loadCircuits" destination="4t7-96-sio" id="49C-pb-XEw"/>
-                        <outlet property="seachBarData" destination="1Dr-Uk-rzN" id="Dld-d9-CjS"/>
+                        <outlet property="searchBarData" destination="1Dr-Uk-rzN" id="Fz8-Hs-dVj"/>
                         <outlet property="tableViewData" destination="Tb7-Bq-SBE" id="f3k-Wk-x5s"/>
-                        <segue destination="cwc-HU-fd1" kind="push" identifier="packCircuitTopackInfo" id="99s-BX-rNb"/>
+                        <segue destination="cwc-HU-fd1" kind="push" identifier="P1_To_P2" id="99s-BX-rNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gxm-n1-m95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2509" y="-1120"/>
+            <point key="canvasLocation" x="-3113" y="-718"/>
         </scene>
-        <!--Pack Info-->
+        <!--P2 Package Info-->
         <scene sceneID="T8E-OZ-wps">
             <objects>
-                <viewController id="cwc-HU-fd1" customClass="packInfo" sceneMemberID="viewController">
+                <viewController id="cwc-HU-fd1" customClass="p2_Package_Info" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UZU-nw-RqC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jp7-C1-sCz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellHeader" rowHeight="278" id="U0G-fE-RFm" customClass="packInfoHeaderCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellHeader" rowHeight="278" id="U0G-fE-RFm" customClass="p2_Package_Info_Cell_Header">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U0G-fE-RFm" id="43h-tg-cbd">
@@ -5851,8 +5851,8 @@ Portal Schultz.</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="img.png"/>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triangulo Europeu Série Classica" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGo-FC-OUj">
-                                                    <rect key="frame" x="16" y="158" width="242" height="52"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triangulo Europeu Série Classica" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGo-FC-OUj">
+                                                    <rect key="frame" x="16" y="159" width="242" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -5876,10 +5876,15 @@ Portal Schultz.</string>
                                                     <rect key="frame" x="0.0" y="276" width="320" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de Roteiro" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AuE-yq-hDG">
-                                                    <rect key="frame" x="16" y="216" width="288" height="52"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AuE-yq-hDG">
+                                                    <rect key="frame" x="16" y="211" width="288" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                    <string key="text">1
+2
+3
+4
+5</string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -5892,7 +5897,7 @@ Portal Schultz.</string>
                                             <outlet property="lblCircuitName" destination="BGo-FC-OUj" id="Fcr-N2-5pY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellInfo" rowHeight="40" id="fzf-57-krd" customClass="packInfoButtonCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellInfo" rowHeight="40" id="fzf-57-krd" customClass="p2_Package_Info_Cell_Button">
                                         <rect key="frame" x="0.0" y="885" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fzf-57-krd" id="kkI-DC-AfO">
@@ -5932,7 +5937,7 @@ Portal Schultz.</string>
                                             <outlet property="lblTitle" destination="ZKe-MY-ZJR" id="3qm-fn-5h4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellData" rowHeight="88" id="hnr-CP-dfR" userLabel="CellData" customClass="packInfoDataCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellData" rowHeight="88" id="hnr-CP-dfR" userLabel="CellData" customClass="p2_Package_Info_Cell_Data">
                                         <rect key="frame" x="0.0" y="885" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hnr-CP-dfR" id="Sxo-13-Bn9">
@@ -5981,13 +5986,13 @@ Portal Schultz.</string>
                                             <outlet property="btnSetData" destination="Jlt-fg-xtU" id="h26-dq-95d"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellRoom" rowHeight="60" id="DML-nq-Enw" customClass="packInfoRoomCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellRoom" rowHeight="60" id="DML-nq-Enw" customClass="p2_Package_Info_Cell_Room_Travel">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DML-nq-Enw" id="UMB-Av-MJH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roomTriplo.png" id="k5r-DL-T1G">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triplo.png" id="k5r-DL-T1G">
                                                     <rect key="frame" x="15" y="14" width="40" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -6051,7 +6056,7 @@ Portal Schultz.</string>
                                             <outlet property="stepper" destination="US3-ci-4oo" id="WeD-WE-ZsV"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellCustos" rowHeight="97" id="8W6-PG-EHP" customClass="packInfoPriceCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellCustos" rowHeight="97" id="8W6-PG-EHP" customClass="p2_Package_Info_Cell_Price">
                                         <rect key="frame" x="0.0" y="168" width="320" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8W6-PG-EHP" id="aOQ-9y-We7">
@@ -6128,7 +6133,7 @@ Portal Schultz.</string>
                                             <outlet property="lblTitle" destination="WP6-x5-YaS" id="ZXD-y6-4NU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="60" id="Wte-Bb-WxB" customClass="packInfoConfirmCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="60" id="Wte-Bb-WxB" customClass="p2_Package_Info_Cell_Confirm">
                                         <rect key="frame" x="0.0" y="945" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wte-Bb-WxB" id="odw-b2-R6G">
@@ -6156,46 +6161,46 @@ Portal Schultz.</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="lAm-Kc-gao"/>
                     <connections>
                         <outlet property="tableViewData" destination="jp7-C1-sCz" id="B57-be-rQy"/>
-                        <segue destination="DqF-zr-Qk6" kind="push" identifier="packInfoToDetail" id="037-yD-w3a"/>
-                        <segue destination="0dx-oG-emP" kind="push" identifier="packInfoToCadastrePurchase" id="YkV-qo-Qxb"/>
-                        <segue destination="VQ3-eV-J4U" kind="push" identifier="packInfoToPictureView" id="jW2-bj-puj"/>
-                        <segue destination="B4V-h6-rjY" kind="push" identifier="packInfoToDataView" id="zVC-AB-9Jv"/>
+                        <segue destination="DqF-zr-Qk6" kind="push" identifier="P2_To_P3" id="037-yD-w3a"/>
+                        <segue destination="0dx-oG-emP" kind="push" identifier="P2_To_R0" id="YkV-qo-Qxb"/>
+                        <segue destination="VQ3-eV-J4U" kind="push" identifier="P2_To_P5" id="jW2-bj-puj"/>
+                        <segue destination="B4V-h6-rjY" kind="push" identifier="P2_To_P4" id="zVC-AB-9Jv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAd-5F-fkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1950" y="-1120"/>
+            <point key="canvasLocation" x="-2630" y="-718"/>
         </scene>
-        <!--Pack Info Pictures-->
+        <!--P5 Package Pictures-->
         <scene sceneID="YjM-Uc-dVS">
             <objects>
-                <viewController id="VQ3-eV-J4U" customClass="packInfoPictures" sceneMemberID="viewController">
+                <viewController id="VQ3-eV-J4U" customClass="p5_Package_Pictures" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fon-9Z-ixN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4wo-mC-pnq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ip-eK-hMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1054" y="-1120"/>
+            <point key="canvasLocation" x="-2158" y="-718"/>
         </scene>
-        <!--Pack Info Detail-->
+        <!--P3 Package Detail-->
         <scene sceneID="xoY-ZI-qZa">
             <objects>
-                <viewController id="DqF-zr-Qk6" customClass="packInfoDetail" sceneMemberID="viewController">
+                <viewController id="DqF-zr-Qk6" customClass="p3_Package_Detail" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0wY-Iz-jRv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="jbe-yr-I9U">
-                                <rect key="frame" x="0.0" y="43" width="320" height="525"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
@@ -6203,36 +6208,24 @@ Portal Schultz.</string>
                                     <outlet property="delegate" destination="W2I-Cm-X0U" id="KJL-FM-41R"/>
                                 </connections>
                             </webView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cadastro dos viajantes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FmZ-VX-hD7">
-                                <rect key="frame" x="25" y="12" width="270" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="7c6-kp-aTc">
-                                <rect key="frame" x="0.0" y="43" width="320" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="qtN-BR-dcH"/>
                     <connections>
-                        <outlet property="lblTitle" destination="FmZ-VX-hD7" id="vFb-P0-6a4"/>
                         <outlet property="webView" destination="jbe-yr-I9U" id="13h-Ci-fYP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEX-hC-vPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1054" y="-1692"/>
+            <point key="canvasLocation" x="-2630" y="-1408"/>
         </scene>
         <!--Page Content View Controller-->
         <scene sceneID="NEh-Bu-xbq">
             <objects>
                 <viewController storyboardIdentifier="PageContentViewController" id="WJM-Pm-Hg9" customClass="PageContentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tpo-Sh-URi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cjw-1D-7Rh">
@@ -6240,23 +6233,26 @@ Portal Schultz.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="cjw-1D-7Rh" id="i5W-nJ-AGk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CC-ed-qMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-575" y="-1692"/>
+            <point key="canvasLocation" x="-1701" y="-718"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="37T-Cf-9kj">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8je-id-fec" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8je-id-fec" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6R3-US-px4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-149" y="-1692"/>
+            <point key="canvasLocation" x="-1701" y="-1408"/>
         </scene>
         <!--Hotel Info Pictures-->
         <scene sceneID="IGw-sj-QR7">
@@ -6273,31 +6269,31 @@ Portal Schultz.</string>
             </objects>
             <point key="canvasLocation" x="-1357" y="1996"/>
         </scene>
-        <!--Pack Info Datas-->
+        <!--P4 Packages Data-->
         <scene sceneID="DMo-xe-jPz">
             <objects>
-                <viewController id="B4V-h6-rjY" customClass="packInfoDatas" sceneMemberID="viewController">
+                <viewController id="B4V-h6-rjY" customClass="p4_Packages_Data" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h5Z-9b-g6t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pesquisando datas disponiveis!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T3Y-mx-1ZW">
-                                <rect key="frame" x="10" y="60" width="300" height="22"/>
+                                <rect key="frame" x="10" y="0.0" width="300" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="YwU-km-meA">
-                                <rect key="frame" x="150" y="90" width="20" height="20"/>
+                                <rect key="frame" x="150" y="30" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" id="nmT-l7-ahw">
-                                <rect key="frame" x="0.0" y="54" width="320" height="426"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellData" rowHeight="60" id="hb5-jF-Dgh" customClass="packInfoDatasCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellData" rowHeight="60" id="hb5-jF-Dgh" customClass="p4_Packages_Data_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hb5-jF-Dgh" id="O55-cN-wc8">
@@ -6334,19 +6330,8 @@ Portal Schultz.</string>
                                     <outlet property="delegate" destination="B4V-h6-rjY" id="BBm-Rt-pXe"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha uma Data de Partida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NZj-Wr-QWC">
-                                <rect key="frame" x="25" y="19" width="270" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="JdB-dm-6Jw">
-                                <rect key="frame" x="0.0" y="54" width="320" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="KDs-BB-7Bj"/>
                     <connections>
@@ -6357,10 +6342,11 @@ Portal Schultz.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kw-dn-KKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1950" y="-1692"/>
+            <point key="canvasLocation" x="-2158" y="-1408"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Triplo.png" width="50" height="40"/>
         <image name="barGeneric.png" width="640" height="20"/>
         <image name="bgCadastreGeneric.png" width="640" height="336"/>
         <image name="bgPerfilOption.png" width="640" height="415"/>
@@ -6423,7 +6409,6 @@ Portal Schultz.</string>
         <image name="numberChildren.png" width="50" height="50"/>
         <image name="packRect.png" width="641" height="100"/>
         <image name="perfilBtnMap.png" width="71" height="71"/>
-        <image name="roomTriplo.png" width="50" height="40"/>
         <image name="searchBtnBg.png" width="320" height="50"/>
         <image name="splitButtonCenter.png" width="67" height="51"/>
         <image name="splitButtonMinus.png" width="67" height="51"/>
@@ -6452,13 +6437,13 @@ Portal Schultz.</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dfT-L0-weW"/>
         <segue reference="6aG-hQ-eWW"/>
         <segue reference="2Ag-bD-Ycb"/>
         <segue reference="5ue-yG-pK9"/>
         <segue reference="3LT-CL-iMM"/>
-        <segue reference="IVC-vd-5K9"/>
+        <segue reference="dfT-L0-weW"/>
         <segue reference="XDl-oI-JGF"/>
+        <segue reference="YkV-qo-Qxb"/>
         <segue reference="qLu-cP-eeQ"/>
     </inferredMetricsTieBreakers>
 </document>

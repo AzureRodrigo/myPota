@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoPriceCell : UITableViewCell
+@interface p2_Package_Info_Cell_Price : UITableViewCell
 {
     IBOutlet UILabel *lblCusto;
     IBOutlet UIImageView *lblBar1;

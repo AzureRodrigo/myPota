@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoHeaderCell.h"
+#import "p2_Package_Info_Cell_Header.h"
 
-@implementation packInfoHeaderCell
+@implementation p2_Package_Info_Cell_Header
 
 
 @end

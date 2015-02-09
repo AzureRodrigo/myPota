@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoButtonCell : UITableViewCell
+@interface p2_Package_Info_Cell_Button : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgDotBar;
 @property (strong, nonatomic) IBOutlet UIImageView *imgBar;

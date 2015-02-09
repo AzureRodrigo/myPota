@@ -144,6 +144,14 @@
     
     [purchaseData setObject:PURCHASE_TYPE_TRAVEL forKey:PURCHASE_TYPE];
 
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+//    HUD.dimBackground = YES;
+    HUD.delegate  = self;
+    HUD.labelText = @"Carregando Dados.";
+    [HUD show:YES];
+
     [self startConnectionPlan];
 }
 
@@ -161,7 +169,7 @@
                                        APP_CONNECTION_TAG_FINISH : TRAVEL_PACKGES_CONNECTION_FINISH,
                                        APP_CONNECTION_TAG_ERROR  : TRAVEL_PACKGES_CONNECTION_ERROR };
     
-    [appConnection START_CONNECT:linkInfoPlan timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:linkInfoPlan timeForOu:15.F labelConnection:labelConnections showView:NO block:^(NSData *result) {
         if (result == nil) {
             [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
                               message:ERROR_1013_MESSAGE
@@ -188,6 +196,7 @@
 #pragma mark - connection Contratc
 - (void)startConnectionContract
 {
+    HUD.labelText = @"Carregando Contrato.";
     NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO_CONTRACT, IDWS, KEY_CODE_SITE_TRAVEL,KEY_CODE_PORTAL,KEY_EMPTY,
                               [[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE]];
     linkInfoPlan           = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_CONTRACT, linkInfoPlan];
@@ -198,7 +207,7 @@
                                        APP_CONNECTION_TAG_FINISH : TRAVEL_PACKGES_CONNECTION_FINISH,
                                        APP_CONNECTION_TAG_ERROR  : TRAVEL_PACKGES_CONNECTION_ERROR };
     
-    [appConnection START_CONNECT:linkInfoPlan timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:linkInfoPlan timeForOu:15.F labelConnection:labelConnections showView:NO block:^(NSData *result) {
         if (result == nil) {
             [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
                               message:ERROR_1013_MESSAGE
@@ -232,10 +241,8 @@
             [AppFunctions CLEAR_INFORMATION];
             [AppFunctions SAVE_INFORMATION:purchaseData
                                        tag:PURCHASE];
-            
-            NSLog(@"%@", purchaseData);
+            [HUD hide:YES];
             [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T4_TO_R0];
-//            [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_CADASTRE sender:self];
         }
     }];
 }

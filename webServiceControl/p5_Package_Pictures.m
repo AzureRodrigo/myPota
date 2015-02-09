@@ -6,20 +6,19 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoPictures.h"
+#import "p5_Package_Pictures.h"
 
-@interface packInfoPictures ()
-
-@end
-
-@implementation packInfoPictures
+@implementation p5_Package_Pictures
 
 #pragma mark - configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Fotos do Pacote"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_PACKAGE
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -47,7 +46,7 @@
 
 - (void)loadImage
 {
-    backScreen   = (packInfo *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen   = (p2_Package_Info *)[AppFunctions BACK_SCREEN:self number:1];
     listImage    = [NSMutableArray new];
     listAllImage = [NSMutableArray new];
     NSString *tag = @"imagem";

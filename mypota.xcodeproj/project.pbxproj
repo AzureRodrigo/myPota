@@ -103,10 +103,10 @@
 		C735BED31A6EC7A50019958C /* b10_Cell_Message.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED21A6EC7A50019958C /* b10_Cell_Message.m */; };
 		C735BED91A6ED7260019958C /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED61A6ED7260019958C /* HPGrowingTextView.m */; };
 		C735BEDA1A6ED7260019958C /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = C735BED81A6ED7260019958C /* HPTextViewInternal.m */; };
-		C7362EF51A07E742003A0D77 /* packInfoPictures.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF41A07E742003A0D77 /* packInfoPictures.m */; };
+		C7362EF51A07E742003A0D77 /* p5_Package_Pictures.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF41A07E742003A0D77 /* p5_Package_Pictures.m */; };
 		C7362EFA1A07F4DF003A0D77 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7362EF91A07F4DF003A0D77 /* PageContentViewController.m */; };
 		C737D6F918F3336B00AF0214 /* btnText.png in Resources */ = {isa = PBXBuildFile; fileRef = C737D6F818F3336B00AF0214 /* btnText.png */; };
-		C73BD6DE1A2F97620011DFF9 /* packInfoDatasCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C73BD6DD1A2F97620011DFF9 /* packInfoDatasCell.m */; };
+		C73BD6DE1A2F97620011DFF9 /* p4_Packages_Data_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C73BD6DD1A2F97620011DFF9 /* p4_Packages_Data_Cell.m */; };
 		C73CBA5618FEF74A000A6746 /* hotelCellRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = C73CBA5518FEF74A000A6746 /* hotelCellRoom.png */; };
 		C73CBA5818FF05B6000A6746 /* navBarCalendario.png in Resources */ = {isa = PBXBuildFile; fileRef = C73CBA5718FF05B6000A6746 /* navBarCalendario.png */; };
 		C73CBA6118FF1FB1000A6746 /* AzCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C73CBA6018FF1FB1000A6746 /* AzCalendar.m */; };
@@ -126,11 +126,11 @@
 		C7452FA718A41F7800F2946B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7452F8618A41F7800F2946B /* UIKit.framework */; };
 		C7452FAF18A41F7800F2946B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7452FAD18A41F7800F2946B /* InfoPlist.strings */; };
 		C7452FB118A41F7800F2946B /* webServiceControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7452FB018A41F7800F2946B /* webServiceControlTests.m */; };
-		C74867311A0705CF00D174FC /* packInfoButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867301A0705CF00D174FC /* packInfoButtonCell.m */; };
-		C74867361A0709EA00D174FC /* packInfoPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867351A0709EA00D174FC /* packInfoPriceCell.m */; };
-		C748673A1A070AD700D174FC /* packInfoConfirmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867391A070AD700D174FC /* packInfoConfirmCell.m */; };
-		C748673E1A07196300D174FC /* packInfoDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C748673D1A07196300D174FC /* packInfoDetail.m */; };
-		C748B9681A2F8F9000726876 /* packInfoDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = C748B9671A2F8F9000726876 /* packInfoDatas.m */; };
+		C74867311A0705CF00D174FC /* p2_Package_Info_Cell_Button.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867301A0705CF00D174FC /* p2_Package_Info_Cell_Button.m */; };
+		C74867361A0709EA00D174FC /* p2_Package_Info_Cell_Price.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867351A0709EA00D174FC /* p2_Package_Info_Cell_Price.m */; };
+		C748673A1A070AD700D174FC /* p2_Package_Info_Cell_Confirm.m in Sources */ = {isa = PBXBuildFile; fileRef = C74867391A070AD700D174FC /* p2_Package_Info_Cell_Confirm.m */; };
+		C748673E1A07196300D174FC /* p3_Package_Detail.m in Sources */ = {isa = PBXBuildFile; fileRef = C748673D1A07196300D174FC /* p3_Package_Detail.m */; };
+		C748B9681A2F8F9000726876 /* p4_Packages_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C748B9671A2F8F9000726876 /* p4_Packages_Data.m */; };
 		C749F1B318CA4D8E00537BFD /* HotelOccupation.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F1B218CA4D8E00537BFD /* HotelOccupation.m */; };
 		C749F1B618CA51C600537BFD /* HotelSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F1B518CA51C600537BFD /* HotelSearchData.m */; };
 		C74E8F0819A630980059D752 /* voucherListPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C74E8F0719A630980059D752 /* voucherListPota.m */; };
@@ -144,12 +144,12 @@
 		C7537C2C1A3F666000DF32DD /* c2_Agent_Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = C7537C2B1A3F666000DF32DD /* c2_Agent_Chat.m */; };
 		C756CC2F19A3864500AA2CFF /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C756CC2E19A3864500AA2CFF /* MWFSlideNavigationViewController.m */; };
 		C759DFA519F69AD60070D5D4 /* navBar09.png in Resources */ = {isa = PBXBuildFile; fileRef = C759DFA419F69AD60070D5D4 /* navBar09.png */; };
-		C759DFAA19F6BFEE0070D5D4 /* packTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = C759DFA919F6BFEE0070D5D4 /* packTypes.m */; };
-		C759DFAD19F6D4D80070D5D4 /* packTypesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C759DFAC19F6D4D80070D5D4 /* packTypesCell.m */; };
+		C759DFAA19F6BFEE0070D5D4 /* p0_Package.m in Sources */ = {isa = PBXBuildFile; fileRef = C759DFA919F6BFEE0070D5D4 /* p0_Package.m */; };
+		C759DFAD19F6D4D80070D5D4 /* p0_Package_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C759DFAC19F6D4D80070D5D4 /* p0_Package_Cell.m */; };
 		C75C2CF318F45F40002E6575 /* btnOption.png in Resources */ = {isa = PBXBuildFile; fileRef = C75C2CF218F45F40002E6575 /* btnOption.png */; };
 		C75C2CF518F45F45002E6575 /* btnBack.png in Resources */ = {isa = PBXBuildFile; fileRef = C75C2CF418F45F45002E6575 /* btnBack.png */; };
 		C75DEFEB19210162006F3763 /* t2_Travel_Select_Destiny.m in Sources */ = {isa = PBXBuildFile; fileRef = C75DEFEA19210162006F3763 /* t2_Travel_Select_Destiny.m */; };
-		C75DEFEF1921025E006F3763 /* travelPotaDestinyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C75DEFEE1921025E006F3763 /* travelPotaDestinyCell.m */; };
+		C75DEFEF1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C75DEFEE1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.m */; };
 		C75E25F01918326400294486 /* roomCellBg.png in Resources */ = {isa = PBXBuildFile; fileRef = C75E25EF1918326400294486 /* roomCellBg.png */; };
 		C75E25F7191834D500294486 /* roomCellBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = C75E25F6191834D500294486 /* roomCellBottom.png */; };
 		C760186818FDAC320066B6E9 /* navBarHotel.png in Resources */ = {isa = PBXBuildFile; fileRef = C760186718FDAC320066B6E9 /* navBarHotel.png */; };
@@ -227,16 +227,16 @@
 		C78871B819BE357400EA1C4C /* c1_Agent_Perfil_Pota.m in Sources */ = {isa = PBXBuildFile; fileRef = C78871B619BE357400EA1C4C /* c1_Agent_Perfil_Pota.m */; };
 		C78871BC19BE409100EA1C4C /* agentePerfilPotaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78871BB19BE409100EA1C4C /* agentePerfilPotaCell.m */; };
 		C78871BE19BE481A00EA1C4C /* molde.png in Resources */ = {isa = PBXBuildFile; fileRef = C78871BD19BE481A00EA1C4C /* molde.png */; };
-		C788AD6A1A35DAFB00C7D527 /* packInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C788AD691A35DAFB00C7D527 /* packInfoHeaderCell.m */; };
+		C788AD6A1A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.m in Sources */ = {isa = PBXBuildFile; fileRef = C788AD691A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.m */; };
 		C788AD701A35E97200C7D527 /* d0_Info_Pota.m in Sources */ = {isa = PBXBuildFile; fileRef = C788AD6F1A35E97200C7D527 /* d0_Info_Pota.m */; };
 		C788AD721A35EDE700C7D527 /* navBar12.png in Resources */ = {isa = PBXBuildFile; fileRef = C788AD711A35EDE700C7D527 /* navBar12.png */; };
 		C78A1A5318A503E200CCD7D3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7452F9418A41F7800F2946B /* Main_iPhone.storyboard */; };
 		C78C075818F6CA3E0081DAE5 /* hotelPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C78C075718F6CA3E0081DAE5 /* hotelPota.m */; };
 		C78C075B18F6D0DC0081DAE5 /* b1_User_Search.m in Sources */ = {isa = PBXBuildFile; fileRef = C78C075A18F6D0DC0081DAE5 /* b1_User_Search.m */; };
 		C78D9A1B19FE76B600AE081A /* packRect.png in Resources */ = {isa = PBXBuildFile; fileRef = C78D9A1A19FE76B600AE081A /* packRect.png */; };
-		C78D9A2019FE792F00AE081A /* packCircuits.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A1F19FE792F00AE081A /* packCircuits.m */; };
-		C78D9A2319FE7A5C00AE081A /* packCircuitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2219FE7A5C00AE081A /* packCircuitsCell.m */; };
-		C78D9A2819FED3AD00AE081A /* packInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2719FED3AD00AE081A /* packInfo.m */; };
+		C78D9A2019FE792F00AE081A /* p1_Package_Sel_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A1F19FE792F00AE081A /* p1_Package_Sel_Type.m */; };
+		C78D9A2319FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2219FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m */; };
+		C78D9A2819FED3AD00AE081A /* p2_Package_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2719FED3AD00AE081A /* p2_Package_Info.m */; };
 		C78EBF5418D32FE400B74AFA /* hotelPotaDestiny.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5318D32FE400B74AFA /* hotelPotaDestiny.m */; };
 		C78EBF5818D3424F00B74AFA /* hotelDestinyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5718D3424F00B74AFA /* hotelDestinyCell.m */; };
 		C78EBF5B18D343A200B74AFA /* HotelSeachCidades.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5A18D343A200B74AFA /* HotelSeachCidades.m */; };
@@ -260,11 +260,11 @@
 		C799614F196B3AD600D4394E /* viagemIconGlobe.png in Resources */ = {isa = PBXBuildFile; fileRef = C799614D196B3AD600D4394E /* viagemIconGlobe.png */; };
 		C7996150196B3AD600D4394E /* viagemIconInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = C799614E196B3AD600D4394E /* viagemIconInfo.png */; };
 		C7996156196B3E7700D4394E /* t1_Travel_Select_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = C7996155196B3E7700D4394E /* t1_Travel_Select_Type.m */; };
-		C7996159196B3EF700D4394E /* travelPotaTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7996158196B3EF700D4394E /* travelPotaTypeCell.m */; };
+		C7996159196B3EF700D4394E /* t1_Travel_Select_Type_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7996158196B3EF700D4394E /* t1_Travel_Select_Type_Cell.m */; };
 		C799615D196B47C800D4394E /* t3_Travel_Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C799615C196B47C800D4394E /* t3_Travel_Calendar.m */; };
 		C79A63C51A640AE600D73891 /* Data_Pota.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C79A63C31A640AE600D73891 /* Data_Pota.xcdatamodeld */; };
 		C79B88F719A392A300715E79 /* s0_Split_Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = C79B88F619A392A300715E79 /* s0_Split_Menu.m */; };
-		C79F3CE61A07AEF200B336E4 /* packInfoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F3CE51A07AEF200B336E4 /* packInfoDataCell.m */; };
+		C79F3CE61A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C79F3CE51A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m */; };
 		C7A32BAF18F472EF00130FE9 /* BtnsearchAgente.png in Resources */ = {isa = PBXBuildFile; fileRef = C7A32BAE18F472EF00130FE9 /* BtnsearchAgente.png */; };
 		C7A32BD218F484A600130FE9 /* a2_App_Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A32BD118F484A600130FE9 /* a2_App_Menu.m */; };
 		C7A32BD718F48A6C00130FE9 /* b5_User_Search_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A32BD618F48A6C00130FE9 /* b5_User_Search_Data.m */; };
@@ -303,7 +303,7 @@
 		C7B5D23E1A072E1A0074C3D4 /* Duplo a Compartir.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B5D23A1A072E1A0074C3D4 /* Duplo a Compartir.png */; };
 		C7B5D23F1A072E1A0074C3D4 /* Individual.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B5D23B1A072E1A0074C3D4 /* Individual.png */; };
 		C7B5D2401A072E1A0074C3D4 /* Triplo.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B5D23C1A072E1A0074C3D4 /* Triplo.png */; };
-		C7B5D2451A072EAF0074C3D4 /* packInfoRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B5D2441A072EAF0074C3D4 /* packInfoRoomCell.m */; };
+		C7B5D2451A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B5D2441A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.m */; };
 		C7BB5B8B1A7678F20010E821 /* btnLoginGenericKey.png in Resources */ = {isa = PBXBuildFile; fileRef = C7BB5B891A7678F20010E821 /* btnLoginGenericKey.png */; };
 		C7BB5B8C1A7678F20010E821 /* btnLogoffGeneric.png in Resources */ = {isa = PBXBuildFile; fileRef = C7BB5B8A1A7678F20010E821 /* btnLogoffGeneric.png */; };
 		C7BE0E871A790E1F007F2EF2 /* btnSearchAgency.png in Resources */ = {isa = PBXBuildFile; fileRef = C7BE0E861A790E1F007F2EF2 /* btnSearchAgency.png */; };
@@ -551,13 +551,13 @@
 		C735BED61A6ED7260019958C /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		C735BED71A6ED7260019958C /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
 		C735BED81A6ED7260019958C /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
-		C7362EF31A07E742003A0D77 /* packInfoPictures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoPictures.h; sourceTree = "<group>"; };
-		C7362EF41A07E742003A0D77 /* packInfoPictures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoPictures.m; sourceTree = "<group>"; };
+		C7362EF31A07E742003A0D77 /* p5_Package_Pictures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p5_Package_Pictures.h; sourceTree = "<group>"; };
+		C7362EF41A07E742003A0D77 /* p5_Package_Pictures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p5_Package_Pictures.m; sourceTree = "<group>"; };
 		C7362EF81A07F4DF003A0D77 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		C7362EF91A07F4DF003A0D77 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		C737D6F818F3336B00AF0214 /* btnText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnText.png; sourceTree = "<group>"; };
-		C73BD6DC1A2F97620011DFF9 /* packInfoDatasCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoDatasCell.h; sourceTree = "<group>"; };
-		C73BD6DD1A2F97620011DFF9 /* packInfoDatasCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoDatasCell.m; sourceTree = "<group>"; };
+		C73BD6DC1A2F97620011DFF9 /* p4_Packages_Data_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p4_Packages_Data_Cell.h; sourceTree = "<group>"; };
+		C73BD6DD1A2F97620011DFF9 /* p4_Packages_Data_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p4_Packages_Data_Cell.m; sourceTree = "<group>"; };
 		C73CBA5518FEF74A000A6746 /* hotelCellRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotelCellRoom.png; sourceTree = "<group>"; };
 		C73CBA5718FF05B6000A6746 /* navBarCalendario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBarCalendario.png; sourceTree = "<group>"; };
 		C73CBA5F18FF1FB1000A6746 /* AzCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzCalendar.h; sourceTree = "<group>"; };
@@ -583,16 +583,16 @@
 		C7452FAC18A41F7800F2946B /* myPotaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "myPotaTests-Info.plist"; sourceTree = "<group>"; };
 		C7452FAE18A41F7800F2946B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C7452FB018A41F7800F2946B /* webServiceControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webServiceControlTests.m; sourceTree = "<group>"; };
-		C748672F1A0705CF00D174FC /* packInfoButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoButtonCell.h; sourceTree = "<group>"; };
-		C74867301A0705CF00D174FC /* packInfoButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoButtonCell.m; sourceTree = "<group>"; };
-		C74867341A0709EA00D174FC /* packInfoPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoPriceCell.h; sourceTree = "<group>"; };
-		C74867351A0709EA00D174FC /* packInfoPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoPriceCell.m; sourceTree = "<group>"; };
-		C74867381A070AD700D174FC /* packInfoConfirmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoConfirmCell.h; sourceTree = "<group>"; };
-		C74867391A070AD700D174FC /* packInfoConfirmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoConfirmCell.m; sourceTree = "<group>"; };
-		C748673C1A07196300D174FC /* packInfoDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoDetail.h; sourceTree = "<group>"; };
-		C748673D1A07196300D174FC /* packInfoDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoDetail.m; sourceTree = "<group>"; };
-		C748B9661A2F8F9000726876 /* packInfoDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoDatas.h; sourceTree = "<group>"; };
-		C748B9671A2F8F9000726876 /* packInfoDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoDatas.m; sourceTree = "<group>"; };
+		C748672F1A0705CF00D174FC /* p2_Package_Info_Cell_Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Button.h; sourceTree = "<group>"; };
+		C74867301A0705CF00D174FC /* p2_Package_Info_Cell_Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Button.m; sourceTree = "<group>"; };
+		C74867341A0709EA00D174FC /* p2_Package_Info_Cell_Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Price.h; sourceTree = "<group>"; };
+		C74867351A0709EA00D174FC /* p2_Package_Info_Cell_Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Price.m; sourceTree = "<group>"; };
+		C74867381A070AD700D174FC /* p2_Package_Info_Cell_Confirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Confirm.h; sourceTree = "<group>"; };
+		C74867391A070AD700D174FC /* p2_Package_Info_Cell_Confirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Confirm.m; sourceTree = "<group>"; };
+		C748673C1A07196300D174FC /* p3_Package_Detail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p3_Package_Detail.h; sourceTree = "<group>"; };
+		C748673D1A07196300D174FC /* p3_Package_Detail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p3_Package_Detail.m; sourceTree = "<group>"; };
+		C748B9661A2F8F9000726876 /* p4_Packages_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p4_Packages_Data.h; sourceTree = "<group>"; };
+		C748B9671A2F8F9000726876 /* p4_Packages_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p4_Packages_Data.m; sourceTree = "<group>"; };
 		C749F1B118CA4D8E00537BFD /* HotelOccupation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelOccupation.h; sourceTree = "<group>"; };
 		C749F1B218CA4D8E00537BFD /* HotelOccupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelOccupation.m; sourceTree = "<group>"; };
 		C749F1B418CA51C600537BFD /* HotelSearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelSearchData.h; sourceTree = "<group>"; };
@@ -613,16 +613,16 @@
 		C756CC2D19A3864500AA2CFF /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
 		C756CC2E19A3864500AA2CFF /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
 		C759DFA419F69AD60070D5D4 /* navBar09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar09.png; sourceTree = "<group>"; };
-		C759DFA819F6BFEE0070D5D4 /* packTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packTypes.h; sourceTree = "<group>"; };
-		C759DFA919F6BFEE0070D5D4 /* packTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packTypes.m; sourceTree = "<group>"; };
-		C759DFAB19F6D4D80070D5D4 /* packTypesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packTypesCell.h; sourceTree = "<group>"; };
-		C759DFAC19F6D4D80070D5D4 /* packTypesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packTypesCell.m; sourceTree = "<group>"; };
+		C759DFA819F6BFEE0070D5D4 /* p0_Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p0_Package.h; sourceTree = "<group>"; };
+		C759DFA919F6BFEE0070D5D4 /* p0_Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p0_Package.m; sourceTree = "<group>"; };
+		C759DFAB19F6D4D80070D5D4 /* p0_Package_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p0_Package_Cell.h; sourceTree = "<group>"; };
+		C759DFAC19F6D4D80070D5D4 /* p0_Package_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p0_Package_Cell.m; sourceTree = "<group>"; };
 		C75C2CF218F45F40002E6575 /* btnOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnOption.png; sourceTree = "<group>"; };
 		C75C2CF418F45F45002E6575 /* btnBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnBack.png; sourceTree = "<group>"; };
 		C75DEFE919210162006F3763 /* t2_Travel_Select_Destiny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t2_Travel_Select_Destiny.h; sourceTree = "<group>"; };
 		C75DEFEA19210162006F3763 /* t2_Travel_Select_Destiny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t2_Travel_Select_Destiny.m; sourceTree = "<group>"; };
 		C75DEFED1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t2_Travel_Select_Destiny_Cell.h; sourceTree = "<group>"; };
-		C75DEFEE1921025E006F3763 /* travelPotaDestinyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPotaDestinyCell.m; sourceTree = "<group>"; };
+		C75DEFEE1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t2_Travel_Select_Destiny_Cell.m; sourceTree = "<group>"; };
 		C75E25EF1918326400294486 /* roomCellBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomCellBg.png; sourceTree = "<group>"; };
 		C75E25F6191834D500294486 /* roomCellBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roomCellBottom.png; sourceTree = "<group>"; };
 		C760186718FDAC320066B6E9 /* navBarHotel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBarHotel.png; sourceTree = "<group>"; };
@@ -721,8 +721,8 @@
 		C78871BA19BE409100EA1C4C /* agentePerfilPotaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = agentePerfilPotaCell.h; sourceTree = "<group>"; };
 		C78871BB19BE409100EA1C4C /* agentePerfilPotaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = agentePerfilPotaCell.m; sourceTree = "<group>"; };
 		C78871BD19BE481A00EA1C4C /* molde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = molde.png; sourceTree = "<group>"; };
-		C788AD681A35DAFB00C7D527 /* packInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoHeaderCell.h; sourceTree = "<group>"; };
-		C788AD691A35DAFB00C7D527 /* packInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoHeaderCell.m; sourceTree = "<group>"; };
+		C788AD681A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Header.h; sourceTree = "<group>"; };
+		C788AD691A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Header.m; sourceTree = "<group>"; };
 		C788AD6E1A35E97200C7D527 /* d0_Info_Pota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = d0_Info_Pota.h; sourceTree = "<group>"; };
 		C788AD6F1A35E97200C7D527 /* d0_Info_Pota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = d0_Info_Pota.m; sourceTree = "<group>"; };
 		C788AD711A35EDE700C7D527 /* navBar12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar12.png; sourceTree = "<group>"; };
@@ -732,12 +732,12 @@
 		C78C075918F6D0DC0081DAE5 /* b1_User_Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b1_User_Search.h; sourceTree = "<group>"; };
 		C78C075A18F6D0DC0081DAE5 /* b1_User_Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = b1_User_Search.m; sourceTree = "<group>"; };
 		C78D9A1A19FE76B600AE081A /* packRect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = packRect.png; sourceTree = "<group>"; };
-		C78D9A1E19FE792F00AE081A /* packCircuits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packCircuits.h; sourceTree = "<group>"; };
-		C78D9A1F19FE792F00AE081A /* packCircuits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packCircuits.m; sourceTree = "<group>"; };
-		C78D9A2119FE7A5C00AE081A /* packCircuitsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packCircuitsCell.h; sourceTree = "<group>"; };
-		C78D9A2219FE7A5C00AE081A /* packCircuitsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packCircuitsCell.m; sourceTree = "<group>"; };
-		C78D9A2619FED3AD00AE081A /* packInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfo.h; sourceTree = "<group>"; };
-		C78D9A2719FED3AD00AE081A /* packInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfo.m; sourceTree = "<group>"; };
+		C78D9A1E19FE792F00AE081A /* p1_Package_Sel_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p1_Package_Sel_Type.h; sourceTree = "<group>"; };
+		C78D9A1F19FE792F00AE081A /* p1_Package_Sel_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p1_Package_Sel_Type.m; sourceTree = "<group>"; };
+		C78D9A2119FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p1_Package_Sel_Type_Cell.h; sourceTree = "<group>"; };
+		C78D9A2219FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p1_Package_Sel_Type_Cell.m; sourceTree = "<group>"; };
+		C78D9A2619FED3AD00AE081A /* p2_Package_Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info.h; sourceTree = "<group>"; };
+		C78D9A2719FED3AD00AE081A /* p2_Package_Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info.m; sourceTree = "<group>"; };
 		C78EBF5218D32FE400B74AFA /* hotelPotaDestiny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelPotaDestiny.h; sourceTree = "<group>"; };
 		C78EBF5318D32FE400B74AFA /* hotelPotaDestiny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotelPotaDestiny.m; sourceTree = "<group>"; };
 		C78EBF5618D3424F00B74AFA /* hotelDestinyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelDestinyCell.h; sourceTree = "<group>"; };
@@ -771,14 +771,14 @@
 		C7996154196B3E7700D4394E /* t1_Travel_Select_Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t1_Travel_Select_Type.h; sourceTree = "<group>"; };
 		C7996155196B3E7700D4394E /* t1_Travel_Select_Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t1_Travel_Select_Type.m; sourceTree = "<group>"; };
 		C7996157196B3EF700D4394E /* t1_Travel_Select_Type_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t1_Travel_Select_Type_Cell.h; sourceTree = "<group>"; };
-		C7996158196B3EF700D4394E /* travelPotaTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = travelPotaTypeCell.m; sourceTree = "<group>"; };
+		C7996158196B3EF700D4394E /* t1_Travel_Select_Type_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t1_Travel_Select_Type_Cell.m; sourceTree = "<group>"; };
 		C799615B196B47C800D4394E /* t3_Travel_Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t3_Travel_Calendar.h; sourceTree = "<group>"; };
 		C799615C196B47C800D4394E /* t3_Travel_Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = t3_Travel_Calendar.m; sourceTree = "<group>"; };
 		C79A63C41A640AE600D73891 /* Data_Pota.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data_Pota.xcdatamodel; sourceTree = "<group>"; };
 		C79B88F519A392A300715E79 /* s0_Split_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = s0_Split_Menu.h; sourceTree = "<group>"; };
 		C79B88F619A392A300715E79 /* s0_Split_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = s0_Split_Menu.m; sourceTree = "<group>"; };
-		C79F3CE41A07AEF200B336E4 /* packInfoDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoDataCell.h; sourceTree = "<group>"; };
-		C79F3CE51A07AEF200B336E4 /* packInfoDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoDataCell.m; sourceTree = "<group>"; };
+		C79F3CE41A07AEF200B336E4 /* p2_Package_Info_Cell_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Data.h; sourceTree = "<group>"; };
+		C79F3CE51A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Data.m; sourceTree = "<group>"; };
 		C7A32BAE18F472EF00130FE9 /* BtnsearchAgente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnsearchAgente.png; sourceTree = "<group>"; };
 		C7A32BD018F484A600130FE9 /* a2_App_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a2_App_Menu.h; sourceTree = "<group>"; };
 		C7A32BD118F484A600130FE9 /* a2_App_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = a2_App_Menu.m; sourceTree = "<group>"; };
@@ -829,8 +829,8 @@
 		C7B5D23A1A072E1A0074C3D4 /* Duplo a Compartir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Duplo a Compartir.png"; sourceTree = "<group>"; };
 		C7B5D23B1A072E1A0074C3D4 /* Individual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Individual.png; sourceTree = "<group>"; };
 		C7B5D23C1A072E1A0074C3D4 /* Triplo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Triplo.png; sourceTree = "<group>"; };
-		C7B5D2431A072EAF0074C3D4 /* packInfoRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packInfoRoomCell.h; sourceTree = "<group>"; };
-		C7B5D2441A072EAF0074C3D4 /* packInfoRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = packInfoRoomCell.m; sourceTree = "<group>"; };
+		C7B5D2431A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Room_Travel.h; sourceTree = "<group>"; };
+		C7B5D2441A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Room_Travel.m; sourceTree = "<group>"; };
 		C7BB5B891A7678F20010E821 /* btnLoginGenericKey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnLoginGenericKey.png; sourceTree = "<group>"; };
 		C7BB5B8A1A7678F20010E821 /* btnLogoffGeneric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnLogoffGeneric.png; sourceTree = "<group>"; };
 		C7BC50ED1A3B2CC1001CF9D5 /* a1_App_Open.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a1_App_Open.h; sourceTree = "<group>"; };
@@ -1216,14 +1216,17 @@
 			name = "screen Volcher";
 			sourceTree = "<group>";
 		};
-		C711F58D198864DC00DB1E9E /* package P.O.T.A. */ = {
+		C711F58D198864DC00DB1E9E /* p0 - p5 - pacotes turísticos - */ = {
 			isa = PBXGroup;
 			children = (
-				C759DF9919F695380070D5D4 /* 0 - types */,
-				C759DF9A19F695450070D5D4 /* 1 - circuits */,
-				C759DF9B19F6955B0070D5D4 /* 2 - info */,
+				C759DF9919F695380070D5D4 /* p0 package */,
+				C759DF9A19F695450070D5D4 /* p1 package sel type */,
+				C759DF9B19F6955B0070D5D4 /* p2 package info */,
+				C748673B1A07194100D174FC /* p3 package detail */,
+				C748B9631A2F8F6500726876 /* p4 package datas */,
+				C7362EF21A07E6EC003A0D77 /* p5 package pictures */,
 			);
-			name = "package P.O.T.A.";
+			name = "p0 - p5 - pacotes turísticos -";
 			sourceTree = "<group>";
 		};
 		C71834F9193E3AA900F52983 /* MeuPerfil */ = {
@@ -1252,7 +1255,7 @@
 			name = main;
 			sourceTree = "<group>";
 		};
-		C71AE0A2191BF1B9000BA47D /* t0 - t? - assistência em viagem - */ = {
+		C71AE0A2191BF1B9000BA47D /* t0 - t5 - assistência em viagem - */ = {
 			isa = PBXGroup;
 			children = (
 				C7427A6D191D6A3E007170F5 /* t0 travel data */,
@@ -1262,7 +1265,7 @@
 				C7427A72191D6ED4007170F5 /* t4 travel sel plan */,
 				C77E960919224CCA00CD5F35 /* t5 travel info plan */,
 			);
-			name = "t0 - t? - assistência em viagem -";
+			name = "t0 - t5 - assistência em viagem -";
 			sourceTree = "<group>";
 		};
 		C71B39DE18F2DFEA00DB2F7B /* código P.O.T.A */ = {
@@ -1615,20 +1618,20 @@
 			path = chat;
 			sourceTree = "<group>";
 		};
-		C7362EF21A07E6EC003A0D77 /* pictures */ = {
+		C7362EF21A07E6EC003A0D77 /* p5 package pictures */ = {
 			isa = PBXGroup;
 			children = (
-				C7362EF71A07F4CD003A0D77 /* model */,
 				C7362EF61A07EFA3003A0D77 /* main */,
+				C7362EF71A07F4CD003A0D77 /* model */,
 			);
-			name = pictures;
+			name = "p5 package pictures";
 			sourceTree = "<group>";
 		};
 		C7362EF61A07EFA3003A0D77 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C7362EF31A07E742003A0D77 /* packInfoPictures.h */,
-				C7362EF41A07E742003A0D77 /* packInfoPictures.m */,
+				C7362EF31A07E742003A0D77 /* p5_Package_Pictures.h */,
+				C7362EF41A07E742003A0D77 /* p5_Package_Pictures.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -1822,56 +1825,56 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C74867321A0709C700D174FC /* button cell */ = {
+		C74867321A0709C700D174FC /* p2 cell button */ = {
 			isa = PBXGroup;
 			children = (
-				C748672F1A0705CF00D174FC /* packInfoButtonCell.h */,
-				C74867301A0705CF00D174FC /* packInfoButtonCell.m */,
+				C748672F1A0705CF00D174FC /* p2_Package_Info_Cell_Button.h */,
+				C74867301A0705CF00D174FC /* p2_Package_Info_Cell_Button.m */,
 			);
-			name = "button cell";
+			name = "p2 cell button";
 			sourceTree = "<group>";
 		};
-		C74867331A0709D600D174FC /* price cell */ = {
+		C74867331A0709D600D174FC /* p2 cell price */ = {
 			isa = PBXGroup;
 			children = (
-				C74867341A0709EA00D174FC /* packInfoPriceCell.h */,
-				C74867351A0709EA00D174FC /* packInfoPriceCell.m */,
+				C74867341A0709EA00D174FC /* p2_Package_Info_Cell_Price.h */,
+				C74867351A0709EA00D174FC /* p2_Package_Info_Cell_Price.m */,
 			);
-			name = "price cell";
+			name = "p2 cell price";
 			sourceTree = "<group>";
 		};
-		C74867371A070AC000D174FC /* confirm cell */ = {
+		C74867371A070AC000D174FC /* p2 cell confirm */ = {
 			isa = PBXGroup;
 			children = (
-				C74867381A070AD700D174FC /* packInfoConfirmCell.h */,
-				C74867391A070AD700D174FC /* packInfoConfirmCell.m */,
+				C74867381A070AD700D174FC /* p2_Package_Info_Cell_Confirm.h */,
+				C74867391A070AD700D174FC /* p2_Package_Info_Cell_Confirm.m */,
 			);
-			name = "confirm cell";
+			name = "p2 cell confirm";
 			sourceTree = "<group>";
 		};
-		C748673B1A07194100D174FC /* details */ = {
+		C748673B1A07194100D174FC /* p3 package detail */ = {
 			isa = PBXGroup;
 			children = (
-				C748673C1A07196300D174FC /* packInfoDetail.h */,
-				C748673D1A07196300D174FC /* packInfoDetail.m */,
+				C748673C1A07196300D174FC /* p3_Package_Detail.h */,
+				C748673D1A07196300D174FC /* p3_Package_Detail.m */,
 			);
-			name = details;
+			name = "p3 package detail";
 			sourceTree = "<group>";
 		};
-		C748B9631A2F8F6500726876 /* datas */ = {
+		C748B9631A2F8F6500726876 /* p4 package datas */ = {
 			isa = PBXGroup;
 			children = (
-				C748B9651A2F8F7600726876 /* cell */,
 				C748B9641A2F8F7100726876 /* main */,
+				C748B9651A2F8F7600726876 /* cell */,
 			);
-			name = datas;
+			name = "p4 package datas";
 			sourceTree = "<group>";
 		};
 		C748B9641A2F8F7100726876 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C748B9661A2F8F9000726876 /* packInfoDatas.h */,
-				C748B9671A2F8F9000726876 /* packInfoDatas.m */,
+				C748B9661A2F8F9000726876 /* p4_Packages_Data.h */,
+				C748B9671A2F8F9000726876 /* p4_Packages_Data.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -1879,8 +1882,8 @@
 		C748B9651A2F8F7600726876 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				C73BD6DC1A2F97620011DFF9 /* packInfoDatasCell.h */,
-				C73BD6DD1A2F97620011DFF9 /* packInfoDatasCell.m */,
+				C73BD6DC1A2F97620011DFF9 /* p4_Packages_Data_Cell.h */,
+				C73BD6DD1A2F97620011DFF9 /* p4_Packages_Data_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1968,41 +1971,38 @@
 			name = "c2 agent chat";
 			sourceTree = "<group>";
 		};
-		C759DF9919F695380070D5D4 /* 0 - types */ = {
+		C759DF9919F695380070D5D4 /* p0 package */ = {
 			isa = PBXGroup;
 			children = (
 				C759DFA619F6BFC10070D5D4 /* main */,
 				C759DFA719F6BFD40070D5D4 /* cell */,
 			);
-			name = "0 - types";
+			name = "p0 package";
 			sourceTree = "<group>";
 		};
-		C759DF9A19F695450070D5D4 /* 1 - circuits */ = {
+		C759DF9A19F695450070D5D4 /* p1 package sel type */ = {
 			isa = PBXGroup;
 			children = (
 				C78D9A1C19FE791000AE081A /* main */,
 				C78D9A1D19FE791500AE081A /* cell */,
 			);
-			name = "1 - circuits";
+			name = "p1 package sel type";
 			sourceTree = "<group>";
 		};
-		C759DF9B19F6955B0070D5D4 /* 2 - info */ = {
+		C759DF9B19F6955B0070D5D4 /* p2 package info */ = {
 			isa = PBXGroup;
 			children = (
-				C7362EF21A07E6EC003A0D77 /* pictures */,
-				C748B9631A2F8F6500726876 /* datas */,
-				C748673B1A07194100D174FC /* details */,
 				C78D9A2419FED38500AE081A /* main */,
 				C78D9A2519FED38A00AE081A /* cells */,
 			);
-			name = "2 - info";
+			name = "p2 package info";
 			sourceTree = "<group>";
 		};
 		C759DFA619F6BFC10070D5D4 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C759DFA819F6BFEE0070D5D4 /* packTypes.h */,
-				C759DFA919F6BFEE0070D5D4 /* packTypes.m */,
+				C759DFA819F6BFEE0070D5D4 /* p0_Package.h */,
+				C759DFA919F6BFEE0070D5D4 /* p0_Package.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2010,8 +2010,8 @@
 		C759DFA719F6BFD40070D5D4 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				C759DFAB19F6D4D80070D5D4 /* packTypesCell.h */,
-				C759DFAC19F6D4D80070D5D4 /* packTypesCell.m */,
+				C759DFAB19F6D4D80070D5D4 /* p0_Package_Cell.h */,
+				C759DFAC19F6D4D80070D5D4 /* p0_Package_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2020,7 +2020,7 @@
 			isa = PBXGroup;
 			children = (
 				C75DEFED1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.h */,
-				C75DEFEE1921025E006F3763 /* travelPotaDestinyCell.m */,
+				C75DEFEE1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2471,13 +2471,13 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		C788AD671A35DAD800C7D527 /* header cell */ = {
+		C788AD671A35DAD800C7D527 /* p2 cell header */ = {
 			isa = PBXGroup;
 			children = (
-				C788AD681A35DAFB00C7D527 /* packInfoHeaderCell.h */,
-				C788AD691A35DAFB00C7D527 /* packInfoHeaderCell.m */,
+				C788AD681A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.h */,
+				C788AD691A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.m */,
 			);
-			name = "header cell";
+			name = "p2 cell header";
 			sourceTree = "<group>";
 		};
 		C788AD6D1A35E95D00C7D527 /* d0 - info app */ = {
@@ -2553,9 +2553,9 @@
 		C78C074B18F6C8B10081DAE5 /* P.O.T.A. - option - */ = {
 			isa = PBXGroup;
 			children = (
-				C71AE0A2191BF1B9000BA47D /* t0 - t? - assistência em viagem - */,
+				C711F58D198864DC00DB1E9E /* p0 - p5 - pacotes turísticos - */,
+				C71AE0A2191BF1B9000BA47D /* t0 - t5 - assistência em viagem - */,
 				C78C074C18F6C8C10081DAE5 /* hotel P.O.T.A. */,
-				C711F58D198864DC00DB1E9E /* package P.O.T.A. */,
 			);
 			name = "P.O.T.A. - option -";
 			sourceTree = "<group>";
@@ -2614,8 +2614,8 @@
 		C78D9A1C19FE791000AE081A /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C78D9A1E19FE792F00AE081A /* packCircuits.h */,
-				C78D9A1F19FE792F00AE081A /* packCircuits.m */,
+				C78D9A1E19FE792F00AE081A /* p1_Package_Sel_Type.h */,
+				C78D9A1F19FE792F00AE081A /* p1_Package_Sel_Type.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2623,8 +2623,8 @@
 		C78D9A1D19FE791500AE081A /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				C78D9A2119FE7A5C00AE081A /* packCircuitsCell.h */,
-				C78D9A2219FE7A5C00AE081A /* packCircuitsCell.m */,
+				C78D9A2119FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.h */,
+				C78D9A2219FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2632,8 +2632,8 @@
 		C78D9A2419FED38500AE081A /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C78D9A2619FED3AD00AE081A /* packInfo.h */,
-				C78D9A2719FED3AD00AE081A /* packInfo.m */,
+				C78D9A2619FED3AD00AE081A /* p2_Package_Info.h */,
+				C78D9A2719FED3AD00AE081A /* p2_Package_Info.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2641,12 +2641,12 @@
 		C78D9A2519FED38A00AE081A /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				C788AD671A35DAD800C7D527 /* header cell */,
-				C79F3CE31A07AED600B336E4 /* data cell */,
-				C7B5D2411A072E8F0074C3D4 /* room cell */,
-				C74867331A0709D600D174FC /* price cell */,
-				C74867321A0709C700D174FC /* button cell */,
-				C74867371A070AC000D174FC /* confirm cell */,
+				C788AD671A35DAD800C7D527 /* p2 cell header */,
+				C79F3CE31A07AED600B336E4 /* p2 cell Data */,
+				C7B5D2411A072E8F0074C3D4 /* p2 cell Room Travel */,
+				C74867331A0709D600D174FC /* p2 cell price */,
+				C74867321A0709C700D174FC /* p2 cell button */,
+				C74867371A070AC000D174FC /* p2 cell confirm */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -2772,7 +2772,7 @@
 			isa = PBXGroup;
 			children = (
 				C7996157196B3EF700D4394E /* t1_Travel_Select_Type_Cell.h */,
-				C7996158196B3EF700D4394E /* travelPotaTypeCell.m */,
+				C7996158196B3EF700D4394E /* t1_Travel_Select_Type_Cell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2786,13 +2786,13 @@
 			name = "s0 - splitmenu";
 			sourceTree = "<group>";
 		};
-		C79F3CE31A07AED600B336E4 /* data cell */ = {
+		C79F3CE31A07AED600B336E4 /* p2 cell Data */ = {
 			isa = PBXGroup;
 			children = (
-				C79F3CE41A07AEF200B336E4 /* packInfoDataCell.h */,
-				C79F3CE51A07AEF200B336E4 /* packInfoDataCell.m */,
+				C79F3CE41A07AEF200B336E4 /* p2_Package_Info_Cell_Data.h */,
+				C79F3CE51A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m */,
 			);
-			name = "data cell";
+			name = "p2 cell Data";
 			sourceTree = "<group>";
 		};
 		C7A32BB218F47DFE00130FE9 /* menu P.O.T.A */ = {
@@ -3024,13 +3024,13 @@
 			path = ressources;
 			sourceTree = "<group>";
 		};
-		C7B5D2411A072E8F0074C3D4 /* room cell */ = {
+		C7B5D2411A072E8F0074C3D4 /* p2 cell Room Travel */ = {
 			isa = PBXGroup;
 			children = (
-				C7B5D2431A072EAF0074C3D4 /* packInfoRoomCell.h */,
-				C7B5D2441A072EAF0074C3D4 /* packInfoRoomCell.m */,
+				C7B5D2431A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.h */,
+				C7B5D2441A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.m */,
 			);
-			name = "room cell";
+			name = "p2 cell Room Travel";
 			sourceTree = "<group>";
 		};
 		C7BC50EC1A3B2C9C001CF9D5 /* a1 app open */ = {
@@ -3886,16 +3886,16 @@
 				C7E04FE619C9C9B700FB862A /* myPerfilRessourcesCell.m in Sources */,
 				C72C7EB3192BEA100005C776 /* AppConnection.m in Sources */,
 				C71AE0A5191BF21E000BA47D /* t0_Travel.m in Sources */,
-				C75DEFEF1921025E006F3763 /* travelPotaDestinyCell.m in Sources */,
+				C75DEFEF1921025E006F3763 /* t2_Travel_Select_Destiny_Cell.m in Sources */,
 				C75DEFEB19210162006F3763 /* t2_Travel_Select_Destiny.m in Sources */,
 				C7621B88192F8A150058956E /* DSLCalendarMonthView.m in Sources */,
 				C7A9FEED19A23E9700737E48 /* voucherPotaTravellerCell.m in Sources */,
 				C7A9FEE919A23A0500737E48 /* voucherPotaPlanCell.m in Sources */,
 				C709B5961A8294A600DDE910 /* MBProgressHUD.m in Sources */,
 				C7621B85192F8A150058956E /* DSLCalendarDayView.m in Sources */,
-				C78D9A2019FE792F00AE081A /* packCircuits.m in Sources */,
+				C78D9A2019FE792F00AE081A /* p1_Package_Sel_Type.m in Sources */,
 				C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */,
-				C78D9A2819FED3AD00AE081A /* packInfo.m in Sources */,
+				C78D9A2819FED3AD00AE081A /* p2_Package_Info.m in Sources */,
 				C72402E219409671006A9535 /* I0_Perfil_Data.m in Sources */,
 				C794E1521921535200E3FCD7 /* travelPlans.m in Sources */,
 				C7C9B077199502380004BE1C /* cadastreCell_TravelCustos.m in Sources */,
@@ -3919,17 +3919,17 @@
 				C7DF23F11A1BE7E5001BAFBB /* hotelPotaCellRoom.m in Sources */,
 				C7025B5318C78A1D000A22B9 /* AzParser.m in Sources */,
 				C7DEE167192D139000E3C6C5 /* WhatsAppKit.m in Sources */,
-				C74867311A0705CF00D174FC /* packInfoButtonCell.m in Sources */,
+				C74867311A0705CF00D174FC /* p2_Package_Info_Cell_Button.m in Sources */,
 				C735BED91A6ED7260019958C /* HPGrowingTextView.m in Sources */,
 				C72FDD3819992A80004941A4 /* BuyInfoPurchase.m in Sources */,
 				C7957A6719993E8A001934EC /* BuyInfoCustos.m in Sources */,
-				C73BD6DE1A2F97620011DFF9 /* packInfoDatasCell.m in Sources */,
+				C73BD6DE1A2F97620011DFF9 /* p4_Packages_Data_Cell.m in Sources */,
 				C72FDD131998FBAE004941A4 /* purchasePota.m in Sources */,
 				C72FDD2819992A29004941A4 /* BuyInfoStart.m in Sources */,
 				C71AE0B1191C0A72000BA47D /* AppFunctions.m in Sources */,
 				C7D0B9FB1900753900C1FFFD /* hotelPotaListResultCell.m in Sources */,
 				C78871B819BE357400EA1C4C /* c1_Agent_Perfil_Pota.m in Sources */,
-				C7996159196B3EF700D4394E /* travelPotaTypeCell.m in Sources */,
+				C7996159196B3EF700D4394E /* t1_Travel_Select_Type_Cell.m in Sources */,
 				C7025B5718C78A1D000A22B9 /* Agencias.m in Sources */,
 				C73CBA6118FF1FB1000A6746 /* AzCalendar.m in Sources */,
 				C768D3BC1917C197009DA411 /* hotelCalendar.m in Sources */,
@@ -3941,23 +3941,23 @@
 				C756CC2F19A3864500AA2CFF /* MWFSlideNavigationViewController.m in Sources */,
 				C7621B86192F8A150058956E /* DSLCalendarMonthSelectorView.m in Sources */,
 				C774078719006E0A005E8817 /* hotelPotaListResult.m in Sources */,
-				C78D9A2319FE7A5C00AE081A /* packCircuitsCell.m in Sources */,
+				C78D9A2319FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m in Sources */,
 				C7EBD9231992BCD800CCBF16 /* cadastreCell_TravelPeople.m in Sources */,
 				C7DF23ED1A1BAB3F001BAFBB /* hotelPotaCellAge.m in Sources */,
 				C7EBD91A199279E700CCBF16 /* cadastrePurchase.m in Sources */,
 				C78EBF5418D32FE400B74AFA /* hotelPotaDestiny.m in Sources */,
 				C78871B019BE113600EA1C4C /* c0_Agent_Login.m in Sources */,
-				C7B5D2451A072EAF0074C3D4 /* packInfoRoomCell.m in Sources */,
+				C7B5D2451A072EAF0074C3D4 /* p2_Package_Info_Cell_Room_Travel.m in Sources */,
 				C78EBF5B18D343A200B74AFA /* HotelSeachCidades.m in Sources */,
-				C748673E1A07196300D174FC /* packInfoDetail.m in Sources */,
+				C748673E1A07196300D174FC /* p3_Package_Detail.m in Sources */,
 				C7025B5418C78A1D000A22B9 /* Vendedor.m in Sources */,
 				C7F9BC711A7FAFA900387C39 /* b3_User_Chat_Cell.m in Sources */,
 				C7621B8A192F8A150058956E /* DSLCalendarView.m in Sources */,
 				C77E961119224F7900CD5F35 /* t5_Travel_Info_Plan_Cell.m in Sources */,
 				C74EA1491A8050FB009AEC3D /* c2_Agente_Chat_Cell.m in Sources */,
-				C748B9681A2F8F9000726876 /* packInfoDatas.m in Sources */,
+				C748B9681A2F8F9000726876 /* p4_Packages_Data.m in Sources */,
 				C7DF23F91A1BF084001BAFBB /* hotelPotaCellNext.m in Sources */,
-				C759DFAD19F6D4D80070D5D4 /* packTypesCell.m in Sources */,
+				C759DFAD19F6D4D80070D5D4 /* p0_Package_Cell.m in Sources */,
 				C7DEE166192D139000E3C6C5 /* NSString+WhatsAppKit.m in Sources */,
 				C7BE0EB81A7976DC007F2EF2 /* a1_App_Open.m in Sources */,
 				C7025B5618C78A1D000A22B9 /* States.m in Sources */,
@@ -3974,7 +3974,7 @@
 				C78871BC19BE409100EA1C4C /* agentePerfilPotaCell.m in Sources */,
 				C7A32BD718F48A6C00130FE9 /* b5_User_Search_Data.m in Sources */,
 				C795857C19A29690009E86A7 /* AppMenuView.m in Sources */,
-				C748673A1A070AD700D174FC /* packInfoConfirmCell.m in Sources */,
+				C748673A1A070AD700D174FC /* p2_Package_Info_Cell_Confirm.m in Sources */,
 				C7A9FEF119A24D8900737E48 /* voucherPotaSellerData.m in Sources */,
 				C7621B83192F8A150058956E /* DSLCalendarDayCalloutView.m in Sources */,
 				C7C91B5019A3C80A004D0B30 /* s0_Split_Menu_Cell.m in Sources */,
@@ -3985,24 +3985,24 @@
 				C7A32BFD18F5B31200130FE9 /* b8_User_Search_Agent.m in Sources */,
 				C77D8BDF199A99A0000FA914 /* cadastrePurchaseInfo.m in Sources */,
 				C72FDD3019992A56004941A4 /* BuyInfoTravellers.m in Sources */,
-				C74867361A0709EA00D174FC /* packInfoPriceCell.m in Sources */,
+				C74867361A0709EA00D174FC /* p2_Package_Info_Cell_Price.m in Sources */,
 				C7996156196B3E7700D4394E /* t1_Travel_Select_Type.m in Sources */,
 				C788AD701A35E97200C7D527 /* d0_Info_Pota.m in Sources */,
 				C7A32C0018F5B32900130FE9 /* choiceVendedorCell.m in Sources */,
 				C7621B89192F8A150058956E /* DSLCalendarRange.m in Sources */,
-				C759DFAA19F6BFEE0070D5D4 /* packTypes.m in Sources */,
-				C788AD6A1A35DAFB00C7D527 /* packInfoHeaderCell.m in Sources */,
+				C759DFAA19F6BFEE0070D5D4 /* p0_Package.m in Sources */,
+				C788AD6A1A35DAFB00C7D527 /* p2_Package_Info_Cell_Header.m in Sources */,
 				C77D8BEB199AB403000FA914 /* purchaseInfoCellTravel.m in Sources */,
 				C7A32BF718F594AA00130FE9 /* b7_User_Search_Agency.m in Sources */,
 				C71068B71A5AE6680008B6F0 /* b6_User_Search_Place.m in Sources */,
-				C79F3CE61A07AEF200B336E4 /* packInfoDataCell.m in Sources */,
+				C79F3CE61A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m in Sources */,
 				C7A32BEA18F579B200130FE9 /* searchStateCityCell.m in Sources */,
 				C77D8BE3199A9B9C000FA914 /* cadastreInfoCellTravel.m in Sources */,
 				C7A32BD218F484A600130FE9 /* a2_App_Menu.m in Sources */,
 				C7DF23F51A1BEDDA001BAFBB /* hotelPotaCellData.m in Sources */,
 				C7621B99192F8A150058956E /* NSDate+DSLCalendarView.m in Sources */,
 				C735BEDA1A6ED7260019958C /* HPTextViewInternal.m in Sources */,
-				C7362EF51A07E742003A0D77 /* packInfoPictures.m in Sources */,
+				C7362EF51A07E742003A0D77 /* p5_Package_Pictures.m in Sources */,
 				C79093DD19CB0CBC00C10370 /* b0_User_Login.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

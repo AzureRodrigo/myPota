@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packCircuitsCell : UITableViewCell
+@interface p1_Package_Sel_Type_Cell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) IBOutlet UILabel *lblDays;

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "packTypesCell.h"
+#import "p0_Package_Cell.h"
 
-@interface packTypes : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface p0_Package : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource>
 {
     IBOutlet UITextField             *textDestiny;
     IBOutlet UIButton                *oltBtnSearch;
@@ -18,6 +18,7 @@
     IBOutlet UITableView             *tableViewData;
     NSMutableArray                   *listTypes;
     NSMutableArray                   *listCircuits;
+    NSDictionary                     *myAgency;
     
 #pragma mark - connection
     NSURL                   *url;

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packTypesCell.h"
+#import "p0_Package_Cell.h"
 
-@implementation packTypesCell
+@implementation p0_Package_Cell
 
 @end

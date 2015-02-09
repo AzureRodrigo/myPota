@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoRoomCell : UITableViewCell
+@interface p2_Package_Info_Cell_Room_Travel : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgType;
 

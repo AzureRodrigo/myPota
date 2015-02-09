@@ -17,8 +17,8 @@
 #pragma mark - hotel cell
 
 #pragma mark - package cell
-#import "packInfoPriceCell.h"
-#import "packInfoButtonCell.h"
+#import "p2_Package_Info_Cell_Price.h"
+#import "p2_Package_Info_Cell_Button.h"
 
 #pragma mark - generic cell
 #import "cadastreCell_Info.h"

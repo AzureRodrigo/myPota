@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoHeaderCell : UITableViewCell
+@interface p2_Package_Info_Cell_Header : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIButton *btnImage;
 

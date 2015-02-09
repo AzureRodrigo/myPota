@@ -6,13 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfo.h"
+#import "p2_Package_Info.h"
 
-@interface packInfo ()
-
-@end
-
-@implementation packInfo
+@implementation p2_Package_Info
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -22,9 +18,12 @@
 #pragma mark - configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Detalhamento do Pacote"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_PACKAGE
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -232,11 +231,10 @@
         return nil;
 }
 
-
 #pragma mark - Cell config sector 0
 - (UITableViewCell *)setSection0:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellHeader" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Header *cell = [tableView dequeueReusableCellWithIdentifier:@"CellHeader" forIndexPath:indexPath];
     
     
     NSString *link = [infoCircuit objectForKey:TAG_PACK_CIRCUIT_IMAGE_PRODUTO];
@@ -256,21 +254,19 @@
     NSString *day   = @"Dias";
     if ([circuit_days integerValue] <= 1) day = @"Dia";
     circuit_days = [NSString stringWithFormat:@"%@ %@", circuit_days, day];
-
+    
     
     NSString *circuit_name = [infoCircuit objectForKey:TAG_PACK_CIRCUIT_NAME_PRODUCT];
     circuitName = circuit_name;
     
     [cell.lblCircuitName setText:[NSString stringWithFormat:@"%@ (%@)",circuitName, circuit_days]];
-    [cell.lblCircuitName setNumberOfLines:0];
-    [cell.lblCircuitName sizeToFit];
+    [cell.lblCircuitName setAdjustsFontSizeToFitWidth:YES];
     
     circuitName = cell.lblCircuitName.text;
     
     NSString *circuit_info = [infoCircuit objectForKey:TAG_PACK_CIRCUIT_NAME_COUNTRY];
     [cell.lblCircuitInfo setText:circuit_info];
-    [cell.lblCircuitInfo setNumberOfLines:0];
-    [cell.lblCircuitInfo sizeToFit];
+    [cell.lblCircuitInfo setAdjustsFontSizeToFitWidth:YES];
     
     [cell.btnImage addTarget:self
                       action:@selector(btnCircuitImages:)
@@ -280,25 +276,25 @@
                          action:@selector(btnCircuitCitys:)
                forControlEvents:UIControlEventTouchUpInside];
     
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
 
 #pragma mark - buttons header
 - (IBAction)btnCircuitImages:(id)sender {
     nextLink = linkImagesCircuits;
-    
-    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_PICTURES];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_P5];
 }
 
 - (IBAction)btnCircuitCitys:(id)sender {
     nextLink = linkCitysInclude;
-    //        [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_CITYS];
+    //    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_P3];
 }
 
 #pragma mark - Cell config sector 1
 - (UITableViewCell *)setSection1:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfo" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Button *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfo" forIndexPath:indexPath];
     
     
     if([indexPath row] != 2)[cell.imgBar    setHidden:YES];
@@ -311,11 +307,10 @@
     return cell;
 }
 
-
 #pragma mark - Cell config sector 2
 - (UITableViewCell *)setSection2:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoDataCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellData" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Data *cell = [tableView dequeueReusableCellWithIdentifier:@"CellData" forIndexPath:indexPath];
     
     [AppFunctions TABLE_CELL_NO_TOUCH_DELAY:cell];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -332,12 +327,12 @@
                                    [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_QUANT_DISP]]
                          forState:UIControlStateNormal];
     
-//    
-//    if (![[infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED] isEqualToString:@""])
-//        [cell.lblData setText:[NSString stringWithFormat:@"%@ - (%@) - %@ vagas",
-//                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED],
-//                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_TYPE_ROTEIRO],
-//                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_QUANT_DISP]]];
+    //
+    //    if (![[infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED] isEqualToString:@""])
+    //        [cell.lblData setText:[NSString stringWithFormat:@"%@ - (%@) - %@ vagas",
+    //                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED],
+    //                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_TYPE_ROTEIRO],
+    //                               [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_QUANT_DISP]]];
     return cell;
 }
 
@@ -345,7 +340,7 @@
 - (IBAction)btnSetData:(UIButton *)sender
 {
     nextLink = linkDataCircuts;
-    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_DATA];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_P4];
 }
 
 #pragma mark - setData
@@ -438,7 +433,7 @@
 #pragma mark - Cell config sector 3
 - (UITableViewCell *)setSection3:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoRoomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellRoom" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Room_Travel *cell = [tableView dequeueReusableCellWithIdentifier:@"CellRoom" forIndexPath:indexPath];
     
     [AppFunctions TABLE_CELL_NO_TOUCH_DELAY:cell];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -492,7 +487,7 @@
 #pragma mark - Cell config sector 4
 - (UITableViewCell *)setSection4:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoPriceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellCustos" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Price *cell = [tableView dequeueReusableCellWithIdentifier:@"CellCustos" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor clearColor]];
     
     [cell.lblTitle setText:circuitName];
@@ -519,7 +514,7 @@
 #pragma mark - Cell config sector 5
 - (UITableViewCell *)setSection5:(UITableView *)tableView index:(NSIndexPath *)indexPath
 {
-    packInfoConfirmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellConfirm" forIndexPath:indexPath];
+    p2_Package_Info_Cell_Confirm *cell = [tableView dequeueReusableCellWithIdentifier:@"CellConfirm" forIndexPath:indexPath];
     [AppFunctions TABLE_CELL_NO_TOUCH_DELAY:cell];
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.btnConfirm addTarget:self action:@selector(btnConfirm:)
@@ -531,7 +526,7 @@
 {
     if ([indexPath section] == 1){
         selected = [titles objectAtIndex:[indexPath row]];
-        [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_CIRCUIT_INFO_DETAIL];
+        [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_P3];
     }
 }
 
@@ -553,128 +548,28 @@
 #pragma mark - Button confirm to Next Screen
 - (IBAction)btnConfirm:(UIButton *)sender
 {
-//    NSMutableDictionary *purchaseInfo = [@{PURCHASE_DATA_TRAVEL_PAX : @"0"
-//                                           }mutableCopy];
-//    
-//    NSMutableArray *infoRoom = [NSMutableArray new];
-//    
-//    //refazer
-//    for (NSDictionary *room in roons) {
-//        
-//        int pax        = [[purchaseInfo objectForKey:PURCHASE_DATA_TRAVEL_PAX]intValue];
-//        int travellers = [[room objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue];
-//        NSString *type = [room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_DSC_TYPE_ACOMODATION];
-//        float price    = [[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA]floatValue];
-//        
-//        if (travellers > 0) {
-//            if ([type isEqualToString:@"Duplo"]) {
-//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
-//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-//                
-//                [infoRoom addObject:[@{
-//                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo",
-//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-//                                       
-//                                       }mutableCopy]];
-//                
-//            } else if ([type isEqualToString:@"Duplo a Compartilhar"]) {
-//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (2 * travellers)]
-//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-//                
-//                [infoRoom addObject:[@{
-//                                       PACKAGE_INFO_ROOM_NAME   : @"Duplo a Compartilhar",
-//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-//                                       
-//                                       }mutableCopy]];
-//                
-//            } else if ([type isEqualToString:@"Triplo"]) {
-//                
-//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + (3 * travellers)]
-//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-//                
-//                [infoRoom addObject:[@{
-//                                       PACKAGE_INFO_ROOM_NAME   : @"Triplo",
-//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-//                                       
-//                                       }mutableCopy]];
-//                
-//            }else if ([type isEqualToString:@"Individual"]) {
-//                [purchaseInfo setObject:[NSString stringWithFormat:@"%d", pax + travellers]
-//                                 forKey:PURCHASE_DATA_TRAVEL_PAX];
-//                
-//                [infoRoom addObject:[@{
-//                                       PACKAGE_INFO_ROOM_NAME   : @"Individual",
-//                                       PACKAGE_INFO_ROOM_NUMBER : [NSString stringWithFormat:@"%d",travellers],
-//                                       PACKAGE_INFO_ROOM_PRICE  : [NSString stringWithFormat:@"%.2f",price]
-//                                       
-//                                       }mutableCopy]];
-//            }
-//        }
-//    }
-//    
-//    [purchaseInfo setObject:[NSString stringWithFormat:@"%d",cellPriceSize] forKey:PACKAGE_INFO_ROOM_SIZE];
-//    [purchaseInfo setObject:infoRoom forKey:PACKAGE_INFO_ROOM_INFO];
-//    [purchaseInfo setObject:[NSString stringWithFormat:@"%@",valuePurchase] forKey:PACKAGE_INFO_ROOM_PRICE];
-//    
-//    purchaseData = [@{
-//                      PURCHASE_INFO_PRODUCT : [@{
-//                                                 PACKAGE_INFO_TYPE    : infoType,
-//                                                 PACKAGE_INFO_CIRCUIT : infoCircuit,
-//                                                 PACKAGE_INFO_DETAIL  : purchaseInfo
-//                                                 }mutableCopy],
-//                      PURCHASE_INFO_SELLER                : [seller objectForKey:PURCHASE_INFO_SELLER],
-//                      PURCHASE_INFO_AGENCY                : [seller objectForKey:PURCHASE_INFO_AGENCY],
-//                      PURCHASE_TYPE : PURCHASE_TYPE_PACKGE,
-//                      }mutableCopy];
-//    
-//    
-//    NSString     *tag = @"string";
-//    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
-//                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
-//                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
-//                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
-//                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
-//    htmlGeneralConditions = @"";
-//    htmlIsInclude         = @"";
-//    htmlDayForDay         = @"";
-//    
-//    [appConnection START_CONNECT:linkGeneralConditions timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-//        NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-//        for (NSDictionary *tmp in [allInfo objectForKey:tag])
-//            htmlGeneralConditions = [tmp objectForKey:tag];
-//        
-//        [appConnection START_CONNECT:linkIsInclude timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-//            NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-//            for (NSDictionary *tmp in [allInfo objectForKey:tag])
-//                htmlIsInclude = [tmp objectForKey:tag];
-//            
-//            [appConnection START_CONNECT:linkDayForDay timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
-//                NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-//                for (NSDictionary *tmp in [allInfo objectForKey:tag])
-//                    htmlDayForDay = [tmp objectForKey:tag];
-//                
-//                //                [purchaseData setObject:htmlGeneralConditions forKey:@"cidades inclusas"];
-//                
-//                NSMutableDictionary *html = [@{
-//                                               PACKAGE_INFO_HTML_GENERAL_CONDICTIONS : htmlGeneralConditions,
-//                                               PACKAGE_INFO_HTML_IS_INCLUDE          : htmlIsInclude,
-//                                               PACKAGE_INFO_HTML_DAY_FOR_DAY         : htmlDayForDay
-//                                               }mutableCopy];
-//                
-//                [purchaseData setObject:html forKey:PACKAGE_INFO_HTML_DATA];
-//                
-//                [AppFunctions CLEAR_INFORMATION];
-//                [AppFunctions SAVE_INFORMATION:purchaseData
-//                                           tag:PURCHASE];
-//                
-//                NSLog(@"%@", purchaseData);
-//                //                [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_INFO_PURCHASE];
-//            }];
-//        }];
-//    }];
+    NSLog(@"%@, %@",infoData, valuePurchase);
+    
+    if ([[infoData objectForKey:@"DtaExtenso"] isEqualToString:@""]) {
+        [AppFunctions LOG_MESSAGE:@"Nenhuma data foi escolhida."
+                          message:@"Para continuar, escolha uma data."
+                           cancel:ERROR_BUTTON_CANCEL];
+        return;
+    }
+    
+    
+    if ([valuePurchase isEqualToString:@"0.00"] ) {
+        [AppFunctions LOG_MESSAGE:@"Nenhum quarto foi selecionado."
+                          message:@"Para continuar, selecione pelo menos 1 quarto."
+                           cancel:ERROR_BUTTON_CANCEL];
+        return;
+    }
+    
+    [AppFunctions LOG_MESSAGE:@"Dados corretos."
+                      message:@"A tela de cadastro de viajantes está sendo feita ainda."
+                       cancel:ERROR_BUTTON_CANCEL];
+    
+//    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_R0];
     
 }
 

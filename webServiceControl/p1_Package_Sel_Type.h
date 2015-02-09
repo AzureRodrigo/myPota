@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "packCircuitsCell.h"
+#import "p1_Package_Sel_Type_Cell.h"
 
-@interface packCircuits : UIViewController <UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate>
+@interface p1_Package_Sel_Type : UIViewController <UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate,CustomIOS7AlertViewDelegate>
 {
     //Cabeçalho
     IBOutlet UILabel *lblCircuitName;
@@ -19,7 +19,13 @@
     IBOutlet UIActivityIndicatorView *loadCircuits;
     
     //Filter
-    IBOutlet UISearchBar *seachBarData;
+    CustomIOS7AlertView *filterView;
+    NSString *wsFilter;
+    BOOL     wsFilterUp;
+    UIButton *buttonNameAZ;
+    UIButton *buttonNameZA;
+    
+    IBOutlet UISearchBar *searchBarData;
     UITextField          *txtViewSelected;
     BOOL searchSelect;
     
@@ -28,6 +34,7 @@
     NSDictionary         *listData;
     NSDictionary         *infoType;
     NSArray              *infoCircuits;
+    NSMutableArray       *listDataSearch;
     NSMutableDictionary  *listImages;
 }
 

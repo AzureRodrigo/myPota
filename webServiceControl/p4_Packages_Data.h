@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "packInfo.h"
-#import "packInfoDatasCell.h"
+#import "p2_Package_Info.h"
+#import "p4_Packages_Data_Cell.h"
 
-@interface packInfoDatas : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface p4_Packages_Data : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    packInfo *backScreen;
+    p2_Package_Info *backScreen;
     IBOutlet UITableView *tableViewData;
     IBOutlet UILabel                 *lblLoad;
     IBOutlet UIActivityIndicatorView *otlLoad;

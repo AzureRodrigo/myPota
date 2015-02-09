@@ -88,8 +88,8 @@
 
 #define LINK_CEP_VALIDATION @"http://apps.widenet.com.br/busca-cep/api/cep/%@.xml"
 
-#define WS_URL_PACK_TYPES_INFO             	@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodGrupoArea=1"
-#define WS_URL_PACK_CIRCUITS_INFO           @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodArea=%@&DscPesquisa=%@&OrdColuna=%@&OrdAscendencia=%@"
+#define WS_URL_PACK_TYPES_INFO             	@"IdWS=%@&CodSite=%@&CodPortal=%@&CodGrupoArea=1"
+#define WS_URL_PACK_CIRCUITS_INFO           @"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@&DscPesquisa=%@&OrdColuna=%@&OrdAscendencia=%@"
 #define WS_URL_PACK_DATA_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@"
 #define WS_URL_PACK_ROOM_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
 

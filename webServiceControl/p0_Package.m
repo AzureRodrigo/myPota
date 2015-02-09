@@ -6,13 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packTypes.h"
+#import "p0_Package.h"
 
-@interface packTypes ()
-
-@end
-
-@implementation packTypes
+@implementation p0_Package
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -24,19 +20,26 @@
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     listTypes    = [NSMutableArray new];
-    NSMutableDictionary *seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    IDWS = [[seller objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
+    
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
+    
     [self getCircuits];
 }
 
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Pacotes Turísticos"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_PACKAGE
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -90,10 +93,10 @@
 #pragma mark - start Circuits
 - (void)getCircuits
 {
-    [lblSearch setText:@"Procurando informações ..."];
+    [lblSearch setText:@"Carregando opções aguarde."];
     [self->connection   cancel];
     
-    NSString *link = [NSString stringWithFormat:WS_URL_PACK_TYPES_INFO, @"4", @"23"];
+    NSString *link = [NSString stringWithFormat:WS_URL_PACK_TYPES_INFO,IDWS, @"4", @"23"];
     link           = [NSString stringWithFormat:WS_URL, WS_URL_PACK_TYPES, link];
     
     
@@ -132,9 +135,10 @@
             }
             [otlLoad    stopAnimating];
             [otlLoad    setHidden:YES];
-            [lblSearch  setHidden:YES];
+            [oltBtnSearch  setEnabled:YES];
             [tableViewData reloadData];
         }
+        [lblSearch  setHidden:YES];
     }];
 }
 
@@ -159,7 +163,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    packTypesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    p0_Package_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     [cell.lblType setText:[[listTypes objectAtIndex:[indexPath row]] objectForKey:TAG_PACK_DSC_AREA]];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -178,9 +182,9 @@
     listCircuits = [NSMutableArray new];
     
     if (type == 1) {
-        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO, @"4", @"23", @"1", textDestiny.text, @"DP", @"desc"];
+        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO, IDWS, @"4", @"23", @"1", textDestiny.text, @"DP", @"desc"];
     } else {
-        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO,
+        link =[NSString stringWithFormat:WS_URL_PACK_CIRCUITS_INFO, IDWS,
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_SITE],
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_PORTAL],
                [[listTypes objectAtIndex:index]objectForKey:TAG_PACK_COD_AREA],
@@ -189,10 +193,10 @@
                @"desc"];
     }
     link = [NSString stringWithFormat:WS_URL, WS_URL_PACK_CIRCUITS, link];
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
+    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Buscando opções, aguarde.",
+                                       APP_CONNECTION_TAG_WAIT 	 : @"Buscando opções, aguarde..",
+                                       APP_CONNECTION_TAG_RECIVE : @"Buscando opções, aguarde...",
+                                       APP_CONNECTION_TAG_FINISH : @"Organizando opções, aguarde.",
                                        APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
     link = [link stringByReplacingOccurrencesOfString:@" " withString:@", "];
     
@@ -208,34 +212,34 @@
             for (NSDictionary *tmp in [allInfo objectForKey:@"Produto"])
             {
                 NSDictionary *plan = @{
-                                        TAG_PACK_CIRCUIT_COIN            : [tmp objectForKey:TAG_PACK_CIRCUIT_COIN],
-                                        TAG_PACK_CIRCUIT_COD_GROUP       : [tmp objectForKey:TAG_PACK_CIRCUIT_COD_GROUP],
-                                        TAG_PACK_CIRCUIT_COD_PRODUCT     : [tmp objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
-                                        TAG_PACK_CIRCUIT_OPT_SELL        : [tmp objectForKey:TAG_PACK_CIRCUIT_OPT_SELL],
-                                        TAG_PACK_CIRCUIT_DSC_PERG        : [tmp objectForKey:TAG_PACK_CIRCUIT_DSC_PERG],
-                                        TAG_PACK_CIRCUIT_DSC_PLAN        : [tmp objectForKey:TAG_PACK_CIRCUIT_DSC_PLAN],
-                                        TAG_PACK_CIRCUIT_IND_AIR         : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_AIR],
-                                        TAG_PACK_CIRCUIT_IND_DESTAC      : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_DESTAC],
-                                        TAG_PACK_CIRCUIT_IND_PROMO       : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_PROMO],
-                                        TAG_PACK_CIRCUIT_IND_SCREEN      : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_SCREEN],
-                                        TAG_PACK_CIRCUIT_NAME_GROUP      : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_GROUP],
-                                        TAG_PACK_CIRCUIT_NAME_COUNTRY    : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_COUNTRY],
-                                        TAG_PACK_CIRCUIT_NAME_PRODUCT    : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_PRODUCT],
-                                        TAG_PACK_CIRCUIT_NAME_SECURE     : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_SECURE],
-                                        TAG_PACK_CIRCUIT_NUM_DAYS        : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_DAYS],
-                                        TAG_PACK_CIRCUIT_NUM_PARCELA     : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_PARCELA],
-                                        TAG_PACK_CIRCUIT_NUM_RANK        : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_RANK],
-                                        TAG_PACK_CIRCUIT_SEO_DESCRIPTION : [tmp objectForKey:TAG_PACK_CIRCUIT_SEO_DESCRIPTION],
-                                        TAG_PACK_CIRCUIT_TYPE_PRODUCT    : [tmp objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT],
-                                        TAG_PACK_CIRCUIT_TYPE_ROTEIRO    : [tmp objectForKey:TAG_PACK_CIRCUIT_TYPE_ROTEIRO],
-                                        TAG_PACK_CIRCUIT_VALUE_ENTRADA   : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_ENTRADA],
-                                        TAG_PACK_CIRCUIT_VALUE_PARCELA   : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_PARCELA],
-                                        TAG_PACK_CIRCUIT_VALUE_VENDA     : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_VENDA],
-                                        TAG_PACK_CIRCUIT_DATE_MES        : [tmp objectForKey:TAG_PACK_CIRCUIT_DATE_MES],
-                                        TAG_PACK_CIRCUIT_DATE_PRODUTO    : [tmp objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO],
-                                        TAG_PACK_CIRCUIT_IMAGE_LOGO      : [tmp objectForKey:TAG_PACK_CIRCUIT_IMAGE_LOGO],
-                                        TAG_PACK_CIRCUIT_IMAGE_PRODUTO   : [tmp objectForKey:TAG_PACK_CIRCUIT_IMAGE_PRODUTO]
-                                        };
+                                       TAG_PACK_CIRCUIT_COIN            : [tmp objectForKey:TAG_PACK_CIRCUIT_COIN],
+                                       TAG_PACK_CIRCUIT_COD_GROUP       : [tmp objectForKey:TAG_PACK_CIRCUIT_COD_GROUP],
+                                       TAG_PACK_CIRCUIT_COD_PRODUCT     : [tmp objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+                                       TAG_PACK_CIRCUIT_OPT_SELL        : [tmp objectForKey:TAG_PACK_CIRCUIT_OPT_SELL],
+                                       TAG_PACK_CIRCUIT_DSC_PERG        : [tmp objectForKey:TAG_PACK_CIRCUIT_DSC_PERG],
+                                       TAG_PACK_CIRCUIT_DSC_PLAN        : [tmp objectForKey:TAG_PACK_CIRCUIT_DSC_PLAN],
+                                       TAG_PACK_CIRCUIT_IND_AIR         : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_AIR],
+                                       TAG_PACK_CIRCUIT_IND_DESTAC      : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_DESTAC],
+                                       TAG_PACK_CIRCUIT_IND_PROMO       : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_PROMO],
+                                       TAG_PACK_CIRCUIT_IND_SCREEN      : [tmp objectForKey:TAG_PACK_CIRCUIT_IND_SCREEN],
+                                       TAG_PACK_CIRCUIT_NAME_GROUP      : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_GROUP],
+                                       TAG_PACK_CIRCUIT_NAME_COUNTRY    : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_COUNTRY],
+                                       TAG_PACK_CIRCUIT_NAME_PRODUCT    : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_PRODUCT],
+                                       TAG_PACK_CIRCUIT_NAME_SECURE     : [tmp objectForKey:TAG_PACK_CIRCUIT_NAME_SECURE],
+                                       TAG_PACK_CIRCUIT_NUM_DAYS        : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_DAYS],
+                                       TAG_PACK_CIRCUIT_NUM_PARCELA     : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_PARCELA],
+                                       TAG_PACK_CIRCUIT_NUM_RANK        : [tmp objectForKey:TAG_PACK_CIRCUIT_NUM_RANK],
+                                       TAG_PACK_CIRCUIT_SEO_DESCRIPTION : [tmp objectForKey:TAG_PACK_CIRCUIT_SEO_DESCRIPTION],
+                                       TAG_PACK_CIRCUIT_TYPE_PRODUCT    : [tmp objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT],
+                                       TAG_PACK_CIRCUIT_TYPE_ROTEIRO    : [tmp objectForKey:TAG_PACK_CIRCUIT_TYPE_ROTEIRO],
+                                       TAG_PACK_CIRCUIT_VALUE_ENTRADA   : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_ENTRADA],
+                                       TAG_PACK_CIRCUIT_VALUE_PARCELA   : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_PARCELA],
+                                       TAG_PACK_CIRCUIT_VALUE_VENDA     : [tmp objectForKey:TAG_PACK_CIRCUIT_VALUE_VENDA],
+                                       TAG_PACK_CIRCUIT_DATE_MES        : [tmp objectForKey:TAG_PACK_CIRCUIT_DATE_MES],
+                                       TAG_PACK_CIRCUIT_DATE_PRODUTO    : [tmp objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO],
+                                       TAG_PACK_CIRCUIT_IMAGE_LOGO      : [tmp objectForKey:TAG_PACK_CIRCUIT_IMAGE_LOGO],
+                                       TAG_PACK_CIRCUIT_IMAGE_PRODUTO   : [tmp objectForKey:TAG_PACK_CIRCUIT_IMAGE_PRODUTO]
+                                       };
                 [listCircuits addObject:plan];
             }
             [self goCircuits:index];
@@ -247,12 +251,12 @@
 {
     NSDictionary *data = @{ PACKAGE_INFO_TYPE     : [listTypes objectAtIndex:IdChoice],
                             PACKAGE_INFO_CIRCUIT  : listCircuits
-                          };
+                            };
     [AppFunctions CLEAR_INFORMATION];
     [AppFunctions SAVE_INFORMATION:data
                                tag:PACKAGE_INFO_DATA];
     
-    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_PACK_TYPES_CIRCUIT];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P0_TO_P1];
 }
 
 @end

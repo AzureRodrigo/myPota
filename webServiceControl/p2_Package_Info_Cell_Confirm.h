@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoConfirmCell : UITableViewCell
+@interface p2_Package_Info_Cell_Confirm : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIButton *btnConfirm;
 

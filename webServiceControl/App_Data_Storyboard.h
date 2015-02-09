@@ -51,6 +51,7 @@
 #define SEGUE_A2_TO_B2 @"A2_To_B2"
 #define SEGUE_A2_TO_C1 @"A2_To_C1"
 #define SEGUE_A2_TO_T0 @"A2_To_T0"
+#define SEGUE_A2_TO_P0 @"A2_To_P0"
 
 #pragma mark - Segues Block B
 #define SEGUE_B0_TO_B1  @"B0_To_B1"
@@ -77,5 +78,13 @@
 #define SEGUE_T0_TO_T4 @"T0_To_T4"
 #define SEGUE_T4_TO_T5 @"T4_To_T5"
 #define SEGUE_T4_TO_R0 @"T4_To_R0"
+
+#pragma mark - Segues Block P
+#define SEGUE_P0_TO_P1 @"P0_To_P1"
+#define SEGUE_P1_TO_P2 @"P1_To_P2"
+#define SEGUE_P2_TO_P3 @"P2_To_P3"
+#define SEGUE_P2_TO_P4 @"P2_To_P4"
+#define SEGUE_P2_TO_P5 @"P2_To_P5"
+#define SEGUE_P2_TO_R0 @"P2_To_R0"
 
 #endif

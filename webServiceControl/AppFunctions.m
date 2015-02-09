@@ -696,12 +696,17 @@
     UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
     UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+    
+    [btnCancel  setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    
     numberToolbar.items = [NSArray arrayWithObjects:
                            btnCancel,
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                            btnConfirm,
                            nil];
     [numberToolbar sizeToFit];
+
     
     for (UISearchBar *tmp in listField)
     {

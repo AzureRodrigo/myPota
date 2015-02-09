@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PageContentViewController.h"
-#import "packInfo.h"
+#import "p2_Package_Info.h"
 
-@interface packInfoPictures : UIViewController  <UIPageViewControllerDataSource>
+@interface p5_Package_Pictures : UIViewController  <UIPageViewControllerDataSource>
 {
-    packInfo *backScreen;
+    p2_Package_Info *backScreen;
     NSMutableArray *listImage;
     NSMutableArray *listAllImage;
 }

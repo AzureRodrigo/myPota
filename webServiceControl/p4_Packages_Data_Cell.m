@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoDatasCell.h"
+#import "p4_Packages_Data_Cell.h"
 
-@implementation packInfoDatasCell
+@implementation p4_Packages_Data_Cell
 
 @end

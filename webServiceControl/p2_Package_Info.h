@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "packInfoButtonCell.h"
-#import "packInfoRoomCell.h"
-#import "packInfoPriceCell.h"
-#import "packInfoConfirmCell.h"
-#import "packInfoDataCell.h"
-#import "packInfoHeaderCell.h"
+
+#import "p2_Package_Info_Cell_Header.h"
+#import "p2_Package_Info_Cell_Data.h"
+#import "p2_Package_Info_Cell_Room_Travel.h"
+#import "p2_Package_Info_Cell_Price.h"
+#import "p2_Package_Info_Cell_Button.h"
+#import "p2_Package_Info_Cell_Confirm.h"
 
 #define SIZE_START 97
 #define SIZE_PLUS  20
 
-@interface packInfo : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface p2_Package_Info : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     //Header
 //    IBOutlet UIButton *circuitImage;

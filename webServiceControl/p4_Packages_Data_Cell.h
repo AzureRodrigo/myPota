@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface packInfoDatasCell : UITableViewCell
+@interface p4_Packages_Data_Cell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblData;
 
 @end

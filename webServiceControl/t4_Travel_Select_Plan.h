@@ -11,7 +11,7 @@
 #import "travelPlans.h"
 #import "t4_Travel_Select_Plan_Cell.h"
 
-@interface t4_Travel_Select_Plan : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface t4_Travel_Select_Plan : UIViewController <UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate>
 {
 #pragma mark - screen components
     t0_Travel *backScreen;
@@ -37,8 +37,9 @@
 #pragma mark - purchase Data
     NSMutableDictionary     *purchaseData;
     NSMutableDictionary     *purchaseAllData;
-    NSDictionary                        *myAgency;
-    NSString                            *IDWS;
+    NSDictionary            *myAgency;
+    NSString                *IDWS;
+    MBProgressHUD           *HUD;
 }
 
 #pragma mark - get purchase data

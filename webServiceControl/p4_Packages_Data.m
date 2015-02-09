@@ -6,20 +6,19 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoDatas.h"
+#import "p4_Packages_Data.h"
 
-@interface packInfoDatas ()
-
-@end
-
-@implementation packInfoDatas
+@implementation p4_Packages_Data
 
 #pragma mark - configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Escolha a Data de Partida"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_PACKAGE
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -42,7 +41,7 @@
 #pragma mark - configScreen
 - (void)configScreen
 {
-    backScreen = (packInfo *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen = (p2_Package_Info *)[AppFunctions BACK_SCREEN:self number:1];
     
     
     [tableViewData setBackgroundColor:[UIColor clearColor]];
@@ -66,7 +65,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    packInfoDatasCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellData" forIndexPath:indexPath];
+    p4_Packages_Data_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellData" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.lblData setText:[[listDatas objectAtIndex:[indexPath row]]objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED]];
     return cell;

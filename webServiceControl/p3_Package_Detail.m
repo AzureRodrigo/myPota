@@ -6,20 +6,19 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoDetail.h"
+#import "p3_Package_Detail.h"
 
-@interface packInfoDetail ()
-
-@end
-
-@implementation packInfoDetail
+@implementation p3_Package_Detail
 
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:typeScreen
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_PACKAGE
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -33,19 +32,17 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self configNavBar];
     [self initScreenData];
+    [self configNavBar];
     [super viewWillAppear:animated];
 }
 
 #pragma mark - Init Screen Data
 - (void)initScreenData
 {
-    backScreen     = (packInfo *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen     = (p2_Package_Info *)[AppFunctions BACK_SCREEN:self number:1];
     typeScreen     = [backScreen getSelected];
     typeLink       = [backScreen getSelectedLink];
-    
-    NSLog(@"%@", typeLink);
     
     NSString *tag = @"string";
     
@@ -59,10 +56,6 @@
         }
 
     }];
-    
-    [lblTitle setText:typeScreen];
-
-
 }
 
 @end

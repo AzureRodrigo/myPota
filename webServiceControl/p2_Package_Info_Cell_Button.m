@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "packInfoButtonCell.h"
+#import "p2_Package_Info_Cell_Button.h"
 
-@implementation packInfoButtonCell
+@implementation p2_Package_Info_Cell_Button
 
 
 @end

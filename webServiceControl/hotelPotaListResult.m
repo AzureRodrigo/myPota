@@ -465,6 +465,9 @@
     [self controllSearchData];
 }
 
+
+
+#pragma mark -filter
 - (IBAction)btnOptionFilters:(id)sender
 {
     if ([self->searchBarData.text isEqualToString:@""])
@@ -486,7 +489,6 @@
     [self->tableViewData reloadData];
 }
 
-#pragma mark -filter
 - (NSMutableArray *)applyFilter:(NSString *)type ascending:(BOOL)ascending
 {
     NSSortDescriptor *sortDescriptor;

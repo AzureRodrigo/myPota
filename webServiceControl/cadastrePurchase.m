@@ -290,7 +290,7 @@
         
         NSDictionary *information = [purchaseInfo objectForKey:PACKAGE_INFO_DETAIL];
         
-        packInfoPriceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellPackageCustos" forIndexPath:indexPath];
+        p2_Package_Info_Cell_Price *cell = [tableView dequeueReusableCellWithIdentifier:@"CellPackageCustos" forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor clearColor]];
         
         NSString *circuit_days = [infoCircuit objectForKey:TAG_PACK_CIRCUIT_NUM_DAYS];
@@ -338,7 +338,7 @@
         
     } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
         
-        packInfoButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfoPack" forIndexPath:indexPath];
+        p2_Package_Info_Cell_Button *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfoPack" forIndexPath:indexPath];
         
         if ([indexPath row] == 0)
             [cell.imgTopBar setHidden:NO];
