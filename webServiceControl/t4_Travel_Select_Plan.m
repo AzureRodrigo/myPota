@@ -22,7 +22,12 @@
     
     link            = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_LINK_PLAN];
     
-    NSLog(@"link %@", link);
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
     
     listPlans       = [NSMutableArray new];
     [self startConnection];
@@ -138,18 +143,14 @@
                                                           forKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED];
     
     [purchaseData setObject:PURCHASE_TYPE_TRAVEL forKey:PURCHASE_TYPE];
-    
-    NSLog(@"%@", purchaseData);
-//    [self startConnectionPlan];
+
+    [self startConnectionPlan];
 }
 
 #pragma mark - connection Plan and Geral
 - (void)startConnectionPlan
 {
-    NSString* IDWS = @"TESTE_WS_VITALCARD";//[[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
-        IDWS = KEY_ID_WS_TRAVEL;
-    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, KEY_CODE_SITE_TRAVEL,
+    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO,IDWS, KEY_CODE_SITE_TRAVEL,
                               KEY_CODE_PRODUCT_TRAVEL, [[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE]];
     
     linkInfoPlan           = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL, linkInfoPlan];
@@ -187,11 +188,7 @@
 #pragma mark - connection Contratc
 - (void)startConnectionContract
 {
-    NSString *IDWS = @"TESTE_WS_VITALCARD";//[[purchaseData objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
-        IDWS = KEY_ID_WS_TRAVEL;
-    
-    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO_CONTRACT, KEY_CODE_SITE_TRAVEL,KEY_CODE_PORTAL,KEY_EMPTY,
+    NSString *linkInfoPlan = [NSString stringWithFormat:WS_URL_TRAVEL_INFO_CONTRACT, IDWS, KEY_CODE_SITE_TRAVEL,KEY_CODE_PORTAL,KEY_EMPTY,
                               [[[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE]];
     linkInfoPlan           = [NSString stringWithFormat:WS_URL, WS_URL_TRAVEL_CONTRACT, linkInfoPlan];
     
@@ -236,7 +233,9 @@
             [AppFunctions SAVE_INFORMATION:purchaseData
                                        tag:PURCHASE];
             
-            [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_CADASTRE sender:self];
+            NSLog(@"%@", purchaseData);
+            [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_T4_TO_R0];
+//            [self performSegueWithIdentifier:STORY_BOARD_TRAVEL_CADASTRE sender:self];
         }
     }];
 }

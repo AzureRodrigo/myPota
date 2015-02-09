@@ -37,6 +37,8 @@
 #pragma mark - purchase Data
     NSMutableDictionary     *purchaseData;
     NSMutableDictionary     *purchaseAllData;
+    NSDictionary                        *myAgency;
+    NSString                            *IDWS;
 }
 
 #pragma mark - get purchase data

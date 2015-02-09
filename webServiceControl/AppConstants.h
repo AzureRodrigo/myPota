@@ -78,7 +78,7 @@
 #define WS_URL_TRAVEL_DESTINY_TYPE     		@"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@"
 #define WS_URL_TRAVEL_BUY         			@"IdWS=%@&CodSite=%@&TpoProduto=%@&DtaInicial=%@&DtaFinal=%@&QtdAdulto=%@&QtdIdoso=%@&DscDestino=%@"
 #define WS_URL_TRAVEL_INFO        			@"IdWS=%@&CodSite=%@&TpoProduto=%@&CodProduto=%@"
-#define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
+#define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=%@&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
 
 #define WS_URL_BUY_BUDGET_INFO    			@"IdWS=TESTE_WS_VITALCARD&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
 #define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"

@@ -2136,7 +2136,7 @@ Pesquise aqui!</string>
                         <outlet property="otlPlans" destination="knI-eD-0zr" id="SgQ-HJ-W2c"/>
                         <outlet property="tableViewData" destination="hxn-b2-h5o" id="1eX-Ww-JgL"/>
                         <segue destination="W2I-Cm-X0U" kind="push" identifier="T4_To_T5" id="Nwa-3J-vcM"/>
-                        <segue destination="0dx-oG-emP" kind="push" identifier="travelPotaTocadastroPota" id="IVC-vd-5K9"/>
+                        <segue destination="0dx-oG-emP" kind="push" identifier="T4_To_R0" id="IVC-vd-5K9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrW-of-HgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
