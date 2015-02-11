@@ -565,11 +565,11 @@
         return;
     }
     
-    [AppFunctions LOG_MESSAGE:@"Dados corretos."
-                      message:@"A tela de cadastro de viajantes está sendo feita ainda."
-                       cancel:ERROR_BUTTON_CANCEL];
+//    [AppFunctions LOG_MESSAGE:@"Dados corretos."
+//                      message:@"A tela de cadastro de viajantes está sendo feita ainda."
+//                       cancel:ERROR_BUTTON_CANCEL];
     
-//    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_R0];
+    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_R0];
     
 }
 

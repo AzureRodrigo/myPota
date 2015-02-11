@@ -1,5 +1,5 @@
 //
-//  cadastreInfoCellTravel.h
+//  purchaseInfoCellTravel.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 12/08/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface cadastreInfoCellTravel : UITableViewCell
+@interface d1_Deal_Data_Info_Cell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) IBOutlet UILabel *lblSub;

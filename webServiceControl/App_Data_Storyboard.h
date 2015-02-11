@@ -52,6 +52,7 @@
 #define SEGUE_A2_TO_C1 @"A2_To_C1"
 #define SEGUE_A2_TO_T0 @"A2_To_T0"
 #define SEGUE_A2_TO_P0 @"A2_To_P0"
+#define SEGUE_A2_TO_H0 @"A2_To_H0"
 
 #pragma mark - Segues Block B
 #define SEGUE_B0_TO_B1  @"B0_To_B1"
@@ -71,7 +72,7 @@
 #define SEGUE_C2_TO_B3 @"C2_To_C3"
 #define SEGUE_C1_TO_A2 @"C1_To_A2"
 
-#pragma mark - Segues Block T
+#pragma mark - Segues Block T ravel
 #define SEGUE_T0_TO_T1 @"T0_To_T1"
 #define SEGUE_T0_TO_T2 @"T0_To_T2"
 #define SEGUE_T0_TO_T3 @"T0_To_T3"
@@ -79,12 +80,25 @@
 #define SEGUE_T4_TO_T5 @"T4_To_T5"
 #define SEGUE_T4_TO_R0 @"T4_To_R0"
 
-#pragma mark - Segues Block P
+#pragma mark - Segues Block P ackage
 #define SEGUE_P0_TO_P1 @"P0_To_P1"
 #define SEGUE_P1_TO_P2 @"P1_To_P2"
 #define SEGUE_P2_TO_P3 @"P2_To_P3"
 #define SEGUE_P2_TO_P4 @"P2_To_P4"
 #define SEGUE_P2_TO_P5 @"P2_To_P5"
 #define SEGUE_P2_TO_R0 @"P2_To_R0"
+
+#pragma mark - Segues Block H otel
+#define SEGUE_H0_TO_H1 @"H0_To_H1"
+
+#pragma mark - Segues Block R egister
+#define SEGUE_R0_TO_D0 @"R0_To_D0"
+
+#pragma mark - Segues Block D eal
+#define SEGUE_D0_TO_V0 @"D0_To_V0"
+
+#pragma mark - Segues Block V oucher
+#define SEGUE_V0_TO_V1 @"V0_To_V1"
+
 
 #endif

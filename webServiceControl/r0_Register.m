@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "cadastrePurchase.h"
+#import "r0_Register.h"
 
-@implementation cadastrePurchase
+@implementation r0_Register
 
 #pragma mark -configNavBar
 - (void)configNavBar
@@ -548,8 +548,6 @@
     [AppFunctions CLEAR_INFORMATION];
     [AppFunctions SAVE_INFORMATION:purchaseData
                                tag:PURCHASE];
-    
-    NSLog(@"%@",purchaseData);
     
     if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
         [self performSegueWithIdentifier:STORY_BOARD_CADASTRE_BUY sender:self];

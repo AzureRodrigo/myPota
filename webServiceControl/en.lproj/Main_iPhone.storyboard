@@ -2259,10 +2259,10 @@ Pesquise aqui!</string>
             </objects>
             <point key="canvasLocation" x="-3950" y="840"/>
         </scene>
-        <!--Cadastre Purchase-->
+        <!--R0 Register-->
         <scene sceneID="Aev-FK-2We">
             <objects>
-                <viewController id="0dx-oG-emP" customClass="cadastrePurchase" sceneMemberID="viewController">
+                <viewController id="0dx-oG-emP" customClass="r0_Register" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oma-es-kOg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2800,17 +2800,17 @@ de coberturas nas condições gerais.</string>
             </objects>
             <point key="canvasLocation" x="-165" y="-81"/>
         </scene>
-        <!--Purchase Pota-->
+        <!--D0 Deal Data-->
         <scene sceneID="hHA-P8-VDW">
             <objects>
-                <viewController id="TX9-Tt-AJ5" customClass="purchasePota" sceneMemberID="viewController">
+                <viewController id="TX9-Tt-AJ5" customClass="d0_Deal_Data" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tSx-hO-sjM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="WBE-sT-dVm">
-                                <rect key="frame" x="0.0" y="43" width="320" height="437"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="525"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuyInfoStart" rowHeight="60" id="sjl-RP-JlC" customClass="BuyInfoStart">
@@ -3326,7 +3326,7 @@ o Pagamento”, reconhece que:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMb-cw-1Ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-165" y="543"/>
+            <point key="canvasLocation" x="-165" y="651"/>
         </scene>
         <!--Volcher Pota-->
         <scene sceneID="whX-vC-CTT">
@@ -3915,12 +3915,12 @@ o Pagamento”, reconhece que:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMT-vH-sEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-165" y="1192"/>
+            <point key="canvasLocation" x="-165" y="1445"/>
         </scene>
-        <!--Cadastre Purchase Info-->
+        <!--R1 Register Info-->
         <scene sceneID="aR3-H4-Vlx">
             <objects>
-                <viewController id="dau-Pe-Zt7" customClass="cadastrePurchaseInfo" sceneMemberID="viewController">
+                <viewController id="dau-Pe-Zt7" customClass="r1_Register_Info" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmQ-2a-CT2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3930,7 +3930,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTravel" rowHeight="60" id="Cix-sk-c14" customClass="cadastreInfoCellTravel">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTravel" rowHeight="60" id="Cix-sk-c14" customClass="r1_Register_Info_Cell">
                                         <rect key="frame" x="0.0" y="55" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cix-sk-c14" id="ncQ-gP-Can">
@@ -3969,8 +3969,8 @@ o Pagamento”, reconhece que:</string>
                                 </connections>
                             </tableView>
                             <webView contentMode="scaleToFill" id="zuu-ca-v6b">
-                                <rect key="frame" x="0.0" y="43" width="320" height="437"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="525"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="W2I-Cm-X0U" id="Bva-84-5rQ"/>
@@ -6438,12 +6438,12 @@ Portal Schultz.</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="6aG-hQ-eWW"/>
-        <segue reference="2Ag-bD-Ycb"/>
-        <segue reference="5ue-yG-pK9"/>
+        <segue reference="QMh-Et-TOj"/>
+        <segue reference="YkV-qo-Qxb"/>
+        <segue reference="tSg-G5-VW4"/>
         <segue reference="3LT-CL-iMM"/>
         <segue reference="dfT-L0-weW"/>
         <segue reference="XDl-oI-JGF"/>
-        <segue reference="YkV-qo-Qxb"/>
         <segue reference="qLu-cP-eeQ"/>
     </inferredMetricsTieBreakers>
 </document>

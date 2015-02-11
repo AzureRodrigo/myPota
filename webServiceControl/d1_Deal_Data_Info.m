@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "purchasePurchaseInfo.h"
+#import "d1_Deal_Data_Info.h"
 
-@implementation purchasePurchaseInfo
+@implementation d1_Deal_Data_Info
 
 #pragma mark -configNavBar
 - (void)configNavBar
@@ -48,8 +48,8 @@
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     
-    backScreen     = (purchasePota *)[AppFunctions BACK_SCREEN:self number:1];
-    typeScreen     = [backScreen getTypeInfoScreen];
+    backScreen     = (d0_Deal_Data *)[AppFunctions BACK_SCREEN:self number:1];
+    typeScreen     = @"";//[backScreen getTypeInfoScreen];
     
     infoData       = [[NSMutableDictionary alloc]initWithDictionary:[AppFunctions LOAD_INFORMATION:PURCHASE]];
     listInfo       = [infoData objectForKey:PURCHASE_INFO_PURCHASE_DETAILS];
@@ -119,7 +119,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]) {
-        purchaseInfoCellTravel *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
+        d1_Deal_Data_Info_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
         NSMutableDictionary *infos = [listInfo objectAtIndex:[indexPath row]];
         [infos objectForKey:@"code"];
         [cell.lblName setText:[infos objectForKey:@"info"]];

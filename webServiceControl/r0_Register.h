@@ -39,7 +39,7 @@
 #define SIZE_START 158
 #define SIZE_PLUS  20
 
-@interface cadastrePurchase : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface r0_Register : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
 
 #pragma mark - Screen Purchase Data

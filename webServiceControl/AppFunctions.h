@@ -9,6 +9,8 @@
 
 @interface AppFunctions : NSObject
 
++ (void)ALERT_KEYBOARD_ADD_BAR:(UIView *)view delegate:(id)_delegate done:(SEL)_done ;
+
 + (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect;
 
 + (NSDictionary *)DATA_BASE_ENTITY_LOAD:(NSString *)_entity;

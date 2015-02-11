@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "purchaseInfoCellTravel.h"
-#import "purchasePota.h"
+#import "d1_Deal_Data_Info_Cell.h"
+#import "d0_Deal_Data.h"
 
-@interface purchasePurchaseInfo : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
+@interface d1_Deal_Data_Info : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 {
     IBOutlet UILabel     *lblTitle;
     IBOutlet UITableView *tableViewData;
@@ -19,7 +19,7 @@
     NSArray              *listInfo;
     NSMutableDictionary  *infoData;
     
-    purchasePota         *backScreen;
+    d0_Deal_Data         *backScreen;
     NSString             *typeScreen;
 }
 

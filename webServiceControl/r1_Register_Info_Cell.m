@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "cadastreInfoCellTravel.h"
+#import "r1_Register_Info_Cell.h"
 
-@implementation cadastreInfoCellTravel
+@implementation r1_Register_Info_Cell
 
 @end

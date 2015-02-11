@@ -22,13 +22,12 @@
 #define PURCHASE_INFO_TITLE          @"title"
 #define PURCHASE_INFO_SCREEN         @"path"
 
-
 #define CADASTRO_NEXT_SCREEN_SECURE     @"goTo Segurança"
 #define CADASTRO_NEXT_SCREEN_COBERTURAS @"goTo Coberturas"
 #define CADASTRO_NEXT_SCREEN_CONDICOES  @"goTo Condições"
 
 
-@interface purchasePota : UIViewController <UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface d0_Deal_Data : UIViewController <UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 {
 #pragma mark - Screen Purchase Data
     NSMutableDictionary     *purchaseAllData;
@@ -41,13 +40,18 @@
     NSArray                 *listInfoDataStart;
     NSArray                 *listInfoDataEnd;
     NSMutableDictionary     *cardInfos;
+    NSDictionary            *myAgency;
+    
     
 #pragma mark - Screen Data
     IBOutlet UITableView    *tableViewData;
     UITextField             *txtViewSelected;
     UIActivityIndicatorView *otlWait;
-    UIActionSheet           *actionSheet;
-    UIPickerView            *pickerView;
+    
+    UIView                  *maskView;
+    UIPickerView            *_providerPickerView;
+    UIToolbar               *_providerToolbar;
+    
     NSMutableArray          *infoPicker;
     NSString                *lblNextScreenType;
 #pragma mark - Connection
@@ -74,7 +78,5 @@
 #pragma mark - Save Purchase
     NSMutableArray *listSavePurchase;
 }
-
-- (NSString *)getTypeInfoScreen;
 
 @end

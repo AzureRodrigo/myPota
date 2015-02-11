@@ -197,7 +197,7 @@
 {
     UIImage *image = [[UIImage imageNamed:imageName]resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10) resizingMode:UIImageResizingModeStretch];
     [[screen.navigationController navigationBar] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-
+    
     CGFloat scale = 1;
     CGFloat cy = 44.0 - ( 44.0 * scale );
     CGRect frame = CGRectMake(0, 0, 35, 44);
@@ -706,7 +706,7 @@
                            btnConfirm,
                            nil];
     [numberToolbar sizeToFit];
-
+    
     
     for (UISearchBar *tmp in listField)
     {
@@ -720,28 +720,70 @@
 {
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackTranslucent;
-    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
     
-    UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+    UIBarButtonItem *btnCancel;
+    UIBarButtonItem * btnConfirm;
     
-    [btnCancel  setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
-    [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    if (_cancel != nil)
+    {
+        btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
+        [btnCancel  setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    }
+    if (_done != nil)
+    {
+        btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+        [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    }
     
     numberToolbar.items = [NSArray arrayWithObjects:
                            btnCancel,
                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                            btnConfirm,
                            nil];
+    
     [numberToolbar sizeToFit];
     
     for (UITextField *tmp in listField)
     {
         [tmp setDelegate:_delegate];
         [tmp setInputAccessoryView:numberToolbar];
-        [tmp addTarget:_delegate
-                action:_change
-      forControlEvents:UIControlEventEditingChanged];
+        if (_change != nil)
+            [tmp addTarget:_delegate
+                    action:_change
+          forControlEvents:UIControlEventEditingChanged];
     }
+}
+
+#pragma mark - keyBoard bar
++ (void)ALERT_KEYBOARD_ADD_BAR:(UIView *)view delegate:(id)_delegate done:(SEL)_done
+{
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    
+    UIBarButtonItem * btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStyleDone
+                                                                  target:view
+                                                                  action:_done];
+    [btnConfirm setTintColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+    
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           btnConfirm,
+                           nil];
+    [numberToolbar sizeToFit];
+    
+    
+    UIToolbar *_providerToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                          target:_delegate
+                                                                          action:_done];
+    
+    _providerToolbar.items = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                             target:nil
+                                                                             action:nil], done];
+    _providerToolbar.barStyle = UIBarStyleBlackOpaque;
+    
+    [view addSubview:_providerToolbar];
 }
 
 #pragma mark - Scroll UP

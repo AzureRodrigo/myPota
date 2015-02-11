@@ -80,9 +80,9 @@
 #define WS_URL_TRAVEL_INFO        			@"IdWS=%@&CodSite=%@&TpoProduto=%@&CodProduto=%@"
 #define WS_URL_TRAVEL_INFO_CONTRACT         @"IdWS=%@&CodSite=%@&CodPortal=%@&CodFornecedor=%@&CodProduto=%@"
 
-#define WS_URL_BUY_BUDGET_INFO    			@"IdWS=TESTE_WS_VITALCARD&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
-#define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"
-#define WS_URL_BUY_REGISTER_INFO            @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodPedido=%@&TpoPagamento=%@&IdBandeira=%@&VlrPagamento=%@&QtdParcelas=%@&NumCartao=%@&MesValidade=%@&AnoValidade=%@&NomPortador=%@&CodVerificacao=%@"
+#define WS_URL_BUY_BUDGET_INFO    			@"IdWS=%@&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
+#define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=%@&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"
+#define WS_URL_BUY_REGISTER_INFO            @"IdWS=%@&CodSite=%@&CodPedido=%@&TpoPagamento=%@&IdBandeira=%@&VlrPagamento=%@&QtdParcelas=%@&NumCartao=%@&MesValidade=%@&AnoValidade=%@&NomPortador=%@&CodVerificacao=%@"
 
 #define WS_URL_CADASTRO_PERFIL              @"codigoConsumidor=%@&nomeConsumidor=%@&emailConsumidor=%@&cpfConsumidor=%@&cepConsumidor=%@&senhaConsumidor=%@&dataNascimentoConsumidor=%@&chaveAcesso=%@&tipoRetorno=XML&tipoAcesso=M"
 

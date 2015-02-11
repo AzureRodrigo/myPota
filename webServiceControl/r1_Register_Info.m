@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "cadastrePurchaseInfo.h"
+#import "r1_Register_Info.h"
 
-@implementation cadastrePurchaseInfo
+@implementation r1_Register_Info
 
 #pragma mark -configNavBar
 - (void)configNavBar
@@ -48,7 +48,7 @@
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     
-    backScreen     = (cadastrePurchase *)[AppFunctions BACK_SCREEN:self number:1];
+    backScreen     = (r0_Register *)[AppFunctions BACK_SCREEN:self number:1];
     typeScreen     = [backScreen getTypeInfoScreen];
     
     
@@ -134,7 +134,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]) {
-        cadastreInfoCellTravel *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
+        r1_Register_Info_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
         NSMutableDictionary *infos = [listInfo objectAtIndex:[indexPath row]];
         [infos objectForKey:@"code"];
         [cell.lblName setText:[infos objectForKey:@"info"]];

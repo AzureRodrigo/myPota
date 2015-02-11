@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "cadastreInfoCellTravel.h"
-#import "cadastrePurchase.h"
+#import "r1_Register_Info_Cell.h"
+#import "r0_Register.h"
 
-@interface cadastrePurchaseInfo : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
+@interface r1_Register_Info : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 {
     IBOutlet UILabel     *lblTitle;
     IBOutlet UITableView *tableViewData;
@@ -19,7 +19,7 @@
     NSArray              *listInfo;
     NSMutableDictionary  *infoData;
     
-    cadastrePurchase     *backScreen;
+    r0_Register          *backScreen;
     NSString             *typeScreen;
 }
 

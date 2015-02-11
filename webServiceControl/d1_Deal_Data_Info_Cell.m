@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "purchaseInfoCellTravel.h"
+#import "d1_Deal_Data_Info_Cell.h"
 
-@implementation purchaseInfoCellTravel
+@implementation d1_Deal_Data_Info_Cell
 
 @end
