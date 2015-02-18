@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "voucherListPotaCell.h"
 
-@interface voucherListPota : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface v1_Voucher_List : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 {
     IBOutlet UISearchBar *searchBar;
     IBOutlet UITableView *tableView;
@@ -19,5 +19,7 @@
     UITextField             *txtViewSelected;
     CGRect                  frame;
 }
+
+- (NSDictionary *)getInfos;
 
 @end

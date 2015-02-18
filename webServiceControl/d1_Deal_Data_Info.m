@@ -10,12 +10,14 @@
 
 @implementation d1_Deal_Data_Info
 
-#pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:typeScreen
+                                                               attributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                             NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_RESERVA
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -27,14 +29,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - didLoad
-- (void)viewDidLoad
-{
-    [self initScreenData];
-    [super viewDidLoad];
-}
-
-#pragma mark - willAppear
+#pragma mark - WillAppear
 - (void)viewWillAppear:(BOOL)animated
 {
     [self configNavBar];
@@ -42,105 +37,117 @@
     [super viewWillAppear:animated];
 }
 
-#pragma mark - Init Screen Data
-- (void)initScreenData
+- (void)configScreenData
 {
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     
-    backScreen     = (d0_Deal_Data *)[AppFunctions BACK_SCREEN:self number:1];
-    typeScreen     = @"";//[backScreen getTypeInfoScreen];
+    backScreen     = [AppFunctions BACK_SCREEN:self number:1];
+    dataScreen     = [backScreen getInfos];
+    typeScreen     = [dataScreen objectForKey:@"type"];
+    typeProduct    = [[dataScreen objectForKey:@"content"]objectForKey:PURCHASE_TYPE];
+    infoData       = [dataScreen objectForKey:@"content"];
     
-    infoData       = [[NSMutableDictionary alloc]initWithDictionary:[AppFunctions LOAD_INFORMATION:PURCHASE]];
-    listInfo       = [infoData objectForKey:PURCHASE_INFO_PURCHASE_DETAILS];
+//    NSLog(@"%@",infoData);
     
+    tableList     = [NSArray new];
+    tableOn       = 0;
+    tableCellSize = 60;
     
-    NSLog(@"%@",typeScreen);
-    
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]){
-        [webView setHidden:YES];
-        [lblTitle setText:@"Coberturas do Plano"];
-    } else if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_CONDICOES]) {
-        [tableViewData setHidden:YES];
-        [lblTitle setText:@"Condições Gerais"];
-        NSArray *infoContract      = [infoData objectForKey:PURCHASE_INFO_PURCHASE_CONTRACT];
-        NSMutableDictionary *infos = [infoContract objectAtIndex:0];
-        NSData *htmlFile         = [infos objectForKey:CONTRATO_INFO_DESCRICAO];
-        [webView loadData:htmlFile MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:nil];
-        [webView setScalesPageToFit:YES];
-    }else if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_SECURE]) {
-        
+    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_CONDICOES]) {
+        [webView setHidden:NO];
+        NSArray *infoContract = [infoData objectForKey:PURCHASE_INFO_PURCHASE_CONTRACT];
+        [self configWebView:[infoContract objectAtIndex:0]];
     }
+    //    } else if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_CONDICOES]) {
+    //        [tableViewData setHidden:YES];
+    //        NSArray *infoContract      = [infoData objectForKey:PURCHASE_INFO_PURCHASE_CONTRACT];
+    //        NSMutableDictionary *infos = [infoContract objectAtIndex:0];
+    //        NSData *htmlFile         = [infos objectForKey:CONTRATO_INFO_DESCRICAO];
+    //        [webView loadData:htmlFile MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:nil];
+    //        [webView setScalesPageToFit:YES];
+    //    }else if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_SECURE]) {
+    //
+    //    }
 }
 
-#pragma mark - Number of Sections
+#pragma mark - DidLoad
+- (void)viewDidLoad
+{
+    [self configScreenData];
+    [super viewDidLoad];
+}
+
+#pragma mark - config TableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS])
-        return 1;
-    return 0;
+    return tableOn;
 }
 
-#pragma mark - Title Sections
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"";
 }
 
-#pragma mark - Title Sections Heigth Header
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 5;
+    return 0.001f;
 }
 
-#pragma mark - Title Sections Heigth Foter
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 5;
+    return 0.001f;
 }
 
-#pragma mark - Cell Size
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS])
-        return 60;
-    return 100;
+    return tableCellSize;
 }
 
-#pragma mark - table view
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS])
-        return [listInfo count];
-    else
-        return 0;
+    return [tableList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]) {
-        d1_Deal_Data_Info_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
-        NSMutableDictionary *infos = [listInfo objectAtIndex:[indexPath row]];
-        [infos objectForKey:@"code"];
-        [cell.lblName setText:[infos objectForKey:@"info"]];
-        [cell.lblSub setText:[infos objectForKey:@"price"]];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [cell setBackgroundColor:[UIColor clearColor]];
-        return cell;
-    }
+    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS])
+        [self configCell_Cobertura:tableView cellForRowAtIndexPath:indexPath];
     return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]) {
-        NSMutableDictionary *infos = [listInfo objectAtIndex:[indexPath row]];
-        if (![[infos objectForKey:@"descrition"] isEqualToString:@""])
-            [AppFunctions LOG_MESSAGE:[infos objectForKey:@"info"]
-                              message:[infos objectForKey:@"descrition"]
-                               cancel:ERROR_BUTTON_CANCEL];
-    }
+    if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS])
+        [self pressCell_Cobertura:indexPath];
 }
 
+#pragma mark - config Cell
+- (UITableViewCell *)configCell_Cobertura:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id cell = [tableView dequeueReusableCellWithIdentifier:@"CellTravel" forIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - press Cell
+- (void)pressCell_Cobertura:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - config WebView
+- (void)configWebView:(NSDictionary *)content
+{
+    if ([typeProduct isEqualToString:PURCHASE_TYPE_TRAVEL]){
+        NSData *htmlFile         = [content objectForKey:CONTRATO_INFO_DESCRICAO];
+        [webView loadData:htmlFile MIMEType: @"text/html" textEncodingName: @"UTF-8" baseURL:nil];
+        [webView setScalesPageToFit:YES];
+    }else if ([typeProduct isEqualToString:PURCHASE_TYPE_HOTEL]){
+        
+    }else if ([typeProduct isEqualToString:PURCHASE_TYPE_PACKGE]){
+        [webView loadHTMLString:[content objectForKey:@"string"] baseURL:nil];
+        [webView setScalesPageToFit:YES];
+    }
+}
 
 @end

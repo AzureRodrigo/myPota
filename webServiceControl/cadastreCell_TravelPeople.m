@@ -19,7 +19,7 @@
     [_txtBoxAge        setDelegate:_delegate];
     [_txtBoxMail       setDelegate:_delegate];
     [_txtBoxFone       setDelegate:_delegate];
-    [_txtFieldObserver setDelegate:_delegate];
+//    [_txtFieldObserver setDelegate:_delegate];
     
     //id's
     [_txtBoxFirstName  setTag:_id];
@@ -28,7 +28,7 @@
     [_txtBoxAge        setTag:_id];
     [_txtBoxMail       setTag:_id];
     [_txtBoxFone       setTag:_id];
-    [_txtFieldObserver setTag:_id];
+//    [_txtFieldObserver setTag:_id];
     
     //Accessibility
     [_txtBoxFirstName  setAccessibilityValue:CADASTRO_PERSON_FIRST_NAME];
@@ -37,7 +37,7 @@
     [_txtBoxAge        setAccessibilityValue:CADASTRO_PERSON_AGE];
     [_txtBoxMail       setAccessibilityValue:CADASTRO_PERSON_MAIL];
     [_txtBoxFone       setAccessibilityValue:CADASTRO_PERSON_FONE];
-    [_txtFieldObserver setAccessibilityValue:CADASTRO_PERSON_OBSERVER];
+//    [_txtFieldObserver setAccessibilityValue:CADASTRO_PERSON_OBSERVER];
     
     [self addNavBar:_delegate done:_done cancel:_cancel];
     
@@ -48,11 +48,11 @@
         [_btnHideShow setTitle:@"-" forState:UIControlStateNormal];
     [_imgLineHide setHidden:!_hide];
     
-    //text field
-    _txtFieldObserver.layer.borderWidth = 1.0f;
-    _txtFieldObserver.layer.borderColor = [[UIColor grayColor] CGColor];
-    _txtFieldObserver.layer.cornerRadius = 5;
-    _txtFieldObserver.clipsToBounds = YES;
+//    //text field
+//    _txtFieldObserver.layer.borderWidth = 1.0f;
+//    _txtFieldObserver.layer.borderColor = [[UIColor grayColor] CGColor];
+//    _txtFieldObserver.layer.cornerRadius = 5;
+//    _txtFieldObserver.clipsToBounds = YES;
     
     //switch
     float scale = .8f;
@@ -65,7 +65,7 @@
     [_txtBoxAge        setText:[_traveller objectForKey:CADASTRO_PERSON_AGE]];
     [_txtBoxMail       setText:[_traveller objectForKey:CADASTRO_PERSON_MAIL]];
     [_txtBoxFone       setText:[_traveller objectForKey:CADASTRO_PERSON_FONE]];
-    [_txtFieldObserver setText:[_traveller objectForKey:CADASTRO_PERSON_OBSERVER]];
+//    [_txtFieldObserver setText:[_traveller objectForKey:CADASTRO_PERSON_OBSERVER]];
     
     if ([[_traveller objectForKey:CADASTRO_PERSON_GENDER] isEqualToString:@"F"])
         [_btnGender setSelectedSegmentIndex:1];
@@ -120,25 +120,30 @@
     return YES;
 }
 
-
 - (void)addNavBar:(id)_delegate done:(SEL)_done cancel:(SEL)_cancel
 {
-    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    [AppFunctions KEYBOARD_ADD_BAR:@[ _txtBoxCPF, _txtBoxFirstName, _txtBoxSecondName, _txtBoxAge, _txtBoxMail, _txtBoxFone]
+                          delegate:_delegate
+                            change:nil
+                              done:_done
+                            cancel:_cancel];
     
-    _btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
-    
-    _btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:_delegate action:_done];
-    numberToolbar.items = [NSArray arrayWithObjects:
-                           _btnCancel,
-                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           _btnConfirm,
-                           nil];
-    [numberToolbar sizeToFit];
-    
-    _txtBoxCPF.inputAccessoryView  = numberToolbar;
-    _txtBoxAge.inputAccessoryView  = numberToolbar;
-    _txtBoxFone.inputAccessoryView = numberToolbar;
+//    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+//    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+//    
+//    _btnCancel = [[UIBarButtonItem alloc]initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:_delegate action:_cancel];
+//    
+//    _btnConfirm = [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:_delegate action:_done];
+//    numberToolbar.items = [NSArray arrayWithObjects:
+//                           _btnCancel,
+//                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+//                           _btnConfirm,
+//                           nil];
+//    [numberToolbar sizeToFit];
+//    
+//    _txtBoxCPF.inputAccessoryView  = numberToolbar;
+//    _txtBoxAge.inputAccessoryView  = numberToolbar;
+//    _txtBoxFone.inputAccessoryView = numberToolbar;
 }
 
 @end

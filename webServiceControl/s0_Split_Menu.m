@@ -41,7 +41,7 @@
         if ([[AppMenuView getMenuView].superView.restorationIdentifier isEqualToString: STORYBOARD_ID_A2])
         {
             listOptions = @[@{@"IMAGE"   : @"splitItemPurchase",
-                              @"DESTINE" : STORYBOARD_ID_H0},
+                              @"DESTINE" : SEGUE_V0_TO_V1},
                             @{@"IMAGE"   : @"splitItemLogoff",
                               @"DESTINE" : STORYBOARD_ID_A1},
                             @{@"IMAGE"   : @"splitItemInfo",
@@ -50,7 +50,7 @@
             listOptions = @[@{@"IMAGE"   : @"splitItemHome",
                               @"DESTINE" : STORYBOARD_ID_A2},
                             @{@"IMAGE"   : @"splitItemPurchase",
-                              @"DESTINE" : STORYBOARD_ID_H0},
+                              @"DESTINE" : SEGUE_V0_TO_V1},
                             @{@"IMAGE"   : @"splitItemLogoff",
                               @"DESTINE" : STORYBOARD_ID_A1},
                             @{@"IMAGE"   : @"splitItemInfo",
@@ -61,7 +61,7 @@
         {
             listOptions = @[
                             @{@"IMAGE"   : @"splitItemPurchase",
-                              @"DESTINE" : STORYBOARD_ID_H0},
+                              @"DESTINE" : SEGUE_V0_TO_V1},
                             @{@"IMAGE"   : @"splitItemMyData",
                               @"DESTINE" : STORYBOARD_ID_I0},
                             @{@"IMAGE"   : @"splitItemAgent",
@@ -74,7 +74,7 @@
             listOptions = @[@{@"IMAGE"   : @"splitItemHome",
                               @"DESTINE" : STORYBOARD_ID_A2},
                             @{@"IMAGE"   : @"splitItemPurchase",
-                              @"DESTINE" : STORYBOARD_ID_H0},
+                              @"DESTINE" : SEGUE_V0_TO_V1},
                             @{@"IMAGE"   : @"splitItemMyData",
                               @"DESTINE" : STORYBOARD_ID_I0},
                             @{@"IMAGE"   : @"splitItemAgent",

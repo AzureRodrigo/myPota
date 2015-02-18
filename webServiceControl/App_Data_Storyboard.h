@@ -95,9 +95,11 @@
 #define SEGUE_R0_TO_D0 @"R0_To_D0"
 
 #pragma mark - Segues Block D eal
+#define SEGUE_D0_TO_D1 @"D0_To_D1"
 #define SEGUE_D0_TO_V0 @"D0_To_V0"
 
 #pragma mark - Segues Block V oucher
+#define SEGUE_V0_TO_D1 @"V0_To_D1"
 #define SEGUE_V0_TO_V1 @"V0_To_V1"
 
 

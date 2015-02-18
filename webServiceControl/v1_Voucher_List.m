@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 web. All rights reserved.
 //
 
-#import "voucherListPota.h"
+#import "v1_Voucher_List.h"
 
-@implementation voucherListPota
+@implementation v1_Voucher_List
 
 #pragma mark -initData
 - (void)initTables
@@ -20,7 +20,8 @@
 
 - (void)initValues
 {
-    listPurchase = [AppFunctions PLIST_ARRAY_LOAD:PLIST_PURCHASES];
+    NSMutableDictionary *info = [AppFunctions PLIST_LOAD:PLIST_PURCHASES];
+    listPurchase = [info objectForKey:@"vouchers"];
     if (listPurchase == nil)
         listPurchase = [AppFunctions PLIST_ARRAY_PATH:PLIST_PURCHASES type:@"plist"];
     
@@ -41,13 +42,21 @@
 #pragma mark - Numeric keyboard Clear
 - (IBAction)keyboardClear:(UIBarButtonItem *)sender
 {
-    [txtViewSelected setText:@""];
+    [self->searchBar setText:@""];
+    [self controllSearchData];
 }
 
-#pragma mark - Numeric keyboard Done
 - (IBAction)keyboardDone:(UIBarButtonItem *)sender
 {
+    if ([self->searchBar.text isEqualToString:@""])
+        [self->searchBar setText:@"Pesquisar"];
+    [self controllSearchData];
     [txtViewSelected resignFirstResponder];
+}
+
+- (void)controllSearchData
+{
+    [self changeContent:searchBar.text];
 }
 
 #pragma mark -configNavBar
@@ -59,9 +68,12 @@
 
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Minhas Reservas"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_VOLCHER
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil
@@ -73,7 +85,7 @@
     [AppMenuView openMenu:self
                    sender:sender];
 }
-	
+
 - (IBAction)btnBackScreen:(id)sender
 {
     [AppFunctions POP_SCREEN:self
@@ -87,11 +99,21 @@
     return [listPurchaseSearch count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.001f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.001f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     voucherListPotaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"voucherList"
                                                                 forIndexPath:indexPath];
-    
+    [cell setBackgroundColor:[UIColor clearColor]];
     NSDictionary *info = [listPurchaseSearch objectAtIndex:[indexPath row]];
     NSString     *type = [info objectForKey:PURCHASE_TYPE];
     NSDictionary *infoProduct = [info objectForKey:PURCHASE_INFO_PRODUCT_RESERVE];
@@ -121,10 +143,16 @@
     [AppFunctions PUSH_SCREEN:self identifier:@"volcherPota"  animated:YES];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark -searchBarConfigure
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)_searchBar
 {
-    [searchBar setText:@""];
+    if ([searchBar.text isEqualToString:@"Pesquisar"])
+        [searchBar setText:@""];
     return YES;
 }
 
@@ -137,28 +165,30 @@
 {
     listPurchaseSearch = listPurchase;
     [self->tableView reloadData];
-    [searchBar setText:@"Busca"];
+    [searchBar setText:@"Pesquisar"];
     [searchBar resignFirstResponder];
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self changeContent:searchText];
+}
+
+- (void)changeContent:(NSString *)searchText
+{
     NSMutableArray *tmp = [[NSMutableArray alloc]init];
     if ( [searchText length] == 0 ) {
         listPurchaseSearch = listPurchase;
     }else {
         listPurchaseSearch = listPurchase;
         for (NSMutableDictionary *info in listPurchaseSearch)
-            if ([[[info objectForKey:PURCHASE_INFO_VOLCHER]lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound)
+            if ([[[[info objectForKey:@"ReservaProduto"]objectForKey:@"CodReservaPedido"]lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound ||
+                [[[info objectForKey:PURCHASE_INFO_VOLCHER]lowercaseString] rangeOfString:[searchText lowercaseString]].location != NSNotFound)
                 [tmp addObject:info];
         
         listPurchaseSearch = tmp;
     }
     [tableView reloadData];
-}
-
-- (void)scrollTap:(UIGestureRecognizer*)gestureRecognizer
-{
-    [self.view endEditing:YES];
 }
 
 @end

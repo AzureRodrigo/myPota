@@ -10,6 +10,8 @@
 
 @interface BuyInfoCard : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *otlBottonLine;
+
 //data Parcelas
 @property (strong, nonatomic) IBOutlet UILabel      *lblNumberParcelas;
 @property (strong, nonatomic) IBOutlet UILabel      *lblTxtParcelas;

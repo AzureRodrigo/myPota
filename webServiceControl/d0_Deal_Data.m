@@ -1,4 +1,4 @@
-//  purchasePota.m
+//  d0_Deal_Data.m
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 11/08/14.
@@ -61,23 +61,19 @@
 
 - (void)configData
 {
+    mySeller = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
     //get all info purchase
     purchaseAllData    = [[NSMutableDictionary alloc]initWithDictionary:[AppFunctions LOAD_INFORMATION:PURCHASE]];
     purchaseAllInfo    = [purchaseAllData mutableCopy];
     purchaseType       = [purchaseAllData objectForKey:PURCHASE_TYPE];
+    purchaseInfo       = [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT] mutableCopy];
     
     //informações dos viajantes
     purchaseTravellers = [purchaseAllInfo objectForKey:PURCHASE_TYPE_PERSON_DATA];
     lblTitleTravellers = @"Informação do Viajante";
     if ([purchaseTravellers count] > 1)
         lblTitleTravellers = @"Informações dos Viajantes";
-    
-    //informações do produto
-    purchaseProduct  = [[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] mutableCopy];
-    [purchaseProduct setValue:[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PAX]
-                       forKey:PURCHASE_DATA_TRAVEL_PAX];
-    [purchaseProduct setValue:[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DAYS]
-                       forKey:PURCHASE_DATA_TRAVEL_DAYS];
     
     listInfoDataStart = @[];
     //    listInfoDataStart = @[@{ PURCHASE_INFO_TITLE  : @"Asseguramos a segurança da sua informação. Leia a nossa política de segurança.",
@@ -98,12 +94,22 @@
     
     //IDWs
     myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    mySeller = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    NSLog(@"%@",[myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS]);
     for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
-        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
-            IDWS = [info objectForKey:@"idWsSite"];
+    {
+        if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
+            if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+                IDWS = [info objectForKey:@"idWsSite"];
+        }else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+            if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+                IDWS = [info objectForKey:@"idWsSite"];
+            IDWS = @"20130409IT004A000017";
+        }
+    }
     if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
-
+    
     //Set Type Purchase
     if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL])
         [self configPurchaseTravel];
@@ -121,10 +127,16 @@
 {
     lblTitlePurchase = @"Custo da Assistência em Viagem";
     
-    listInfoDataEnd = @[@{ PURCHASE_INFO_TITLE  : @"Ver todas as Coberturas",
-                           PURCHASE_INFO_SCREEN : @"goTo Coberturas"},
-                        @{ PURCHASE_INFO_TITLE  : @"Condições Gerais",
-                           PURCHASE_INFO_SCREEN : @"goTo Condições"}];
+    listInfoDataEnd = @[ @{ PURCHASE_INFO_TITLE  : @"Condições Gerais",
+                            PURCHASE_INFO_SCREEN : @"goTo Condições"}];
+    
+    //informações do produto
+    purchaseProduct  = [[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED] mutableCopy];
+    
+    [purchaseProduct setValue:[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_PAX]
+                       forKey:PURCHASE_DATA_TRAVEL_PAX];
+    [purchaseProduct setValue:[[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT] objectForKey:PURCHASE_DATA_TRAVEL_DAYS]
+                       forKey:PURCHASE_DATA_TRAVEL_DAYS];
 }
 
 - (void)configPurchaseHotel
@@ -134,7 +146,45 @@
 
 - (void)configPurchasePackage
 {
+    lblTitlePurchase = @"Custo do Pacote Túristico";
     
+    listInfoDataEnd = @[ @{ PURCHASE_INFO_TITLE  : @"Condições Gerais",
+                            PURCHASE_INFO_SCREEN : @"goTo Condições"}];
+    
+    purchaseProduct  = [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]mutableCopy];
+    
+    NSString *valuePurchase = @"0";
+    for (NSDictionary *room in [purchaseInfo objectForKey:@"info_room"]){
+        float money = [valuePurchase floatValue] + ([[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA]floatValue] * [[room objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue] * [[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_QTD_PEOPLE]intValue]);
+        valuePurchase = [NSString stringWithFormat:@"%.2f",money];
+    }
+    
+    [purchaseProduct setValue:[purchaseProduct objectForKey:@"Numero_de_Viajantes"]
+                       forKey:PURCHASE_DATA_TRAVEL_PAX];
+    [purchaseProduct setValue:[[purchaseProduct objectForKey:@"info_circuit"] objectForKey:@"NumDias"]
+                       forKey:PURCHASE_DATA_TRAVEL_DAYS];
+    [purchaseProduct setValue:[[purchaseProduct objectForKey:@"info_circuit"] objectForKey:@"CodProduto"]
+                       forKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE];
+    [purchaseProduct setValue:[[purchaseProduct objectForKey:@"info_circuit"] objectForKey:@"TpoProduto"]
+                       forKey:@"tipo_produto"];
+    [purchaseProduct setValue:[[purchaseProduct objectForKey:@"info_data"] objectForKey:@"DtaFormatada"]
+                       forKey:@"data_start"];
+    
+    for (NSDictionary *roon in [purchaseProduct objectForKey:@"info_room"])
+        if ([roon objectForKey:@"SeqVlrPlano"] != nil)
+            [purchaseProduct setValue:[roon objectForKey:@"SeqVlrPlano"] forKey:@"SeqVlrPlano"];
+    
+    [purchaseProduct setObject:valuePurchase forKey:@"valor"];
+    
+    NSString *age = @"";
+    for (NSDictionary *person in purchaseTravellers){
+        if ([age isEqualToString:@""])
+            age = [NSString stringWithFormat:@"%@", [person objectForKey:@"Age"]];
+        else
+            age = [NSString stringWithFormat:@"%@,%@",age, [person objectForKey:@"Age"]];
+    }
+    
+    [purchaseProduct setObject:[age substringToIndex:[age length]] forKey:@"ages"];
 }
 
 #pragma mark - Table View Functions
@@ -182,8 +232,12 @@
 {
     if (section == 0)
         return 1;
-    else if (section == 3)
+    else if (section == 2) {
+        if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
+            return 0.0001f;
+    } else if (section == 3) {
         return 20;
+    }
     return 5;
 }
 
@@ -198,9 +252,11 @@
         return 60;
     else if ([indexPath section] == 1)
         return 409;
-    else if ([indexPath section] == 2)
+    else if ([indexPath section] == 2) {
+        if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
+            return cellPriceSize;
         return 156;
-    else if ([indexPath section] == 3)
+    } else if ([indexPath section] == 3)
         return 128;
     else if ([indexPath section] == 4)
         return 60;
@@ -226,21 +282,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([indexPath section] == 0) {
-        lblNextScreenType = CADASTRO_NEXT_SCREEN_SECURE;
-    } else if ([indexPath section] == 4) {
-        if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
-            if ([indexPath row] == 0)
-                lblNextScreenType = CADASTRO_NEXT_SCREEN_COBERTURAS;
-            else
-                lblNextScreenType = CADASTRO_NEXT_SCREEN_CONDICOES;
-        } else if ([purchaseType isEqualToString:PURCHASE_TYPE_HOTEL]) {
-            
-        } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
-            
-        }
+    if ([indexPath section] == 4) {
+        lblNextScreenType = [[listInfoDataEnd objectAtIndex:[indexPath row]]objectForKey:PURCHASE_INFO_TITLE];
+        [self performSegueWithIdentifier:SEGUE_D0_TO_D1 sender:self];
     }
-    //    [self performSegueWithIdentifier:STORY_BOARD_BUY_INFO sender:self];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -290,6 +335,8 @@
             btnCard:@selector(btnFlag:)
           btnParcel:@selector(btnParcel:)];
     
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
+        [cell.otlBottonLine setHidden:YES];
     return cell;
 }
 
@@ -300,6 +347,34 @@
                                                               forIndexPath:indexPath];
         [cell setBackgroundColor:[UIColor clearColor]];
         [cell startCell:[purchaseProduct copy] title:lblTitlePurchase];
+        return cell;
+    }else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        p2_Package_Info_Cell_Price *cell = [tableView dequeueReusableCellWithIdentifier:@"CellCustosPack" forIndexPath:indexPath];
+        
+        NSMutableDictionary *infoCircuit = [[purchaseAllData objectForKey:PACKAGE_INFO_CIRCUIT] mutableCopy];
+        
+        [cell setBackgroundColor:[UIColor clearColor]];
+        
+        [cell.lblTitle setText:[infoCircuit objectForKey:TAG_PACK_CIRCUIT_NAME_PRODUCT]];
+        [cell start];
+        
+        cellPriceSize = 80;
+        NSString *valuePurchase = @"0";
+        
+        int extraLine = 0;
+        for (NSDictionary *room in [purchaseInfo objectForKey:@"info_room"]){
+            extraLine += 1;
+            float money = [valuePurchase floatValue] + ([[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA]floatValue] * [[room objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue] * [[room objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_QTD_PEOPLE]intValue]);
+            valuePurchase = [NSString stringWithFormat:@"%.2f",money];
+        }
+        
+        [cell.lblPrice setText:[NSString stringWithFormat:@"%@ %.2f",
+                                [[purchaseInfo objectForKey:@"info_circuit"] objectForKey:TAG_PACK_CIRCUIT_COIN],
+                                [valuePurchase floatValue]]];
+        
+        cellPriceSize = cellPriceSize + (20 * extraLine);
+        [cell rezise:extraLine roons:[purchaseInfo objectForKey:@"info_room"] coin:[[purchaseInfo objectForKey:@"info_circuit"] objectForKey:TAG_PACK_CIRCUIT_COIN]];
+        
         return cell;
     }
     return nil;
@@ -330,7 +405,7 @@
     BuyInfoPurchase *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyInfoPurchase" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor clearColor]];
     cell.tag = [indexPath row];
-    [cell startInfo:[[purchaseProduct objectForKey:@"valor"]floatValue]
+    [cell startInfo:[[listProduct objectForKey:TAG_BUY_PURCHASE_VALOR]floatValue]
              parcel:[[cardInfos objectForKey:PURCHASE_CARD_INFO_PACERLS]intValue]];
     
     [cell.btnPurchaseConfirm addTarget:self
@@ -379,7 +454,7 @@
 {
     [otlWait startAnimating];
     if ([BuyInfoCard validate:cardInfos]) {
-        if (![productValue isEqualToString:@""])
+        if (![productValue isEqualToString:@""] && [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT_RESERVE]objectForKey:TAG_BUY_PURCHASE_CODE_RESERVA] != nil)
             [self connectionBuy];
         else
             [self connectionBudget];
@@ -593,7 +668,7 @@
                                                                      stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         [_sexos      appendString:[NSString stringWithFormat:@"%@,",[[traveler objectForKey:CADASTRO_PERSON_GENDER]
                                                                      stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-        [_rgs        appendString:[NSString stringWithFormat:@" 1,"]];
+        [_rgs        appendString:[NSString stringWithFormat:@"1,"]];
         [_cpfs       appendString:[NSString stringWithFormat:@"%@,",[[traveler objectForKey:CADASTRO_PERSON_CPF]
                                                                      stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         [_emails     appendString:[NSString stringWithFormat:@"%@,",[[traveler objectForKey:CADASTRO_PERSON_MAIL]
@@ -601,30 +676,67 @@
         [_telefones  appendString:[NSString stringWithFormat:@"%@,",[[traveler objectForKey:CADASTRO_PERSON_FONE]
                                                                      stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     }
-
-    linkBudget = [NSString stringWithFormat:WS_URL_BUY_BUDGET_INFO,IDWS,
-                  KEY_CODE_ACTION, KEY_EMPTY, KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL,
-                  [purchaseProduct objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE],
-                  [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_START],
-                  [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_END],
-                  [purchaseProduct objectForKey:PURCHASE_DATA_TRAVEL_PAX],
-                  _nomes, _sobrenomes, _idades, _sexos,
-                  _rgs, _cpfs, _emails, _telefones,
-                  [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DESTINY],
-                  KEY_EMPTY, [[purchaseAllInfo objectForKey:PURCHASE_INFO_SELLER]objectForKey:@"codigoVendedor"]];
-    linkBudget = [NSString stringWithFormat:WS_URL, WS_URL_BUY_NEW_BUDGET, linkBudget];
+    
+    _nomes      = [[_nomes      substringToIndex:[_nomes length]-1]mutableCopy];
+    _sobrenomes = [[_sobrenomes substringToIndex:[_sobrenomes length]-1]mutableCopy];
+    _idades     = [[_idades     substringToIndex:[_idades length]-1]mutableCopy];
+    _sexos      = [[_sexos      substringToIndex:[_sexos length]-1]mutableCopy];
+    _rgs        = [[_rgs        substringToIndex:[_rgs length]-1]mutableCopy];
+    _cpfs       = [[_cpfs       substringToIndex:[_cpfs length]-1]mutableCopy];
+    _emails     = [[_emails     substringToIndex:[_emails length]-1]mutableCopy];
+    _telefones  = [[_telefones  substringToIndex:[_telefones length]-1]mutableCopy];
+    
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
+        linkBudget = [NSString stringWithFormat:WS_URL_BUY_BUDGET_INFO,IDWS,
+                      KEY_CODE_ACTION, KEY_EMPTY, KEY_CODE_SITE_TRAVEL, KEY_CODE_PORTAL,
+                      [purchaseProduct objectForKey:PURCHASE_DATA_TRAVEL_INFO_PLAN_CODE],
+                      [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_START],
+                      [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DATA_END],
+                      [purchaseProduct objectForKey:PURCHASE_DATA_TRAVEL_PAX],
+                      _nomes, _sobrenomes, _idades, _sexos,
+                      _rgs, _cpfs, _emails, _telefones,
+                      [[purchaseAllInfo objectForKey:PURCHASE_INFO_PRODUCT]  objectForKey:PURCHASE_DATA_TRAVEL_DESTINY],
+                      KEY_EMPTY, [myAgency objectForKey:TAG_USER_SELLER_CODE]];
+        linkBudget = [NSString stringWithFormat:WS_URL, WS_URL_BUY_NEW_BUDGET, linkBudget];
+    } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        
+        linkBudget = [NSString stringWithFormat:WS_URL_BUY_NEW_BUDGET_PACKAGE_INFO,
+                      KEY_CODE_SITE, @"23",
+                      [purchaseProduct objectForKey:@"codigo"],
+                      [purchaseProduct objectForKey:@"tipo_produto"],
+                      @"0",@"0",@"0",
+                      [purchaseProduct objectForKey:@"data_start"],
+                      [purchaseProduct objectForKey:@"data_start"],
+                      @"0",@"0",@"0",
+                      [purchaseProduct objectForKey:@"Numero_de_Viajantes"],
+                      [purchaseProduct objectForKey:@"ages"],
+                      [purchaseProduct objectForKey:@"SeqVlrPlano"]];
+        
+        
+        linkBudget = [NSString stringWithFormat:WS_URL, WS_URL_BUY_NEW_BUDGET_PACKAGE, linkBudget];
+    }
     [self startConnection:linkBudget step:1];
 }
 
 - (void)connectionInfoProduct
 {
-    linkProduct = [NSString stringWithFormat:WS_URL_BUY_PURCHASE_INFO,IDWS,
-                   KEY_CODE_SITE_TRAVEL,
-                   productID,
-                   KEY_CODE_STATUS,
-                   _nomes, _sobrenomes, _idades, _sexos,
-                   _rgs, _cpfs, _emails, _telefones,
-                   KEY_EMPTY];
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
+        linkProduct = [NSString stringWithFormat:WS_URL_BUY_PURCHASE_INFO,IDWS,
+                       KEY_CODE_SITE_TRAVEL,
+                       productID,
+                       KEY_CODE_STATUS,
+                       _nomes, _sobrenomes, _idades, _sexos,
+                       _rgs, _cpfs, _emails, _telefones,
+                       KEY_EMPTY];
+    } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        linkProduct = [NSString stringWithFormat:WS_URL_BUY_PURCHASE_INFO,IDWS,
+                       KEY_CODE_SITE_PACKAGE,
+                       productID,
+                       KEY_CODE_STATUS_PACKAGE,
+                       _nomes, _sobrenomes, _idades, _sexos,
+                       _rgs, _cpfs, _emails, _telefones,
+                       KEY_EMPTY];
+    }
     linkProduct = [NSString stringWithFormat:WS_URL, WS_URL_BUY_NEW_PURCHASE, linkProduct];
     [self startConnection:linkProduct step:2];
 }
@@ -632,19 +744,44 @@
 - (void)connectionBuy
 {
     [otlWait stopAnimating];
-    linkPurchase = [NSString stringWithFormat:WS_URL_BUY_REGISTER_INFO,
-                    IDWS,
-                    KEY_CODE_SITE_TRAVEL,
-                    [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT_RESERVE]objectForKey:TAG_BUY_PURCHASE_CODE_RESERVA],
-                    KEY_BUY_TYPE,
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_FLAG],
-                    productValue,
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_PACERLS],
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_NUMBER],
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_MONTH],
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_YEAR],
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_NAME],
-                    [cardInfos objectForKey:PURCHASE_CARD_INFO_COD]];
+    
+    NSDateFormatter *formatDateTMP   = [[NSDateFormatter alloc] init];
+    NSLocale *localeTMP              = [[NSLocale alloc] initWithLocaleIdentifier:@"pt_Br"];
+    [formatDateTMP setLocale:localeTMP];
+    [formatDateTMP setDateFormat:@"MM"];
+    NSDate *date    = [formatDateTMP dateFromString:[cardInfos objectForKey:PURCHASE_CARD_INFO_MONTH]];
+    NSString *month = [formatDateTMP stringFromDate:date];
+    
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
+        linkPurchase = [NSString stringWithFormat:WS_URL_BUY_REGISTER_INFO,
+                        IDWS,
+                        KEY_CODE_SITE_TRAVEL,
+                        [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT_RESERVE]objectForKey:TAG_BUY_PURCHASE_CODE_RESERVA],
+                        KEY_BUY_TYPE,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_FLAG],
+                        productValue,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_PACERLS],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_NUMBER],
+                        month,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_YEAR],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_NAME],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_COD]];
+    }else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        linkPurchase = [NSString stringWithFormat:WS_URL_BUY_REGISTER_INFO,
+                        IDWS,
+                        KEY_CODE_SITE_PACKAGE,
+                        [[purchaseAllData objectForKey:PURCHASE_INFO_PRODUCT_RESERVE]objectForKey:TAG_BUY_PURCHASE_CODE_RESERVA],
+                        KEY_BUY_TYPE,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_FLAG],
+                        productValue,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_PACERLS],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_NUMBER],
+                        month,
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_YEAR],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_NAME],
+                        [cardInfos objectForKey:PURCHASE_CARD_INFO_COD]];
+        
+    }
     linkPurchase = [NSString stringWithFormat:WS_URL, WS_URL_BUY_REGISTER, linkPurchase];
     [self startConnection:linkPurchase step:3];
 }
@@ -652,17 +789,22 @@
 #pragma mark - recive connection <Budget/Product/Buy>
 - (void)reciveBudget:(NSDictionary *)info
 {
-    listBudget = [@{ TAG_BUY_BUDGET_ORCAMENTO   : [info objectForKey:TAG_BUY_BUDGET_ORCAMENTO],
-                     TAG_BUY_BUDGET_PORTAL      : [info objectForKey:TAG_BUY_BUDGET_PORTAL],
-                     TAG_BUY_BUDGET_SITE        : [info objectForKey:TAG_BUY_BUDGET_SITE],
-                     TAG_BUY_BUDGET_DATA_START  : [info objectForKey:TAG_BUY_BUDGET_DATA_START],
-                     TAG_BUY_BUDGET_DATA_END    : [info objectForKey:TAG_BUY_BUDGET_DATA_END],
-                     TAG_BUY_BUDGET_MOEDA       : [info objectForKey:TAG_BUY_BUDGET_MOEDA],
-                     TAG_BUY_BUDGET_NOME_PORTAL : [info objectForKey:TAG_BUY_BUDGET_NOME_PORTAL],
-                     TAG_BUY_BUDGET_PROPOSTA    : [info objectForKey:TAG_BUY_BUDGET_PROPOSTA],
-                     } mutableCopy];
-    [purchaseAllData setObject:listBudget forKey:PURCHASE_INFO_BUDGET];
-    productID = [listBudget objectForKey:TAG_BUY_BUDGET_ORCAMENTO];
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]) {
+        listBudget = [@{ TAG_BUY_BUDGET_ORCAMENTO   : [info objectForKey:TAG_BUY_BUDGET_ORCAMENTO],
+                         TAG_BUY_BUDGET_PORTAL      : [info objectForKey:TAG_BUY_BUDGET_PORTAL],
+                         TAG_BUY_BUDGET_SITE        : [info objectForKey:TAG_BUY_BUDGET_SITE],
+                         TAG_BUY_BUDGET_DATA_START  : [info objectForKey:TAG_BUY_BUDGET_DATA_START],
+                         TAG_BUY_BUDGET_DATA_END    : [info objectForKey:TAG_BUY_BUDGET_DATA_END],
+                         TAG_BUY_BUDGET_MOEDA       : [info objectForKey:TAG_BUY_BUDGET_MOEDA],
+                         TAG_BUY_BUDGET_NOME_PORTAL : [info objectForKey:TAG_BUY_BUDGET_NOME_PORTAL],
+                         TAG_BUY_BUDGET_PROPOSTA    : [info objectForKey:TAG_BUY_BUDGET_PROPOSTA],
+                         } mutableCopy];
+        [purchaseAllData setObject:listBudget forKey:PURCHASE_INFO_BUDGET];
+        productID = [listBudget objectForKey:TAG_BUY_BUDGET_ORCAMENTO];
+    } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        productID = [info objectForKey:@"codigoOrcamento"];
+    }
+    
     [self connectionInfoProduct];
 }
 
@@ -697,23 +839,7 @@
         return;
     }
     
-    listSavePurchase = [AppFunctions PLIST_ARRAY_LOAD:PLIST_PURCHASES];
-    if (listSavePurchase == nil)
-        listSavePurchase = [AppFunctions PLIST_ARRAY_PATH:PLIST_PURCHASES type:@"plist"];
-    
-    [purchaseAllData setObject:VOLCHER forKey:PURCHASE_INFO_VOLCHER];
-    
-    [AppFunctions CLEAR_INFORMATION];
-    [AppFunctions SAVE_INFORMATION:purchaseAllData
-                               tag:PURCHASE];
-    
-    [self createVoucher:purchaseType];
-    
-    [AppFunctions LOG_MESSAGE:BUY_CARD_TITLE_SUCCESS
-                      message:[NSString stringWithFormat:BUY_CARD_MESSAGE_SUCCESS, [purchaseAllData objectForKey:PURCHASE_INFO_VOLCHER]]
-                       cancel:ERROR_BUTTON_CANCEL];
-    
-    [self performSegueWithIdentifier:STORY_BOARD_BUY_VOLCHER sender:self];
+    [self createVoucher:purchaseType voucher:VOLCHER];
 }
 
 #pragma mark - Connection <Budget/Product/Buy>
@@ -722,7 +848,7 @@
     NSDictionary *labelConnections;
     if (_step == 1)
         labelConnections = @{APP_CONNECTION_TAG_START  : BUY_POTA_CONNECTION_START,
-                             APP_CONNECTION_TAG_WAIT 	 : BUY_POTA_CONNECTION_WAIT,
+                             APP_CONNECTION_TAG_WAIT   : BUY_POTA_CONNECTION_WAIT,
                              APP_CONNECTION_TAG_RECIVE : BUY_POTA_CONNECTION_RECIVE,
                              APP_CONNECTION_TAG_FINISH : BUY_POTA_CONNECTION_FINISH,
                              APP_CONNECTION_TAG_ERROR  : BUY_POTA_CONNECTION_ERROR };
@@ -747,6 +873,10 @@
         else {
             
             NSString *TAG = TAG_BUY_BUDGET;
+            
+            if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
+                TAG = TAG_BUY_BUDGET_PACKAGE;
+            
             if (_step == 2)
                 TAG = TAG_BUY_PURCHASE;
             if (_step == 3)
@@ -786,9 +916,37 @@
 }
 
 #pragma mark - Create Voucher
-- (void) createVoucher:(NSString *)type
+- (void) createVoucher:(NSString *)type voucher:(NSString *)voucher
 {
+    [purchaseAllData setObject:voucher  forKey:PURCHASE_INFO_VOLCHER];
+    [purchaseAllData setObject:mySeller forKey:PURCHASE_INFO_SELLER];
+    [purchaseAllData setObject:myAgency forKey:PURCHASE_INFO_AGENCY];
     
+    listSavePurchase        = [AppFunctions PLIST_LOAD:PLIST_PURCHASES];
+    if (listSavePurchase == nil)
+        listSavePurchase = [AppFunctions PLIST_PATH:PLIST_PURCHASES type:@"plist"];
+    
+    [[listSavePurchase objectForKey:@"vouchers"] addObject:purchaseAllData];
+    [listSavePurchase writeToFile:[AppFunctions PLIST_SAVE:PLIST_PURCHASES] atomically:YES];
+    
+    [AppFunctions CLEAR_INFORMATION];
+    [AppFunctions SAVE_INFORMATION:purchaseAllData
+                               tag:PURCHASE];
+    
+    [AppFunctions LOG_MESSAGE:BUY_CARD_TITLE_SUCCESS
+                      message:[NSString stringWithFormat:BUY_CARD_MESSAGE_SUCCESS, [purchaseAllData objectForKey:PURCHASE_INFO_VOLCHER]]
+                       cancel:ERROR_BUTTON_CANCEL];
+    
+    [AppFunctions GO_TO_SCREEN:self destiny:STORY_BOARD_BUY_VOLCHER];
 }
+
+#pragma mark - Functions
+- (NSDictionary *)getInfos
+{
+    return @{ @"type"    : lblNextScreenType,
+              @"content" : purchaseAllData
+              };
+}
+
 
 @end

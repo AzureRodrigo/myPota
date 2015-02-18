@@ -45,8 +45,10 @@
 - (void)configHeader
 {
     seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
-    IDWS = [[seller objectForKey:PURCHASE_INFO_AGENCY]objectForKey:AGENCY_DATA_IDWS];
-    if ([IDWS isEqualToString:@""])
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
     
     listData = [[NSMutableDictionary alloc]initWithDictionary:[AppFunctions LOAD_INFORMATION:PACKAGE_INFO_DATA]];
@@ -58,25 +60,25 @@
 #pragma mark - configLinks
 - (void)configLinks
 {
-    linkCitysInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkCitysInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO,IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                         [infoCircuit objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT]];
     linkCitysInclude = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_CITYS, linkCitysInclude];
-    linkGeneralConditions = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkGeneralConditions = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO,IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                              [infoType objectForKey:TAG_PACK_COD_PORTAL]];
     linkGeneralConditions = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_CONDICTION, linkGeneralConditions];
-    linkImagesCircuits = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkImagesCircuits = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO, IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                           [infoCircuit objectForKey:TAG_PACK_CIRCUIT_TYPE_PRODUCT]];
     linkImagesCircuits = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_IMAGES, linkImagesCircuits];
-    linkDayForDay = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_DAY_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkDayForDay = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_DAY_INFO, IDWS,@"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                      [infoCircuit objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO]];
     linkDayForDay = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_DAY, linkDayForDay];
     
-    linkIsInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
+    linkIsInclude = [NSString stringWithFormat:WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO,IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT],
                      [infoCircuit objectForKey:TAG_PACK_CIRCUIT_DATE_PRODUTO]];
     linkIsInclude = [NSString stringWithFormat:WS_URL, WS_URL_INFO_CIRCUITS_ALL_INCLUDE, linkIsInclude];
     
     
-    linkDataCircuts =[NSString stringWithFormat:WS_URL_PACK_DATA_INFO, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT]];
+    linkDataCircuts =[NSString stringWithFormat:WS_URL_PACK_DATA_INFO,IDWS, @"4", [infoCircuit objectForKey:TAG_PACK_CIRCUIT_COD_PRODUCT]];
     linkDataCircuts = [NSString stringWithFormat:WS_URL, WS_URL_PACK_DATA, linkDataCircuts];
 }
 
@@ -296,7 +298,6 @@
 {
     p2_Package_Info_Cell_Button *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfo" forIndexPath:indexPath];
     
-    
     if([indexPath row] != 2)[cell.imgBar    setHidden:YES];
     if([indexPath row] == 2)[cell.imgDotBar setHidden:YES];
     
@@ -355,7 +356,7 @@
 #pragma mark - searchRoons
 - (void)setInfoRoons
 {
-    linkRoomCircuts =[NSString stringWithFormat:WS_URL_PACK_ROOM_INFO, @"4",
+    linkRoomCircuts =[NSString stringWithFormat:WS_URL_PACK_ROOM_INFO,IDWS, @"4",
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_COD_PLAN],
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_DATA_FORMATED],
                       [infoData objectForKey:PACKAGE_INFO_DATA_SEARCH_COD_TEMP],
@@ -548,8 +549,6 @@
 #pragma mark - Button confirm to Next Screen
 - (IBAction)btnConfirm:(UIButton *)sender
 {
-    NSLog(@"%@, %@",infoData, valuePurchase);
-    
     if ([[infoData objectForKey:@"DtaExtenso"] isEqualToString:@""]) {
         [AppFunctions LOG_MESSAGE:@"Nenhuma data foi escolhida."
                           message:@"Para continuar, escolha uma data."
@@ -565,12 +564,68 @@
         return;
     }
     
-//    [AppFunctions LOG_MESSAGE:@"Dados corretos."
-//                      message:@"A tela de cadastro de viajantes está sendo feita ainda."
-//                       cancel:ERROR_BUTTON_CANCEL];
+    NSMutableArray *selectRoons = [NSMutableArray new];
+    int pax = 0;
+    for (NSDictionary *tmp in roons) {
+        if ([[tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue] > 0) {
+            pax += [[tmp objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_QTD_PEOPLE]intValue] * [[tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue];
+            [selectRoons addObject:tmp];
+        }
+    }
     
-    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_R0];
+    NSString *paxNumber = [NSString stringWithFormat:@"%d", pax];
+    purchaseData = [ @{ PURCHASE_INFO_PRODUCT : @{ PURCHASE_DATA_TRAVEL_PAX : paxNumber,
+                                                   @"info_data"       : infoData,
+                                                   @"info_room"       : selectRoons,
+                                                   @"info_circuit"    : infoCircuit,
+                                                   @"link_cyties"     : linkCitysInclude,
+                                                   @"link_days"       : linkDayForDay,
+                                                   @"link_info"       : linkIsInclude,
+                                                   @"link_conditions" : linkGeneralConditions,
+                                                   @"link_images"     : linkImagesCircuits
+                                                   },
+                        @"type"               : PURCHASE_TYPE_PACKGE
+                        }mutableCopy];
+ 
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.delegate  = self;
+    HUD.labelText = @"Carregando Dados.";
+    [HUD show:YES];
+    [self loadContract];
+}
+
+- (void)loadContract
+{
+    HUD.labelText = @"Carregando Contrato.";
     
+    [appConnection START_CONNECT:linkGeneralConditions timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
+        if (result == nil) {
+            [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
+                              message:ERROR_1013_MESSAGE
+                               cancel:ERROR_BUTTON_CANCEL];
+        } else {
+            NSDictionary *allError  = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:@"Erro"];
+            for (NSString *tmp in [allError objectForKey:@"CodErro"])
+            {
+                [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
+                                  message:tmp
+                                   cancel:ERROR_BUTTON_CANCEL];
+                return;
+            }
+            NSDictionary *allPlans  = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:@"string"];
+            
+            [purchaseData setObject:[allPlans objectForKey:@"string"] forKey:PURCHASE_INFO_PURCHASE_CONTRACT];
+            
+            [AppFunctions CLEAR_INFORMATION];
+            [AppFunctions SAVE_INFORMATION:purchaseData
+                                       tag:PURCHASE];
+            [HUD hide:YES];
+            [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P2_TO_R0];
+            
+        }
+    }];
 }
 
 @end

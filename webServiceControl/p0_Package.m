@@ -175,6 +175,11 @@
     [self searchCircuits:2 index:(int)[indexPath row]];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [textDestiny resignFirstResponder];
+}
+
 #pragma mark - search circuits
 - (void)searchCircuits:(int)type index:(int)index
 {

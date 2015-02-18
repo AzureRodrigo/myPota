@@ -173,10 +173,11 @@
     [self->tableViewData reloadData];
 }
 
-- (void)scrollTap:(UIGestureRecognizer*)gestureRecognizer
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.view endEditing:YES];
+    [searchBarData resignFirstResponder];
 }
+
 
 #pragma mark -backScreen
 - (void)backScreen

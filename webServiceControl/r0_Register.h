@@ -34,7 +34,7 @@
 #define CADASTRO_NEXT_SCREEN_PACK_DAY   @"goTo PACK Dia a Dia"
 
 #define SIZE_CELL_HEIGHT_TAG_0_CLOSE 40
-#define SIZE_CELL_HEIGHT_TAG_0_OPEN  515
+#define SIZE_CELL_HEIGHT_TAG_0_OPEN  473
 
 #define SIZE_START 158
 #define SIZE_PLUS  20
@@ -51,6 +51,7 @@
     IBOutlet UITableView *tableViewData;
     NSString             *lblTitlePurchase;
     NSString             *lblTitleConfirm;
+    int                  cellPriceSize;
 
 #pragma mark - Next Screen Info
     NSString             *lblNextScreenType;
@@ -65,6 +66,7 @@
     
 #pragma mark - textView
     UITextField          *txtViewSelected;
+    CGRect               frameView;
 }
 
 #pragma mark - function for next screen

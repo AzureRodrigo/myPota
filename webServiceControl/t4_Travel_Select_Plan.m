@@ -147,7 +147,6 @@
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeIndeterminate;
-//    HUD.dimBackground = YES;
     HUD.delegate  = self;
     HUD.labelText = @"Carregando Dados.";
     [HUD show:YES];
@@ -295,7 +294,6 @@
                 
                 return (NSComparisonResult)NSOrderedSame;
             }];
-            
             
             [tableViewData reloadData];
         }

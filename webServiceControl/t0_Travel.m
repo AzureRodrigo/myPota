@@ -16,6 +16,7 @@
     NSDate *toDay    = [[NSDate new] dateByAddingTimeInterval:60*60*24*1];
     NSDate *toMorrow = [toDay dateByAddingTimeInterval:60*60*24*1];
     [self setDateTravel:toDay end:toMorrow];
+    
     [super viewDidLoad];
 }
 

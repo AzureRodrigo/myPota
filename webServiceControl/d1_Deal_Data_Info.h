@@ -13,14 +13,18 @@
 
 @interface d1_Deal_Data_Info : UIViewController <UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate>
 {
-    IBOutlet UILabel     *lblTitle;
     IBOutlet UITableView *tableViewData;
     IBOutlet UIWebView   *webView;
-    NSArray              *listInfo;
     NSMutableDictionary  *infoData;
     
-    d0_Deal_Data         *backScreen;
-    NSString             *typeScreen;
+    NSArray              *tableList;
+    int                  tableOn;
+    int                  tableCellSize;
+    
+    id                    backScreen;
+    NSString              *typeScreen;
+    NSString              *typeProduct;
+    NSDictionary          *dataScreen;
 }
 
 @end

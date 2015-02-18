@@ -18,7 +18,7 @@
 #define SIZE_START 97
 #define SIZE_PLUS  20
 
-@interface p2_Package_Info : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface p2_Package_Info : UIViewController <UITableViewDataSource, UITableViewDelegate,MBProgressHUDDelegate>
 {
     //Header
 //    IBOutlet UIButton *circuitImage;
@@ -32,7 +32,7 @@
     //lists
     NSDictionary         *listData;
     NSDictionary         *infoType;
-    NSMutableDictionary         *infoCircuit;
+    NSMutableDictionary  *infoCircuit;
     
     NSArray              *titles;
     NSMutableArray       *roons;
@@ -61,7 +61,8 @@
     NSString *htmlDayForDay;
     
     //LinkNextScre
-    NSString *nextLink;
+    NSString                *nextLink;
+    MBProgressHUD           *HUD;
 }
 
 - (NSString *)getSelected;

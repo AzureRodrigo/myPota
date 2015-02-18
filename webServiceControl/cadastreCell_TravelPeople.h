@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnHideShow;
 @property bool hide;
 @property (strong, nonatomic) IBOutlet UIImageView *imgLineHide;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBottonHide;
 
 - (void)startCell:(id)_delegate done:(SEL)_done cancel:(SEL)_cancel id:(int)_id traveller:(NSDictionary *)_traveller;
 

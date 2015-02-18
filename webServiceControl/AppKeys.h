@@ -79,6 +79,7 @@
 #define KEY_CODE_PORTAL                     @"1"
 #define KEY_CODE_ACTION                     @"I"
 #define KEY_CODE_STATUS                     @"P"
+#define KEY_CODE_STATUS_PACKAGE             @"PR"
 #define KEY_CODE_COUNTRY                    @"1"
 #define KEY_BUY_TYPE                        @"CRE"
 #define KEY_CODE_AGENCY                     @""
@@ -87,6 +88,7 @@
 #define KEY_EMPTY                           @""
 #define KEY_ID_WS                           @"TESTE_WS_SCHULTZ"
 #define KEY_CODE_SITE_TRAVEL                @"1"
+#define KEY_CODE_SITE_PACKAGE               @"4"
 #define KEY_CODE_PORTAL_TRAVEL              @"1"
 #define KEY_CODE_AREA_TRAVEL                @"4"
 #define KEY_ID_WS_TRAVEL                    @"TESTE_WS_VITALCARD"
@@ -359,6 +361,7 @@
 #define CADASTRO_PERSON_FONE        @"Fone"
 #define CADASTRO_PERSON_OBSERVER    @"Observer"
 #define CADASTRO_PERSON_RECIVE_MAIL @"ReciveMail"
+#define CADASTRO_PERSON_ROOM_TYPE   @"room_select"
 #define CADASTRO_PERSON_HIDE        @"Hide"
 
 #define PURCHASE_CARD_INFO_PACERLS  @"1"

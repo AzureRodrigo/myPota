@@ -112,7 +112,7 @@
 #pragma mark - connection
 - (void) startConnection
 {
-    [lblLoad setText:@"Procurando informações ..."];
+    [lblLoad setText:@"Carregando informações aguarde."];
     [self->connection   cancel];
     link                = [NSString stringWithFormat:WS_URL_TRAVEL_INFO, IDWS, KEY_CODE_SITE_TRAVEL,
                            KEY_CODE_PRODUCT_TRAVEL, planSELECT.codigoPlano];

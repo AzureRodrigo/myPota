@@ -219,6 +219,7 @@
 {
     if ([self->searchBarData.text isEqualToString:@""])
         [self->searchBarData setText:@"Pesquisar"];
+    [self controllSearchData];
     [txtViewSelected resignFirstResponder];
 }
 
@@ -274,15 +275,15 @@
     [self->tableViewData reloadData];
 }
 
-- (void)scrollTap:(UIGestureRecognizer*)gestureRecognizer
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.view endEditing:YES];
+    [searchBarData resignFirstResponder];
 }
 
 #pragma mark - Filter Change
 - (void)controllSearchData
 {
-    
+    [self SearchData:searchBarData.text];
 }
 
 - (IBAction)btnFilter:(id)sender

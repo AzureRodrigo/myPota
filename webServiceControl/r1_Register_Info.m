@@ -51,9 +51,6 @@
     backScreen     = (r0_Register *)[AppFunctions BACK_SCREEN:self number:1];
     typeScreen     = [backScreen getTypeInfoScreen];
     
-    
-    NSLog(@"%@",typeScreen);
-    
     infoData       = [[NSMutableDictionary alloc]initWithDictionary:[AppFunctions LOAD_INFORMATION:PURCHASE]];
     listInfo       = [infoData objectForKey:PURCHASE_INFO_PURCHASE_DETAILS];
     if ([typeScreen isEqualToString:CADASTRO_NEXT_SCREEN_COBERTURAS]){

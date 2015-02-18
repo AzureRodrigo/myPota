@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCPF;
 
 - (void)startInfo:(NSString *)_ID name:(NSString *)_name age:(NSString *)_age mail:(NSString *)_mail fone:(NSString *)_fone cpf:(NSString *)_cpf;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBottomBar;
 
 @end

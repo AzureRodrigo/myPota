@@ -40,6 +40,7 @@
 #define WS_URL_TRAVEL_DESTINYS_TYPE    		[NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/ConsultaTipoProdutoSeguro?"]
 
 #define WS_URL_BUY_NEW_BUDGET   			[NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/CriaOrcamento?"]
+#define WS_URL_BUY_NEW_BUDGET_PACKAGE   	[NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/CriaOrcamentoRoteiro?"]
 #define WS_URL_BUY_NEW_PURCHASE 			[NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/CriaReservaPedido?"]
 #define WS_URL_BUY_REGISTER     			[NSString stringWithFormat:WS_URL, WS_URL_POTA,      @"/ws.asmx/RegistraPagamento?"]
 
@@ -83,6 +84,7 @@
 #define WS_URL_BUY_BUDGET_INFO    			@"IdWS=%@&Acao=%@&CodOrcamento=%@&CodSite=%@&CodPortal=%@&CodProduto=%@&DtaInicio=%@&DtaFim=%@&QtdViajantes=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&DscDestino=%@&InfComplementar=%@&CodVendedor=%@"
 #define WS_URL_BUY_PURCHASE_INFO  			@"IdWS=%@&CodSite=%@&CodOrcamento=%@&Status=%@&NomeViajantes=%@&SobrenomeViajantes=%@&IdadeViajantes=%@&SexoViajantes=%@&RGViajantes=%@&CPFViajantes=%@&EmailViajante=%@&TelefoneViajante=%@&Faturado=%@"
 #define WS_URL_BUY_REGISTER_INFO            @"IdWS=%@&CodSite=%@&CodPedido=%@&TpoPagamento=%@&IdBandeira=%@&VlrPagamento=%@&QtdParcelas=%@&NumCartao=%@&MesValidade=%@&AnoValidade=%@&NomPortador=%@&CodVerificacao=%@"
+#define WS_URL_BUY_NEW_BUDGET_PACKAGE_INFO  @"CodSite=%@&CodPortal=%@&CodPlano=%@&TpoProduto=%@&QtdDiasAjusteIni=%@&QtdDiasAjusteFim=%@&DadosAereo=%@&DtaInicio=%@&DtaInicioPadraoRoteiro=%@&IndAereo=%@&CodPlanoAereo=%@&IndCruzeiro=%@&QtdViajante=%@&IdadesViajantes=%@&SeqVlrPlano=%@"
 
 #define WS_URL_CADASTRO_PERFIL              @"codigoConsumidor=%@&nomeConsumidor=%@&emailConsumidor=%@&cpfConsumidor=%@&cepConsumidor=%@&senhaConsumidor=%@&dataNascimentoConsumidor=%@&chaveAcesso=%@&tipoRetorno=XML&tipoAcesso=M"
 
@@ -90,15 +92,15 @@
 
 #define WS_URL_PACK_TYPES_INFO             	@"IdWS=%@&CodSite=%@&CodPortal=%@&CodGrupoArea=1"
 #define WS_URL_PACK_CIRCUITS_INFO           @"IdWS=%@&CodSite=%@&CodPortal=%@&CodArea=%@&DscPesquisa=%@&OrdColuna=%@&OrdAscendencia=%@"
-#define WS_URL_PACK_DATA_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@"
-#define WS_URL_PACK_ROOM_INFO               @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
+#define WS_URL_PACK_DATA_INFO               @"IdWS=%@&CodSite=%@&CodProduto=%@"
+#define WS_URL_PACK_ROOM_INFO               @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@&CodTemporada=%@&CodTipoTemportada=%@&TpoProduto=%@&IndAereo=%@&CodPlanoAereo=%@"
 
 
-#define WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO      @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&TpoProduto=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&CodPortal=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO     @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&TpoProduto=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_DAY_INFO        @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
-#define WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO    @"IdWS=TESTE_WS_VITALCARD&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_CITYS_INFO      @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_CONDICTION_INFO @"IdWS=%@&CodSite=%@&CodProduto=%@&CodPortal=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_IMAGES_INFO     @"IdWS=%@&CodSite=%@&CodProduto=%@&TpoProduto=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_DAY_INFO        @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
+#define WS_URL_INFO_CIRCUITS_ALL_INCLUDE_INFO    @"IdWS=%@&CodSite=%@&CodProduto=%@&DtaSelecionada=%@"
 
 #define WS_URL_CHAT_SEND_MESSAGE_INFO            @"codigoVendedor=%@&codigoConsumidor=%@&tipoMensagem=%@&descricaoMensagem=%@"
 #define WS_URL_CHAT_RECIVE_MESSAGE_INFO          @"codigoVendedor=%@&codigoConsumidor=%@&indEntregue=%@"
@@ -146,6 +148,7 @@
 #define TAG_PACK_TYPE_AREA                  @"TpoArea"
 
 #define TAG_BUY_BUDGET              		@"Orcamento"
+#define TAG_BUY_BUDGET_PACKAGE              @"codigoOrcamento"
 #define TAG_BUY_BUDGET_ERRO 	  			@"CodErro"
 #define TAG_BUY_BUDGET_ORCAMENTO  			@"CodOrcamento"
 #define TAG_BUY_BUDGET_PORTAL	  			@"CodPortal"

@@ -1,5 +1,4 @@
-
-//  ;
+//  d0_Deal_Data.h
 //  myPota
 //
 //  Created by Rodrigo Pimentel on 11/08/14.
@@ -16,6 +15,7 @@
 #import "BuyInfoTravellers.h"
 #import "BuyInfoEnd.h"
 #import "BuyInfoPurchase.h"
+#import "p2_Package_Info_Cell_Price.h"
 
 #import "Vendedor.h"
 
@@ -24,7 +24,7 @@
 
 #define CADASTRO_NEXT_SCREEN_SECURE     @"goTo Segurança"
 #define CADASTRO_NEXT_SCREEN_COBERTURAS @"goTo Coberturas"
-#define CADASTRO_NEXT_SCREEN_CONDICOES  @"goTo Condições"
+#define CADASTRO_NEXT_SCREEN_CONDICOES  @"Condições Gerais"
 
 
 @interface d0_Deal_Data : UIViewController <UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
@@ -41,6 +41,9 @@
     NSArray                 *listInfoDataEnd;
     NSMutableDictionary     *cardInfos;
     NSDictionary            *myAgency;
+    NSDictionary            *mySeller;
+    NSMutableDictionary     *purchaseInfo;
+    int                     cellPriceSize;
     
     
 #pragma mark - Screen Data
@@ -76,7 +79,9 @@
     NSMutableString *_telefones;
     
 #pragma mark - Save Purchase
-    NSMutableArray *listSavePurchase;
+    NSMutableDictionary *listSavePurchase;
 }
+
+- (NSDictionary *)getInfos;
 
 @end

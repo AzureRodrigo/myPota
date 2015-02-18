@@ -133,7 +133,7 @@
 		C748B9681A2F8F9000726876 /* p4_Packages_Data.m in Sources */ = {isa = PBXBuildFile; fileRef = C748B9671A2F8F9000726876 /* p4_Packages_Data.m */; };
 		C749F1B318CA4D8E00537BFD /* HotelOccupation.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F1B218CA4D8E00537BFD /* HotelOccupation.m */; };
 		C749F1B618CA51C600537BFD /* HotelSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F1B518CA51C600537BFD /* HotelSearchData.m */; };
-		C74E8F0819A630980059D752 /* voucherListPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C74E8F0719A630980059D752 /* voucherListPota.m */; };
+		C74E8F0819A630980059D752 /* v1_Voucher_List.m in Sources */ = {isa = PBXBuildFile; fileRef = C74E8F0719A630980059D752 /* v1_Voucher_List.m */; };
 		C74EA1491A8050FB009AEC3D /* c2_Agente_Chat_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C74EA1481A8050FB009AEC3D /* c2_Agente_Chat_Cell.m */; };
 		C74FA8B0197406B7002A1590 /* navBar03.png in Resources */ = {isa = PBXBuildFile; fileRef = C74FA8AF197406B7002A1590 /* navBar03.png */; };
 		C74FA8B419740B50002A1590 /* numberAdults.png in Resources */ = {isa = PBXBuildFile; fileRef = C74FA8B219740B50002A1590 /* numberAdults.png */; };
@@ -200,7 +200,7 @@
 		C774078319006DBF005E8817 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = C774078219006DBF005E8817 /* img.png */; };
 		C774078719006E0A005E8817 /* hotelPotaListResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C774078619006E0A005E8817 /* hotelPotaListResult.m */; };
 		C777EA9A19BF75FF002918B4 /* agentePerfilPotaCellConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = C777EA9919BF75FF002918B4 /* agentePerfilPotaCellConfirm.m */; };
-		C77D8BD7199A85DD000FA914 /* volcherPota.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BD6199A85DD000FA914 /* volcherPota.m */; };
+		C77D8BD7199A85DD000FA914 /* v0_Voucher_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BD6199A85DD000FA914 /* v0_Voucher_Info.m */; };
 		C77D8BD9199A86D7000FA914 /* navBar08.png in Resources */ = {isa = PBXBuildFile; fileRef = C77D8BD8199A86D7000FA914 /* navBar08.png */; };
 		C77D8BDF199A99A0000FA914 /* r1_Register_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BDE199A99A0000FA914 /* r1_Register_Info.m */; };
 		C77D8BE3199A9B9C000FA914 /* r1_Register_Info_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D8BE2199A9B9C000FA914 /* r1_Register_Info_Cell.m */; };
@@ -237,6 +237,7 @@
 		C78D9A2019FE792F00AE081A /* p1_Package_Sel_Type.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A1F19FE792F00AE081A /* p1_Package_Sel_Type.m */; };
 		C78D9A2319FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2219FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m */; };
 		C78D9A2819FED3AD00AE081A /* p2_Package_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = C78D9A2719FED3AD00AE081A /* p2_Package_Info.m */; };
+		C78E90FA1A94E01000485232 /* v0_Voucher_Info_Package_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E90F91A94E01000485232 /* v0_Voucher_Info_Package_Cell.m */; };
 		C78EBF5418D32FE400B74AFA /* hotelPotaDestiny.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5318D32FE400B74AFA /* hotelPotaDestiny.m */; };
 		C78EBF5818D3424F00B74AFA /* hotelDestinyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5718D3424F00B74AFA /* hotelDestinyCell.m */; };
 		C78EBF5B18D343A200B74AFA /* HotelSeachCidades.m in Sources */ = {isa = PBXBuildFile; fileRef = C78EBF5A18D343A200B74AFA /* HotelSeachCidades.m */; };
@@ -597,8 +598,8 @@
 		C749F1B218CA4D8E00537BFD /* HotelOccupation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelOccupation.m; sourceTree = "<group>"; };
 		C749F1B418CA51C600537BFD /* HotelSearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelSearchData.h; sourceTree = "<group>"; };
 		C749F1B518CA51C600537BFD /* HotelSearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelSearchData.m; sourceTree = "<group>"; };
-		C74E8F0619A630980059D752 /* voucherListPota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voucherListPota.h; sourceTree = "<group>"; };
-		C74E8F0719A630980059D752 /* voucherListPota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = voucherListPota.m; sourceTree = "<group>"; };
+		C74E8F0619A630980059D752 /* v1_Voucher_List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v1_Voucher_List.h; sourceTree = "<group>"; };
+		C74E8F0719A630980059D752 /* v1_Voucher_List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v1_Voucher_List.m; sourceTree = "<group>"; };
 		C74EA1471A8050FB009AEC3D /* c2_Agente_Chat_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c2_Agente_Chat_Cell.h; sourceTree = "<group>"; };
 		C74EA1481A8050FB009AEC3D /* c2_Agente_Chat_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = c2_Agente_Chat_Cell.m; sourceTree = "<group>"; };
 		C74FA8AF197406B7002A1590 /* navBar03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar03.png; sourceTree = "<group>"; };
@@ -684,8 +685,8 @@
 		C774078619006E0A005E8817 /* hotelPotaListResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotelPotaListResult.m; sourceTree = "<group>"; };
 		C777EA9819BF75FF002918B4 /* agentePerfilPotaCellConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = agentePerfilPotaCellConfirm.h; sourceTree = "<group>"; };
 		C777EA9919BF75FF002918B4 /* agentePerfilPotaCellConfirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = agentePerfilPotaCellConfirm.m; sourceTree = "<group>"; };
-		C77D8BD5199A85DD000FA914 /* volcherPota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = volcherPota.h; sourceTree = "<group>"; };
-		C77D8BD6199A85DD000FA914 /* volcherPota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = volcherPota.m; sourceTree = "<group>"; };
+		C77D8BD5199A85DD000FA914 /* v0_Voucher_Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v0_Voucher_Info.h; sourceTree = "<group>"; };
+		C77D8BD6199A85DD000FA914 /* v0_Voucher_Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v0_Voucher_Info.m; sourceTree = "<group>"; };
 		C77D8BD8199A86D7000FA914 /* navBar08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar08.png; sourceTree = "<group>"; };
 		C77D8BDD199A99A0000FA914 /* r1_Register_Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r1_Register_Info.h; sourceTree = "<group>"; };
 		C77D8BDE199A99A0000FA914 /* r1_Register_Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = r1_Register_Info.m; sourceTree = "<group>"; };
@@ -738,6 +739,8 @@
 		C78D9A2219FE7A5C00AE081A /* p1_Package_Sel_Type_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p1_Package_Sel_Type_Cell.m; sourceTree = "<group>"; };
 		C78D9A2619FED3AD00AE081A /* p2_Package_Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info.h; sourceTree = "<group>"; };
 		C78D9A2719FED3AD00AE081A /* p2_Package_Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info.m; sourceTree = "<group>"; };
+		C78E90F81A94E01000485232 /* v0_Voucher_Info_Package_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v0_Voucher_Info_Package_Cell.h; sourceTree = "<group>"; };
+		C78E90F91A94E01000485232 /* v0_Voucher_Info_Package_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v0_Voucher_Info_Package_Cell.m; sourceTree = "<group>"; };
 		C78EBF5218D32FE400B74AFA /* hotelPotaDestiny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelPotaDestiny.h; sourceTree = "<group>"; };
 		C78EBF5318D32FE400B74AFA /* hotelPotaDestiny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotelPotaDestiny.m; sourceTree = "<group>"; };
 		C78EBF5618D3424F00B74AFA /* hotelDestinyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotelDestinyCell.h; sourceTree = "<group>"; };
@@ -1888,29 +1891,29 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		C74E8F0119A630590059D752 /* volcher */ = {
+		C74E8F0119A630590059D752 /* v0 voucher info */ = {
 			isa = PBXGroup;
 			children = (
-				C7A9FEE119A2324800737E48 /* cells */,
 				C7A9FEE019A2322F00737E48 /* main */,
+				C7A9FEE119A2324800737E48 /* cells */,
 			);
-			name = volcher;
+			name = "v0 voucher info";
 			sourceTree = "<group>";
 		};
-		C74E8F0319A6306B0059D752 /* list volchers */ = {
+		C74E8F0319A6306B0059D752 /* v1 voucher list */ = {
 			isa = PBXGroup;
 			children = (
-				C74E8F0519A6307A0059D752 /* cell */,
 				C74E8F0419A630750059D752 /* main */,
+				C74E8F0519A6307A0059D752 /* cell */,
 			);
-			name = "list volchers";
+			name = "v1 voucher list";
 			sourceTree = "<group>";
 		};
 		C74E8F0419A630750059D752 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C74E8F0619A630980059D752 /* voucherListPota.h */,
-				C74E8F0719A630980059D752 /* voucherListPota.m */,
+				C74E8F0619A630980059D752 /* v1_Voucher_List.h */,
+				C74E8F0719A630980059D752 /* v1_Voucher_List.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2266,8 +2269,8 @@
 		C77D8BD4199A845B000FA914 /* v0 voucher */ = {
 			isa = PBXGroup;
 			children = (
-				C74E8F0319A6306B0059D752 /* list volchers */,
-				C74E8F0119A630590059D752 /* volcher */,
+				C74E8F0319A6306B0059D752 /* v1 voucher list */,
+				C74E8F0119A630590059D752 /* v0 voucher info */,
 			);
 			name = "v0 voucher";
 			sourceTree = "<group>";
@@ -2668,6 +2671,15 @@
 			name = cells;
 			sourceTree = "<group>";
 		};
+		C78E90F71A94DFB900485232 /* v0 voucher info package cell */ = {
+			isa = PBXGroup;
+			children = (
+				C78E90F81A94E01000485232 /* v0_Voucher_Info_Package_Cell.h */,
+				C78E90F91A94E01000485232 /* v0_Voucher_Info_Package_Cell.m */,
+			);
+			name = "v0 voucher info package cell";
+			sourceTree = "<group>";
+		};
 		C78EBF5518D3422900B74AFA /* custom cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2978,8 +2990,8 @@
 		C7A9FEE019A2322F00737E48 /* main */ = {
 			isa = PBXGroup;
 			children = (
-				C77D8BD5199A85DD000FA914 /* volcherPota.h */,
-				C77D8BD6199A85DD000FA914 /* volcherPota.m */,
+				C77D8BD5199A85DD000FA914 /* v0_Voucher_Info.h */,
+				C77D8BD6199A85DD000FA914 /* v0_Voucher_Info.m */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -2987,6 +2999,7 @@
 		C7A9FEE119A2324800737E48 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				C78E90F71A94DFB900485232 /* v0 voucher info package cell */,
 				C7A9FEEE19A24D7600737E48 /* cell seller data */,
 				C7A9FEEA19A23E8400737E48 /* cell Traveller */,
 				C7A9FEE619A239F000737E48 /* cell plan */,
@@ -3911,6 +3924,7 @@
 				C7621B85192F8A150058956E /* DSLCalendarDayView.m in Sources */,
 				C78D9A2019FE792F00AE081A /* p1_Package_Sel_Type.m in Sources */,
 				C735BEC91A6E8D350019958C /* b9_User_Cadastre.m in Sources */,
+				C78E90FA1A94E01000485232 /* v0_Voucher_Info_Package_Cell.m in Sources */,
 				C78D9A2819FED3AD00AE081A /* p2_Package_Info.m in Sources */,
 				C72402E219409671006A9535 /* I0_Perfil_Data.m in Sources */,
 				C794E1521921535200E3FCD7 /* travelPlans.m in Sources */,
@@ -3949,7 +3963,7 @@
 				C7025B5718C78A1D000A22B9 /* Agencias.m in Sources */,
 				C73CBA6118FF1FB1000A6746 /* AzCalendar.m in Sources */,
 				C768D3BC1917C197009DA411 /* hotelCalendar.m in Sources */,
-				C74E8F0819A630980059D752 /* voucherListPota.m in Sources */,
+				C74E8F0819A630980059D752 /* v1_Voucher_List.m in Sources */,
 				C7452F9318A41F7800F2946B /* AppDelegate.m in Sources */,
 				C7E358D719619C37000FFB94 /* menuCell.m in Sources */,
 				C72FDD3419992A6B004941A4 /* BuyInfoEnd.m in Sources */,
@@ -3996,7 +4010,7 @@
 				C7C91B5019A3C80A004D0B30 /* s0_Split_Menu_Cell.m in Sources */,
 				C7362EFA1A07F4DF003A0D77 /* PageContentViewController.m in Sources */,
 				C7452F8F18A41F7800F2946B /* main.m in Sources */,
-				C77D8BD7199A85DD000FA914 /* volcherPota.m in Sources */,
+				C77D8BD7199A85DD000FA914 /* v0_Voucher_Info.m in Sources */,
 				C7C9B081199511FA0004BE1C /* cadastreCell_Confirm.m in Sources */,
 				C7A32BFD18F5B31200130FE9 /* b8_User_Search_Agent.m in Sources */,
 				C77D8BDF199A99A0000FA914 /* r1_Register_Info.m in Sources */,

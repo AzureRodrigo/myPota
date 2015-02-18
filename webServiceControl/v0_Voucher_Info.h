@@ -15,6 +15,9 @@
 #import "BuyInfoEnd.h"
 
 #import "voucherPotaSellerData.h"
+#import "p2_Package_Info_Cell_Price.h"
+#import "p2_Package_Info_Cell_Button.h"
+#import "v0_Voucher_Info_Package_Cell.h"
 
 #define INFO_TITLE          @"title"
 #define INFO_SCREEN         @"path"
@@ -23,7 +26,7 @@
 #define CADASTRO_NEXT_SCREEN_COBERTURAS @"goTo Coberturas"
 #define CADASTRO_NEXT_SCREEN_CONDICOES  @"goTo Condições"
 
-@interface volcherPota : UIViewController <UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate>
+@interface v0_Voucher_Info : UIViewController <UITableViewDelegate, UITableViewDataSource,  UITextFieldDelegate>
 {
     NSMutableDictionary  *purchaseData;
     NSString             *purchaseType;
@@ -39,10 +42,11 @@
     NSMutableDictionary  *listPurchaseData;
     NSArray              *purchaseDetails;
     IBOutlet UITableView *tableData;
+    int                  cellPriceSize;
     //info  Screen
     NSString *lblNextScreenType;
 }
 
-- (NSString *)getTypeInfoScreen;
+- (NSDictionary *)getInfos;
 
 @end
