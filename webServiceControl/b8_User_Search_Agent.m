@@ -287,8 +287,8 @@
     
     NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
                               IDWS,@"4",
+                              [agenteInfo objectForKey:TAG_B1_USER_SELLER_MAIL],
                               [user objectForKey:TAG_USER_PERFIL_MAIL],
-                              @"rodrigoazurex@gmail.com",//[agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
                               @"MyPota - Confirmação de Cadastro",
                               mail,@"",@"" ];
     
@@ -318,7 +318,7 @@
     NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
                               IDWS,@"4",
                               [user objectForKey:TAG_USER_PERFIL_MAIL],
-                              @"rodrigoazurex@gmail.com",//[agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
+                              [agenteInfo objectForKey:TAG_B1_USER_SELLER_MAIL],
                               @"MyPota - Registro de Consumidor",
                               mail,@"",@"" ];
     
