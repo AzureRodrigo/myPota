@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface b0_User_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate>
+@interface b0_User_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextField       *txtMail;
     IBOutlet UITextField       *txtPassword;
@@ -20,6 +20,7 @@
     //DataBase
     NSMutableDictionary        *user;
     NSFetchedResultsController *fetch;
+    MBProgressHUD           *HUD;
 }
 
 

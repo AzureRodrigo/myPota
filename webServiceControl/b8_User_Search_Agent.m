@@ -112,11 +112,11 @@
     choiceVendedorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Vendedor *tmp = [listVendedoresSearch objectAtIndex:[indexPath row]];
     [cell.lblName  setText:[[tmp.data objectForKey:@"nomeVendedor"] uppercaseString]];
-
+    
     if ([[tmp.data objectForKey:@"sexoVendedor"] isEqualToString:@"F"])
         [cell.otlImage setImage:[UIImage imageNamed:@"btnSearchAgentF.png"]];
     else
-                [cell.otlImage setImage:[UIImage imageNamed:@"btnSearchAgentM.png"]];
+        [cell.otlImage setImage:[UIImage imageNamed:@"btnSearchAgentM.png"]];
     
     if ([cell.lblName.text isEqualToString:@"Qualquer Agente"])
     {
@@ -147,13 +147,15 @@
     
     link = [NSString stringWithFormat:WS_URL, WS_URL_SELLER, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : CODE_POTA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Registrando escolha.";
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil)
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
@@ -257,11 +259,75 @@
     [dataBD setValue:[agenteInfo objectForKey:TAG_B1_USER_AGENCY_URL]             forKey:TAG_USER_AGENCY_URL];
     
     if ([AppFunctions DATA_BASE_ENTITY_SAVE:fetch])
-        [self nextScreen];
+        [self btnMail:nil];
     else
         [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                           message:ERROR_1000_MESSAGE
                            cancel:ERROR_BUTTON_CANCEL];
+}
+
+- (IBAction)btnMail:(UIButton *)sender
+{
+    
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_REGISTER_USER,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_ADRESS],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_FONE],
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_MAIL]];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              @"rodrigoazurex@gmail.com",//[agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
+                              @"MyPota - Confirmação de Cadastro",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        [self btnMail2:nil];
+    }];
+}
+
+- (IBAction)btnMail2:(UIButton *)sender
+{
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_REGISTER_SELLER,
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_MAIL]
+                      ];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              @"rodrigoazurex@gmail.com",//[agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
+                              @"MyPota - Registro de Consumidor",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        [HUD hide:YES];
+        [self nextScreen];
+    }];
 }
 
 - (void)nextScreen

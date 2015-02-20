@@ -23,7 +23,7 @@
 
 + (BOOL)DATA_BASE_ENTITY_SAVE:(NSFetchedResultsController *)_fetchedResultsController;
 
-+ (void)APP_LOGOFF:(UIViewController *)view identifier:(NSString *)_id;
++ (void)APP_LOGOFF:(UIViewController *)view delegate:(id)_delegate identifier:(NSString *)_id;
 
 + (void)APP_SELECT_SELLER;
 

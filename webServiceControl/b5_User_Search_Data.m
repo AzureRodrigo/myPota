@@ -27,6 +27,11 @@
     self->lblBairro     = @"";
     self->lblAgencia    = @"";
     self->lblEmail      = @"";
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
 }
 
 - (void)viewDidLoad
@@ -192,6 +197,8 @@
         wsComplement = [NSString stringWithFormat:WS_URL_CITY_SEARCH, KEY_CODE_SITE, KEY_CODE_COUNTRY,
                         self->stateSigla, KEY_ACCESS_KEY, KEY_TYPE_RETURN];
         link = [NSString stringWithFormat:WS_URL, WS_URL_CITY, wsComplement];
+        
+        HUD.labelText = @"Buscando Cidades";
     }else{
         if (codCity    == nil) codCity    = @"";
         if (lblBairro  == nil) lblBairro  = @"";
@@ -200,15 +207,11 @@
         wsComplement = [NSString stringWithFormat:WS_URL_AGENCY_SEARCH, KEY_CODE_SITE, self->codCity,
                         self->lblBairro, self->lblAgencia, KEY_EMPTY, KEY_ACCESS_KEY, KEY_TYPE_RETURN];
         link = [NSString stringWithFormat:WS_URL, WS_URL_AGENCY, wsComplement];
+        HUD.labelText = @"Buscando Agências";
     }
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : SEARCH_POTA_LABEL_CONNECTION_START_AGENCY,
-                                       APP_CONNECTION_TAG_WAIT 	 : SEARCH_POTA_LABEL_CONNECTION_WAIT_AGENCY,
-                                       APP_CONNECTION_TAG_RECIVE : SEARCH_POTA_LABEL_CONNECTION_RECIVE_AGENCY,
-                                       APP_CONNECTION_TAG_FINISH : SEARCH_POTA_LABEL_CONNECTION_FINISH_AGENCY,
-                                       APP_CONNECTION_TAG_ERROR  : SEARCH_POTA_LABEL_CONNECTION_ERROR_AGENCY };
-    
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+        [HUD show:YES];
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
             if (type == 1) {
                 [otlCity setEnabled:NO];
@@ -228,6 +231,7 @@
                 NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_CITY];
                 for (NSDictionary *tmp in [allCitys objectForKey:TAG_CITY])
                     [self->listStateData addCity:tmp];
+                [HUD hide:YES];
             }
             else if (type == 2) {
                 NSDictionary   *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_AGENCY];
@@ -261,6 +265,7 @@
 - (void)nextScreen
 {
     [self saveData];
+    [HUD hide:YES];
     [self performSegueWithIdentifier:STORY_BOARD_SEARCH_AGENCY sender:self];
 }
 

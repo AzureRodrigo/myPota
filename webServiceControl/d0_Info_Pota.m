@@ -20,12 +20,14 @@
     NSLog(@"packCircuits contem Warnings");
 }
 
-#pragma mark - configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Versão"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_APP_VERSION
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:nil

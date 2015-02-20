@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <AddressBook/AddressBook.h>
 
-@interface hotelPotaInfo : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface hotelPotaInfo : UIViewController <UITableViewDelegate, UITableViewDataSource,MBProgressHUDDelegate>
 
 {
     //cabeçalho Images
@@ -28,6 +28,9 @@
     NSString             *Linkpictures;
     //Table Options
     IBOutlet UITableView *tableDataView;
+    MBProgressHUD           *HUD;
+    NSString             *IDWS;
+    NSMutableDictionary *seller;
 }
 
 - (IBAction)btnImages:(id)sender;
@@ -35,5 +38,7 @@
 - (IBAction)btnPurchase:(id)sender;
 
 - (NSString *)getNextLink;
+
+- (IBAction)btnMail:(id)sender;
 
 @end

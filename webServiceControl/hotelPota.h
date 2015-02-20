@@ -14,7 +14,7 @@
 #import "hotelPotaCellData.h"
 #import "hotelPotaCellNext.h"
 
-@interface hotelPota : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface hotelPota : UIViewController <UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, MBProgressHUDDelegate>
 {
     NSArray                 *PickerAgeList;
     NSMutableArray          *AgeChildren;
@@ -62,6 +62,7 @@
     NSMutableDictionary     *roomInfo;
     
     NSMutableDictionary *purchaseData;
+    MBProgressHUD           *HUD;
 }
 
 #pragma mark -wsHoteis

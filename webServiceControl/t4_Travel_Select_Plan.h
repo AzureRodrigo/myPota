@@ -38,6 +38,7 @@
     NSMutableDictionary     *purchaseData;
     NSMutableDictionary     *purchaseAllData;
     NSDictionary            *myAgency;
+    NSDictionary            *seller;
     NSString                *IDWS;
     MBProgressHUD           *HUD;
 }

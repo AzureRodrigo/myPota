@@ -82,13 +82,16 @@
     NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER, KEY_ID_WS,  KEY_CODE_SITE, WS_MAIL_FROM, btnMail.text,  WS_MAIL_SUBJECT,  message,  KEY_EMPTY,  KEY_EMPTY];
     NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : SEARCH_POTA_LABEL_CONNECTION_START_CITY,
-                                       APP_CONNECTION_TAG_WAIT 	 : SEARCH_POTA_LABEL_CONNECTION_WAIT_CITY,
-                                       APP_CONNECTION_TAG_RECIVE : SEARCH_POTA_LABEL_CONNECTION_RECIVE_CITY,
-                                       APP_CONNECTION_TAG_FINISH : SEARCH_POTA_LABEL_CONNECTION_FINISH_CITY,
-                                       APP_CONNECTION_TAG_ERROR  : SEARCH_POTA_LABEL_CONNECTION_ERROR_CITY };
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Email";
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_SEND_MAIL];
         if (allCitys == NULL)
             [AppFunctions LOG_MESSAGE:ERROR_1002_TITLE
@@ -102,6 +105,8 @@
                                        cancel:LOG_BUTTON_CANCEL];
                     break;
                 }
+            [HUD hide:YES];
+
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

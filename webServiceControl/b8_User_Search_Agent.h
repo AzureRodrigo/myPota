@@ -10,7 +10,7 @@
 #import "choiceVendedorCell.h"
 #import "b7_User_Search_Agency.h"
 
-@interface b8_User_Search_Agent : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface b8_User_Search_Agent : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UISearchBar        *searchBarData;
     IBOutlet UITableView        *tableViewData;
@@ -25,6 +25,8 @@
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frame;
+    MBProgressHUD           *HUD;
+    NSString                *IDWS;
 }
 
 @end

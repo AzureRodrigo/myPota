@@ -23,6 +23,7 @@
     link            = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT]objectForKey:PURCHASE_DATA_TRAVEL_LINK_PLAN];
     
     myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    seller = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
     for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
         if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
             IDWS = [info objectForKey:@"idWsSite"];
@@ -44,6 +45,12 @@
     [lblDataEnd setAdjustsFontSizeToFitWidth:YES];
     [lblPax     setAdjustsFontSizeToFitWidth:YES];
     [lblDays    setAdjustsFontSizeToFitWidth:YES];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.delegate  = self;
+    HUD.dimBackground = YES;
 }
 
 #pragma mark - didLoad
@@ -114,6 +121,8 @@
            forControlEvents:UIControlEventTouchUpInside];
     [cell.btnBuy addTarget:self action:@selector(btnBuySel:)
           forControlEvents:UIControlEventTouchUpInside];
+    [cell.btnMail addTarget:self action:@selector(btnMail:)
+           forControlEvents:UIControlEventTouchUpInside];
     
     [cell.lblName setAdjustsFontSizeToFitWidth:YES];
     [cell.lblPriceCobertura setAdjustsFontSizeToFitWidth:YES];
@@ -143,15 +152,59 @@
                                                           forKey:PURCHASE_DATA_TRAVEL_PLAN_SELECTED];
     
     [purchaseData setObject:PURCHASE_TYPE_TRAVEL forKey:PURCHASE_TYPE];
-
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.delegate  = self;
     HUD.labelText = @"Carregando Dados.";
     [HUD show:YES];
-
+    
     [self startConnectionPlan];
+}
+
+- (IBAction)btnMail:(UIButton *)sender
+{
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Solicitação.";
+    
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    planSELECT = [listPlans objectAtIndex:sender.tag];
+    NSString *mail = [NSString stringWithFormat:MAIL_TRAVEL,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      planSELECT.nomePlano,
+                      [[purchaseData objectForKey:@"Produto"]objectForKey:@"Data_de_Saida"],
+                      [[purchaseData objectForKey:@"Produto"] objectForKey:@"Data_de_Retorno"],
+                      [[purchaseData objectForKey:@"Produto"] objectForKey:@"Numero_de_Viajantes"],
+                      @"R$",
+                      [NSString stringWithFormat:@"%.02f",[[planSELECT.valorPlanoReais stringByReplacingOccurrencesOfString:@"," withString:@"."]floatValue]],
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_MAIL]];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              [seller objectForKey:TAG_USER_SELLER_MAIL],
+                              @"MyPota - Solicitação de Assistência em Viagem",
+                              mail,@"",@"" ];
+    
+    link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_SEND_MAIL];
+        if (allCitys == NULL)
+            [AppFunctions LOG_MESSAGE:@"E-Mail não enviado."
+                              message:@"Não conseguimos enviar seu email, por favor tente mais tarde."
+                               cancel:ERROR_BUTTON_CANCEL];
+        
+        else {
+            for (NSDictionary *tmp in [allCitys objectForKey:TAG_SEND_MAIL])
+                if ([[tmp objectForKey:TAG_SEND_MAIL] isEqualToString:TAG_SEND_MAIL_SUCCESS]) {
+                    [AppFunctions LOG_MESSAGE:@"E-Mail enviado."
+                                      message:@"Seu pedido foi enviado para seu agente de viagem."
+                                       cancel:ERROR_BUTTON_CANCEL];
+                    break;
+                }
+            //            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [HUD hide:YES];
+    }];
 }
 
 #pragma mark - connection Plan and Geral

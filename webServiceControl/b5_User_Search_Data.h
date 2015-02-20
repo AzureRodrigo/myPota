@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "States.h"
 
-@interface b5_User_Search_Data : UIViewController <UITextFieldDelegate>
+@interface b5_User_Search_Data : UIViewController <UITextFieldDelegate,MBProgressHUDDelegate>
 {
 #pragma mark -infoStateCity
     IBOutlet UIButton       *otlState;
@@ -33,6 +33,8 @@
 #pragma mark - keyBoardScroll
     UITextField             *keyboardField;
     CGRect                  frame;
+    MBProgressHUD           *HUD;
+    NSString                *IDWS;
 }
 
 #pragma mark -infoStateCity

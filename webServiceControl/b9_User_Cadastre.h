@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface b9_User_Cadastre : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate>
+@interface b9_User_Cadastre : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate,MBProgressHUDDelegate>
 {
     UITextField                 *keyboardField;
     UIDatePicker                *datePicker;
@@ -24,6 +24,7 @@
     IBOutlet UITextField        *lblBirth;
     
     IBOutlet UIButton           *otlCadastre;
+    MBProgressHUD           *HUD;
 }
 
 - (IBAction)btnCadastre:(id)sender;

@@ -20,5 +20,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *ditLine;
 @property (strong, nonatomic) IBOutlet UIImageView *endLine;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
 
 @end

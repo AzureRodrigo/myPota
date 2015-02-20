@@ -36,7 +36,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 #pragma mark - willAppear
 - (void)viewWillAppear:(BOOL)animated
 {

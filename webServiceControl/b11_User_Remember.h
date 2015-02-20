@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface b11_User_Remember : UIViewController <UITextFieldDelegate>
+@interface b11_User_Remember : UIViewController <UITextFieldDelegate,MBProgressHUDDelegate>
 {
     UITextField                 *keyboardField;
     __weak IBOutlet UITextField *oltMail;
     __weak IBOutlet UIButton    *otlSend;
     CGRect                      frame;
+    MBProgressHUD           *HUD;
 }
 
 - (IBAction)btnSend:(id)sender;

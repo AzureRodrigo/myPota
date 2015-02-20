@@ -11,5 +11,6 @@
 @interface p2_Package_Info_Cell_Confirm : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIButton *btnConfirm;
+@property (weak, nonatomic) IBOutlet UIButton *btnMail;
 
 @end

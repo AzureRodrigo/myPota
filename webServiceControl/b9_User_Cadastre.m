@@ -260,14 +260,17 @@
     
     NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Logando aguarde.";
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
+            [HUD hide:YES];
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
@@ -318,14 +321,9 @@
     
     link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
-    
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
+            [HUD hide:YES];
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
@@ -334,10 +332,12 @@
             for (NSDictionary *tmp in [info objectForKey:TAG_BASE_WS_REGISTER])
                 if ([[tmp objectForKey:TAG_BASE_WS_REGISTER] isEqualToString:@""])
                     [self saveData];
-                else
+                else{
                     [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
-                                      message:[tmp objectForKey:TAG_BASE_WS_REGISTER]
+                                      message:@"Email já cadastrado"
                                        cancel:ERROR_BUTTON_CANCEL];
+                    [HUD hide:YES];
+                }
         }
     }];
 }
@@ -377,6 +377,7 @@
 
 - (void)nextScreen
 {
+    [HUD hide:YES];
     [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B9_TO_B1];
 }
 

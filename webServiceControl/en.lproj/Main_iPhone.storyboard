@@ -37,8 +37,8 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" id="IK9-Ui-26i">
-                                <rect key="frame" x="0.0" y="114" width="320" height="367"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="454"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="SUB-sH-KX8" customClass="hotelDestinyCell">
@@ -84,7 +84,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="lee-gC-a1G"/>
@@ -183,8 +183,8 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="1" sectionFooterHeight="1" id="dbG-lu-4sh">
-                                <rect key="frame" x="0.0" y="106" width="320" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="106" width="320" height="462"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="hfs-AD-eko" customClass="hotelPotaListResultCell">
@@ -346,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotelPotaInfoHotel.png" id="dxF-bI-3b5" userLabel="bg">
-                                <rect key="frame" x="0.0" y="146" width="320" height="130"/>
+                                <rect key="frame" x="0.0" y="146" width="320" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rui-zM-dnP" userLabel="Image">
@@ -392,19 +392,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6xa-Sk-Hdh">
-                                <rect key="frame" x="24" y="226" width="280" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6xa-Sk-Hdh">
+                                <rect key="frame" x="24" y="226" width="280" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Reserve Já" backgroundImage="cadastroBtnConfirm.png">
+                                <state key="normal" title="Prosseguir" backgroundImage="cadastroBtnConfirm.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnPurchase:" destination="155-XW-wZh" eventType="touchUpInside" id="ikS-Ck-w4m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nX3-q4-Vel">
+                                <rect key="frame" x="24" y="292" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Solicitar ao Meu Agente" backgroundImage="cadastroBtnConfirm.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMail:" destination="155-XW-wZh" eventType="touchUpInside" id="QES-cd-OP7"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bqk-yJ-xWo">
-                                <rect key="frame" x="0.0" y="275" width="320" height="293"/>
+                                <rect key="frame" x="0.0" y="340" width="320" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -413,11 +424,18 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cadastroBar.png" id="mfe-28-RjK">
-                                <rect key="frame" x="0.0" y="275" width="320" height="2"/>
+                                <rect key="frame" x="0.0" y="340" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações disponiveis em breve." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jL0-lU-ojN">
+                                <rect key="frame" x="25" y="350" width="270" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="bA6-z9-bGz"/>
                     <connections>
@@ -1532,13 +1550,13 @@ Pesquise aqui!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIi-ki-m5l">
-                                                    <rect key="frame" x="45" y="3" width="260" height="40"/>
+                                                    <rect key="frame" x="15" y="3" width="290" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="xrn-Ja-mTi">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="xrn-Ja-mTi">
                                                     <rect key="frame" x="15" y="8" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -1616,18 +1634,18 @@ Pesquise aqui!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PwD-fS-En4">
-                                                    <rect key="frame" x="45" y="3" width="260" height="40"/>
+                                                    <rect key="frame" x="15" y="3" width="290" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="Vih-dy-8LT">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viagemIconGlobe.png" id="Vih-dy-8LT">
                                                     <rect key="frame" x="15" y="8" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="KAu-Zg-Mof">
-                                                    <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                                                    <rect key="frame" x="15" y="45" width="290" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -2019,12 +2037,12 @@ Pesquise aqui!</string>
                                 <rect key="frame" x="227" y="28" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="hxn-b2-h5o">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="91" sectionHeaderHeight="1" sectionFooterHeight="1" id="hxn-b2-h5o">
                                 <rect key="frame" x="0.0" y="51" width="320" height="517"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="uuj-Hb-6gy" customClass="t4_Travel_Select_Plan_Cell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="92" id="uuj-Hb-6gy" customClass="t4_Travel_Select_Plan_Cell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuj-Hb-6gy" id="1tF-4J-qwU">
@@ -2032,7 +2050,7 @@ Pesquise aqui!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Plano" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1gn-c0-bLT">
-                                                    <rect key="frame" x="7" y="8" width="228" height="21"/>
+                                                    <rect key="frame" x="6" y="8" width="228" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2052,13 +2070,6 @@ Pesquise aqui!</string>
                                                     <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5000" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RER-xo-yyE">
-                                                    <rect key="frame" x="215" y="13" width="101" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12x R$ 400" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hkr-dI-4hY">
                                                     <rect key="frame" x="239" y="20" width="77" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2066,42 +2077,50 @@ Pesquise aqui!</string>
                                                     <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5000" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RER-xo-yyE">
+                                                    <rect key="frame" x="214" y="22" width="100" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0MX-8A-cOP" userLabel="Button Seguro">
-                                                    <rect key="frame" x="7" y="51" width="233" height="35"/>
+                                                    <rect key="frame" x="8" y="48" width="232" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="viagemBtnSeguroInfo.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limite de cobertura   de Assistência Médica:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Tj-a5-SI4">
-                                                    <rect key="frame" x="34" y="53" width="108" height="30"/>
+                                                    <rect key="frame" x="35" y="50" width="108" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                                                     <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 5000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TYv-PI-EKx">
-                                                    <rect key="frame" x="145" y="53" width="93" height="29"/>
+                                                    <rect key="frame" x="146" y="50" width="93" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBar.png" id="wJ1-PJ-g1w">
-                                                    <rect key="frame" x="0.0" y="99" width="320" height="2"/>
+                                                    <rect key="frame" x="0.0" y="90" width="320" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pdn-mw-Zml" userLabel="Button Buy">
-                                                    <rect key="frame" x="247" y="50" width="70" height="35"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fIU-WO-5AI">
+                                                    <rect key="frame" x="242" y="48" width="74" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="viagemBtnBuy.png">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <state key="normal" title="Comprar" backgroundImage="cadastroBtnConfirm.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="btnBuy" destination="pdn-mw-Zml" id="r93-tY-aoA"/>
+                                            <outlet property="btnBuy" destination="fIU-WO-5AI" id="Vlg-6D-sLE"/>
                                             <outlet property="btnInfo" destination="0MX-8A-cOP" id="OUT-C0-bzR"/>
                                             <outlet property="lblMaxAge" destination="Wvj-e9-I5N" id="v8p-8Y-hOu"/>
                                             <outlet property="lblName" destination="1gn-c0-bLT" id="Lot-9X-t2c"/>
@@ -2736,7 +2755,7 @@ de coberturas nas condições gerais.</string>
                                             <outlet property="lblTitle" destination="Jix-Iq-ROu" id="K3h-gf-BBT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="60" id="IgN-PP-Taw" customClass="cadastreCell_Confirm">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="130" id="IgN-PP-Taw" customClass="cadastreCell_Confirm">
                                         <rect key="frame" x="0.0" y="945" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IgN-PP-Taw" id="MCH-ha-lxh">
@@ -2744,16 +2763,25 @@ de coberturas nas condições gerais.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MCH-eR-GL5">
-                                                    <rect key="frame" x="20" y="10" width="280" height="40"/>
+                                                    <rect key="frame" x="20" y="10" width="280" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                                    <state key="normal" title="Confirmar" backgroundImage="cadastroBtnConfirm.png">
+                                                    <state key="normal" title="Comprar Agora" backgroundImage="cadastroBtnConfirm.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kwz-VV-fVp">
+                                                    <rect key="frame" x="20" y="75.5" width="280" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                    <state key="normal" title="Solicitar ao Meu Agente" backgroundImage="cadastroBtnConfirm.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="oltBtnMail" destination="Kwz-VV-fVp" id="geb-nO-iZX"/>
                                             <outlet property="otlButtonConfirm" destination="MCH-eR-GL5" id="Haq-LH-9LQ"/>
                                         </connections>
                                     </tableViewCell>
@@ -4620,9 +4648,10 @@ o Pagamento”, reconhece que:</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZYz-bH-WBE">
-                                                    <rect key="frame" x="20" y="29" width="270" height="57"/>
+                                                    <rect key="frame" x="20" y="29" width="270" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="btnProsseguir.png">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <state key="normal" backgroundImage="viagemBtnPesquisar.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
@@ -4639,7 +4668,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="huc-9L-B7X"/>
@@ -4843,7 +4872,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="lblContact" destination="2cK-Mq-9DO" id="Awj-zT-8RF"/>
@@ -4978,7 +5007,7 @@ o Pagamento”, reconhece que:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="lblBirth" destination="hsx-cJ-Qbr" id="w7O-tQ-gXq"/>
@@ -5025,7 +5054,7 @@ o Pagamento”, reconhece que:</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_line.png" id="SSq-Gr-cZ9">
-                                                    <rect key="frame" x="10" y="48" width="300" height="1"/>
+                                                    <rect key="frame" x="10" y="50" width="300" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -5594,7 +5623,7 @@ agência de viagem</string>
                                 <rect key="frame" x="0.0" y="185" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Inglaterra, Escócia e Irlanda" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="NHf-fx-kyc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="cadastroTextBg.png" id="NHf-fx-kyc">
                                 <rect key="frame" x="1" y="67" width="318" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6177,14 +6206,14 @@ Portal Schultz.</string>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Yn-jb-pl1">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Yn-jb-pl1">
                                                     <rect key="frame" x="266" y="158" width="40" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button" image="perfilBtnMap.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mapa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lwp-r8-bdy">
+                                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mapa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lwp-r8-bdy">
                                                     <rect key="frame" x="266" y="198" width="41" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="8"/>
@@ -6294,7 +6323,7 @@ Portal Schultz.</string>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jlt-fg-xtU" userLabel="SearchData">
                                                     <rect key="frame" x="22" y="32" width="277" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <state key="normal" title="Escolha uma Data" backgroundImage="searchBtnBg.png">
                                                         <color key="titleColor" red="0.2588235438" green="0.25882348420000001" blue="0.25882348420000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -6316,9 +6345,16 @@ Portal Schultz.</string>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triplo" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xzx-ZD-aDJ">
-                                                    <rect key="frame" x="62" y="14" width="73" height="34"/>
+                                                    <rect key="frame" x="62" y="16" width="73" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4RD-mi-UbV">
+                                                    <rect key="frame" x="62" y="36" width="86" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -6369,6 +6405,7 @@ Portal Schultz.</string>
                                             <outlet property="ditLine" destination="xPM-Ce-y88" id="aLu-PC-8Gk"/>
                                             <outlet property="endLine" destination="zeW-M5-H6s" id="dMz-HH-k3a"/>
                                             <outlet property="imgType" destination="k5r-DL-T1G" id="4oi-tw-WRN"/>
+                                            <outlet property="lblName" destination="4RD-mi-UbV" id="Gvw-dc-mvc"/>
                                             <outlet property="lblNumber" destination="dnO-jX-US3" id="5tV-rQ-Rm8"/>
                                             <outlet property="lblPrice" destination="Gbn-wz-bo9" id="sOd-v6-l3w"/>
                                             <outlet property="lblType" destination="Xzx-ZD-aDJ" id="RVO-A1-Oab"/>
@@ -6452,7 +6489,7 @@ Portal Schultz.</string>
                                             <outlet property="lblTitle" destination="WP6-x5-YaS" id="ZXD-y6-4NU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="60" id="Wte-Bb-WxB" customClass="p2_Package_Info_Cell_Confirm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellConfirm" rowHeight="130" id="Wte-Bb-WxB" customClass="p2_Package_Info_Cell_Confirm">
                                         <rect key="frame" x="0.0" y="945" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wte-Bb-WxB" id="odw-b2-R6G">
@@ -6460,10 +6497,18 @@ Portal Schultz.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PVk-Ne-vgq">
-                                                    <rect key="frame" x="20" y="10" width="280" height="40"/>
+                                                    <rect key="frame" x="20" y="10" width="280" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                     <state key="normal" title="Prosseguir" backgroundImage="cadastroBtnConfirm.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oxO-mc-0Sn">
+                                                    <rect key="frame" x="20" y="75.5" width="280" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                    <state key="normal" title="Solicitar ao Meu Agente" backgroundImage="cadastroBtnConfirm.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
@@ -6471,6 +6516,7 @@ Portal Schultz.</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnConfirm" destination="PVk-Ne-vgq" id="W2c-Zw-KLZ"/>
+                                            <outlet property="btnMail" destination="oxO-mc-0Sn" id="HZg-4h-ecx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -6686,7 +6732,6 @@ Portal Schultz.</string>
         <image name="btnPerfilMessage.png" width="285" height="120"/>
         <image name="btnPerfilSkype.png" width="285" height="120"/>
         <image name="btnPerfilWhatsapp.png" width="285" height="120"/>
-        <image name="btnProsseguir.png" width="535" height="113"/>
         <image name="btnPurchaseBuy.png" width="595" height="125"/>
         <image name="btnSearchAgency.png" width="640" height="90"/>
         <image name="btnSearchAgentM.png" width="640" height="90"/>
@@ -6735,7 +6780,6 @@ Portal Schultz.</string>
         <image name="star1.png" width="205" height="24"/>
         <image name="star4.png" width="205" height="24"/>
         <image name="txtField.png" width="555" height="90"/>
-        <image name="viagemBtnBuy.png" width="140" height="62"/>
         <image name="viagemBtnData.png" width="578" height="86"/>
         <image name="viagemBtnDestino.png" width="578" height="86"/>
         <image name="viagemBtnPesquisar.png" width="535" height="112"/>
@@ -6758,10 +6802,10 @@ Portal Schultz.</string>
         <segue reference="keo-gk-rUG"/>
         <segue reference="3LT-CL-iMM"/>
         <segue reference="XDl-oI-JGF"/>
+        <segue reference="dfT-L0-weW"/>
+        <segue reference="2Ag-bD-Ycb"/>
         <segue reference="YkV-qo-Qxb"/>
-        <segue reference="QMh-Et-TOj"/>
         <segue reference="tSg-G5-VW4"/>
         <segue reference="qLu-cP-eeQ"/>
-        <segue reference="EBS-Ro-Kzh"/>
     </inferredMetricsTieBreakers>
 </document>

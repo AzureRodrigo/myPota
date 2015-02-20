@@ -19,5 +19,6 @@
 #pragma mark - Button's
 @property (strong, nonatomic) IBOutlet UIButton *btnInfo;
 @property (strong, nonatomic) IBOutlet UIButton *btnBuy;
+@property (weak, nonatomic) IBOutlet UIButton *btnMail;
 
 @end

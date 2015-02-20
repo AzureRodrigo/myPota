@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "s0_Split_Menu_Cell.h"
 #import "a2_App_Menu.h"
+#import "MBProgressHUD.h"
 
-
-@interface s0_Split_Menu : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface s0_Split_Menu : UIViewController <UITableViewDelegate, UITableViewDataSource,MBProgressHUDDelegate>
 {
     UIImageView  *backgroundView;
     UITableView  *tableViewData;

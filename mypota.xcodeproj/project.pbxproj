@@ -782,6 +782,7 @@
 		C79B88F619A392A300715E79 /* s0_Split_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = s0_Split_Menu.m; sourceTree = "<group>"; };
 		C79F3CE41A07AEF200B336E4 /* p2_Package_Info_Cell_Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p2_Package_Info_Cell_Data.h; sourceTree = "<group>"; };
 		C79F3CE51A07AEF200B336E4 /* p2_Package_Info_Cell_Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p2_Package_Info_Cell_Data.m; sourceTree = "<group>"; };
+		C7A147B11A96649D00882E8C /* App_Data_mail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = App_Data_mail.h; sourceTree = "<group>"; };
 		C7A32BAE18F472EF00130FE9 /* BtnsearchAgente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BtnsearchAgente.png; sourceTree = "<group>"; };
 		C7A32BD018F484A600130FE9 /* a2_App_Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a2_App_Menu.h; sourceTree = "<group>"; };
 		C7A32BD118F484A600130FE9 /* a2_App_Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = a2_App_Menu.m; sourceTree = "<group>"; };
@@ -1706,6 +1707,7 @@
 				C71068B51A5ACA7B0008B6F0 /* App_Data_Storyboard.h */,
 				C71068B81A5AFBFF0008B6F0 /* App_Data_WS.h */,
 				C7BC90BA1A5B0825005F81D1 /* App_Data_Tags.h */,
+				C7A147B11A96649D00882E8C /* App_Data_mail.h */,
 			);
 			name = "App Create";
 			sourceTree = "<group>";
@@ -3587,7 +3589,7 @@
 				ORGANIZATIONNAME = web;
 				TargetAttributes = {
 					C7452F7E18A41F7800F2946B = {
-						DevelopmentTeam = EL49AXP9GX;
+						DevelopmentTeam = 4GSC93JAXP;
 					};
 					C7452FA218A41F7800F2946B = {
 						TestTargetID = C7452F7E18A41F7800F2946B;
@@ -4158,8 +4160,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Fabiano Simm (86NHHS4MH2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Fabiano Simm (86NHHS4MH2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4173,7 +4175,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4199,7 +4201,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4283,7 +4285,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4297,7 +4298,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "ee3ac229-b1df-48f1-836d-d8b612796e2c";
+				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

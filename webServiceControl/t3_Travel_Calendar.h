@@ -14,7 +14,7 @@
 {
     t0_Travel              *backScreen;
     AzCalendar             *calendarBody;
-    MBProgressHUD           *HUD;
+    MBProgressHUD          *HUD;
 }
 
 @end

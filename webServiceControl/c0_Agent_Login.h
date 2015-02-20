@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface c0_Agent_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate>
+@interface c0_Agent_Login : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UITextField       *txtLogin;
     IBOutlet UITextField       *txtPassword;
@@ -24,6 +24,7 @@
     NSFetchedResultsController *fetch;
     NSMutableDictionary        *agenteInfo;
     NSMutableArray             *agenteInfoIdWs;
+    MBProgressHUD           *HUD;
 
 }
 

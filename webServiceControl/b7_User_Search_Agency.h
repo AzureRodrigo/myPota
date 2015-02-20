@@ -10,7 +10,7 @@
 #import "b5_User_Search_Data.h"
 #import "choiceAgenciaCell.h"
 
-@interface b7_User_Search_Agency : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface b7_User_Search_Agency : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate,MBProgressHUDDelegate>
 {    
     IBOutlet UISearchBar    *searchBarData;
     IBOutlet UITableView    *tableViewData;
@@ -21,6 +21,8 @@
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frame;
+    MBProgressHUD           *HUD;
+    NSString                *IDWS;
 }
 
 #pragma mark -getStatesData

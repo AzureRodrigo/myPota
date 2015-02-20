@@ -142,13 +142,15 @@
     
     link = [NSString stringWithFormat:WS_URL, WS_URL_SELLER, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : CODE_POTA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Solicitação.";
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil)
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
@@ -261,7 +263,70 @@
 
 - (void)nextScreen
 {
-    [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B1_TO_B2];
+    [self btnMail:nil];
+}
+
+- (IBAction)btnMail:(UIButton *)sender
+{
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_REGISTER_USER,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_NAME],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_ADRESS],
+                      [agenteInfo objectForKey:TAG_B1_USER_AGENCY_FONE],
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_MAIL]];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              [agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
+                              @"MyPota - Confirmação de Cadastro",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        [self btnMail2:nil];
+    }];
+}
+
+- (IBAction)btnMail2:(UIButton *)sender
+{
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_REGISTER_SELLER,
+                      [agenteInfo objectForKey:TAG_B1_USER_SELLER_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_MAIL]
+                      ];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              [agenteInfo objectForKey:TAG_USER_SELLER_MAIL],
+                              @"MyPota - Registro de Consumidor",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        [HUD hide:YES];
+        [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_B1_TO_B2];
+    }];
 }
 
 - (IBAction)btnInvite:(id)sender
@@ -271,7 +336,7 @@
 
 - (IBAction)btnLogoff:(id)sender
 {
-    [AppFunctions APP_LOGOFF:self identifier:STORYBOARD_ID_A1];
+    [AppFunctions APP_LOGOFF:self delegate:self identifier:STORYBOARD_ID_A1];
 }
 
 @end

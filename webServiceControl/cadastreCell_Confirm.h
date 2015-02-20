@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *otlButtonConfirm;
 
+@property (weak, nonatomic) IBOutlet UIButton *oltBtnMail;
+
 @end

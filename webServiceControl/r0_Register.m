@@ -68,6 +68,20 @@
     purchaseType = [purchaseData objectForKey:PURCHASE_TYPE];
     purchaseInfo = [[purchaseData objectForKey:PURCHASE_INFO_PRODUCT] mutableCopy];
     
+    myAgency = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY];
+    seller = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_SELLER];
+    for (NSDictionary *info in [myAgency objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"1"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.delegate  = self;
+    HUD.dimBackground = YES;
+    
     if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL])
         [self setDataTravel];
     else if ([purchaseType isEqualToString:PURCHASE_TYPE_HOTEL])
@@ -84,28 +98,28 @@
         bool hide = YES;
         if (i == 0)
             hide = NO;
-        //        NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
-        //                               CADASTRO_PERSON_FIRST_NAME  : @"",
-        //                               CADASTRO_PERSON_SECOND_NAME : @"",
-        //                               CADASTRO_PERSON_CPF         : @"",
-        //                               CADASTRO_PERSON_GENDER      : @"M",
-        //                               CADASTRO_PERSON_AGE         : @"",
-        //                               CADASTRO_PERSON_MAIL        : @"",
-        //                               CADASTRO_PERSON_FONE        : @"",
-        //                               CADASTRO_PERSON_OBSERVER    : @"",
-        //                               CADASTRO_PERSON_RECIVE_MAIL : @"YES"
-        //                               };
-        NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
-                               CADASTRO_PERSON_FIRST_NAME  : @"rodrigo",
-                               CADASTRO_PERSON_SECOND_NAME : @"teste",
-                               CADASTRO_PERSON_CPF         : @"07528709980",
-                               CADASTRO_PERSON_GENDER      : @"M",
-                               CADASTRO_PERSON_AGE         : @"25",
-                               CADASTRO_PERSON_MAIL        : @"rodrigoazurex@gmail.com",
-                               CADASTRO_PERSON_FONE        : @"4136698252",
-                               CADASTRO_PERSON_OBSERVER    : @"nada",
-                               CADASTRO_PERSON_RECIVE_MAIL : @"YES"
-                               };
+                NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
+                                       CADASTRO_PERSON_FIRST_NAME  : @"",
+                                       CADASTRO_PERSON_SECOND_NAME : @"",
+                                       CADASTRO_PERSON_CPF         : @"",
+                                       CADASTRO_PERSON_GENDER      : @"M",
+                                       CADASTRO_PERSON_AGE         : @"",
+                                       CADASTRO_PERSON_MAIL        : @"",
+                                       CADASTRO_PERSON_FONE        : @"",
+                                       CADASTRO_PERSON_OBSERVER    : @"",
+                                       CADASTRO_PERSON_RECIVE_MAIL : @"YES"
+                                       };
+//        NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
+//                               CADASTRO_PERSON_FIRST_NAME  : @"rodrigo",
+//                               CADASTRO_PERSON_SECOND_NAME : @"teste",
+//                               CADASTRO_PERSON_CPF         : @"07528709980",
+//                               CADASTRO_PERSON_GENDER      : @"M",
+//                               CADASTRO_PERSON_AGE         : @"25",
+//                               CADASTRO_PERSON_MAIL        : @"rodrigoazurex@gmail.com",
+//                               CADASTRO_PERSON_FONE        : @"4136698252",
+//                               CADASTRO_PERSON_OBSERVER    : @"nada",
+//                               CADASTRO_PERSON_RECIVE_MAIL : @"YES"
+//                               };
         [listPeopleData addObject:[tmp mutableCopy]];
     }
     
@@ -145,17 +159,28 @@
         if (i == 0)
             hide = NO;
         NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
-                               CADASTRO_PERSON_FIRST_NAME  : @"teste",
-                               CADASTRO_PERSON_SECOND_NAME : @"teste",
-                               CADASTRO_PERSON_CPF         : @"07528709980",
+                               CADASTRO_PERSON_FIRST_NAME  : @"",
+                               CADASTRO_PERSON_SECOND_NAME : @"",
+                               CADASTRO_PERSON_CPF         : @"",
                                CADASTRO_PERSON_GENDER      : @"M",
-                               CADASTRO_PERSON_AGE         : @"25",
-                               CADASTRO_PERSON_MAIL        : @"rodrigoazurex@gmail.com",
-                               CADASTRO_PERSON_FONE        : @"4136698252",
-                               CADASTRO_PERSON_OBSERVER    : @"nada",
-                               CADASTRO_PERSON_ROOM_TYPE   : @"",
+                               CADASTRO_PERSON_AGE         : @"",
+                               CADASTRO_PERSON_MAIL        : @"",
+                               CADASTRO_PERSON_FONE        : @"",
+                               CADASTRO_PERSON_OBSERVER    : @"",
                                CADASTRO_PERSON_RECIVE_MAIL : @"YES"
                                };
+//        NSDictionary *tmp = @{ CADASTRO_PERSON_HIDE        : [NSString stringWithFormat:@"%d",hide],
+//                               CADASTRO_PERSON_FIRST_NAME  : @"teste",
+//                               CADASTRO_PERSON_SECOND_NAME : @"teste",
+//                               CADASTRO_PERSON_CPF         : @"07528709980",
+//                               CADASTRO_PERSON_GENDER      : @"M",
+//                               CADASTRO_PERSON_AGE         : @"25",
+//                               CADASTRO_PERSON_MAIL        : @"rodrigoazurex@gmail.com",
+//                               CADASTRO_PERSON_FONE        : @"4136698252",
+//                               CADASTRO_PERSON_OBSERVER    : @"nada",
+//                               CADASTRO_PERSON_ROOM_TYPE   : @"",
+//                               CADASTRO_PERSON_RECIVE_MAIL : @"YES"
+//                               };
         [listPeopleData addObject:[tmp mutableCopy]];
     }
     //    infoCircuit = [[purchaseInfo objectForKey:PACKAGE_INFO_CIRCUIT] copy];
@@ -233,13 +258,15 @@
             return cellPriceSize;
         else
             return infoCircuitPriceSize;
-    } /*else if ([indexPath section] == 2) {
-       if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL])
-       return 60;
-       else
-       return 40;
-       } */else
-           return 60;
+    } else if ([indexPath section] == 2) {
+        return 130;
+    }/*else if ([indexPath section] == 2) {
+      if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL])
+      return 60;
+      else
+      return 40;
+      } */else
+          return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -388,6 +415,13 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.otlButtonConfirm addTarget:self action:@selector(btnConfirm:)
                     forControlEvents:UIControlEventTouchUpInside];
+
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE])
+        [cell.otlButtonConfirm setEnabled:NO];
+    
+    [cell.oltBtnMail addTarget:self action:@selector(btnMail:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
     [cell.otlButtonConfirm setTitle:lblTitleConfirm forState:UIControlStateNormal];
     
     return cell;
@@ -419,6 +453,84 @@
 - (NSDictionary *)getLinkData
 {
     return [purchaseData objectForKey:PACKAGE_INFO_HTML_DATA];
+}
+
+- (IBAction)btnMail:(UIButton *)sender
+{
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Solicitação.";
+    
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    NSString *mail = @"";
+    NSString *wsComplement = @"";
+    //    NSLog(@"%@",purchaseData);
+    if ([purchaseType isEqualToString:PURCHASE_TYPE_TRAVEL]){
+        mail = [NSString stringWithFormat:MAIL_TRAVEL,
+                [user objectForKey:TAG_USER_PERFIL_NAME],
+                [purchaseInfo objectForKey:@"Destino"],
+                [purchaseInfo objectForKey:@"Data_de_Saida"],
+                [purchaseInfo objectForKey:@"Data_de_Retorno"],
+                [purchaseInfo objectForKey:@"Numero_de_Viajantes"],
+                @"R$",
+                [NSString stringWithFormat:@"%.02f",[[[[purchaseInfo objectForKey:@"InfoPlano"] objectForKey:@"valor"] stringByReplacingOccurrencesOfString:@"," withString:@"."]floatValue]],
+                [user objectForKey:TAG_USER_PERFIL_NAME],
+                [user objectForKey:TAG_USER_PERFIL_MAIL]];
+    } else if ([purchaseType isEqualToString:PURCHASE_TYPE_HOTEL]) {
+        
+    } else if ([purchaseType isEqualToString:PURCHASE_TYPE_PACKGE]) {
+        NSString *roonsText= @"";
+        for (NSDictionary *tmp in [purchaseInfo objectForKey:@"info_room"]) {
+            if ([[tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue] > 0) {
+                
+                NSString *roon = [NSString stringWithFormat:MAIL_PACKAGE_ROOM,
+                                  [tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER],
+                                  [tmp objectForKey:@"DscTpoAcomodacao"],
+                                  [tmp objectForKey:@"SglMoeda"],
+                                  [tmp objectForKey:@"VlrVenda"]];
+                roonsText = [NSString stringWithFormat:@"%@\n%@",roonsText, roon];
+            }
+        }
+        roonsText = [NSString stringWithFormat:@"%@\n",roonsText];
+        mail = [NSString stringWithFormat:MAIL_PACKAGE,
+                [user objectForKey:TAG_USER_PERFIL_NAME],
+                [[purchaseInfo objectForKey:@"info_circuit"] objectForKey:@"NomProduto"],
+                [[purchaseInfo objectForKey:@"info_data"]    objectForKey:@"DtaFormatada"],
+                roonsText,
+                [user objectForKey:TAG_USER_PERFIL_NAME],
+                [user objectForKey:TAG_USER_PERFIL_MAIL]];
+    }
+    
+    wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                    IDWS,@"4",
+                    [user objectForKey:TAG_USER_PERFIL_MAIL],
+                    [seller objectForKey:TAG_USER_SELLER_MAIL],
+                    @"MyPota - Solicitação de Assistência em Viagem",
+                    mail,@"",@"" ];
+    
+    link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_SEND_MAIL];
+        if (allCitys == NULL)
+            [AppFunctions LOG_MESSAGE:@"E-Mail não enviado."
+                              message:@"Não conseguimos enviar seu email, por favor tente mais tarde."
+                               cancel:ERROR_BUTTON_CANCEL];
+        
+        else {
+            for (NSDictionary *tmp in [allCitys objectForKey:TAG_SEND_MAIL])
+                if ([[tmp objectForKey:TAG_SEND_MAIL] isEqualToString:TAG_SEND_MAIL_SUCCESS]) {
+                    [AppFunctions LOG_MESSAGE:@"E-Mail enviado."
+                                      message:@"Seu pedido foi enviado para seu agente de viagem."
+                                       cancel:ERROR_BUTTON_CANCEL];
+                    break;
+                }
+            //            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [HUD hide:YES];
+    }];
+    
+    [HUD hide:YES];
 }
 
 #pragma mark - config Keyboard

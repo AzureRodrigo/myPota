@@ -18,13 +18,22 @@
 #pragma mark - configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Detalhamento do Hotel"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_HOTEL_DETAILS
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
-                             openSplitMenu:nil
+                             openSplitMenu:@selector(menuOpen:)
                                 backButton:YES];
+}
+
+- (IBAction)menuOpen:(id)sender
+{
+    [AppMenuView openMenu:self
+                   sender:sender];
 }
 
 - (IBAction)btnBackScreen:(id)sender
@@ -41,9 +50,19 @@
 #pragma mark - configCabeçalho
 - (void)configHeader
 {
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
+    for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
+        if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
+            IDWS = [info objectForKey:@"idWsSite"];
+    if (IDWS == nil)
+        IDWS = KEY_ID_WS_TRAVEL;
     InfoPurchase = [[AppFunctions LOAD_INFORMATION:PURCHASE]mutableCopy];
     InfoProduct  = [InfoPurchase objectForKey:PURCHASE_INFO_PRODUCT];
     InfoHotel    = [InfoPurchase objectForKey:HOTEL_INFO];
+    [tableDataView setBackgroundColor:[UIColor clearColor]];
     
     //star
     NSString *lv = [[NSString stringWithFormat:@"star%@",[InfoHotel objectForKey:@"estrelasHotel"]]
@@ -194,6 +213,52 @@
     //    [cell.agePicker selectRow:[[AgeChildren objectAtIndex:[indexPath row]]intValue]-1 inComponent:0 animated:NO];
     //
     return nil;
+}
+
+- (IBAction)btnMail:(id)sender
+{
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Solicitação.";
+    
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_HOTEL,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [InfoHotel   objectForKey:@"nomeHotel"],
+                      [InfoProduct objectForKey:@"Data_de_Saida"],
+                      [InfoProduct objectForKey:@"Data_de_Retorno"],
+                      @"",
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_MAIL]];
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              @"rodrigoazurex@gmail.com",//[seller objectForKey:TAG_USER_SELLER_MAIL],
+                              @"myPota - Solicitação de Pacote",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_SEND_MAIL];
+        if (allCitys == NULL)
+            [AppFunctions LOG_MESSAGE:@"E-Mail não enviado."
+                              message:@"Não conseguimos enviar seu email, por favor tente mais tarde."
+                               cancel:ERROR_BUTTON_CANCEL];
+        
+        else {
+            for (NSDictionary *tmp in [allCitys objectForKey:TAG_SEND_MAIL])
+                if ([[tmp objectForKey:TAG_SEND_MAIL] isEqualToString:TAG_SEND_MAIL_SUCCESS]) {
+                    [AppFunctions LOG_MESSAGE:@"E-Mail enviado."
+                                      message:@"Seu pedido foi enviado para seu agente de viagem."
+                                       cancel:ERROR_BUTTON_CANCEL];
+                    break;
+                }
+            //            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [HUD hide:YES];
+    }];
+    
 }
 
 @end

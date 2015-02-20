@@ -15,6 +15,12 @@
 #pragma mark - Config Screen
 - (void)viewDidLoad
 {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    HUD.labelText     = @"Pesquisando Hotéis";
     //verificar
     maxRoons       = 4;
     roomInfo       = [AppFunctions PLIST_PATH:PLIST_HOTEL_ROOM_NAME type:@"plist"];
@@ -26,7 +32,7 @@
                        HOTEL_CALENDAR_GO_ALPHA      : @"",
                        HOTEL_CALENDAR_END_ALPHA     : @"", }mutableCopy];
     
-    NSDate *toDay    = [NSDate new];
+    NSDate *toDay    = [[NSDate new] dateByAddingTimeInterval:60*60*24*1];
     NSDate *toMorrow = [toDay dateByAddingTimeInterval:60*60*24*1];
     [self setDateTravel:toDay end:toMorrow];
     //age
@@ -65,9 +71,12 @@
 #pragma mark -Config NavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Hotéis"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_HOTEL
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
@@ -88,6 +97,8 @@
 #pragma mark -Config Appear
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.tabBarController.view.userInteractionEnabled = YES ;
+    self.view.userInteractionEnabled = YES;
     [self  configNavBar];
     [self  setInfoPax];
     [super viewWillAppear:animated];
@@ -164,7 +175,7 @@
     
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %d", [indexPath row]+1]];
+    [cell.lblAge setText:[NSString stringWithFormat:@"Idade da criança %ld", [indexPath row]+1]];
     [cell.agePicker selectRow:[[AgeChildren objectAtIndex:[indexPath row]]intValue]-1 inComponent:0 animated:NO];
     
     return cell;
@@ -235,6 +246,8 @@
 
 - (IBAction)btnCell3Data:(id)sender
 {
+    self.tabBarController.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     [AppFunctions GO_TO_SCREEN:self destiny:@"hotelPotaTocalendarPota"];
 }
 
@@ -258,6 +271,7 @@
 
 - (IBAction)btnCell4Search:(id)sender
 {
+    [HUD show:YES];
     [self initConnectionReset];
     [self prepareData];
 }
@@ -494,13 +508,7 @@
 
 - (void)initConnection:(NSString *)link
 {
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : HOTEL_POTA_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : HOTEL_POTA_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : HOTEL_POTA_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : HOTEL_POTA_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : HOTEL_POTA_CONNECTION_ERROR };
-    
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
             [self initConnectionReset];
         }else {
@@ -512,22 +520,28 @@
                     [self connectionSearchHotel];
             }
             else{
-                
                 [self initConnectionData:TAG_DETAILS
                                  subType:TAG_DETAILS];
                 [self initConnectionDataHoteis:TAG_HOTEL];
-                
                 if ([wsFinal isEqualToString:@"false"]){
                     if ([wsCounter isEqualToString:wsCounterNew])
                         [self connectionSearchHotel];
-                    else
+                    else{
                         if ([infoHotel count] > 0)
                             [self GO_NEXT_SCREEN];
+                        else
+                            [HUD hide:YES];
+                    }
                 }else{
                     if ([infoHotel count] > 0)
                         [self GO_NEXT_SCREEN];
                     else
-                        [self initConnectionReset];
+                    {
+                        [AppFunctions LOG_MESSAGE:@"Sem hotéis disponiveis."
+                                          message:@"Não conseguimos encontrar nenhum hotél com essas especificações."
+                                           cancel:ERROR_BUTTON_CANCEL];
+                        [HUD hide:YES];
+                    }
                 }
             }
         }
@@ -547,6 +561,7 @@
     [AppFunctions SAVE_INFORMATION:purchaseData
                                tag:PURCHASE];
     
+    [HUD hide:YES];
     [self performSegueWithIdentifier:STORY_BOARD_HOTEL_RESULT sender:self];
 }
 

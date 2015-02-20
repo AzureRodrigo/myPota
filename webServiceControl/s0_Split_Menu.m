@@ -162,7 +162,7 @@
     [[AppMenuView getMenuView].superView.slideNavigationViewController slideWithDirectionNoAnimation:MWFSlideDirectionNone];
     
     if ([identifier isEqualToString:STORYBOARD_ID_A1]) {
-        [AppFunctions APP_LOGOFF:[AppMenuView getMenuView].superView identifier:identifier];
+        [AppFunctions APP_LOGOFF:[AppMenuView getMenuView].superView delegate:self identifier:identifier];
     } else if ([identifier isEqualToString:STORYBOARD_ID_B1]) {
         [AppFunctions APP_SELECT_SELLER];
         [AppFunctions PUSH_SCREEN:[AppMenuView getMenuView].superView identifier:identifier animated:YES];

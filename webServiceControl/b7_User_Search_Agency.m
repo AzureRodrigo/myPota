@@ -179,13 +179,15 @@
                               KEY_ACCESS_KEY, KEY_EMPTY, KEY_EMPTY, KEY_TYPE_RETURN];
     NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_SELLER, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CHOICE_AGENCIA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : CHOICE_AGENCIA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CHOICE_AGENCIA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CHOICE_AGENCIA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CHOICE_AGENCIA_LABEL_CONNECTION_ERROR };
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Buscando Agentes";
     
-    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil)
             [AppFunctions LOG_MESSAGE:ERROR_1003_TITLE
                               message:ERROR_1003_MESSAGE
@@ -204,6 +206,7 @@
 #pragma mark -nextScreenFunction
 - (void)nextScreen
 {
+    [HUD hide:YES];
     [self performSegueWithIdentifier:STORY_BOARD_AGENCY_SELLER sender:self];
 }
 

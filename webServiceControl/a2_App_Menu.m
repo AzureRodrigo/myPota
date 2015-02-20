@@ -98,7 +98,7 @@
             [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_P0];
             break;
         case 2:
-//            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
+            [self performSegueWithIdentifier:STORY_BOARD_MENU_HOTEL sender:self];
             break;
         case 3:
             [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_T0];

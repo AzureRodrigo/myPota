@@ -359,13 +359,17 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Hotéis Disponiveis"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
-                                     image:IMAGE_NAVIGATION_BAR_HOTEL
-                                     title:nil
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
                                  backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
                                 buttonBack:@selector(btnBackScreen:)
                              openSplitMenu:@selector(menuOpen:)
                                 backButton:YES];
+
 }
 
 - (IBAction)menuOpen:(id)sender

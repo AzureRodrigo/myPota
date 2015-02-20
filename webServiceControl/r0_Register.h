@@ -39,9 +39,9 @@
 #define SIZE_START 158
 #define SIZE_PLUS  20
 
-@interface r0_Register : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface r0_Register : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, MBProgressHUDDelegate>
 {
-
+    
 #pragma mark - Screen Purchase Data
     NSMutableDictionary *purchaseData;
     NSDictionary        *purchaseInfo;
@@ -52,7 +52,7 @@
     NSString             *lblTitlePurchase;
     NSString             *lblTitleConfirm;
     int                  cellPriceSize;
-
+    
 #pragma mark - Next Screen Info
     NSString             *lblNextScreenType;
     
@@ -67,6 +67,11 @@
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frameView;
+    NSString             *link;
+    NSString             *IDWS;
+    MBProgressHUD        *HUD;
+    NSDictionary         *myAgency;
+    NSDictionary         *seller;
 }
 
 #pragma mark - function for next screen

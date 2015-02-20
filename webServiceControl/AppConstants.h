@@ -72,7 +72,7 @@
 
 #define WS_URL_HOTEL_SEARCH       			@"codigoSite=%@&dataCheckin=%@&codigoCidade=%@&qtdNoites=%@&idHotel=%@&quantTipoIdadeQuarto=%@&senha=%@&tokenTos="
 #define WS_URL_HOTEL_TOKEN        			@"codigoSite=%@&tokenTos=%@&sequenciaAtual=%@"
-#define WS_URL_HOTEL_IMAGES        			@"/ws/ws.asmx/xmlBuscaImgHotel?codigoHotel=%@"
+#define WS_URL_HOTEL_IMAGES        			@"/ws.asmx/xmlBuscaImgHotel?codigoHotel=%@"
 #define WS_URL_HOTEL_ROOM_INFO              @"codigoSite=%@&tokenTos=%@&idProvedor=%@&codigoHotel=%@"
 
 #define WS_URL_TRAVEL_DESTINY     			@"IdWS=%@&CodSite=%@"

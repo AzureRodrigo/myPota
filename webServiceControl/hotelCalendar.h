@@ -10,10 +10,11 @@
 #import "hotelPota.h"
 #import "AzCalendar.h"
 
-@interface hotelCalendar : UIViewController <AzCalendarDelegate>
+@interface hotelCalendar : UIViewController <AzCalendarDelegate,MBProgressHUDDelegate>
 {
-    hotelPota               *backScreen;
-    AzCalendar              *calendarBody;
+    hotelPota              *backScreen;
+    AzCalendar             *calendarBody;
+    MBProgressHUD          *HUD;
 }
 
 @end

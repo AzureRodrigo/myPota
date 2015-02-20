@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "States.h"
 
-@interface b1_User_Search : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate>
+@interface b1_User_Search : UIViewController <UITextFieldDelegate,NSFetchedResultsControllerDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UIScrollView       *scrollViewData;
     IBOutlet UITextField        *lblCode;
     IBOutlet UIButton           *outCodePota;
     States                      *listState;
     NSMutableDictionary         *agenteInfo;
+        NSMutableDictionary         *agencyInfo;
     NSMutableArray              *agenteInfoIdWs;
     NSFetchedResultsController  *fetch;
 #pragma mark - keyBoardScroll
@@ -23,6 +24,8 @@
     CGRect                  frame;
     __weak IBOutlet UIButton *otlBtnSearch;
     __weak IBOutlet UIButton *otlBtnInvite;
+       MBProgressHUD           *HUD;
+    NSString                    *IDWS;
 }
 
 - (IBAction)txtCodePotaChange:(id)sender;

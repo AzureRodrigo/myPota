@@ -126,7 +126,7 @@
     return NO;
 }
 
-+ (void)APP_LOGOFF:(UIViewController *)view identifier:(NSString *)_id
++ (void)APP_LOGOFF:(UIViewController *)view delegate:(id)_delegate identifier:(NSString *)_id
 {
     NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
     NSString *wsComplement = [NSString stringWithFormat:WS_b0_c0_REGISTER_FONE,
@@ -136,14 +136,17 @@
     
     NSString *link = [NSString stringWithFormat:WS_URL, WS_b0_c0_REGISTER, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Desconectando, aguarde.",
-                                       APP_CONNECTION_TAG_WAIT   : @"Desconectando, aguarde.",
-                                       APP_CONNECTION_TAG_RECIVE : @"Desconectando, aguarde.",
-                                       APP_CONNECTION_TAG_FINISH : @"Desconectando, aguarde.",
-                                       APP_CONNECTION_TAG_ERROR  : @"Desconectando, aguarde." };
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view.navigationController.view];
+    [view.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = _delegate;
+    [HUD show:YES];
+    HUD.labelText = @"Desconectando aguarde.";
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
+            [HUD hide:YES];
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
@@ -166,6 +169,7 @@
                                       message:[tmp objectForKey:TAG_BASE_WS_REGISTER]
                                        cancel:ERROR_BUTTON_CANCEL];
         }
+        [HUD hide:YES];
     }];
 }
 

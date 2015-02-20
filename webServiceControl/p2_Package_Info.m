@@ -133,6 +133,12 @@
                      [[infoCircuit objectForKey:TAG_PACK_CIRCUIT_VALUE_VENDA]floatValue]];
     
     cellPriceSize = 158;
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
 }
 
 - (void)viewDidLoad {
@@ -209,10 +215,12 @@
             return 122;
         else
             return 82;
+    } else if ([indexPath section] == 3) {
+        return 60;
     } else if ([indexPath section] == 4) {
         return cellPriceSize;
     } else
-        return 60;
+        return 130;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -367,16 +375,12 @@
                       ];
     linkRoomCircuts = [NSString stringWithFormat:WS_URL, WS_URL_PACK_ROOM, linkRoomCircuts];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
+    [HUD show:YES];
+    HUD.labelText = @"Verificando os quartos disponíveis.";
     
-    [appConnection START_CONNECT:linkRoomCircuts timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:linkRoomCircuts timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil){
             [self setInfoRoons];
-            //            [tableViewData  reloadData];
         }else {
             NSString *tag = @"acomodacao";
             NSDictionary *allPlans = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
@@ -417,6 +421,7 @@
                                            PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_TAXA_PRAZO_AERO  : [tmp objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_TAXA_PRAZO_AERO],
                                            PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_TAXA_PRAZO_CRUZ  : [tmp objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_TAXA_PRAZO_CRUZ],
                                            PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA      : [tmp objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA],
+                                           PACKAGE_INFO_DATA_SEARCH_ROOM_NAME_HOTEL             : [tmp objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_NAME_HOTEL],
                                            PACKAGE_INFO_ROOM_NUMBER                             : @"0"
                                            };
                 
@@ -426,6 +431,7 @@
                                  [[infoCircuit objectForKey:TAG_PACK_CIRCUIT_VALUE_VENDA]floatValue]];
                 
                 [tableViewData reloadData];
+                [HUD hide:YES];
             }
         }
     }];
@@ -449,7 +455,9 @@
                                objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_ABR_COIN],
                               [[[roons objectAtIndex:[indexPath row]]
                                 objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_VALUE_VALUE_VENDA] floatValue]]];
-    
+    [cell.lblName setText:[[roons objectAtIndex:[indexPath row]]
+                           objectForKey:PACKAGE_INFO_DATA_SEARCH_ROOM_NAME_HOTEL]];
+    [cell.lblName setAdjustsFontSizeToFitWidth:YES];
     cell.stepper.tag = [indexPath row];
     float scale = .7f;
     cell.stepper.transform = CGAffineTransformMakeScale(scale, scale);
@@ -520,6 +528,8 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     [cell.btnConfirm addTarget:self action:@selector(btnConfirm:)
               forControlEvents:UIControlEventTouchUpInside];
+    [cell.btnMail addTarget:self action:@selector(btnMail:)
+           forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -586,14 +596,83 @@
                                                    },
                         @"type"               : PURCHASE_TYPE_PACKGE
                         }mutableCopy];
- 
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.delegate  = self;
+    
     HUD.labelText = @"Carregando Dados.";
     [HUD show:YES];
     [self loadContract];
+}
+
+#pragma mark - Button confirm to Next Screen
+- (IBAction)btnMail:(UIButton *)sender
+{
+    if ([[infoData objectForKey:@"DtaExtenso"] isEqualToString:@""]) {
+        [AppFunctions LOG_MESSAGE:@"Nenhuma data foi escolhida."
+                          message:@"Para continuar, escolha uma data."
+                           cancel:ERROR_BUTTON_CANCEL];
+        return;
+    }
+    if ([valuePurchase isEqualToString:@"0.00"] ) {
+        [AppFunctions LOG_MESSAGE:@"Nenhum quarto foi selecionado."
+                          message:@"Para continuar, selecione pelo menos 1 quarto."
+                           cancel:ERROR_BUTTON_CANCEL];
+        return;
+    }
+    
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Solicitação.";
+    
+    NSDictionary *user = [AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_PERFIL];
+    NSString *roonsText= @"";
+    for (NSDictionary *tmp in roons) {
+        if ([[tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER]intValue] > 0) {
+            
+            NSString *roon = [NSString stringWithFormat:MAIL_PACKAGE_ROOM,
+                              [tmp objectForKey:PACKAGE_INFO_ROOM_NUMBER],
+                              [tmp objectForKey:@"DscTpoAcomodacao"],
+                              [tmp objectForKey:@"SglMoeda"],
+                              [tmp objectForKey:@"VlrVenda"]];
+            roonsText = [NSString stringWithFormat:@"%@\n%@",roonsText, roon];
+        }
+    }
+    
+    roonsText = [NSString stringWithFormat:@"%@\n",roonsText];
+    
+    NSString *mail = [NSString stringWithFormat:MAIL_PACKAGE,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [infoCircuit objectForKey:@"NomProduto"],
+                      [infoData objectForKey:@"DtaFormatada"],
+                      roonsText,
+                      [user objectForKey:TAG_USER_PERFIL_NAME],
+                      [user objectForKey:TAG_USER_PERFIL_MAIL]];
+    
+    NSString *wsComplement = [NSString stringWithFormat:WS_URL_MAIL_SENDER,
+                              IDWS,@"4",
+                              [user objectForKey:TAG_USER_PERFIL_MAIL],
+                              [seller objectForKey:TAG_USER_SELLER_MAIL],
+                              @"myPota - Solicitação de Pacote",
+                              mail,@"",@"" ];
+    
+    NSString *link = [NSString stringWithFormat:WS_URL, WS_URL_MAIL, wsComplement];
+    
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
+        NSDictionary *allCitys = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:TAG_SEND_MAIL];
+        if (allCitys == NULL)
+            [AppFunctions LOG_MESSAGE:@"E-Mail não enviado."
+                              message:@"Não conseguimos enviar seu email, por favor tente mais tarde."
+                               cancel:ERROR_BUTTON_CANCEL];
+        
+        else {
+            for (NSDictionary *tmp in [allCitys objectForKey:TAG_SEND_MAIL])
+                if ([[tmp objectForKey:TAG_SEND_MAIL] isEqualToString:TAG_SEND_MAIL_SUCCESS]) {
+                    [AppFunctions LOG_MESSAGE:@"E-Mail enviado."
+                                      message:@"Seu pedido foi enviado para seu agente de viagem."
+                                       cancel:ERROR_BUTTON_CANCEL];
+                    break;
+                }
+            //            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [HUD hide:YES];
+    }];
 }
 
 - (void)loadContract

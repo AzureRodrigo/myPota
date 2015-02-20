@@ -118,14 +118,17 @@
     
     NSString *link         = [NSString stringWithFormat:WS_URL, WS_b0_CADASTRE, wsComplement];
     
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : CODE_POTA_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT   : CODE_POTA_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : CODE_POTA_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : CODE_POTA_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : CODE_POTA_LABEL_CONNECTION_ERROR };
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    [HUD show:YES];
+    HUD.labelText = @"Enviando Email.";
     
-    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
+            [HUD hide:YES];
             [AppFunctions LOG_MESSAGE:ERROR_1000_TITLE
                               message:ERROR_1000_MESSAGE
                                cancel:ERROR_BUTTON_CANCEL];
@@ -138,6 +141,7 @@
                                    cancel:ERROR_BUTTON_CANCEL];
                 break;
             }
+            [HUD hide:YES];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "p0_Package_Cell.h"
 
-@interface p0_Package : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface p0_Package : UIViewController <UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource,MBProgressHUDDelegate>
 {
     IBOutlet UITextField             *textDestiny;
     IBOutlet UIButton                *oltBtnSearch;
@@ -19,6 +19,7 @@
     NSMutableArray                   *listTypes;
     NSMutableArray                   *listCircuits;
     NSDictionary                     *myAgency;
+    MBProgressHUD                    *HUD;
     
 #pragma mark - connection
     NSURL                   *url;

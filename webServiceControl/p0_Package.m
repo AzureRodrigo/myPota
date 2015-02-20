@@ -28,6 +28,12 @@
     if (IDWS == nil)
         IDWS = KEY_ID_WS_TRAVEL;
     
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate      = self;
+    
     [self getCircuits];
 }
 
@@ -99,14 +105,7 @@
     NSString *link = [NSString stringWithFormat:WS_URL_PACK_TYPES_INFO,IDWS, @"4", @"23"];
     link           = [NSString stringWithFormat:WS_URL, WS_URL_PACK_TYPES, link];
     
-    
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : TRAVEL_DESTINY_LABEL_CONNECTION_START,
-                                       APP_CONNECTION_TAG_WAIT 	 : TRAVEL_DESTINY_LABEL_CONNECTION_WAIT,
-                                       APP_CONNECTION_TAG_RECIVE : TRAVEL_DESTINY_LABEL_CONNECTION_RECIVE,
-                                       APP_CONNECTION_TAG_FINISH : TRAVEL_DESTINY_LABEL_CONNECTION_FINISH,
-                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
-    
-    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:labelConnections showView:NO block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil){
             [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
                               message:ERROR_1013_MESSAGE
@@ -198,14 +197,12 @@
                @"desc"];
     }
     link = [NSString stringWithFormat:WS_URL, WS_URL_PACK_CIRCUITS, link];
-    NSDictionary *labelConnections = @{APP_CONNECTION_TAG_START  : @"Buscando opções, aguarde.",
-                                       APP_CONNECTION_TAG_WAIT 	 : @"Buscando opções, aguarde..",
-                                       APP_CONNECTION_TAG_RECIVE : @"Buscando opções, aguarde...",
-                                       APP_CONNECTION_TAG_FINISH : @"Organizando opções, aguarde.",
-                                       APP_CONNECTION_TAG_ERROR  : TRAVEL_DESTINY_LABEL_CONNECTION_ERROR };
+    
+    [HUD show:YES];
+    HUD.labelText = @"Buscando opções, aguarde.";
     link = [link stringByReplacingOccurrencesOfString:@" " withString:@", "];
     
-    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:labelConnections showView:YES block:^(NSData *result) {
+    [appConnection START_CONNECT:link timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil){
             [AppFunctions LOG_MESSAGE:ERROR_1013_TITLE
                               message:ERROR_1013_MESSAGE
@@ -213,6 +210,7 @@
             
             [lblSearch setText:ERROR_1013_MESSAGE];
         }else {
+            HUD.labelText = @"Organizando opções, aguarde.";
             NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:@"Produto"];
             for (NSDictionary *tmp in [allInfo objectForKey:@"Produto"])
             {
@@ -261,6 +259,7 @@
     [AppFunctions SAVE_INFORMATION:data
                                tag:PACKAGE_INFO_DATA];
     
+    [HUD hide:YES];
     [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_P0_TO_P1];
 }
 

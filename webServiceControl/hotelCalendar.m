@@ -18,10 +18,16 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
-    [AppFunctions CONFIGURE_NAVIGATION_BAR_CALENDAR:self
-                                     image:IMAGE_NAVIGATION_BAR_CALENDAR
-                                 backLabel:NAVIGATION_BAR_BACK_TITLE_CALENDAR
-                                buttonBack:@selector(btnBackScreen:)];
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Calendario"
+                                                               attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                            NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
+    [AppFunctions CONFIGURE_NAVIGATION_BAR:self
+                                     image:IMAGE_NAVIGATION_BAR_GENERIC
+                                     title:title
+                                 backLabel:NAVIGATION_BAR_BACK_TITLE_CLEAR
+                                buttonBack:@selector(btnBackScreen:)
+                             openSplitMenu:nil
+                                backButton:YES];
 }
 
 - (IBAction)btnBackScreen:(id)sender
@@ -29,31 +35,43 @@
     [backScreen setDateTravel:[calendarBody dateInfoStart] end:[calendarBody dateInfoEnd]];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 #pragma mark - willAppear
 - (void)viewWillAppear:(BOOL)animated
 {
     [self initScreenData];
     [self configNavBar];
-    [self calendarBodyData];
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.dimBackground = YES;
+    HUD.delegate  = self;
+    HUD.labelText = @"Carregando datas.";
+    [HUD show:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self calendarBodyData];
+    });
+    
     [super viewWillAppear:animated];
 }
 
 - (void)calendarBodyData
 {
-    UIView *menu = [[UIView alloc] initWithFrame:CGRectMake (0,0,
+    UIView *View = [[UIView alloc] initWithFrame:CGRectMake (0,0,
                                                              self.view.frame.size.width,
                                                              self.view.frame.size.height)];
-    menu.backgroundColor    = [UIColor clearColor];
-    calendarBody            = [[AzCalendar alloc]initWithScreen:menu];
-    [calendarBody           setDelegate:self];
+    View.backgroundColor    = [UIColor clearColor];
+    [self.view addSubview:View];
     
-    [self.view addSubview:menu];
+    calendarBody = [[AzCalendar alloc]initWithScreen:View];
+    [calendarBody setDelegate:self];
+    
+    [HUD hide:YES];
 }
 
 - (void)btnCalendarConfirm:(AzCalendar *)view clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-//    [backScreen setDateTravel:[calendarBody dateInfoStart] end:[calendarBody dateInfoEnd]];
+    [backScreen setDateTravel:[calendarBody dateInfoStart] end:[calendarBody dateInfoEnd]];
     
 }
 
@@ -61,6 +79,5 @@
 {
     
 }
-
 
 @end

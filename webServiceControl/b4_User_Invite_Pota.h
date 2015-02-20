@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface b4_User_Invite_Pota : UIViewController <UITextFieldDelegate>
+@interface b4_User_Invite_Pota : UIViewController <UITextFieldDelegate,MBProgressHUDDelegate>
 {
     IBOutlet UIButton    *otlMail;
     IBOutlet UITextField *btnName;
@@ -16,6 +16,8 @@
 #pragma mark - textView
     UITextField          *txtViewSelected;
     CGRect               frame;
+    MBProgressHUD           *HUD;
+    NSString                *IDWS;
 }
 
 - (IBAction)btnMail:(id)sender;
