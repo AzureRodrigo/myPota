@@ -510,8 +510,16 @@
 {
     [appConnection START_CONNECT:link timeForOu:15.f labelConnection:nil showView:NO block:^(NSData *result) {
         if (result == nil) {
+            [AppFunctions LOG_MESSAGE:@"A pesquisa não pode ser concluida."
+                              message:@"Ocorreu um erro na conexão, por favor tente novamente mais tarde."
+                               cancel:ERROR_BUTTON_CANCEL];
+            [HUD hide:YES];
             [self initConnectionReset];
         }else {
+            NSDictionary *Error = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:@"erro"];
+            for (NSDictionary *tmp in [Error objectForKey:@"erro"]){
+                NSLog(@"erro aqui %@", tmp);
+            }
             ctReceivedData = [result copy];
             if ([wsToken isEqualToString:@""]){
                 [self initConnectionData:TAG_SEARCH_HOTEL

@@ -4175,7 +4175,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4201,7 +4201,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4284,7 +4284,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Esfera Informatica Ltda. (4GSC93JAXP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4298,7 +4299,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "13a6ff5b-fd32-4878-beb8-44968d7caff8";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
