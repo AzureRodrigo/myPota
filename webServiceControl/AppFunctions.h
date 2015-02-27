@@ -9,6 +9,12 @@
 
 @interface AppFunctions : NSObject
 
++ (void)SCROLL_TEXT_CHANGE_VIEW:(NSNotification *)notification textField:(UITextField *)_textField scroll:(UIScrollView *)_scroll;
+
++ (CGPoint)SCROLL_TEXT_TO_CENTER_VIEW:(NSNotification *)notification textField:(UITextField *)_textField scroll:(UIScrollView *)_scroll;
+
++ (void)ENABLE_SCROLL_VIEW:(UIScrollView *)_scroll offset:(float)_offset;
+
 + (void)ALERT_KEYBOARD_ADD_BAR:(UIView *)view delegate:(id)_delegate done:(SEL)_done ;
 
 + (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect;

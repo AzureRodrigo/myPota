@@ -21,4 +21,6 @@
 
 #define MAIL_REGISTER_USER @"Parabéns %@,<br><br>seu registro foi realizado com sucesso no aplicativo MyPota.<br><br>Seu Agente de Viagem selecionado foi:<br><br>Agente: %@<br>Agência: %@  <br>Endereço: %@<br>Telefone: %@<br>E-Mail: %@<br><br>Equipe MyPota<br>Schultz Operadora de Turismo"
 
+#define MAIL_BUDGET_CUSTOM @"Olá, o usuário <b7>%@</b>, solicitou um orçamento personalizado através do aplicativo MyPota da Schultz Operadora de Turismo.<br><br>Seguem abaixo os dados para elaboração do orçamento: <br><br>%@<br>%@<br><br><b>Destino: </b>%@<br><br><b>Período da viagem: </b>%@<br><br><b>Número de viajantes: </b>%@<br><br><b>Número de criação e idades: </b>%@<br><br><b>Deseja hotel: </b>%@<br><br><b>Deseja seguro de viagem: </b>%@<br><br><b>Deseja passagem aérea: </b>%@<br><br><b>Informações extras: </b>%@<br><br>Atenciosamente<br><br>Equipe MyPota<br>Schultz Operadora de Turismo"
+
 #endif

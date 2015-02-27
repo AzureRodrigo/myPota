@@ -47,7 +47,7 @@
     menuOption = @[@"Pacotes Turísticos",
                    @"Hotéis",
                    @"Assistência em Viagem",
-                   @"Locação de Carros",
+                   @"Orçamento Personalizado",
                    @"Traslados",
                    @"Passeios e Atrações"
                    ];
@@ -77,7 +77,7 @@
 #pragma mark -tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +104,7 @@
             [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_T0];
             break;
         case 4:
-            //            [self performSegueWithIdentifier:@"teste" sender:self];
+            [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_A3];
             break;
         case 5:
             //            [self performSegueWithIdentifier:@"gigateste" sender:self];

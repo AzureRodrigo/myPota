@@ -11,6 +11,19 @@
 @implementation AppFunctions
 #pragma mark - Update Menssage
 
++ (void)ENABLE_SCROLL_VIEW:(UIScrollView *)_scroll offset:(float)_offset
+{
+    [_scroll setScrollEnabled:YES];
+    CGRect contentRect = CGRectZero;
+    CGRect lastRect    = CGRectZero;
+    for (UIView *view in _scroll.subviews) {
+        contentRect = CGRectUnion(contentRect, view.frame);
+        lastRect = view.frame;
+    }
+    contentRect = CGRectUnion(contentRect, CGRectMake(lastRect.origin.x, lastRect.origin.y + _offset, lastRect.size.width, lastRect.size.height + _offset));
+    _scroll.contentSize = contentRect.size;
+}
+
 + (void)TEXT_FIELD_CONFIG:(UITextField *)_field rect:(CGRect)_rect
 {
     UIView *paddingView       = [[UIView alloc] initWithFrame:_rect];
@@ -563,10 +576,39 @@
 }
 
 #pragma mark - textView center screen
++ (void)SCROLL_TEXT_CHANGE_VIEW:(NSNotification *)notification textField:(UITextField *)_textField scroll:(UIScrollView *)_scroll
+{
+    NSDictionary* info = [notification userInfo];
+    CGSize  keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    CGPoint buttonOrigin = _textField.frame.origin;
+    CGFloat buttonHeight = _textField.frame.size.height;
+    CGRect  visibleRect = _scroll.frame;
+    visibleRect.size.height -= keyboardSize.height;
+    CGPoint scroll = CGPointMake(0.0, buttonOrigin.y - visibleRect.size.height + buttonHeight);
+    [_scroll setContentOffset:scroll animated:YES];
+}
+
++ (CGPoint)SCROLL_TEXT_TO_CENTER_VIEW:(NSNotification *)notification textField:(UITextField *)_textField scroll:(UIScrollView *)_scroll
+{
+    NSDictionary* info = [notification userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGPoint buttonOrigin = _textField.frame.origin;
+    CGFloat buttonHeight = _textField.frame.size.height;
+    CGRect visibleRect = _scroll.frame;
+    visibleRect.size.height -= keyboardSize.height;
+    CGPoint scrollPoint = _scroll.contentOffset;
+    if (!CGRectContainsPoint(visibleRect, buttonOrigin)) {
+        CGPoint scroll = CGPointMake(0.0, buttonOrigin.y - visibleRect.size.height + buttonHeight);
+        [_scroll setContentOffset:scroll animated:YES];
+    }
+    return scrollPoint;
+}
+
 + (void)MOVE_SET_DATA:(UIViewController *)sender notification:(NSNotification *)notification scrollView:(UIScrollView *)scrollView textField:(UITextField *)textField goCenter:(BOOL)goCenter
 {
     CGSize  keyboardSize  = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     double  animationTime = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
     CGPoint viewCenter    = scrollView.center;
     float   extraSize     = textField.frame.origin.y - (textField.frame.size.height + keyboardSize.height);
     if (extraSize > textField.frame.origin.y)
@@ -578,12 +620,12 @@
     NSLog(@"centerView:     %f", centerView);
     NSLog(@"centerKeyboard: %f", centeKeyboard);
     
-    if (centerView >= centeKeyboard && goCenter)
+    if (goCenter)
     {
         animationTime += .2f;
         [AppFunctions MOVE_VIEW_UP:YES scrollView:scrollView animationTime:animationTime center:viewCenter extraSize:extraSize];
     }
-    else if (centerView < centeKeyboard && !goCenter)
+    else if (!goCenter)
     {
         animationTime -= .1f;
         [AppFunctions MOVE_VIEW_UP:NO scrollView:scrollView animationTime:animationTime center:viewCenter extraSize:extraSize];
@@ -603,7 +645,7 @@
     float centerView    = scrollView.frame.origin.y + posField.y + textField.frame.size.height;
     float centeKeyboard = sender.view.frame.size.height - keyboardSize.height;
     
-    NSLog(@"centerView: %f, centerKeyboard: %f, up?: %d, extra size: %f", centerView, centeKeyboard, goCenter, extraSize);
+
     
     if (centerView >= centeKeyboard && goCenter)
     {
@@ -624,7 +666,7 @@
 #pragma mark - keyBoard moveExecute
 + (void)MOVE_VIEW_UP:(BOOL)moveUp scrollView:(UIScrollView *)scrollView animationTime:(double)animationTime center:(CGPoint)center extraSize:(float)extraSize
 {
-    if (moveUp)
+    if (!moveUp)
         extraSize = extraSize * -1;
     
     center = CGPointMake(center.x, CGRectGetMidY(scrollView.frame) + extraSize);

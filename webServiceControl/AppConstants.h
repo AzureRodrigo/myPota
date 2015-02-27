@@ -112,6 +112,7 @@
 #define LOG_TEXT_MAIL_SUCCESS   			@"Seu convite myPota já foi envidado ao seu vendedor favorito"
 #define LOG_TITLE_MAIL_FILED    			@"E-mail Arquivado"
 #define LOG_TEXT_MAIL_FILED     			@"Você pode visualisar o e-mail na sua caixa de e-mails"
+#define LOG_TEXT_MAIL_BUDGET_CUSTOM         @"Seu pedido foi enviado para <b>%@<b> com sucesso."
 
 #pragma mark - Tag's Parser
 

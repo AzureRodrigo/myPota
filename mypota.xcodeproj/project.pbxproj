@@ -402,6 +402,7 @@
 		C7E4A44D1A23B21B00FA6380 /* navBar10.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E4A44B1A23B21B00FA6380 /* navBar10.png */; };
 		C7E4A4511A23B29200FA6380 /* hotePotaRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E4A4501A23B29200FA6380 /* hotePotaRoom.m */; };
 		C7E660C11908494B007ED5D1 /* potaHoteisData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E660C01908494B007ED5D1 /* potaHoteisData.m */; };
+		C7E718341AA09C6E007314CE /* a3_App_Custom_Purchase.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E718331AA09C6E007314CE /* a3_App_Custom_Purchase.m */; };
 		C7EBD9151992562500CCBF16 /* viagemBtnBuy.png in Resources */ = {isa = PBXBuildFile; fileRef = C7EBD9141992562500CCBF16 /* viagemBtnBuy.png */; };
 		C7EBD91A199279E700CCBF16 /* r0_Register.m in Sources */ = {isa = PBXBuildFile; fileRef = C7EBD919199279E700CCBF16 /* r0_Register.m */; };
 		C7EBD91C1992ADE500CCBF16 /* navBar06.png in Resources */ = {isa = PBXBuildFile; fileRef = C7EBD91B1992ADE500CCBF16 /* navBar06.png */; };
@@ -954,6 +955,8 @@
 		C7E4A4501A23B29200FA6380 /* hotePotaRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotePotaRoom.m; sourceTree = "<group>"; };
 		C7E660BF1908494B007ED5D1 /* potaHoteisData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = potaHoteisData.h; sourceTree = "<group>"; };
 		C7E660C01908494B007ED5D1 /* potaHoteisData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = potaHoteisData.m; sourceTree = "<group>"; };
+		C7E718321AA09C6E007314CE /* a3_App_Custom_Purchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = a3_App_Custom_Purchase.h; sourceTree = "<group>"; };
+		C7E718331AA09C6E007314CE /* a3_App_Custom_Purchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = a3_App_Custom_Purchase.m; sourceTree = "<group>"; };
 		C7EBD9141992562500CCBF16 /* viagemBtnBuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = viagemBtnBuy.png; sourceTree = "<group>"; };
 		C7EBD918199279E700CCBF16 /* r0_Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = r0_Register.h; sourceTree = "<group>"; };
 		C7EBD919199279E700CCBF16 /* r0_Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = r0_Register.m; sourceTree = "<group>"; };
@@ -1149,6 +1152,7 @@
 			children = (
 				C7BC50EC1A3B2C9C001CF9D5 /* a1 app open */,
 				C7A32BCD18F4846800130FE9 /* a2 app menu */,
+				C7E718311AA09C3A007314CE /* a3 app custom purchase */,
 			);
 			name = "a1 - a2";
 			sourceTree = "<group>";
@@ -3478,6 +3482,15 @@
 			name = destiny;
 			sourceTree = "<group>";
 		};
+		C7E718311AA09C3A007314CE /* a3 app custom purchase */ = {
+			isa = PBXGroup;
+			children = (
+				C7E718321AA09C6E007314CE /* a3_App_Custom_Purchase.h */,
+				C7E718331AA09C6E007314CE /* a3_App_Custom_Purchase.m */,
+			);
+			name = "a3 app custom purchase";
+			sourceTree = "<group>";
+		};
 		C7EBD9161992798E00CCBF16 /* r0 register */ = {
 			isa = PBXGroup;
 			children = (
@@ -3968,6 +3981,7 @@
 				C74E8F0819A630980059D752 /* v1_Voucher_List.m in Sources */,
 				C7452F9318A41F7800F2946B /* AppDelegate.m in Sources */,
 				C7E358D719619C37000FFB94 /* menuCell.m in Sources */,
+				C7E718341AA09C6E007314CE /* a3_App_Custom_Purchase.m in Sources */,
 				C72FDD3419992A6B004941A4 /* BuyInfoEnd.m in Sources */,
 				C7E04FEC19C9CEF300FB862A /* myPerfilChatBtn.m in Sources */,
 				C756CC2F19A3864500AA2CFF /* MWFSlideNavigationViewController.m in Sources */,

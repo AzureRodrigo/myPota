@@ -40,12 +40,13 @@
     lblCpf.tintColor   = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
     lblCep.tintColor   = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
     lblBirth.tintColor = [UIColor colorWithRed:255 green:191 blue:191 alpha:255];
-    [AppFunctions TEXT_FIELD_CONFIG:lblName rect:CGRectMake(0,0,10,0)];
-    [AppFunctions TEXT_FIELD_CONFIG:lblMail rect:CGRectMake(0,0,10,0)];
+    
+    [AppFunctions TEXT_FIELD_CONFIG:lblName     rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblMail     rect:CGRectMake(0,0,10,0)];
     [AppFunctions TEXT_FIELD_CONFIG:lblPassword rect:CGRectMake(0,0,10,0)];
-    [AppFunctions TEXT_FIELD_CONFIG:lblCpf rect:CGRectMake(0,0,10,0)];
-    [AppFunctions TEXT_FIELD_CONFIG:lblCep rect:CGRectMake(0,0,10,0)];
-    [AppFunctions TEXT_FIELD_CONFIG:lblBirth rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblCpf      rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblCep      rect:CGRectMake(0,0,10,0)];
+    [AppFunctions TEXT_FIELD_CONFIG:lblBirth    rect:CGRectMake(0,0,10,0)];
     
 }
 
