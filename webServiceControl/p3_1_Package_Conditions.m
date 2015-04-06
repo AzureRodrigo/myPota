@@ -1,19 +1,23 @@
 //
-//  packInfoDetail.m
-//  myPota
+//  p3_1_Package_Conditions.m
+//  mypota
 //
-//  Created by Rodrigo Pimentel on 03/11/14.
-//  Copyright (c) 2014 web. All rights reserved.
+//  Created by Rodrigo Pimentel on 02/04/15.
+//  Copyright (c) 2015 web. All rights reserved.
 //
 
-#import "p3_Package_Detail.h"
+#import "p3_1_Package_Conditions.h"
 
-@implementation p3_Package_Detail
+@interface p3_1_Package_Conditions ()
+
+@end
+
+@implementation p3_1_Package_Conditions
 
 #pragma mark -configNavBar
 - (void)configNavBar
 {
-    NSAttributedString *title = [[NSAttributedString alloc]initWithString:typeScreen
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Condições Gerais"
                                                                attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                             NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
@@ -37,17 +41,9 @@
     HUD.mode = MBProgressHUDModeIndeterminate;
     HUD.dimBackground = YES;
     HUD.delegate  = self;
-    HUD.labelText = @"Carregando Informações.";
+    HUD.labelText = @"Carregando Condições.";
     [HUD show:YES];
-    
-    backScreen     = (p2_Package_Info *)[AppFunctions BACK_SCREEN:self number:1];
-    typeScreen     = [backScreen getSelected];
-    typeLinkInfo   = [backScreen getSelectedLink:1];
-    typeLinkDay    = [backScreen getSelectedLink:2];
-    typeLinkCondictions = [backScreen getSelectedLink:3];
-
     [self initScreenData];
-    
     [super viewDidLoad];
 }
 
@@ -60,32 +56,18 @@
 #pragma mark - Init Screen Data
 - (void)initScreenData
 {
+    backScreen     = (p3_Package_Detail *)[AppFunctions BACK_SCREEN:self number:1];
+    typeScreen     = [backScreen getLink];
     NSString *tag = @"string";
-    
-    [appConnection START_CONNECT:typeLinkInfo timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
+    [appConnection START_CONNECT:typeScreen timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
         NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
         for (NSDictionary *tmp in [allInfo objectForKey:tag]) {
-            typeLinkInfo = [tmp objectForKey:tag];
-        }
-        [appConnection START_CONNECT:typeLinkDay timeForOu:15.F labelConnection:nil showView:NO block:^(NSData *result) {
-            NSDictionary *allInfo = (NSDictionary *)[[AzParser alloc] xmlDictionary:result tagNode:tag];
-            for (NSDictionary *tmp in [allInfo objectForKey:tag]) {
-                typeLinkDay = [tmp objectForKey:tag];
-            }
-            
-
-            [webView loadHTMLString:[NSString stringWithFormat:@"%@ %@",typeLinkInfo, typeLinkDay] baseURL:nil];
+            [webView loadHTMLString:[tmp objectForKey:tag] baseURL:nil];
             [webView setScalesPageToFit:YES];
-
-            [webView setBackgroundColor:[UIColor clearColor]];
-            [HUD hide:YES];
-        }];
+        }
+        
+        [HUD hide:YES];
     }];
-}
-
-- (NSString *)getLink
-{
-    return typeLinkCondictions;
 }
 
 @end

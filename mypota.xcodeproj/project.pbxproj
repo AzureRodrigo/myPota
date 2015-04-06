@@ -67,6 +67,8 @@
 		C72730211A06D8A000882D49 /* iconFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = C727301F1A06D8A000882D49 /* iconFoto.png */; };
 		C72730221A06D8A000882D49 /* reserva.png in Resources */ = {isa = PBXBuildFile; fileRef = C72730201A06D8A000882D49 /* reserva.png */; };
 		C729DF97192D143D00057B75 /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C729DF96192D143D00057B75 /* CustomIOS7AlertView.m */; };
+		C72AAE311AB0836F009EE598 /* cr0_Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C72AAE301AB0836F009EE598 /* cr0_Car.m */; };
+		C72AAE361AB085C4009EE598 /* ae0_Aero.m in Sources */ = {isa = PBXBuildFile; fileRef = C72AAE351AB085C4009EE598 /* ae0_Aero.m */; };
 		C72C7EB3192BEA100005C776 /* AppConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C72C7EB2192BEA100005C776 /* AppConnection.m */; };
 		C72DD29C1918315C00992415 /* hotelBtnBuy.png in Resources */ = {isa = PBXBuildFile; fileRef = C72DD29B1918315C00992415 /* hotelBtnBuy.png */; };
 		C72E0C2E1919258D00830597 /* body1.png in Resources */ = {isa = PBXBuildFile; fileRef = C72E0C241919258D00830597 /* body1.png */; };
@@ -338,6 +340,7 @@
 		C7C0A91E1A781B0200CA14C7 /* iconCity.png in Resources */ = {isa = PBXBuildFile; fileRef = C7C0A91C1A781B0200CA14C7 /* iconCity.png */; };
 		C7C0A91F1A781B0200CA14C7 /* iconState.png in Resources */ = {isa = PBXBuildFile; fileRef = C7C0A91D1A781B0200CA14C7 /* iconState.png */; };
 		C7C15D9E1A410D7700A6543B /* btnAgente04.png in Resources */ = {isa = PBXBuildFile; fileRef = C7C15D9D1A410D7700A6543B /* btnAgente04.png */; };
+		C7C596901ACD82CF00ECB5D3 /* p3_1_Package_Conditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C5968F1ACD82CF00ECB5D3 /* p3_1_Package_Conditions.m */; };
 		C7C91B5019A3C80A004D0B30 /* s0_Split_Menu_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C91B4F19A3C80A004D0B30 /* s0_Split_Menu_Cell.m */; };
 		C7C9B077199502380004BE1C /* cadastreCell_TravelCustos.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C9B076199502380004BE1C /* cadastreCell_TravelCustos.m */; };
 		C7C9B07B1995094D0004BE1C /* cadastreCell_Info.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C9B07A1995094D0004BE1C /* cadastreCell_Info.m */; };
@@ -504,6 +507,10 @@
 		C72730201A06D8A000882D49 /* reserva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reserva.png; sourceTree = "<group>"; };
 		C729DF95192D143D00057B75 /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		C729DF96192D143D00057B75 /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
+		C72AAE2F1AB0836F009EE598 /* cr0_Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cr0_Car.h; sourceTree = "<group>"; };
+		C72AAE301AB0836F009EE598 /* cr0_Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cr0_Car.m; sourceTree = "<group>"; };
+		C72AAE341AB085C4009EE598 /* ae0_Aero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ae0_Aero.h; sourceTree = "<group>"; };
+		C72AAE351AB085C4009EE598 /* ae0_Aero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ae0_Aero.m; sourceTree = "<group>"; };
 		C72C7EB1192BEA100005C776 /* AppConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConnection.h; sourceTree = "<group>"; };
 		C72C7EB2192BEA100005C776 /* AppConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConnection.m; sourceTree = "<group>"; };
 		C72DD29B1918315C00992415 /* hotelBtnBuy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotelBtnBuy.png; sourceTree = "<group>"; };
@@ -872,6 +879,8 @@
 		C7C0A91C1A781B0200CA14C7 /* iconCity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconCity.png; sourceTree = "<group>"; };
 		C7C0A91D1A781B0200CA14C7 /* iconState.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconState.png; sourceTree = "<group>"; };
 		C7C15D9D1A410D7700A6543B /* btnAgente04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnAgente04.png; sourceTree = "<group>"; };
+		C7C5968E1ACD82CF00ECB5D3 /* p3_1_Package_Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = p3_1_Package_Conditions.h; sourceTree = "<group>"; };
+		C7C5968F1ACD82CF00ECB5D3 /* p3_1_Package_Conditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = p3_1_Package_Conditions.m; sourceTree = "<group>"; };
 		C7C91B4E19A3C80A004D0B30 /* s0_Split_Menu_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = s0_Split_Menu_Cell.h; sourceTree = "<group>"; };
 		C7C91B4F19A3C80A004D0B30 /* s0_Split_Menu_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = s0_Split_Menu_Cell.m; sourceTree = "<group>"; };
 		C7C9B075199502380004BE1C /* cadastreCell_TravelCustos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cadastreCell_TravelCustos.h; sourceTree = "<group>"; };
@@ -1231,6 +1240,7 @@
 				C759DF9A19F695450070D5D4 /* p1 package sel type */,
 				C759DF9B19F6955B0070D5D4 /* p2 package info */,
 				C748673B1A07194100D174FC /* p3 package detail */,
+				C7C5968D1ACD829D00ECB5D3 /* p3.1 package Conditions */,
 				C748B9631A2F8F6500726876 /* p4 package datas */,
 				C7362EF21A07E6EC003A0D77 /* p5 package pictures */,
 			);
@@ -1367,6 +1377,40 @@
 				C729DF96192D143D00057B75 /* CustomIOS7AlertView.m */,
 			);
 			name = AlertView;
+			sourceTree = "<group>";
+		};
+		C72AAE2B1AB082AA009EE598 /* cr0 - cr? - locação de veiculos - */ = {
+			isa = PBXGroup;
+			children = (
+				C72AAE2D1AB08338009EE598 /* cr0 car data */,
+			);
+			name = "cr0 - cr? - locação de veiculos -";
+			sourceTree = "<group>";
+		};
+		C72AAE2C1AB082CA009EE598 /* ae0 - ae? - passagens aéreas - */ = {
+			isa = PBXGroup;
+			children = (
+				C72AAE321AB0859B009EE598 /* ae0 aero data */,
+			);
+			name = "ae0 - ae? - passagens aéreas -";
+			sourceTree = "<group>";
+		};
+		C72AAE2D1AB08338009EE598 /* cr0 car data */ = {
+			isa = PBXGroup;
+			children = (
+				C72AAE2F1AB0836F009EE598 /* cr0_Car.h */,
+				C72AAE301AB0836F009EE598 /* cr0_Car.m */,
+			);
+			name = "cr0 car data";
+			sourceTree = "<group>";
+		};
+		C72AAE321AB0859B009EE598 /* ae0 aero data */ = {
+			isa = PBXGroup;
+			children = (
+				C72AAE341AB085C4009EE598 /* ae0_Aero.h */,
+				C72AAE351AB085C4009EE598 /* ae0_Aero.m */,
+			);
+			name = "ae0 aero data";
 			sourceTree = "<group>";
 		};
 		C72E0C231919258500830597 /* bodys */ = {
@@ -2579,6 +2623,8 @@
 		C78C074B18F6C8B10081DAE5 /* P.O.T.A. - option - */ = {
 			isa = PBXGroup;
 			children = (
+				C72AAE2C1AB082CA009EE598 /* ae0 - ae? - passagens aéreas - */,
+				C72AAE2B1AB082AA009EE598 /* cr0 - cr? - locação de veiculos - */,
 				C711F58D198864DC00DB1E9E /* p0 - p5 - pacotes turísticos - */,
 				C71AE0A2191BF1B9000BA47D /* t0 - t5 - assistência em viagem - */,
 				C78C074C18F6C8C10081DAE5 /* hotel P.O.T.A. */,
@@ -3098,6 +3144,15 @@
 			name = room;
 			sourceTree = "<group>";
 		};
+		C7C5968D1ACD829D00ECB5D3 /* p3.1 package Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				C7C5968E1ACD82CF00ECB5D3 /* p3_1_Package_Conditions.h */,
+				C7C5968F1ACD82CF00ECB5D3 /* p3_1_Package_Conditions.m */,
+			);
+			name = "p3.1 package Conditions";
+			sourceTree = "<group>";
+		};
 		C7C91B4C19A3C7F5004D0B30 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -3602,7 +3657,7 @@
 				ORGANIZATIONNAME = web;
 				TargetAttributes = {
 					C7452F7E18A41F7800F2946B = {
-						DevelopmentTeam = 4GSC93JAXP;
+						DevelopmentTeam = EL49AXP9GX;
 					};
 					C7452FA218A41F7800F2946B = {
 						TestTargetID = C7452F7E18A41F7800F2946B;
@@ -3935,6 +3990,7 @@
 				C7621B88192F8A150058956E /* DSLCalendarMonthView.m in Sources */,
 				C7A9FEED19A23E9700737E48 /* voucherPotaTravellerCell.m in Sources */,
 				C7A9FEE919A23A0500737E48 /* voucherPotaPlanCell.m in Sources */,
+				C72AAE361AB085C4009EE598 /* ae0_Aero.m in Sources */,
 				C709B5961A8294A600DDE910 /* MBProgressHUD.m in Sources */,
 				C7621B85192F8A150058956E /* DSLCalendarDayView.m in Sources */,
 				C78D9A2019FE792F00AE081A /* p1_Package_Sel_Type.m in Sources */,
@@ -3949,6 +4005,8 @@
 				C7A9FEE519A2328800737E48 /* voucherPotaVoucherCell.m in Sources */,
 				C7108A4718F2EEC10005A04D /* b2_User_Pefil_Pota.m in Sources */,
 				C7BE0EB71A796361007F2EF2 /* b11_User_Remember.m in Sources */,
+				C7C596901ACD82CF00ECB5D3 /* p3_1_Package_Conditions.m in Sources */,
+				C72AAE311AB0836F009EE598 /* cr0_Car.m in Sources */,
 				C78EBF5818D3424F00B74AFA /* hotelDestinyCell.m in Sources */,
 				C7427A75191D6EF8007170F5 /* t4_Travel_Select_Plan.m in Sources */,
 				C7537C2C1A3F666000DF32DD /* c2_Agent_Chat.m in Sources */,
@@ -4189,8 +4247,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "e5e4942e-4432-46f0-bcdf-ecb95d1b8364";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4201,7 +4259,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Schultz Ville Turismo Ltda ME (EL49AXP9GX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -4215,8 +4273,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "e5e4942e-4432-46f0-bcdf-ecb95d1b8364";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -4313,8 +4371,8 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = mypota;
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "e5e4942e-4432-46f0-bcdf-ecb95d1b8364";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad-Hoc";

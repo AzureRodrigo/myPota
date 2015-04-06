@@ -24,7 +24,6 @@
     NSURLRequest            *request;
     NSURLConnection         *connection;
     NSMutableData           *receivedData;
-
 }
 
 

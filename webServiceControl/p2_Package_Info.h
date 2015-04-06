@@ -66,7 +66,7 @@
 }
 
 - (NSString *)getSelected;
-- (NSString *)getSelectedLink;
+- (NSString *)getSelectedLink:(int)type;
 - (NSString *)getNextLink;
 - (void)setInfoData:(NSMutableDictionary *)info;
 

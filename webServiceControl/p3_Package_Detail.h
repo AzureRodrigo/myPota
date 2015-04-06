@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "p2_Package_Info.h"
 
-@interface p3_Package_Detail : UIViewController <UIWebViewDelegate>
+@interface p3_Package_Detail : UIViewController <UIWebViewDelegate, MBProgressHUDDelegate>
 {
+    MBProgressHUD      *HUD;
     IBOutlet UILabel   *lblTitle;
     IBOutlet UIWebView *webView;
     
     p2_Package_Info     *backScreen;
     NSString     *typeScreen;
-    NSString     *typeLink;
+    NSString     *typeLinkInfo;
+    NSString     *typeLinkDay;
+    NSString     *typeLinkCondictions;
+    
 }
 
+- (NSString *)getLink;
 @end

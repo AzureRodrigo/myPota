@@ -44,6 +44,7 @@
 #pragma mark - configCabeçalho
 - (void)configHeader
 {
+    [tableViewData setBackgroundColor:[UIColor clearColor]];
     seller = [AppFunctions PLIST_LOAD:PLIST_SELLER_NAME];
     for (NSDictionary *info in [[AppFunctions DATA_BASE_ENTITY_LOAD:TAG_USER_AGENCY] objectForKey:TAG_USER_AGENCY_LIST_ID_WS])
         if ([[info objectForKey:TAG_USER_AGENCY_CODE_SITE] isEqualToString:@"4"])
@@ -88,10 +89,10 @@
     [tableViewData setBackgroundColor:[UIColor clearColor]];
     [tableViewData setSeparatorColor:[UIColor clearColor]];
     
-    titles = @[@"Condições Gerais",
-               @"Informações Sobre o Roteiro",
-               @"Dia a Dia"];
-    
+//    titles = @[@"Condições Gerais",
+//               @"Informações Sobre o Roteiro",
+//               @"Dia a Dia"];
+    titles = @[@"Informações Sobre o Roteiro"];
 }
 
 #pragma mark - configRoons
@@ -209,12 +210,12 @@
     if ([indexPath section] == 0) {
         return 278;
     } else if ([indexPath section] == 1) {
-        return 40;
+        return 50;
     } else if ([indexPath section] == 2) {
         if ([roons count] > 0)
-            return 122;
-        else
             return 82;
+        else
+            return 48;
     } else if ([indexPath section] == 3) {
         return 60;
     } else if ([indexPath section] == 4) {
@@ -306,8 +307,10 @@
 {
     p2_Package_Info_Cell_Button *cell = [tableView dequeueReusableCellWithIdentifier:@"CellInfo" forIndexPath:indexPath];
     
-    if([indexPath row] != 2)[cell.imgBar    setHidden:YES];
-    if([indexPath row] == 2)[cell.imgDotBar setHidden:YES];
+//    if([indexPath row] != 2)
+//        [cell.imgBar    setHidden:YES];
+//    if([indexPath row] == 2)
+        [cell.imgDotBar setHidden:YES];
     
     [cell.lblTitle setText:[titles objectAtIndex:[indexPath row]]];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -546,14 +549,14 @@
     return selected;
 }
 
-- (NSString *)getSelectedLink
+- (NSString *)getSelectedLink:(int)type
 {
-    if ([selected isEqualToString:[titles objectAtIndex:0]])
-        return linkGeneralConditions;
-    else if ([selected isEqualToString:[titles objectAtIndex:1]])
+    if (type == 1)
         return linkIsInclude;
-    else
+    else if (type == 2)
         return linkDayForDay;
+    else
+        return linkGeneralConditions;
 }
 
 #pragma mark - Button confirm to Next Screen

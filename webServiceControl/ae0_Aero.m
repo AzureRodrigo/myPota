@@ -1,14 +1,18 @@
 //
-//  t0_Travel.m
-//  myPota
+//  ae0_Aero.m
+//  mypota
 //
-//  Created by Rodrigo Pimentel on 08/05/14.
-//  Copyright (c) 2014 web. All rights reserved.
+//  Created by Rodrigo Pimentel on 11/03/15.
+//  Copyright (c) 2015 web. All rights reserved.
 //
 
-#import "t0_Travel.h"
+#import "ae0_Aero.h"
 
-@implementation t0_Travel
+@interface ae0_Aero ()
+
+@end
+
+@implementation ae0_Aero
 
 #pragma mark - didLoad
 - (void)viewDidLoad
@@ -23,7 +27,7 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
-    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Assistência em Viagem"
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Passagens Aéreas"
                                                                attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                             NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self

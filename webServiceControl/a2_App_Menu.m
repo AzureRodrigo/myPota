@@ -48,8 +48,8 @@
                    @"Hotéis",
                    @"Assistência em Viagem",
                    @"Orçamento Personalizado",
-                   @"Traslados",
-                   @"Passeios e Atrações"
+                   @"Locação de Veiculos",
+                   @"Passagens Aéreas"
                    ];
     if ([[dataUser objectForKey:TAG_USER_TYPE_BOOL] boolValue])
         [otlBtnMenu setTitle:@"Meu perfil" forState:UIControlStateNormal];
@@ -107,16 +107,16 @@
             [AppFunctions GO_TO_SCREEN:self destiny:SEGUE_A2_TO_A3];
             break;
         case 5:
-            //            [self performSegueWithIdentifier:@"gigateste" sender:self];
+            [AppFunctions GO_TO_SCREEN:self destiny:@"A2_To_CR0"];
             break;
         case 6:
-            //            [self performSegueWithIdentifier:STORY_BOARD_MENU_OPCIONAIS sender:self];
+            [AppFunctions GO_TO_SCREEN:self destiny:@"A2_To_AE0"];
             break;
         case 7:
             //            [self performSegueWithIdentifier:STORY_BOARD_MENU_INGRESSOS sender:self];
             break;
         case 8:
-            [self performSegueWithIdentifier:@"PickerTest" sender:self];
+//            [self performSegueWithIdentifier:@"PickerTest" sender:self];
             break;
         default:
             break;

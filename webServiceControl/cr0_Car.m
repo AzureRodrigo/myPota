@@ -1,14 +1,14 @@
 //
-//  t0_Travel.m
-//  myPota
+//  cr0_Car.m
+//  mypota
 //
-//  Created by Rodrigo Pimentel on 08/05/14.
-//  Copyright (c) 2014 web. All rights reserved.
+//  Created by Rodrigo Pimentel on 11/03/15.
+//  Copyright (c) 2015 web. All rights reserved.
 //
 
-#import "t0_Travel.h"
+#import "cr0_Car.h"
 
-@implementation t0_Travel
+@implementation cr0_Car
 
 #pragma mark - didLoad
 - (void)viewDidLoad
@@ -23,7 +23,7 @@
 #pragma mark -configNavBar
 - (void)configNavBar
 {
-    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Assistência em Viagem"
+    NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Locação de Veículos"
                                                                attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                                             NSFontAttributeName: [UIFont fontWithName:FONT_NAME_BOLD size:18]}];
     [AppFunctions CONFIGURE_NAVIGATION_BAR:self
